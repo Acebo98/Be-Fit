@@ -2,4 +2,7 @@
     <string name="app_name">Be-Fit</string>
     <string name="nombre_usuario">Nombre de Usuario</string>
     <string name="contrasena">Contraseña</string>
+    <string name="conectar">Conectar</string>
+    <string name="finalizar">Finalizar</string>
+    <string name="creador">Creado por Sergio Acebal 2ºDAM</string>
 </resources>
