@@ -35,15 +35,20 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
         btnConectar.setOnClickListener(this);
         btnFinalizar.setOnClickListener(this);
 
-        //Leemos las preferencias
-        LeerPreferencias();
+        //Mostramos un cuadro de diálogo al usuario si no está registrado
+        ShowRegister();
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnConectar: {
+                try {
 
+                }
+                catch (Exception err) {
+                    centralizarToast(getApplicationContext(), err.getMessage());
+                }
             }
             break;
             case R.id.btnFinalizar: {
@@ -53,13 +58,28 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    //Leemos las preferencias y vemos si el usuario ya está registrado
-    private void LeerPreferencias() {
+    //Comprobamos que el usuario esté registrado
+    private boolean IsUserRegistered() {
         SharedPreferences preferences = getSharedPreferences("Logeo", Context.MODE_PRIVATE);
+        boolean vof = true;
 
-        //Si leemos el usuario y es null significa que es la primera vez que no estamos registrados
+        //Leemos de las preferencias
         String nombreUsuario = preferences.getString("USUARIO", null);
         if (nombreUsuario == null) {
+            vof = false;
+        }
+
+        return vof;
+    }
+
+    //Comprobamos que sea correcto que el usuario se pueda registrar
+    private boolean IsDataCorrect(String usuario, String contrasena) {
+        return usuario.toString().trim().length() >= 4 && contrasena.toString().trim().length() >= 4;
+    }
+
+    //Leemos las preferencias y vemos si el usuario ya está registrado
+    private void ShowRegister() {
+        if (IsUserRegistered() == false) {
             DialogFragment dialogFragment = new DialogoAlerta();
             Bundle bundle = new Bundle();
 
@@ -72,5 +92,10 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
 
             dialogFragment.show(getSupportFragmentManager(), "1111");
         }
+    }
+
+    //Centralizamos los Toast
+    public static void centralizarToast(Context context, String mensaje) {
+        Toast.makeText(context, mensaje, Toast.LENGTH_LONG).show();
     }
 }
