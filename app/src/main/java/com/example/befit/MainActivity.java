@@ -3,6 +3,7 @@ package com.example.befit;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -38,6 +39,10 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        //Tablayout
+        TabLayout tabLayout = (TabLayout)findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(mViewPager);
 
         //Floating button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
