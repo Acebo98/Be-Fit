@@ -44,13 +44,21 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.btnConectar: {
                 try {
-                    if (IsUserRegistered() == true) {
+                    //Usuario y contraseña
+                    String usuario = tbNombre.getText().toString().trim();
+                    String contra = tbContra.getText().toString().trim();
 
+                    if (IsUserRegistered() == true) {
+                        if (IsAbleToConnect(usuario, contra) == true) {
+
+                        }
+                        else {
+                            centralizarToast(getApplicationContext(),
+                                    "Nombre de Usuario o Contraseña incorrectos");
+                        }
                     }
                     else {
                         //Si no se ha registrado vemos si los datos son correctos
-                        String usuario = tbNombre.getText().toString().trim();
-                        String contra = tbContra.getText().toString().trim();
                         if (IsDataCorrect(usuario, contra) == true) {
                             RegistrarUsuario(usuario, contra);
                         }
@@ -106,6 +114,21 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
 
             dialogFragment.show(getSupportFragmentManager(), "1111");
         }
+    }
+
+    //Vemos si podemos conectarnos
+    private boolean IsAbleToConnect(String usuario, String contra) {
+        SharedPreferences preferences = getSharedPreferences("Logeo", Context.MODE_PRIVATE);
+        boolean vof = false;
+
+        //Miramos si la contraseña introducida y el nombre de usuario son los mismos que los almacenados en
+        //las preferencias
+        if (preferences.getString("USUARIO", null).equals(usuario) &&
+                preferences.getString("CONTRASENA", null).equals(contra)) {
+            vof = true;
+        }
+
+        return vof;
     }
 
     //Registramos al usuario
