@@ -1,6 +1,7 @@
 package com.example.befit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
@@ -50,7 +51,8 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
 
                     if (IsUserRegistered() == true) {
                         if (IsAbleToConnect(usuario, contra) == true) {
-
+                            Intent intent = new Intent(LogeoActivity.this, MainActivity.class);
+                            startActivity(intent);
                         }
                         else {
                             centralizarToast(getApplicationContext(),
