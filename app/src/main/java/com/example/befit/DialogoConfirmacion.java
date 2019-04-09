@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.v4.app.DialogFragment;
 
 public class DialogoConfirmacion extends DialogFragment {
@@ -37,8 +38,8 @@ public class DialogoConfirmacion extends DialogFragment {
                 })
                 .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                    dialog.cancel();        //No hacer nada
-                }
+                        dialog.cancel();        //No hacer nada
+                    }
                 });
         return builder.create();
     }
@@ -46,13 +47,13 @@ public class DialogoConfirmacion extends DialogFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        Activity act = (Activity) context;
 
         try {
+            Activity act = (Activity) context;
             listener = (MiDialogListener) act;
         }
-        catch (ClassCastException e) {
-            throw new ClassCastException(act.toString() + "debes implementar DialogListener");
+        catch (Exception err) {
+            System.out.print(err.getMessage());
         }
     }
 }

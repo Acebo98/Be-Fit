@@ -3,17 +3,21 @@ package com.example.befit;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class PerfilFragment extends Fragment {
+public class PerfilFragment extends Fragment implements DialogoConfirmacion.MiDialogListener, View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
+    final String BORRADO = "borrado";
 
+    //Controles
     View view;
     Button btnModificar;
     Button btnBorrar;
@@ -47,10 +51,13 @@ public class PerfilFragment extends Fragment {
         tbContra = (EditText)view.findViewById(R.id.tbMiContra);
         tbUsuario = (EditText)view.findViewById(R.id.tbMiNombre);
 
+        //Eventos
+        btnModificar.setOnClickListener(this);
+        btnBorrar.setOnClickListener(this);
+
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -72,6 +79,27 @@ public class PerfilFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        if (dialog.getTag().equals(BORRADO)) {
+
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnBorrar: {
+
+            }
+            break;
+            case R.id.btnModificar: {
+
+            }
+            break;
+        }
     }
 
     //Interfaz del fragmento. IMPORTANTE AÑADIRLO A LA ACTIVIDAD QUE RECOGE TODOS LOS FRAGMENTOS
