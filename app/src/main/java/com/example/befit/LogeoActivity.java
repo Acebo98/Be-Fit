@@ -44,7 +44,21 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.btnConectar: {
                 try {
+                    if (IsUserRegistered() == true) {
 
+                    }
+                    else {
+                        //Si no se ha registrado vemos si los datos son correctos
+                        String usuario = tbNombre.getText().toString().trim();
+                        String contra = tbContra.getText().toString().trim();
+                        if (IsDataCorrect(usuario, contra) == true) {
+                            RegistrarUsuario(usuario, contra);
+                        }
+                        else {
+                            centralizarToast(getApplicationContext(), "El nombre y la contraseña deben " +
+                                    "de tener 4 caractéres como mínimo");
+                        }
+                    }
                 }
                 catch (Exception err) {
                     centralizarToast(getApplicationContext(), err.getMessage());
@@ -74,7 +88,7 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
 
     //Comprobamos que sea correcto que el usuario se pueda registrar
     private boolean IsDataCorrect(String usuario, String contrasena) {
-        return usuario.toString().trim().length() >= 4 && contrasena.toString().trim().length() >= 4;
+        return usuario.length() >= 4 && contrasena.length() >= 4;
     }
 
     //Leemos las preferencias y vemos si el usuario ya está registrado
@@ -92,6 +106,16 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
 
             dialogFragment.show(getSupportFragmentManager(), "1111");
         }
+    }
+
+    //Registramos al usuario
+    private void RegistrarUsuario(String nombre, String contrasena) {
+        SharedPreferences preferences = getSharedPreferences("Logeo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        editor.putString("USUARIO", nombre);
+        editor.putString("CONTRASENA", contrasena);
+        editor.commit();
     }
 
     //Centralizamos los Toast
