@@ -1,5 +1,6 @@
 package com.example.befit;
 
+import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +19,8 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
+        PerfilFragment.OnFragmentInteractionListener {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
@@ -70,6 +72,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
     //CLASE QUE CONTROLA LA SELECCIÓN DE FRAGMENTOS
     public static class PlaceholderFragment extends Fragment {
 
@@ -79,11 +86,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Creamos cada fragmento
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
+        public static Fragment newInstance(int sectionNumber) {
+
+            Fragment fragment = null;
+
+            switch (sectionNumber) {
+                case 1: fragment = new SesionesFragment();
+                break;
+                case 2: fragment = new PerfilFragment();
+                break;
+            }
+
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
+            //fragment.setArguments(args);
+
             return fragment;
         }
 
@@ -104,14 +121,24 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
             return PlaceholderFragment.newInstance(position + 1);
         }
 
         @Override
+        public CharSequence getPageTitle(int itemPosition) {
+            switch (itemPosition) {
+                case 0: {
+                    return getString(R.string.sesiones);
+                }
+                case 1: {
+                    return getString(R.string.perfil);
+                }
+                default: return null;
+            }
+        }
+
+        @Override
         public int getCount() {
-            // Show 3 total pages.
             return 2;
         }
     }
