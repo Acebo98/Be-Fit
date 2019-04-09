@@ -7,10 +7,18 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class PerfilFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+
+    View view;
+    Button btnModificar;
+    Button btnBorrar;
+    EditText tbUsuario;
+    EditText tbContra;
 
     public PerfilFragment() {
         // Required empty public constructor
@@ -30,8 +38,16 @@ public class PerfilFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false);
+        //Inflamos la vista y la guardamos para manejar los eventos
+        view = inflater.inflate(R.layout.fragment_perfil, container, false);
+
+        //Controles
+        btnBorrar = (Button)view.findViewById(R.id.btnBorrar);
+        btnModificar = (Button)view.findViewById(R.id.btnModificar);
+        tbContra = (EditText)view.findViewById(R.id.tbMiContra);
+        tbUsuario = (EditText)view.findViewById(R.id.tbMiNombre);
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -18,6 +18,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
@@ -79,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-
+        //Nada que hacer
     }
 
     //CLASE QUE CONTROLA LA SELECCIÓN DE FRAGMENTOS
