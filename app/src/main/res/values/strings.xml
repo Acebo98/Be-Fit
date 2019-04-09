@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Be-Fit</string>
+    <string name="nombre_usuario">Nombre de Usuario</string>
+    <string name="contrasena">Contraseña</string>
+</resources>
