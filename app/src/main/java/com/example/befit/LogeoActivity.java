@@ -1,5 +1,6 @@
 package com.example.befit;
 
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +34,7 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnConectar: {
-
+                
             }
             break;
             case R.id.btnFinalizar: {
