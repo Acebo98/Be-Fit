@@ -13,8 +13,8 @@
     <string name="n_entrenamientos">Número de Entrenamientos: </string>
 
     <!-- Tabs -->
-    <string name="sesiones">Actualizar Pesos</string>
-    <string name="nueva_sesion">Nueva Sesion</string>
+    <string name="sesiones">Seguimiento</string>
+    <string name="nueva_sesion">Nueva Sesión</string>
 
     <!-- Menú -->
     <string name="perfil_usuario">Perfil de Usuario</string>

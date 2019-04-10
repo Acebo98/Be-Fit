@@ -4,17 +4,17 @@
     tools:context="com.example.befit.MainActivity">
     <item
         android:id="@+id/itemPerfil"
-        android:icon="@drawable/user"
+        android:icon="@drawable/ic_person"
         android:title="@string/perfil_usuario"
         app:showAsAction="always" />
     <item
         android:id="@+id/itemAyuda"
-        android:icon="@drawable/information"
+        android:icon="@drawable/ic_help"
         android:title="@string/ayuda"
         app:showAsAction="always" />
     <item
         android:id="@+id/itemFinalizar"
-        android:icon="@drawable/logout"
+        android:icon="@drawable/ic_exit"
         android:title="@string/finalizar"
         app:showAsAction="always" />
 </menu>

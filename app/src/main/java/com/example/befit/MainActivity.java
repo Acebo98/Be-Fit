@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         //Tablayout
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(mViewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_dumbell);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_sesion);
 
         //Floating button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
