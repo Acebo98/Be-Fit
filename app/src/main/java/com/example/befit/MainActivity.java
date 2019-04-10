@@ -49,15 +49,6 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_dumbell);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_sesion);
 
-        //Floating button
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
         //Mensaje de bienvenida
         Toast.makeText(getApplicationContext(), "Bienvenid@ de nuevo", Toast.LENGTH_SHORT).show();
     }
