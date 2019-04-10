@@ -13,12 +13,28 @@
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="314dp"
-            android:layout_height="156dp"
-            android:layout_marginTop="200dp"
+            android:layout_height="95dp"
+            android:layout_marginTop="36dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txtNSesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nombre_sesion"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/tbNombreSesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="" />
+        </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>

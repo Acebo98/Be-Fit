@@ -11,6 +11,7 @@
     <string name="borrar">Borrar</string>
     <string name="update">Última Modificación: </string>
     <string name="n_entrenamientos">Número de Entrenamientos: </string>
+    <string name="nombre_sesion">Nombre de la Sesion</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>
