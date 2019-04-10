@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -21,7 +22,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
-        NSesionFragment.OnFragmentInteractionListener {
+        NSesionFragment.OnFragmentInteractionListener, DialogoConfirmacion.MiDialogListener {
+
+    final String CERRAR = "cerrar";
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
@@ -76,11 +79,30 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             }
             break;
             case R.id.itemAyuda: {
+                DialogFragment dialogFragment = new DialogoAlerta();
+                Bundle bundle = new Bundle();
 
+                bundle.putString("TITULO", "¿Cómo funciona esta aplicación?");
+                bundle.putString("MENSAJE", "Con esta aplicación podras tener un registro de forma intuitiva en tu teléfono " +
+                        "móvil del seguimiento de tus sesiones en el gimnasio. \n\n " +
+                        "Con la sección SESIONES podrás introducir una nueva sesión, estas sesiones se encontrarán reflejas " +
+                        "en la sección NUEVA SESIÓN, lugar donde podrás seleccionar y actualizar el seguimiento de pesos " +
+                        "de dicha sesión. \n\nObviamente puedes también borrar una sesión y por consiguiente todos sus " +
+                        "seguimientos en cualquier momento.");
+                dialogFragment.setArguments(bundle);
+
+                dialogFragment.show(getSupportFragmentManager(), "1111");
             }
             break;
             case R.id.itemFinalizar: {
-                this.finish();
+                DialogoConfirmacion dialogoConfirmacion = new DialogoConfirmacion();
+                Bundle bundle = new Bundle();
+
+                bundle.putString("TITULO", "Confirmación");
+                bundle.putString("MENSAJE", "¿Deseas desconectarte de la aplicación?");
+                dialogoConfirmacion.setArguments(bundle);
+
+                dialogoConfirmacion.show(getSupportFragmentManager(), CERRAR);
             }
             break;
         }
@@ -91,6 +113,13 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     @Override
     public void onFragmentInteraction(Uri uri) {
         //Nada que hacer
+    }
+
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        if (dialog.getTag() == CERRAR) {
+            this.finish();
+        }
     }
 
     //CLASE QUE CONTROLA LA SELECCIÓN DE FRAGMENTOS
