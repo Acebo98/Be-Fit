@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class PerfilActivity extends AppCompatActivity implements View.OnClickListener, DialogoConfirmacion.MiDialogListener {
 
     EditText tbNombre;
@@ -71,11 +74,35 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
             tbNombre.setText(nombre);
             tbContra.setText(contrasena);
             if (modificacion == null) {
-                labModificacion.setText(labModificacion.getText() + " N/A");
+                labModificacion.setText("Última Modificación: N/A");
             }
             else {
-                labModificacion.setText(labModificacion.getText() + " " + modificacion);
+                labModificacion.setText("Última Modificación: " + modificacion);
             }
+        }
+        catch (Exception err) {
+            LogeoActivity.centralizarToast(getApplicationContext(), err.getMessage());
+        }
+    }
+
+    //Modificamos los datos del usuario
+    private void ModifyData(String nombre, String contra) {
+        try {
+            SharedPreferences preferences = getSharedPreferences("Logeo", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+
+            //Modificamos
+            editor.putString("USUARIO", nombre);
+            editor.putString("CONTRASENA", contra);
+
+            //Fecha actual
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            editor.putString("MODIFICACION", simpleDateFormat.format(new Date()));
+
+            //Guardamos
+            editor.commit();
+            LogeoActivity.centralizarToast(getApplicationContext(), "Datos modificados correctamente");
+            ReadUserData();
         }
         catch (Exception err) {
             LogeoActivity.centralizarToast(getApplicationContext(), err.getMessage());
@@ -124,7 +151,9 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
         if (dialog.getTag() == MODIF) {
-
+            String usuario = tbNombre.getText().toString().trim();
+            String contra = tbContra.getText().toString().trim();
+            ModifyData(usuario, contra);
         }
     }
 }
