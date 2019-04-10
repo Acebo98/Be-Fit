@@ -69,7 +69,8 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
         switch (item.getItemId()) {
             case R.id.itemPerfil: {
-
+                Intent intent = new Intent(MainActivity.this, PerfilActivity.class);
+                startActivity(intent);
             }
             break;
             case R.id.itemAyuda: {
