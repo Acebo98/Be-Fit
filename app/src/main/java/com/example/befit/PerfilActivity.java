@@ -1,10 +1,12 @@
 package com.example.befit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewManager;
@@ -25,6 +27,7 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
     TextView labEntrenamientos;
 
     final String MODIF = "modif";
+    final String BORRADO = "borrar";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +112,28 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    //Borramos los datos del usuario
+    private void DeleteData() {
+        try {
+            SharedPreferences preferences = getSharedPreferences("Logeo", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+
+            //Borramos todos los datos
+            editor.putString("USUARIO", null);
+            editor.putString("CONTRASENA", null);
+            editor.putString("MODIFICACION", null);
+            editor.commit();
+
+            //Volvemos a la actividad de logeo
+            LogeoActivity.centralizarToast(getApplicationContext(), "Datos borrados satisfactoriamente");
+            Intent intent = new Intent(PerfilActivity.this, LogeoActivity.class);
+            startActivity(intent);
+        }
+        catch (Exception err) {
+            LogeoActivity.centralizarToast(getApplicationContext(), err.getMessage());
+        }
+    }
+
     //Comprobamos que sea correcto que el usuario se pueda registrar (Como en la actividad de logeo)
     private boolean IsDataCorrect(String usuario, String contrasena) {
         return usuario.length() >= 4 && contrasena.length() >= 4;
@@ -120,6 +145,13 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
             switch (v.getId()) {
                 case R.id.btnBorrar: {
 
+                    //Cuadro de diálogo
+                    DialogoConfirmacion dialogoConfirmacion = new DialogoConfirmacion();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("TITULO", "Borrado");
+                    bundle.putString("MENSAJE", "¿Estás seguro de que quieres borrar tus datos?");
+                    dialogoConfirmacion.setArguments(bundle);
+                    dialogoConfirmacion.show(getSupportFragmentManager(), BORRADO);
                 }
                 break;
                 case R.id.btnModificar: {
@@ -154,6 +186,9 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
             String usuario = tbNombre.getText().toString().trim();
             String contra = tbContra.getText().toString().trim();
             ModifyData(usuario, contra);
+        }
+        else if (dialog.getTag() == BORRADO) {
+            DeleteData();
         }
     }
 }
