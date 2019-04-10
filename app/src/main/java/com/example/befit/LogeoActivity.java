@@ -23,9 +23,6 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logeo_activity);
 
-        //Mensaje de bienvenida
-        Toast.makeText(getApplicationContext(), "Bienvenid@", Toast.LENGTH_SHORT).show();
-
         //IDS
         btnConectar = (Button)findViewById(R.id.btnConectar);
         btnFinalizar = (Button)findViewById(R.id.btnFinalizar);

@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
         PerfilFragment.OnFragmentInteractionListener {
@@ -54,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
             }
         });
+
+        //Mensaje de bienvenida
+        Toast.makeText(getApplicationContext(), "Bienvenid@ de nuevo", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -65,14 +69,20 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.itemPerfil: {
+
+            }
+            break;
+            case R.id.itemAyuda: {
+
+            }
+            break;
+            case R.id.itemFinalizar: {
+                this.finish();
+            }
+            break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -137,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                     return getString(R.string.sesiones);
                 }
                 case 1: {
-                    return getString(R.string.perfil);
+                    return getString(R.string.nueva_sesion);
                 }
                 default: return null;
             }
