@@ -2,7 +2,6 @@ package com.example.befit;
 
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,13 +17,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
-        PerfilFragment.OnFragmentInteractionListener {
+        NSesionFragment.OnFragmentInteractionListener {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
@@ -109,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             switch (sectionNumber) {
                 case 1: fragment = new SesionesFragment();
                 break;
-                case 2: fragment = new PerfilFragment();
+                case 2: fragment = new NSesionFragment();
                 break;
             }
 
