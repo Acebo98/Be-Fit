@@ -4,17 +4,17 @@
     tools:context="com.example.befit.MainActivity">
     <item
         android:id="@+id/itemPerfil"
-        android:orderInCategory="100"
+        android:icon="@drawable/user"
         android:title="@string/perfil_usuario"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/itemAyuda"
-        android:orderInCategory="100"
+        android:icon="@drawable/information"
         android:title="@string/ayuda"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/itemFinalizar"
-        android:orderInCategory="100"
+        android:icon="@drawable/logout"
         android:title="@string/finalizar"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 </menu>
