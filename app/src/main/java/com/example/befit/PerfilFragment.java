@@ -13,10 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class PerfilFragment extends Fragment implements DialogoConfirmacion.MiDialogListener, View.OnClickListener {
+public class PerfilFragment extends Fragment implements View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
-    final String BORRADO = "borrado";
 
     //Controles
     View view;
@@ -80,13 +79,6 @@ public class PerfilFragment extends Fragment implements DialogoConfirmacion.MiDi
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    @Override
-    public void onDialogPositiveClick(DialogFragment dialog) {
-        if (dialog.getTag().equals(BORRADO)) {
-
-        }
     }
 
     @Override
