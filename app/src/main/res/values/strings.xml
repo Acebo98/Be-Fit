@@ -9,8 +9,8 @@
     <string name="title_activity_main">Be-Fit</string>
     <string name="modificar">Modificar</string>
     <string name="borrar">Borrar</string>
-    <string name="update">Última actualización: </string>
-    <string name="n_entrenamientos">Número de entrenamientos: </string>
+    <string name="update">Última Modificación: </string>
+    <string name="n_entrenamientos">Número de Entrenamientos: </string>
 
     <!-- Tabs -->
     <string name="sesiones">Actualizar Pesos</string>
