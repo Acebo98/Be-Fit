@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
 public class NSesionFragment extends Fragment implements View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
@@ -23,6 +25,7 @@ public class NSesionFragment extends Fragment implements View.OnClickListener {
     EditText tbM4;
     Button btnAceptar;
     Button btnLimpiar;
+    ArrayList<EditText> lCampos = new ArrayList<>();
 
     public NSesionFragment() {
         // Required empty public constructor
@@ -53,6 +56,13 @@ public class NSesionFragment extends Fragment implements View.OnClickListener {
         tbM4 = view.findViewById(R.id.tbM4);
         btnAceptar = view.findViewById(R.id.btnAceptar);
         btnLimpiar = view.findViewById(R.id.btnLimpiar);
+
+        //Lista de campos de texto
+        lCampos.add(tbNombre);
+        lCampos.add(tbM1);
+        lCampos.add(tbM2);
+        lCampos.add(tbM3);
+        lCampos.add(tbM4);
 
         //Controles
         btnLimpiar.setOnClickListener(this);
@@ -88,13 +98,40 @@ public class NSesionFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnAceptar: {
+                try {
+                    if (ComprobarCampos() == true) {
 
+                    }
+                    else {
+                        LogeoActivity.centralizarToast(getContext(), "Primero rellena todos los campos");
+                    }
+                }
+                catch (Exception err) {
+
+                }
             }
             break;
             case R.id.btnLimpiar: {
-
+                LimpiarUI();
             }
             break;
+        }
+    }
+
+    //Comprobamos que todos los campos estén rellenos
+    private boolean ComprobarCampos() {
+        for (EditText campo : lCampos) {
+            if (campo.getText().toString().trim().length() == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //Limpiamos los campos de texto
+    private void LimpiarUI() {
+        for (EditText campo : lCampos) {
+            campo.getText().clear();
         }
     }
 
