@@ -18,6 +18,8 @@
     <string name="musculo_3">Ejercicio 4</string>
     <string name="aceptar">Aceptar</string>
     <string name="limpiar">Limpiar</string>
+    <string name="notas">Notas Opcionales</string>
+    <string name="actualizar">Actualizar</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>
