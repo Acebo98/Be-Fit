@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/itemActualizar"
+        android:icon="@drawable/ic_update"
+        android:title="@string/actualizar"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/itemBorrar"
+        android:icon="@drawable/ic_remove"
+        android:title="@string/borrar"
+        app:showAsAction="always" />
+
+</menu>

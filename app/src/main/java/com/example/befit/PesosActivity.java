@@ -2,6 +2,8 @@ package com.example.befit;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 public class PesosActivity extends AppCompatActivity {
@@ -18,10 +20,20 @@ public class PesosActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            this.finish();
+
+        switch (item.getItemId()) {
+            case android.R.id.home: this.finish();
+            break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_pesos, menu);
+
+        return true;
     }
 }
