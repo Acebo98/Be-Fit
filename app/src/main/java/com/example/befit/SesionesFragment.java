@@ -49,15 +49,9 @@ public class SesionesFragment extends Fragment {
             lvSesiones = view.findViewById(R.id.lvSesiones);
 
             //Leemos los datos
-            ArrayList<String> lSesiones = new DAOSesiones(getContext()).ReadSesiones();
-            if (lSesiones.size() > 0) {
-                lvSesiones.setAdapter(new ArrayAdapter<String>(getActivity().getApplicationContext(),
-                        android.R.layout.simple_list_item_1, lSesiones));
-            }
-            else {
-                LogeoActivity.centralizarToast(getActivity().getApplicationContext(), "Parece que no tienes " +
-                        "todavía sesiones");
-            }
+            ArrayList<VOSesion> lSesiones = new DAOSesiones(getContext()).ReadSesiones();
+            AdaptadorLV adaptadorLV = new AdaptadorLV(getActivity().getApplicationContext(), lSesiones);
+            lvSesiones.setAdapter(adaptadorLV);
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();

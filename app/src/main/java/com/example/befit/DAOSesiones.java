@@ -63,20 +63,20 @@ public class DAOSesiones {
     }
 
     //Read
-    public ArrayList<String> ReadSesiones() throws Exception {
-        ArrayList<String> lSesiones = null;
+    public ArrayList<VOSesion> ReadSesiones() throws Exception {
+        ArrayList<VOSesion> lSesiones = null;
 
         try {
             lSesiones = new ArrayList<>();
 
             //Leemos los datos
-            Cursor c = database.rawQuery("SELECT nombre FROM " + BeFitDB.Structure.SESIONES, null);
+            Cursor c = database.rawQuery("SELECT nombre, actualizacion FROM " + BeFitDB.Structure.SESIONES, null);
 
             //Recorremos el cursor
             if (c.getCount() > 0) {
                 while (c.moveToNext() == true) {
-                    //VOSesion sesion = new VOSesion(c.getString(0), c.getString(1));
-                    lSesiones.add(c.getString(0));
+                    VOSesion sesion = new VOSesion(c.getString(0), c.getString(1));
+                    lSesiones.add(sesion);
                 }
             }
         }
