@@ -1,6 +1,7 @@
 package com.example.befit;
 
 public class VOSesion {
+    private int Identificador;
     private String Nombre;
     private String Musculo_1;
     private String Musculo_2;
@@ -8,11 +9,10 @@ public class VOSesion {
     private String Musculo_4;
     private String Actualizacion;
 
-    public VOSesion(String nombre) {
-        Nombre = nombre;
-    }
-
     //Getters
+    public int getIdentificador() {
+        return Identificador;
+    }
     public String getNombre() {
         return Nombre;
     }
@@ -33,6 +33,9 @@ public class VOSesion {
     }
 
     //Setters
+    public void setIdentificador(int identificador) {
+        Identificador = identificador;
+    }
     public void setNombre(String nombre) {
         Nombre = nombre;
     }
