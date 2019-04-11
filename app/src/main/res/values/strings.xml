@@ -12,10 +12,10 @@
     <string name="update">Última Modificación: </string>
     <string name="n_entrenamientos">Número de Entrenamientos: </string>
     <string name="nombre_sesion">Nombre de la Sesion</string>
-    <string name="musculo">Músculo 1</string>
-    <string name="musculo_1">Músculo 2</string>
-    <string name="musculo_2">Músculo 3</string>
-    <string name="musculo_3">Músculo 4</string>
+    <string name="musculo">Ejercicio 1</string>
+    <string name="musculo_1">Ejercicio 2</string>
+    <string name="musculo_2">Ejercicio 3</string>
+    <string name="musculo_3">Ejercicio 4</string>
     <string name="aceptar">Aceptar</string>
     <string name="limpiar">Limpiar</string>
 
