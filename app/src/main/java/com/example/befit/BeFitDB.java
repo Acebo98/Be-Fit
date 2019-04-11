@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
 public class BeFitDB extends SQLiteOpenHelper {
 
     public BeFitDB(Context context) {
-        super(context, "BeFit", null, 1);
+        super(context, Columns.NOMBRE_BD, null, 1);
     }
 
     @Override
@@ -18,20 +18,20 @@ public class BeFitDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS sesiones");
-        db.execSQL("DROP TABLE IF EXISTS pesos");
+        db.execSQL("DROP TABLE IF EXISTS " + Columns.SESIONES);
+        db.execSQL("DROP TABLE IF EXISTS " + Columns.PESOS);
         db.execSQL(SCRIPT_CREACION);
     }
 
     //Clase que controla el nombre de las columnas, que se me van a olvidar :(
     public static class Columns {
-        public static final String NOMBRE_BD = "Be-Fit";
+        public static final String NOMBRE_BD = "BeFit";
         public static final String SESIONES = "sesiones";
         public static final String PESOS = "pesos";
     }
 
     //Script de creación
-    final String SCRIPT_CREACION = "CREATE TABLE sesiones (" +
+    final String SCRIPT_CREACION = "CREATE TABLE " + Columns.SESIONES + " (" +
             BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "nombre TEXT NOT NULL, " +
             "musculo_1 TEXT NOT NULL, " +
@@ -39,7 +39,7 @@ public class BeFitDB extends SQLiteOpenHelper {
             "musculo_3 TEXT NOT NULL, " +
             "musculo_4 TEXT NOT NULL, " +
             "actualizacion TEXT NOT NULL); " +
-            "CREATE TABLE pesos (" +
+            "CREATE TABLE " + Columns.PESOS + " (" +
             BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "peso_1 INTEGER NOT NULL, " +
             "peso_2 INTEGER NOT NULL, " +
