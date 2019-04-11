@@ -103,21 +103,27 @@ public class NSesionFragment extends Fragment implements View.OnClickListener {
             case R.id.btnAceptar: {
                 try {
                     if (ComprobarCampos() == true) {
-                        VOSesion sesion = new VOSesion();
+                        if (new DAOSesiones(getContext()).ExistirSesion(tbNombre.getText().toString().trim()) == true) {
+                            VOSesion sesion = new VOSesion();
 
-                        //Recogemos los datos de la sesión
-                        sesion.setNombre(tbNombre.getText().toString().trim());
-                        sesion.setMusculo_1(tbM1.getText().toString().trim());
-                        sesion.setMusculo_2(tbM2.getText().toString().trim());
-                        sesion.setMusculo_3(tbM3.getText().toString().trim());
-                        sesion.setMusculo_4(tbM4.getText().toString().trim());
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                        sesion.setActualizacion(simpleDateFormat.format(new Date()));
+                            //Recogemos los datos de la sesión
+                            sesion.setNombre(tbNombre.getText().toString().trim());
+                            sesion.setMusculo_1(tbM1.getText().toString().trim());
+                            sesion.setMusculo_2(tbM2.getText().toString().trim());
+                            sesion.setMusculo_3(tbM3.getText().toString().trim());
+                            sesion.setMusculo_4(tbM4.getText().toString().trim());
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                            sesion.setActualizacion(simpleDateFormat.format(new Date()));
 
-                        //Insertamos y si ha ido bien informamos
-                        new DAOSesiones(getContext()).InsertSesion(sesion);
-                        LogeoActivity.centralizarToast(getContext(), "Sesión insertada");
-                        LimpiarUI();
+                            //Insertamos y si ha ido bien informamos
+                            new DAOSesiones(getContext()).InsertSesion(sesion);
+                            LogeoActivity.centralizarToast(getContext(), "Sesión insertada");
+                            LimpiarUI();
+                        }
+                        else {
+                            LogeoActivity.centralizarToast(getContext(), "Parece que ya tienes una sesión con " +
+                                    "dicho nombre ya insertada");
+                        }
                     }
                     else {
                         LogeoActivity.centralizarToast(getContext(), "Primero rellena todos los campos");

@@ -2,6 +2,7 @@ package com.example.befit;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.text.SimpleDateFormat;
@@ -15,6 +16,26 @@ public class DAOSesiones {
     public DAOSesiones(Context context) {
         BeFitDB beFitDB = new BeFitDB(context);
         database = beFitDB.getWritableDatabase();
+    }
+
+    //Comprobamos que la sesión no esté insertada ya a partir de su nombre
+    public boolean ExistirSesion(String nombre) throws Exception {
+        boolean vof = true;
+
+        try {
+            Cursor c = database.rawQuery("SELECT nombre FROM " + BeFitDB.Structure.SESIONES + " " +
+                            "WHERE nombre = ?", new String[] {nombre});
+
+            //Si hay datos significa que está duplicada
+            if (c.getCount() > 0) {
+                vof = false;
+            }
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+
+        return vof;
     }
 
     //Insert
