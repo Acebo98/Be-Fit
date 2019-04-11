@@ -72,6 +72,7 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
             String nombre = preferences.getString("USUARIO", null);
             String contrasena = preferences.getString("CONTRASENA", null);
             String modificacion = preferences.getString("MODIFICACION", null);
+            int cantidad = new DAOSesiones(getApplicationContext()).ReadSesiones().size();
 
             //Asignamos
             tbNombre.setText(nombre);
@@ -82,6 +83,7 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
             else {
                 labModificacion.setText("Última Modificación: " + modificacion);
             }
+            labEntrenamientos.setText(labEntrenamientos.getText() + " " + String.valueOf(cantidad));
         }
         catch (Exception err) {
             LogeoActivity.centralizarToast(getApplicationContext(), err.getMessage());
