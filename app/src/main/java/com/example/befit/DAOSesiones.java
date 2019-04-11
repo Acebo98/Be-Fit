@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
+import android.support.design.widget.TabLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -88,5 +89,29 @@ public class DAOSesiones {
         }
 
         return lSesiones;
+    }
+
+    //Sacamos la información de una sesión
+    public VOSesion SacarSesion(String Id) throws Exception {
+        VOSesion sesion = new VOSesion();
+
+        try {
+            Cursor c = database.rawQuery("SELECT * FROM " + BeFitDB.Structure.SESIONES + " " +
+                    "WHERE " + BaseColumns._ID + " = ?", new String[] {Id} );
+
+            //Sacamos los datos
+            c.moveToNext();
+            sesion.setNombre(c.getString(1));
+            sesion.setMusculo_1(c.getString(2));
+            sesion.setMusculo_2(c.getString(3));
+            sesion.setMusculo_3(c.getString(4));
+            sesion.setMusculo_4(c.getString(5));
+        }
+        catch (Exception err) {
+            sesion = null;
+            throw new Exception(err.getMessage());
+        }
+
+        return sesion;
     }
 }
