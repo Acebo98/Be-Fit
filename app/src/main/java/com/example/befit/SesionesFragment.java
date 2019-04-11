@@ -45,7 +45,7 @@ public class SesionesFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //Inflamos la vista
         view = inflater.inflate(R.layout.fragment_sesiones, container, false);
@@ -55,7 +55,15 @@ public class SesionesFragment extends Fragment {
         lvSesiones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                VOSesion sesion = lSesiones.get(position);
+
+                //Bundle de datos con el identificador
+                Bundle bundle = new Bundle();
+                bundle.putInt("ID", sesion.getIdentificador());
+
+                //Intent
                 Intent intent = new Intent(getContext(), PesosActivity.class);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });

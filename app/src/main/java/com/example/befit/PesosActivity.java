@@ -8,10 +8,16 @@ import android.view.MenuItem;
 
 public class PesosActivity extends AppCompatActivity {
 
+    int identificador;                      //Identificador de la sesión
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesos);
+
+        //Obtenemos el identificador
+        Bundle bundle = getIntent().getExtras();
+        identificador = bundle.getInt("ID");
 
         //Botón de ir atrás
         getSupportActionBar().setDisplayShowHomeEnabled(true);
