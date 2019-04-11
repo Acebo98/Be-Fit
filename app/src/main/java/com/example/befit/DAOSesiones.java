@@ -28,8 +28,7 @@ public class DAOSesiones {
             values.put("musculo_2", sesion.getMusculo_2());
             values.put("musculo_3", sesion.getMusculo_3());
             values.put("musculo_4", sesion.getMusculo_4());
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            values.put("actualizacion", simpleDateFormat.format(new Date()));
+            values.put("actualizacion", sesion.getActualizacion());
 
             //Insertamos
             database.insert(BeFitDB.Structure.SESIONES, null, values);
