@@ -24,114 +24,125 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout6"
-        android:layout_width="316dp"
-        android:layout_height="439dp"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labNombreSesion">
-
-        <TextView
-            android:id="@+id/labM1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bíceps"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/tbMiEjercicio1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="" />
-
-        <TextView
-            android:id="@+id/labM2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Curl de Bíceps"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/tbMiEjercicio2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="" />
-
-        <TextView
-            android:id="@+id/labM3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mancuernas"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/tbMiEjercicio3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="" />
-
-        <TextView
-            android:id="@+id/labM4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bíceps"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/tbMiEjercicio4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="" />
-
-        <TextView
-            android:id="@+id/txtNotas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/notas"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/tbNotas"
-            android:layout_width="match_parent"
-            android:layout_height="138dp"
-            android:ems="10"
-            android:inputType="textMultiLine" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="316dp"
-        android:layout_height="52dp"
+    <ScrollView
+        android:layout_width="322dp"
+        android:layout_height="426dp"
         android:layout_marginTop="10dp"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+        app:layout_constraintTop_toBottomOf="@+id/labNombreSesion">
 
-        <Button
-            android:id="@+id/btnActualizar"
-            android:layout_width="84dp"
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/actualizar" />
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labNombreSesion">
 
-        <Button
-            android:id="@+id/btnBorrarSesion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/borrar"
-            android:textColor="@color/rojo"/>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/labM1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bíceps"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/tbMiEjercicio1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/labM2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Curl de Bíceps"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/tbMiEjercicio2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/labM3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mancuernas"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/tbMiEjercicio3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/labM4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bíceps"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/tbMiEjercicio4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/txtNotas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/notas"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/tbNotas"
+                android:layout_width="match_parent"
+                android:layout_height="138dp"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+
+            <LinearLayout
+                android:layout_width="316dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+                <Button
+                    android:id="@+id/btnActualizar"
+                    android:layout_width="84dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/actualizar" />
+
+                <Button
+                    android:id="@+id/btnBorrarSesion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/borrar"
+                    android:textColor="@color/rojo" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>

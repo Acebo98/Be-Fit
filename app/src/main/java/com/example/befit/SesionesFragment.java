@@ -2,6 +2,7 @@ package com.example.befit;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -50,6 +52,13 @@ public class SesionesFragment extends Fragment {
 
         //Controles
         lvSesiones = view.findViewById(R.id.lvSesiones);
+        lvSesiones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getContext(), PesosActivity.class);
+                startActivity(intent);
+            }
+        });
         floatingUpdate = view.findViewById(R.id.floatingUpdate);
         floatingUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
