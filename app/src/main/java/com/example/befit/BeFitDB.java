@@ -45,5 +45,6 @@ public class BeFitDB extends SQLiteOpenHelper {
             "peso_2 INTEGER NOT NULL, " +
             "peso_3 INTEGER NOT NULL, " +
             "peso_4 INTEGER NOT NULL, " +
+            "notas TEXT, " +
             "FOREIGN KEY(idSesion) REFERENCES sesiones(" + BaseColumns._ID + ")";
 }
