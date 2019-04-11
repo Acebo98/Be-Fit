@@ -9,6 +9,15 @@ public class VOSesion {
     private String Musculo_4;
     private String Actualizacion;
 
+    //Constructores
+    public VOSesion() {
+
+    }
+    public VOSesion(String nombre, String actu) {
+        this.setNombre(nombre);
+        this.setActualizacion(actu);
+    }
+
     //Getters
     public int getIdentificador() {
         return Identificador;

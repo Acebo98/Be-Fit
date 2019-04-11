@@ -137,7 +137,7 @@ public class NSesionFragment extends Fragment implements View.OnClickListener {
                     bundle.putString("MENSAJE", err.getMessage());
                     dialogFragment.setArguments(bundle);
 
-                    dialogFragment.show(getFragmentManager(), "2222");
+                    dialogFragment.show(getFragmentManager(), "error");
                 }
             }
             break;

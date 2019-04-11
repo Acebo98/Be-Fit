@@ -4,9 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.provider.BaseColumns;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class DAOSesiones {
 
@@ -57,5 +60,31 @@ public class DAOSesiones {
         catch (Exception err) {
             throw new Exception(err.getMessage());
         }
+    }
+
+    //Read
+    public ArrayList<String> ReadSesiones() throws Exception {
+        ArrayList<String> lSesiones = null;
+
+        try {
+            lSesiones = new ArrayList<>();
+
+            //Leemos los datos
+            Cursor c = database.rawQuery("SELECT nombre FROM " + BeFitDB.Structure.SESIONES, null);
+
+            //Recorremos el cursor
+            if (c.getCount() > 0) {
+                while (c.moveToNext() == true) {
+                    //VOSesion sesion = new VOSesion(c.getString(0), c.getString(1));
+                    lSesiones.add(c.getString(0));
+                }
+            }
+        }
+        catch (Exception err) {
+            lSesiones = null;
+            throw new Exception(err.getMessage());
+        }
+
+        return lSesiones;
     }
 }
