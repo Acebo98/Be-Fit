@@ -7,13 +7,22 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
-public class NSesionFragment extends Fragment {
+public class NSesionFragment extends Fragment implements View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
 
     //Controles
     View view;
+    EditText tbNombre;
+    EditText tbM1;
+    EditText tbM2;
+    EditText tbM3;
+    EditText tbM4;
+    Button btnAceptar;
+    Button btnLimpiar;
 
     public NSesionFragment() {
         // Required empty public constructor
@@ -35,6 +44,19 @@ public class NSesionFragment extends Fragment {
                              Bundle savedInstanceState) {
         //Inflamos la vista y la guardamos para manejar los eventos
         view = inflater.inflate(R.layout.fragment_nsesion, container, false);
+
+        //IDS
+        tbNombre = view.findViewById(R.id.tbNombreSesion);
+        tbM1 = view.findViewById(R.id.tbM1);
+        tbM2 = view.findViewById(R.id.tbM2);
+        tbM3 = view.findViewById(R.id.tbM3);
+        tbM4 = view.findViewById(R.id.tbM4);
+        btnAceptar = view.findViewById(R.id.btnAceptar);
+        btnLimpiar = view.findViewById(R.id.btnLimpiar);
+
+        //Controles
+        btnLimpiar.setOnClickListener(this);
+        btnAceptar.setOnClickListener(this);
 
         return view;
     }
@@ -60,6 +82,20 @@ public class NSesionFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnAceptar: {
+
+            }
+            break;
+            case R.id.btnLimpiar: {
+
+            }
+            break;
+        }
     }
 
     //Interfaz del fragmento. IMPORTANTE AÑADIRLO A LA ACTIVIDAD QUE RECOGE TODOS LOS FRAGMENTOS
