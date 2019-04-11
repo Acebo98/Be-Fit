@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ public class SesionesFragment extends Fragment {
     //Controles
     View view;
     ListView lvSesiones;
+    FloatingActionButton floatingUpdate;
 
     public SesionesFragment() {
         // Required empty public constructor
@@ -41,14 +43,29 @@ public class SesionesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //Inflamos la vista
+        view = inflater.inflate(R.layout.fragment_sesiones, container, false);
+
+        //Controles
+        lvSesiones = view.findViewById(R.id.lvSesiones);
+        floatingUpdate = view.findViewById(R.id.floatingUpdate);
+        floatingUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LeerBD();
+                LogeoActivity.centralizarToast(getContext(), "Lista actualizada");
+            }
+        });
+
+        //Leemos los datos
+        LeerBD();
+
+        return view;
+    }
+
+    //Leemos los entrenamientos de la base de datos
+    private void LeerBD() {
         try {
-            //Inflamos la vista
-            view = inflater.inflate(R.layout.fragment_sesiones, container, false);
-
-            //ListView
-            lvSesiones = view.findViewById(R.id.lvSesiones);
-
-            //Leemos los datos
             ArrayList<VOSesion> lSesiones = new DAOSesiones(getContext()).ReadSesiones();
             AdaptadorLV adaptadorLV = new AdaptadorLV(getActivity().getApplicationContext(), lSesiones);
             lvSesiones.setAdapter(adaptadorLV);
@@ -63,8 +80,6 @@ public class SesionesFragment extends Fragment {
 
             dialogFragment.show(getFragmentManager(), "error");
         }
-
-        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
