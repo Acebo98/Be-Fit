@@ -91,6 +91,16 @@ public class DAOSesiones {
         return lSesiones;
     }
 
+    //Delete
+    public void DeletePeso(String ID) throws Exception {
+        try {
+            database.delete(BeFitDB.Structure.SESIONES, BaseColumns._ID + " = ?", new String[] {ID});
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+    }
+
     //Sacamos la información de una sesión
     public VOSesion SacarSesion(String Id) throws Exception {
         VOSesion sesion = new VOSesion();

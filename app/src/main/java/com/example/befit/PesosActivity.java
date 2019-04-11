@@ -9,9 +9,11 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PesosActivity extends AppCompatActivity {
+public class PesosActivity extends AppCompatActivity implements DialogoConfirmacion.MiDialogListener {
 
     int identificador;                      //Identificador de la sesión
+
+    final String BORRADO = "borrar";
 
     //Controles
     TextView tbNombre;
@@ -74,6 +76,16 @@ public class PesosActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home: this.finish();
             break;
+            case R.id.itemBorrar: {
+                //Cuadro de diálogo
+                DialogoConfirmacion dialogoConfirmacion = new DialogoConfirmacion();
+                Bundle bundle = new Bundle();
+                bundle.putString("TITULO", "Borrado");
+                bundle.putString("MENSAJE", "¿Estás seguro de que quieres borrar esta sesión?");
+                dialogoConfirmacion.setArguments(bundle);
+                dialogoConfirmacion.show(getSupportFragmentManager(), BORRADO);
+            }
+            break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -85,5 +97,25 @@ public class PesosActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_pesos, menu);
 
         return true;
+    }
+
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        if (dialog.getTag() == BORRADO) {
+            try {
+                new DAOSesiones(getApplicationContext()).DeletePeso(String.valueOf(identificador));
+                this.finish();
+            }
+            catch (Exception err) {
+                DialogFragment dialogFragment = new DialogoAlerta();
+                Bundle bundle = new Bundle();
+
+                bundle.putString("TITULO", "Ha ocurrido un Error");
+                bundle.putString("MENSAJE", err.getMessage());
+                dialogFragment.setArguments(bundle);
+
+                dialogFragment.show(getSupportFragmentManager(), "error");
+            }
+        }
     }
 }
