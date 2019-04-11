@@ -70,12 +70,14 @@ public class DAOSesiones {
             lSesiones = new ArrayList<>();
 
             //Leemos los datos
-            Cursor c = database.rawQuery("SELECT nombre, actualizacion FROM " + BeFitDB.Structure.SESIONES, null);
+            Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion " +
+                    "FROM " + BeFitDB.Structure.SESIONES, null);
 
             //Recorremos el cursor
             if (c.getCount() > 0) {
                 while (c.moveToNext() == true) {
-                    VOSesion sesion = new VOSesion(c.getString(0), c.getString(1));
+                    VOSesion sesion = new VOSesion(c.getString(1), c.getString(2));
+                    sesion.setIdentificador(c.getInt(0));
                     lSesiones.add(sesion);
                 }
             }
