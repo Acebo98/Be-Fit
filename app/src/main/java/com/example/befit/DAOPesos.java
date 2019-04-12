@@ -56,7 +56,6 @@ public class DAOPesos {
             peso.setPeso_4(c.getString(4));
             peso.setNotas(c.getString(5));
             peso.setIdSesion(c.getInt(6));
-
         }
         catch (Exception err) {
             peso = null;

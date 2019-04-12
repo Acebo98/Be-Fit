@@ -1,14 +1,13 @@
 package com.example.befit;
 
-import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class PesosActivity extends AppCompatActivity implements DialogoConfirmacion.MiDialogListener {
 
@@ -18,10 +17,15 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
     //Controles
     TextView tbNombre;
-    TextView tbm1;
-    TextView tbm2;
-    TextView tbm3;
-    TextView tbm4;
+    TextView labm1;
+    TextView labm2;
+    TextView labm3;
+    TextView labm4;
+    EditText tbP1;
+    EditText tbP2;
+    EditText tbP3;
+    EditText tbP4;
+    EditText tbNotas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +34,15 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
         //IDS
         tbNombre = (TextView)findViewById(R.id.labNombreSesion);
-        tbm1 = (TextView)findViewById(R.id.labM1);
-        tbm2 = (TextView)findViewById(R.id.labM2);
-        tbm3 = (TextView)findViewById(R.id.labM3);
-        tbm4 = (TextView)findViewById(R.id.labM4);
+        labm1 = (TextView)findViewById(R.id.labM1);
+        labm2 = (TextView)findViewById(R.id.labM2);
+        labm3 = (TextView)findViewById(R.id.labM3);
+        labm4 = (TextView)findViewById(R.id.labM4);
+        tbP1 = (EditText)findViewById(R.id.tbMiEjercicio1);
+        tbP2 = (EditText)findViewById(R.id.tbMiEjercicio2);
+        tbP3 = (EditText)findViewById(R.id.tbMiEjercicio3);
+        tbP4 = (EditText)findViewById(R.id.tbMiEjercicio4);
+        tbNotas = (EditText)findViewById(R.id.tbNotas);
 
         //Obtenemos el identificador
         Bundle bundle = getIntent().getExtras();
@@ -43,8 +52,9 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Leemos la sesión
+        //Leemos la sesión y sus pesos
         LeerSesion();
+        LeerPesos();
     }
 
     //Leemos los datos de la sesión
@@ -54,10 +64,34 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
             //Aplicamos los textos
             tbNombre.setText(sesion.getNombre());
-            tbm1.setText(sesion.getMusculo_1());
-            tbm2.setText(sesion.getMusculo_2());
-            tbm3.setText(sesion.getMusculo_3());
-            tbm4.setText(sesion.getMusculo_4());
+            labm1.setText(sesion.getMusculo_1());
+            labm2.setText(sesion.getMusculo_2());
+            labm3.setText(sesion.getMusculo_3());
+            labm4.setText(sesion.getMusculo_4());
+        }
+        catch (Exception err) {
+            DialogFragment dialogFragment = new DialogoAlerta();
+            Bundle bundle = new Bundle();
+
+            bundle.putString("TITULO", "Ha ocurrido un Error");
+            bundle.putString("MENSAJE", err.getMessage());
+            dialogFragment.setArguments(bundle);
+
+            dialogFragment.show(getSupportFragmentManager(), "error");
+        }
+    }
+
+    //Leemos los datos de los pesos
+    public void LeerPesos() {
+        try {
+            VOPeso peso = new DAOPesos(getApplicationContext()).SacarPesos(identificador);
+
+            //Mostramos los pesos
+            tbP1.setText(peso.getPeso_1());
+            tbP2.setText(peso.getPeso_2());
+            tbP3.setText(peso.getPeso_3());
+            tbP4.setText(peso.getPeso_4());
+            tbNotas.setText(peso.getNotas());
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();
