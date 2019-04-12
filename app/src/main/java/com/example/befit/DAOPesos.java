@@ -2,6 +2,7 @@ package com.example.befit;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.io.IOError;
@@ -35,5 +36,33 @@ public class DAOPesos {
         catch (Exception err) {
             throw new Exception(err.getMessage());
         }
+    }
+
+    //Sacamos los pesos a partir del identificador de la sesión a la que hacen referencia
+    public VOPeso SacarPesos(int IdSesion) throws Exception {
+        VOPeso peso = null;
+
+        try {
+            Cursor c = database.rawQuery("SELECT * FROM " + BeFitDB.Structure.PESOS + " " +
+                    "WHERE idSesion = ?", new String[] {String.valueOf(IdSesion)});
+            c.moveToNext();
+
+            //Sacamos los datos
+            peso = new VOPeso();
+            peso.setIdentificador(c.getInt(0));
+            peso.setPeso_1(c.getString(1));
+            peso.setPeso_2(c.getString(2));
+            peso.setPeso_3(c.getString(3));
+            peso.setPeso_4(c.getString(4));
+            peso.setNotas(c.getString(5));
+            peso.setIdSesion(c.getInt(6));
+
+        }
+        catch (Exception err) {
+            peso = null;
+            throw new Exception(err.getMessage());
+        }
+
+        return peso;
     }
 }
