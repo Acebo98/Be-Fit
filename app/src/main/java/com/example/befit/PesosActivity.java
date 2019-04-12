@@ -122,7 +122,28 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             }
             break;
             case R.id.itemActualizar: {
+                try {
+                    VOPeso Npeso = new VOPeso();
+                    Npeso.setPeso_1(tbP1.getText().toString().trim());
+                    Npeso.setPeso_2(tbP2.getText().toString().trim());
+                    Npeso.setPeso_3(tbP3.getText().toString().trim());
+                    Npeso.setPeso_4(tbP4.getText().toString().trim());
+                    Npeso.setNotas(tbNotas.getText().toString());           //Opcional
 
+                    //Actualizamos
+                    new DAOPesos(getApplicationContext()).UpdatePeso(Npeso, String.valueOf(identificador));
+                    LogeoActivity.centralizarToast(getApplicationContext(), "Pesos Actualizados");
+                }
+                catch (Exception err) {
+                    DialogFragment dialogFragment = new DialogoAlerta();
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("MENSAJE", err.getMessage());
+                    dialogFragment.setArguments(bundle);
+
+                    dialogFragment.show(getSupportFragmentManager(), "error");
+                }
             }
             break;
         }
