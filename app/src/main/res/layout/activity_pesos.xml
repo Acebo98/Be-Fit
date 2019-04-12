@@ -24,100 +24,92 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="322dp"
-        android:layout_height="448dp"
-        android:layout_marginTop="10dp"
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="323dp"
+        android:layout_height="460dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labNombreSesion">
 
-        <LinearLayout
-            android:id="@+id/linearLayout6"
+        <TextView
+            android:id="@+id/labM1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/labNombreSesion">
+            android:text="Bíceps"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/labM1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bíceps"
-                android:textStyle="bold" />
+        <EditText
+            android:id="@+id/tbMiEjercicio1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="" />
 
-            <EditText
-                android:id="@+id/tbMiEjercicio1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="" />
+        <TextView
+            android:id="@+id/labM2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Curl de Bíceps"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/labM2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Curl de Bíceps"
-                android:textStyle="bold" />
+        <EditText
+            android:id="@+id/tbMiEjercicio2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="" />
 
-            <EditText
-                android:id="@+id/tbMiEjercicio2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="" />
+        <TextView
+            android:id="@+id/labM3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mancuernas"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/labM3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mancuernas"
-                android:textStyle="bold" />
+        <EditText
+            android:id="@+id/tbMiEjercicio3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="" />
 
-            <EditText
-                android:id="@+id/tbMiEjercicio3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="" />
+        <TextView
+            android:id="@+id/labM4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bíceps"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/labM4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bíceps"
-                android:textStyle="bold" />
+        <EditText
+            android:id="@+id/tbMiEjercicio4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="" />
 
-            <EditText
-                android:id="@+id/tbMiEjercicio4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="" />
+        <TextView
+            android:id="@+id/txtNotas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/notas"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtNotas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/notas"
-                android:textStyle="bold" />
+        <EditText
+            android:id="@+id/tbNotas"
+            android:layout_width="match_parent"
+            android:layout_height="138dp"
+            android:ems="10"
+            android:inputType="textMultiLine" />
 
-            <EditText
-                android:id="@+id/tbNotas"
-                android:layout_width="match_parent"
-                android:layout_height="138dp"
-                android:ems="10"
-                android:inputType="textMultiLine" />
-
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
