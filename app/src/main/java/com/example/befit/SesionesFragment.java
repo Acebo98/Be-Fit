@@ -18,12 +18,17 @@ import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
 
+import javax.xml.transform.Result;
+
+import static android.app.Activity.RESULT_OK;
+
 public class SesionesFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
     ArrayList<VOSesion> lSesiones;          //Lista de las sesiones
     AdaptadorLV adaptadorLV;                //Adaptador
+    final int ACTUALIZAR = 1111;            //Constante de que es necesario actualizar la lista
 
     //Controles
     View view;
@@ -65,7 +70,7 @@ public class SesionesFragment extends Fragment {
                 //Intent
                 Intent intent = new Intent(getContext(), PesosActivity.class);
                 intent.putExtras(bundle);
-                startActivity(intent);
+                startActivityForResult(intent, ACTUALIZAR);
             }
         });
         floatingUpdate = view.findViewById(R.id.floatingUpdate);
@@ -124,6 +129,16 @@ public class SesionesFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == ACTUALIZAR) {
+            if (resultCode == RESULT_OK) {
+                //Si se ha borrado actualizamos la lista para que no salga la sesión recién borrada
+                LeerBD();
+            }
+        }
     }
 
     //Interfaz del fragmento. IMPORTANTE AÑADIRLO A LA ACTIVIDAD QUE RECOGE TODOS LOS FRAGMENTOS

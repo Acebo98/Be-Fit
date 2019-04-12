@@ -105,6 +105,9 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
         if (dialog.getTag() == BORRADO) {
             try {
                 new DAOSesiones(getApplicationContext()).DeletePeso(String.valueOf(identificador));
+
+                //Indicamos el resultado de que se ha borrado el entrenamiento
+                setResult(RESULT_OK);
                 this.finish();
             }
             catch (Exception err) {
