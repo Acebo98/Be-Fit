@@ -64,4 +64,24 @@ public class DAOPesos {
 
         return peso;
     }
+
+    //Update de los pesos a partir del identificador de la sesión
+    public void UpdatePeso(VOPeso NPeso, String IdSesion) throws Exception {
+        try {
+            ContentValues values = new ContentValues();
+
+            //Datos del nuevo peso
+            values.put("peso_1", NPeso.getPeso_1());
+            values.put("peso_2", NPeso.getPeso_2());
+            values.put("peso_3", NPeso.getPeso_3());
+            values.put("peso_4", NPeso.getPeso_4());
+            values.put("notas", NPeso.getNotas());
+
+            //Actualizamos
+            database.update(BeFitDB.Structure.PESOS, values, "idSesion = ?", new String[] {IdSesion});
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+    }
 }

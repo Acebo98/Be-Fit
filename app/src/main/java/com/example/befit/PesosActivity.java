@@ -121,6 +121,10 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                 dialogoConfirmacion.show(getSupportFragmentManager(), BORRADO);
             }
             break;
+            case R.id.itemActualizar: {
+
+            }
+            break;
         }
 
         return super.onOptionsItemSelected(item);
