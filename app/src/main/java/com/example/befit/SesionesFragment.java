@@ -23,6 +23,7 @@ public class SesionesFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     ArrayList<VOSesion> lSesiones;          //Lista de las sesiones
+    AdaptadorLV adaptadorLV;                //Adaptador
 
     //Controles
     View view;
@@ -86,7 +87,7 @@ public class SesionesFragment extends Fragment {
     private void LeerBD() {
         try {
             lSesiones = new DAOSesiones(getContext()).ReadSesiones();
-            AdaptadorLV adaptadorLV = new AdaptadorLV(getActivity().getApplicationContext(), lSesiones);
+            adaptadorLV = new AdaptadorLV(getActivity().getApplicationContext(), lSesiones);
             lvSesiones.setAdapter(adaptadorLV);
         }
         catch (Exception err) {
