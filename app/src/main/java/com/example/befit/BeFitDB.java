@@ -41,10 +41,10 @@ public class BeFitDB extends SQLiteOpenHelper {
             "actualizacion TEXT NOT NULL); " +
             "CREATE TABLE " + Structure.PESOS + " (" +
             BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            "peso_1 INTEGER NOT NULL, " +
-            "peso_2 INTEGER NOT NULL, " +
-            "peso_3 INTEGER NOT NULL, " +
-            "peso_4 INTEGER NOT NULL, " +
+            "peso_1 TEXT NOT NULL, " +
+            "peso_2 TEXT NOT NULL, " +
+            "peso_3 TEXT NOT NULL, " +
+            "peso_4 TEXT NOT NULL, " +
             "notas TEXT, " +
             "FOREIGN KEY(idSesion) REFERENCES sesiones(" + BaseColumns._ID + ")";
 }
