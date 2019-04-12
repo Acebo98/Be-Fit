@@ -141,4 +141,22 @@ public class DAOSesiones {
 
         return ID;
     }
+
+    //Actualizamos la fecha de actualización al día de hoy
+    public void UpdateFecha(int Id) throws Exception {
+        try {
+            //Fecha de hoy
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String hoy = simpleDateFormat.format(new Date());
+            ContentValues values = new ContentValues();
+            values.put("actualizacion", hoy);
+
+            //Actualizamos
+            database.update(BeFitDB.Structure.SESIONES, values, BaseColumns._ID + " = ?",
+                    new String[] {String.valueOf(Id)});
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+    }
 }

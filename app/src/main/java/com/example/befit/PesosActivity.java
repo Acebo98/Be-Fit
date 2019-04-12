@@ -150,6 +150,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
                         //Actualizamos
                         new DAOPesos(getApplicationContext()).UpdatePeso(Npeso, String.valueOf(identificador));
+                        new DAOSesiones(getApplicationContext()).UpdateFecha(identificador);
                         LogeoActivity.centralizarToast(getApplicationContext(), "Pesos Actualizados");
                     }
                     else {
