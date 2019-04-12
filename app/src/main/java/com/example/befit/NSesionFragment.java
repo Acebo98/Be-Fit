@@ -115,8 +115,14 @@ public class NSesionFragment extends Fragment implements View.OnClickListener {
                             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
                             sesion.setActualizacion(simpleDateFormat.format(new Date()));
 
-                            //Insertamos y si ha ido bien informamos
+                            //Primero insertamos la sesión y obtenemos su ID
                             new DAOSesiones(getContext()).InsertSesion(sesion);
+                            int IdSesion = new DAOSesiones(getContext()).SacarIdentificador(sesion.getNombre());
+
+                            //Finalmente insertamos su peso por defecto
+                            new DAOPesos(getContext()).InsertarPeso(IdSesion);
+
+                            //Informamos de que haya ido bien la cosa
                             LogeoActivity.centralizarToast(getContext(), "Sesión insertada");
                             LimpiarUI();
                         }

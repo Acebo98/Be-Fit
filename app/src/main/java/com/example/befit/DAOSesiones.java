@@ -132,6 +132,7 @@ public class DAOSesiones {
         try {
             Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + " FROM " + BeFitDB.Structure.SESIONES + " " +
                     "WHERE nombre = ?", new String[] {nombre});
+            c.moveToNext();
             ID = c.getInt(0);
         }
         catch (Exception err) {
