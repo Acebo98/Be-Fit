@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class PesosActivity extends AppCompatActivity implements DialogoConfirmacion.MiDialogListener {
 
     int identificador;                      //Identificador de la sesión
@@ -26,6 +28,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     EditText tbP3;
     EditText tbP4;
     EditText tbNotas;
+    ArrayList<EditText> lCampos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,10 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
         tbP3 = (EditText)findViewById(R.id.tbMiEjercicio3);
         tbP4 = (EditText)findViewById(R.id.tbMiEjercicio4);
         tbNotas = (EditText)findViewById(R.id.tbNotas);
+        lCampos.add(tbP1);
+        lCampos.add(tbP2);
+        lCampos.add(tbP3);
+        lCampos.add(tbP4);
 
         //Obtenemos el identificador
         Bundle bundle = getIntent().getExtras();
@@ -105,6 +112,16 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
         }
     }
 
+    //Comprobamos que los 4 campos de pesos estén cubiertos
+    private boolean ComprobarCampos() {
+        for (EditText campo : lCampos) {
+            if (campo.getText().toString().trim().length() == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -123,16 +140,22 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             break;
             case R.id.itemActualizar: {
                 try {
-                    VOPeso Npeso = new VOPeso();
-                    Npeso.setPeso_1(tbP1.getText().toString().trim());
-                    Npeso.setPeso_2(tbP2.getText().toString().trim());
-                    Npeso.setPeso_3(tbP3.getText().toString().trim());
-                    Npeso.setPeso_4(tbP4.getText().toString().trim());
-                    Npeso.setNotas(tbNotas.getText().toString());           //Opcional
+                    if (ComprobarCampos() == true) {
+                        VOPeso Npeso = new VOPeso();
+                        Npeso.setPeso_1(tbP1.getText().toString().trim());
+                        Npeso.setPeso_2(tbP2.getText().toString().trim());
+                        Npeso.setPeso_3(tbP3.getText().toString().trim());
+                        Npeso.setPeso_4(tbP4.getText().toString().trim());
+                        Npeso.setNotas(tbNotas.getText().toString());           //Opcional
 
-                    //Actualizamos
-                    new DAOPesos(getApplicationContext()).UpdatePeso(Npeso, String.valueOf(identificador));
-                    LogeoActivity.centralizarToast(getApplicationContext(), "Pesos Actualizados");
+                        //Actualizamos
+                        new DAOPesos(getApplicationContext()).UpdatePeso(Npeso, String.valueOf(identificador));
+                        LogeoActivity.centralizarToast(getApplicationContext(), "Pesos Actualizados");
+                    }
+                    else {
+                        LogeoActivity.centralizarToast(getApplicationContext(), "Primero inserta los 4 pesos " +
+                                "obligatorios");
+                    }
                 }
                 catch (Exception err) {
                     DialogFragment dialogFragment = new DialogoAlerta();
