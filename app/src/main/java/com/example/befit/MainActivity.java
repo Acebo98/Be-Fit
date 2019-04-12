@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         //Tablayout
-        TabLayout tabLayout = (TabLayout)findViewById(R.id.tabLayout);
+        tabLayout = (TabLayout)findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(mViewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_dumbell);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_sesion);

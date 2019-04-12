@@ -1,8 +1,10 @@
 package com.example.befit;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,6 +20,8 @@ import java.util.Date;
 public class NSesionFragment extends Fragment implements View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
+
+    TabLayout tabLayout;
 
     //Controles
     View view;
@@ -59,6 +63,20 @@ public class NSesionFragment extends Fragment implements View.OnClickListener {
         tbM4 = view.findViewById(R.id.tbM4);
         btnAceptar = view.findViewById(R.id.btnAceptar);
         btnLimpiar = view.findViewById(R.id.btnLimpiar);
+        tabLayout = view.findViewById(R.id.tabLayout);
+
+        //Evento para el focus del campo de texto
+        tbNombre.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus == true) {
+                    ((MainActivity)getActivity()).tabLayout.setVisibility(View.GONE);
+                }
+                else {
+                    ((MainActivity)getActivity()).tabLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         //Lista de campos de texto
         lCampos.add(tbNombre);
