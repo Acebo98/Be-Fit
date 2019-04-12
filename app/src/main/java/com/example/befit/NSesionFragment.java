@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class NSesionFragment extends Fragment implements View.OnClickListener {
+public class NSesionFragment extends Fragment implements View.OnClickListener, View.OnFocusChangeListener {
 
     private OnFragmentInteractionListener mListener;
 
@@ -66,17 +66,11 @@ public class NSesionFragment extends Fragment implements View.OnClickListener {
         tabLayout = view.findViewById(R.id.tabLayout);
 
         //Evento para el focus del campo de texto
-        tbNombre.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus == true) {
-                    ((MainActivity)getActivity()).tabLayout.setVisibility(View.GONE);
-                }
-                else {
-                    ((MainActivity)getActivity()).tabLayout.setVisibility(View.VISIBLE);
-                }
-            }
-        });
+        tbNombre.setOnFocusChangeListener(this);
+        tbM1.setOnFocusChangeListener(this);
+        tbM2.setOnFocusChangeListener(this);
+        tbM3.setOnFocusChangeListener(this);
+        tbM4.setOnFocusChangeListener(this);
 
         //Lista de campos de texto
         lCampos.add(tbNombre);
@@ -186,6 +180,16 @@ public class NSesionFragment extends Fragment implements View.OnClickListener {
     private void LimpiarUI() {
         for (EditText campo : lCampos) {
             campo.getText().clear();
+        }
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (hasFocus == true) {
+            ((MainActivity)getActivity()).tabLayout.setVisibility(View.GONE);
+        }
+        else {
+            ((MainActivity)getActivity()).tabLayout.setVisibility(View.VISIBLE);
         }
     }
 
