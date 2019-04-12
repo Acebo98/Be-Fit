@@ -13,14 +13,15 @@ public class BeFitDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(SCRIPT_CREACION);
+        db.execSQL(SCRIPT_SESIONES);
+        db.execSQL(SCRIPT_PESOS);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + Structure.SESIONES);
         db.execSQL("DROP TABLE IF EXISTS " + Structure.PESOS);
-        db.execSQL(SCRIPT_CREACION);
+        onCreate(db);
     }
 
     //Clase que controla el nombre de las columnas, que se me van a olvidar :(
@@ -30,21 +31,21 @@ public class BeFitDB extends SQLiteOpenHelper {
         public static final String PESOS = "pesos";
     }
 
-    //Script de creación
-    final String SCRIPT_CREACION = "CREATE TABLE " + Structure.SESIONES + " (" +
+    //Scripts de creación
+    final String SCRIPT_SESIONES = "CREATE TABLE " + Structure.SESIONES + " (" +
             BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "nombre TEXT NOT NULL, " +
             "musculo_1 TEXT NOT NULL, " +
             "musculo_2 TEXT NOT NULL, " +
             "musculo_3 TEXT NOT NULL, " +
             "musculo_4 TEXT NOT NULL, " +
-            "actualizacion TEXT NOT NULL); " +
-            "CREATE TABLE " + Structure.PESOS + " (" +
+            "actualizacion TEXT NOT NULL)";
+    final String SCRIPT_PESOS = "CREATE TABLE " + Structure.PESOS + " (" +
             BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "peso_1 TEXT NOT NULL, " +
             "peso_2 TEXT NOT NULL, " +
             "peso_3 TEXT NOT NULL, " +
             "peso_4 TEXT NOT NULL, " +
             "notas TEXT, " +
-            "FOREIGN KEY(idSesion) REFERENCES sesiones(" + BaseColumns._ID + ")";
+            "FOREIGN KEY(idSesion) REFERENCES sesiones(" + BaseColumns._ID + "))";
 }
