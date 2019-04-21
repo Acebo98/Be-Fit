@@ -61,16 +61,27 @@ public class SesionesFragment extends Fragment {
         lvSesiones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                VOSesion sesion = lSesiones.get(position);
+                try {
+                    if (new DAOSesiones(getContext()).ReadSesiones().size() > 0) {
+                        VOSesion sesion = lSesiones.get(position);
 
-                //Bundle de datos con el identificador
-                Bundle bundle = new Bundle();
-                bundle.putInt("ID", sesion.getIdentificador());
+                        //Bundle de datos con el identificador
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("ID", sesion.getIdentificador());
 
-                //Intent
-                Intent intent = new Intent(getContext(), PesosActivity.class);
-                intent.putExtras(bundle);
-                startActivityForResult(intent, ACTUALIZAR);
+                        //Intent
+                        Intent intent = new Intent(getContext(), PesosActivity.class);
+                        intent.putExtras(bundle);
+                        startActivityForResult(intent, ACTUALIZAR);
+                    }
+                    else {
+                        LogeoActivity.centralizarToast(getContext(), "Parece que tu lista no está actualizada");
+                        LeerBD();
+                    }
+                }
+                catch (Exception err) {
+
+                }
             }
         });
         floatingUpdate = view.findViewById(R.id.floatingUpdate);
