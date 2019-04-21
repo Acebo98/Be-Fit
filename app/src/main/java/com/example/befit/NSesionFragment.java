@@ -67,10 +67,10 @@ public class NSesionFragment extends Fragment implements View.OnClickListener, V
 
         //Evento para el focus del campo de texto
         tbNombre.setOnFocusChangeListener(this);
-        tbM1.setOnFocusChangeListener(this);
-        tbM2.setOnFocusChangeListener(this);
-        tbM3.setOnFocusChangeListener(this);
-        tbM4.setOnFocusChangeListener(this);
+        //tbM1.setOnFocusChangeListener(this);
+        //tbM2.setOnFocusChangeListener(this);
+        //tbM3.setOnFocusChangeListener(this);
+        //tbM4.setOnFocusChangeListener(this);
 
         //Lista de campos de texto
         lCampos.add(tbNombre);

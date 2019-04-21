@@ -21,15 +21,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="314dp"
-                android:layout_height="95dp"
-                android:layout_marginTop="5dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/txtNSesion"
@@ -46,14 +37,14 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="" />
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/txtM1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/musculo"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"/>
 
             <EditText
                 android:id="@+id/tbM1"
