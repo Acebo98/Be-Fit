@@ -23,7 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/nombre_usuario"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textSize="15dp"/>
 
         <EditText
             android:id="@+id/tbMiNombre"
@@ -38,7 +39,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/contrasena"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"/>
 
         <EditText
             android:id="@+id/tbMiContra"
