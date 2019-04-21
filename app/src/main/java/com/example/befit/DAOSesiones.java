@@ -159,4 +159,14 @@ public class DAOSesiones {
             throw new Exception(err.getMessage());
         }
     }
+
+    //Borramos todas las sesiones almacenadas
+    public void DeleteSesiones() throws Exception {
+        try {
+            database.delete(BeFitDB.Structure.SESIONES, null, null);
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+    }
 }

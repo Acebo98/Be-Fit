@@ -114,7 +114,7 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    //Borramos los datos del usuario
+    //Borramos los datos del usuario (MÉTODO SIN USAR)
     private void DeleteData() {
         try {
             SharedPreferences preferences = getSharedPreferences("Logeo", Context.MODE_PRIVATE);
@@ -151,7 +151,7 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
                     DialogoConfirmacion dialogoConfirmacion = new DialogoConfirmacion();
                     Bundle bundle = new Bundle();
                     bundle.putString("TITULO", "Borrado");
-                    bundle.putString("MENSAJE", "¿Estás seguro de que quieres borrar tus datos?");
+                    bundle.putString("MENSAJE", "¿Estás seguro de que quieres borrar tus sesiones?");
                     dialogoConfirmacion.setArguments(bundle);
                     dialogoConfirmacion.show(getSupportFragmentManager(), BORRADO);
                 }
@@ -190,7 +190,20 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
             ModifyData(usuario, contra);
         }
         else if (dialog.getTag() == BORRADO) {
-            DeleteData();
+            try {
+                new DAOSesiones(getApplicationContext()).DeleteSesiones();
+                LogeoActivity.centralizarToast(getApplicationContext(), "Sesiones borradas");
+            }
+            catch (Exception err) {
+                DialogFragment dialogFragment = new DialogoAlerta();
+                Bundle bundle = new Bundle();
+
+                bundle.putString("TITULO", "Ha ocurrido un Error");
+                bundle.putString("MENSAJE", err.getMessage());
+                dialogFragment.setArguments(bundle);
+
+                dialogFragment.show(getSupportFragmentManager(), "error");
+            }
         }
     }
 }
