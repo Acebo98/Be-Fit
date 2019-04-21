@@ -62,6 +62,7 @@ public class SesionesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
+                    //Miramos si hay sesiones
                     if (new DAOSesiones(getContext()).ReadSesiones().size() > 0) {
                         VOSesion sesion = lSesiones.get(position);
 

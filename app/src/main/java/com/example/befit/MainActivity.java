@@ -128,9 +128,13 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             Fragment fragment = null;
 
             switch (sectionNumber) {
-                case 1: fragment = new SesionesFragment();
+                case 1: {
+                    fragment = new SesionesFragment();
+                }
                 break;
-                case 2: fragment = new NSesionFragment();
+                case 2: {
+                    fragment = new NSesionFragment();
+                }
                 break;
             }
 
