@@ -71,7 +71,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/borrar"
-            android:textColor="@color/rojo"/>
+            android:textColor="@color/rojo"
+            android:drawableLeft="@drawable/ic_remove_fitness"/>
     </LinearLayout>
 
     <TextView
