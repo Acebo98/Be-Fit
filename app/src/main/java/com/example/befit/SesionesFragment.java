@@ -80,7 +80,14 @@ public class SesionesFragment extends Fragment {
                     }
                 }
                 catch (Exception err) {
+                    DialogFragment dialogFragment = new DialogoAlerta();
+                    Bundle bundle = new Bundle();
 
+                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("MENSAJE", err.getMessage());
+                    dialogFragment.setArguments(bundle);
+
+                    dialogFragment.show(getFragmentManager(), "error");
                 }
             }
         });
