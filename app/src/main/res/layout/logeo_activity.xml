@@ -4,28 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryVeryClear"
+    android:background="@drawable/fondo"
     tools:context=".LogeoActivity">
 
-
-    <TextView
-        android:id="@+id/labCreador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/creador"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="290dp"
         android:layout_height="161dp"
+        android:layout_marginTop="250dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/labCreador"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,8 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/nombre_usuario"
-            android:textStyle="bold"
-            android:textSize="15dp"/>
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/tbNombreUsuario"
@@ -51,10 +39,10 @@
             android:id="@+id/labContra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="@string/contrasena"
-            android:textStyle="bold"
             android:textSize="15dp"
-            android:layout_marginTop="10dp"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/tbContrasena"
@@ -68,8 +56,10 @@
     <LinearLayout
         android:layout_width="297dp"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="80dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
