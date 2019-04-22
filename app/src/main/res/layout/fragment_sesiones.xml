@@ -30,7 +30,7 @@
             android:layout_marginBottom="75dp"
             android:backgroundTint="@color/amarillo"
             android:clickable="true"
-            android:src="@android:drawable/ic_menu_rotate"
+            android:src="@drawable/ic_update"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>

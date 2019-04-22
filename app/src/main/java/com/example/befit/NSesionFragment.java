@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -17,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class NSesionFragment extends Fragment implements View.OnClickListener, View.OnFocusChangeListener {
+public class NSesionFragment extends Fragment implements View.OnFocusChangeListener {
 
     private OnFragmentInteractionListener mListener;
 
@@ -32,6 +33,7 @@ public class NSesionFragment extends Fragment implements View.OnClickListener, V
     EditText tbM4;
     Button btnAceptar;
     Button btnLimpiar;
+    FloatingActionButton floatingAdd;
     ArrayList<EditText> lCampos = new ArrayList<>();
 
     public NSesionFragment() {
@@ -61,16 +63,15 @@ public class NSesionFragment extends Fragment implements View.OnClickListener, V
         tbM2 = view.findViewById(R.id.tbM2);
         tbM3 = view.findViewById(R.id.tbM3);
         tbM4 = view.findViewById(R.id.tbM4);
-        btnAceptar = view.findViewById(R.id.btnAceptar);
-        btnLimpiar = view.findViewById(R.id.btnLimpiar);
         tabLayout = view.findViewById(R.id.tabLayout);
+        floatingAdd = view.findViewById(R.id.floatingAdd);
 
         //Evento para el focus del campo de texto
-        tbNombre.setOnFocusChangeListener(this);
+        /*tbNombre.setOnFocusChangeListener(this);
         tbM1.setOnFocusChangeListener(this);
         tbM2.setOnFocusChangeListener(this);
         tbM3.setOnFocusChangeListener(this);
-        tbM4.setOnFocusChangeListener(this);
+        tbM4.setOnFocusChangeListener(this);*/
 
         //Lista de campos de texto
         lCampos.add(tbNombre);
@@ -80,39 +81,9 @@ public class NSesionFragment extends Fragment implements View.OnClickListener, V
         lCampos.add(tbM4);
 
         //Controles
-        btnLimpiar.setOnClickListener(this);
-        btnAceptar.setOnClickListener(this);
-
-        return view;
-    }
-
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnAceptar: {
+        floatingAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 try {
                     if (ComprobarCampos() == true) {
                         if (new DAOSesiones(getContext()).ExistirSesion(tbNombre.getText().toString().trim()) == true) {
@@ -158,12 +129,32 @@ public class NSesionFragment extends Fragment implements View.OnClickListener, V
                     dialogFragment.show(getFragmentManager(), "error");
                 }
             }
-            break;
-            case R.id.btnLimpiar: {
-                LimpiarUI();
-            }
-            break;
+        });
+
+        return view;
+    }
+
+    public void onButtonPressed(Uri uri) {
+        if (mListener != null) {
+            mListener.onFragmentInteraction(uri);
         }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
     }
 
     //Comprobamos que todos los campos estén rellenos
@@ -176,7 +167,7 @@ public class NSesionFragment extends Fragment implements View.OnClickListener, V
         return true;
     }
 
-    //Limpiamos los campos de texto
+    //Limpiamos los campos de texto (SIN UTILIZAR)
     private void LimpiarUI() {
         for (EditText campo : lCampos) {
             campo.getText().clear();
