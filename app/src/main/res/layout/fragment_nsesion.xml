@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="314dp"
@@ -22,7 +21,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
 
             <TextView
                 android:id="@+id/txtNSesion"
@@ -38,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:hint="Tarde de Bíceps"/>
 
             <TextView
                 android:id="@+id/txtM1"
@@ -54,7 +53,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:hint="Flexiones de Bíceps"/>
 
             <TextView
                 android:id="@+id/txtM2"
@@ -69,7 +69,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:hint="Curl de Bíceps"/>
 
             <TextView
                 android:id="@+id/txtM3"
@@ -84,7 +85,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:hint="Flexiones Martillo"/>
 
             <TextView
                 android:id="@+id/txtM4"
@@ -99,7 +101,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:hint="Flexiones de Bíceps Inclinado"/>
 
         </LinearLayout>
 
