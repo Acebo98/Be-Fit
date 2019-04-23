@@ -190,7 +190,9 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     public void onDialogPositiveClick(DialogFragment dialog) {
         if (dialog.getTag() == BORRADO) {
             try {
-                new DAOSesiones(getApplicationContext()).DeletePeso(String.valueOf(identificador));
+                //Borramos la sesión y su peso asociado
+                new DAOSesiones(getApplicationContext()).DeleteSesion(String.valueOf(identificador));
+                new DAOPesos(getApplicationContext()).DeletePeso(String.valueOf(identificador));
 
                 //Indicamos el resultado de que se ha borrado el entrenamiento
                 setResult(RESULT_OK);

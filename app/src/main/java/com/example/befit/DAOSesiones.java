@@ -99,7 +99,7 @@ public class DAOSesiones {
     }
 
     //Delete
-    public void DeletePeso(String ID) throws Exception {
+    public void DeleteSesion(String ID) throws Exception {
         try {
             database.delete(BeFitDB.Structure.SESIONES, BaseColumns._ID + " = ?", new String[] {ID});
         }

@@ -84,4 +84,14 @@ public class DAOPesos {
             throw new Exception(err.getMessage());
         }
     }
+
+    //Borramos un peso a partir del ID de su sesión
+    public void DeletePeso(String IdSesion) throws Exception {
+        try {
+            database.delete(BeFitDB.Structure.PESOS, "idSesion = ?", new String[] {IdSesion});
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+    }
 }
