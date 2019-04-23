@@ -83,7 +83,7 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
             else {
                 labModificacion.setText("Última Modificación: " + modificacion);
             }
-            labEntrenamientos.setText("Número de Entrenamientos: " + String.valueOf(cantidad));
+            labEntrenamientos.setText("Número de Sesiones: " + String.valueOf(cantidad));
         }
         catch (Exception err) {
             LogeoActivity.centralizarToast(getApplicationContext(), err.getMessage());
@@ -191,7 +191,9 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
         }
         else if (dialog.getTag() == BORRADO) {
             try {
+                //Borramos las sesiones y volvemos a leer
                 new DAOSesiones(getApplicationContext()).DeleteSesiones();
+                ReadUserData();
                 LogeoActivity.centralizarToast(getApplicationContext(), "Sesiones borradas");
             }
             catch (Exception err) {
