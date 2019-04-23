@@ -70,14 +70,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/conectar" />
+            android:text="@string/conectar"
+            android:drawableLeft="@drawable/ic_connect"/>
 
         <Button
             android:id="@+id/btnFinalizar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/finalizar" />
+            android:text="@string/finalizar"
+            android:drawableLeft="@drawable/ic_exit_btn"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
