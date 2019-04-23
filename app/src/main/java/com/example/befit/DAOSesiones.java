@@ -25,17 +25,24 @@ public class DAOSesiones {
     //Comprobamos que la sesión no esté insertada ya a partir de su nombre
     public boolean ExistirSesion(String nombre) throws Exception {
         boolean vof = true;
+        nombre = nombre.toLowerCase();      //Minúsculas
 
         try {
-            Cursor c = database.rawQuery("SELECT nombre FROM " + BeFitDB.Structure.SESIONES + " " +
-                            "WHERE nombre = ?", new String[] {nombre});
+            Cursor c = database.rawQuery("SELECT nombre FROM " + BeFitDB.Structure.SESIONES,null);
 
-            //Si hay datos significa que está duplicada
+            //Miramos si el nombre está duplicado
             if (c.getCount() > 0) {
-                vof = false;
+                while (c.moveToNext() == true) {
+                    String nombreComprobar = c.getString(0).toLowerCase();
+                    if (nombreComprobar.equals(nombre)) {
+                        vof = false;
+                        break;
+                    }
+                }
             }
         }
         catch (Exception err) {
+            vof = false;
             throw new Exception(err.getMessage());
         }
 
