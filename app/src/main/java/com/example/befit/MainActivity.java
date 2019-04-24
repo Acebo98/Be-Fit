@@ -1,6 +1,8 @@
 package com.example.befit;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -50,8 +52,23 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_dumbell);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_sesion);
 
-        //Mensaje de bienvenida
-        Toast.makeText(getApplicationContext(), "Bienvenid@ de nuevo", Toast.LENGTH_SHORT).show();
+        //Mensaje de bienvenida con el nombre de la persona
+        LogeoActivity.centralizarToast(getApplicationContext(), "Bienvenid@ " + SacarNombre());
+    }
+
+    //Sacamos el nombre de la persona
+    private String SacarNombre() {
+        String nombre = null;
+
+        try {
+            SharedPreferences preferences = getSharedPreferences("Logeo", Context.MODE_PRIVATE);
+            nombre = preferences.getString("USUARIO", null);
+        }
+        catch (Exception err) {
+            nombre = null;
+        }
+
+        return nombre;
     }
 
     @Override
