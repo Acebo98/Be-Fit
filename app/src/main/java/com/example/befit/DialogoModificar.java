@@ -22,6 +22,8 @@ public class DialogoModificar {
     EditText tbE4;
     ArrayList<EditText> lCampos = new ArrayList<>();
 
+    VOSesion Sesion;
+
     private DialogoModificarListener interfaz;
 
     //Interfaz para conectar con las actividades
@@ -29,8 +31,10 @@ public class DialogoModificar {
         void AceptarModificar(VOSesion Sesion);
     }
 
-    public DialogoModificar(final Context context, DialogoModificarListener actividad) {
+    //Le pasamos la sesión actual que se va a modificar
+    public DialogoModificar(final Context context, DialogoModificarListener actividad, VOSesion sesion) {
         interfaz = actividad;
+        Sesion = sesion;
 
         //Configuración del cuadro de díalogo
         final Dialog dialog = new Dialog(context);
@@ -53,13 +57,23 @@ public class DialogoModificar {
         lCampos.add(tbE4);
         lCampos.add(tbNombre);
 
+        //Hints a los campos de texto donse se especifica los atributos de la sesión original
+        tbNombre.setHint(Sesion.getNombre());
+        tbE1.setHint(Sesion.getMusculo_1());
+        tbE2.setHint(Sesion.getMusculo_2());
+        tbE3.setHint(Sesion.getMusculo_3());
+        tbE4.setHint(Sesion.getMusculo_4());
+
         //Eventos
         btnAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (ComprobarCampos() ==  true) {
                     try {
-                        if (new DAOSesiones(context).ExistirSesion(tbNombre.getText().toString().trim()) == true) {
+                        //Nombre del entrenamiento actual y antiguo
+                        String nombreNuevo = tbNombre.getText().toString().trim();
+                        String nombreOld = Sesion.getNombre();
+                        if (new DAOSesiones(context).ExistirSesion(nombreNuevo, nombreOld) == true) {
                             VOSesion sesion = new VOSesion();
 
                             //Datos de la sesión

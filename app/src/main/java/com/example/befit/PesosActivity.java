@@ -133,7 +133,17 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             case android.R.id.home: this.finish();
             break;
             case R.id.itemModificar: {
-                new DialogoModificar(context, PesosActivity.this);
+                VOSesion sesion = new VOSesion();
+
+                //Datos de la sesion
+                sesion.setNombre(tbNombre.getText().toString().trim());
+                sesion.setMusculo_1(labm1.getText().toString().trim());
+                sesion.setMusculo_2(labm2.getText().toString().trim());
+                sesion.setMusculo_3(labm3.getText().toString().trim());
+                sesion.setMusculo_4(labm4.getText().toString().trim());
+
+                //Iniciamos el diálogo personalizado
+                new DialogoModificar(context, PesosActivity.this, sesion);
             }
             break;
             case R.id.itemBorrar: {

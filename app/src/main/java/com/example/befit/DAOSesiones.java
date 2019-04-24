@@ -49,6 +49,37 @@ public class DAOSesiones {
         return vof;
     }
 
+    //Comprobamos que la sesión no esté insertada, quitando eso si la posibilidad de que se modifique la
+    //sesion y no se cambie el nombre
+    public boolean ExistirSesion(String nombreNew, String nombreOld) throws Exception {
+        boolean vof = true;
+
+        //Minúsculas
+        nombreNew = nombreNew.toLowerCase();
+        nombreOld = nombreOld.toLowerCase();
+
+        try {
+            Cursor c = database.rawQuery("SELECT nombre FROM " + BeFitDB.Structure.SESIONES,null);
+
+            //Miramos si el nombre está duplicado
+            if (c.getCount() > 0) {
+                while (c.moveToNext() == true) {
+                    String nombreComprobar = c.getString(0).toLowerCase();
+                    if (nombreComprobar.equals(nombreOld) == false && nombreComprobar.equals(nombreNew) == true) {
+                        vof = false;
+                        break;
+                    }
+                }
+            }
+        }
+        catch (Exception err) {
+            vof = false;
+            throw new Exception(err.getMessage());
+        }
+
+        return vof;
+    }
+
     //Insert
     public void InsertSesion(VOSesion sesion) throws Exception {
         try {
