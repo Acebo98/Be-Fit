@@ -76,11 +76,11 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
                 bundle.putString("TITULO", "¿Cómo funciona esta aplicación?");
                 bundle.putString("MENSAJE", "Con esta aplicación podras tener un registro de forma intuitiva en tu teléfono " +
-                        "móvil del seguimiento de tus sesiones en el gimnasio. \n\n " +
-                        "Con la sección SESIONES podrás introducir una nueva sesión, estas sesiones se encontrarán reflejas " +
-                        "en la sección NUEVA SESIÓN, lugar donde podrás seleccionar y actualizar el seguimiento de pesos " +
-                        "de dicha sesión. \n\nObviamente puedes también borrar una sesión y por consiguiente todos sus " +
-                        "seguimientos en cualquier momento.");
+                        "móvil del seguimiento de tus sesiones en el gimnasio. \n\n" +
+                        "Con la sección NUEVA SESIÓN podrás introducir una nueva sesión, estas sesiones se encontrarán reflejadas " +
+                        "en la sección SEGUIMIENTO, lugar donde podrás seleccionar y actualizar el seguimiento de pesos " +
+                        "de dicha sesión. \n\nObviamente puedes también borrar una sesión, y por consiguiente su " +
+                        "seguimiento, en cualquier momento.");
                 dialogFragment.setArguments(bundle);
 
                 dialogFragment.show(getSupportFragmentManager(), "1111");
