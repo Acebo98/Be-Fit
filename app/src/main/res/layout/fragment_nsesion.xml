@@ -35,7 +35,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text=""
-                android:hint="Tarde de Bíceps"/>
+                android:hint="Tarde de Bíceps"
+                android:maxLength="30"/>
 
             <TextView
                 android:id="@+id/txtM1"
@@ -52,7 +53,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text=""
-                android:hint="Flexiones de Bíceps"/>
+                android:hint="Flexiones de Bíceps"
+                android:maxLength="30"/>
 
             <TextView
                 android:id="@+id/txtM2"
@@ -68,7 +70,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text=""
-                android:hint="Curl de Bíceps"/>
+                android:hint="Curl de Bíceps"
+                android:maxLength="30"/>
 
             <TextView
                 android:id="@+id/txtM3"
@@ -84,7 +87,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text=""
-                android:hint="Flexiones Martillo"/>
+                android:hint="Flexiones Martillo"
+                android:maxLength="30"/>
 
             <TextView
                 android:id="@+id/txtM4"
@@ -100,7 +104,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text=""
-                android:hint="Flexiones de Bíceps Inclinado"/>
+                android:hint="Flexiones de Bíceps Inclinado"
+                android:maxLength="30"/>
 
         </LinearLayout>
 

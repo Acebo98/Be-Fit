@@ -49,7 +49,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:maxLength="30"/>
 
         <TextView
             android:id="@+id/labM2"
@@ -64,7 +65,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:maxLength="30"/>
 
         <TextView
             android:id="@+id/labM3"
@@ -79,7 +81,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:maxLength="30"/>
 
         <TextView
             android:id="@+id/labM4"
@@ -94,7 +97,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:maxLength="30"/>
 
         <TextView
             android:id="@+id/txtNotas"
@@ -108,7 +112,8 @@
             android:layout_width="match_parent"
             android:layout_height="138dp"
             android:ems="10"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:maxLength="100"/>
 
     </LinearLayout>
 

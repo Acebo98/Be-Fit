@@ -31,8 +31,6 @@ public class NSesionFragment extends Fragment implements View.OnFocusChangeListe
     EditText tbM2;
     EditText tbM3;
     EditText tbM4;
-    Button btnAceptar;
-    Button btnLimpiar;
     FloatingActionButton floatingAdd;
     ArrayList<EditText> lCampos = new ArrayList<>();
 
@@ -115,7 +113,8 @@ public class NSesionFragment extends Fragment implements View.OnFocusChangeListe
                         }
                     }
                     else {
-                        LogeoActivity.centralizarToast(getContext(), "Primero rellena todos los campos");
+                        LogeoActivity.centralizarToast(getContext(), "Los campos de texto deben de tener mínimo " +
+                                "5 carácteres");
                     }
                 }
                 catch (Exception err) {
@@ -160,7 +159,7 @@ public class NSesionFragment extends Fragment implements View.OnFocusChangeListe
     //Comprobamos que todos los campos estén rellenos
     private boolean ComprobarCampos() {
         for (EditText campo : lCampos) {
-            if (campo.getText().toString().trim().length() == 0) {
+            if (campo.getText().toString().trim().length() < 5) {
                 return false;
             }
         }
