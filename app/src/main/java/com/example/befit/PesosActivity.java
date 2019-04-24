@@ -221,6 +221,25 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
     @Override
     public void AceptarModificar(VOSesion Sesion) {
+        try {
+            //Id de la sesión
+            Sesion.setIdentificador(identificador);
+            new DAOSesiones(context).UpdateSesion(Sesion);
 
+            //Actualizamos el interfaz e informamos
+            LogeoActivity.centralizarToast(context, "Sesión Modificada");
+            LeerSesion();
+            setResult(RESULT_OK);
+        }
+        catch (Exception err) {
+            DialogFragment dialogFragment = new DialogoAlerta();
+            Bundle bundle = new Bundle();
+
+            bundle.putString("TITULO", "Ha ocurrido un Error");
+            bundle.putString("MENSAJE", err.getMessage());
+            dialogFragment.setArguments(bundle);
+
+            dialogFragment.show(getSupportFragmentManager(), "error");
+        }
     }
 }

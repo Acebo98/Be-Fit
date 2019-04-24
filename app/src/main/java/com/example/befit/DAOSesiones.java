@@ -176,4 +176,33 @@ public class DAOSesiones {
             throw new Exception(err.getMessage());
         }
     }
+
+    //Update Sesion
+    public void UpdateSesion(VOSesion NSesion) throws Exception {
+        try {
+            ContentValues values = new ContentValues();
+
+            //Datos de la modificación
+            values.put("nombre", NSesion.getNombre());
+            values.put("musculo_1", NSesion.getMusculo_1());
+            values.put("musculo_2", NSesion.getMusculo_2());
+            values.put("musculo_3", NSesion.getMusculo_3());
+            values.put("musculo_4", NSesion.getMusculo_4());
+            values.put("actualizacion", this.sacarFechaHoy());
+
+            //Realizamos la modificación
+            database.update(BeFitDB.Structure.SESIONES, values, BaseColumns._ID + " = ?",
+                    new String[] {String.valueOf(NSesion.getIdentificador())});
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+    }
+
+    //Sacamos la fecha de hoy
+    private String sacarFechaHoy() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String hoy = simpleDateFormat.format(new Date());
+        return hoy;
+    }
 }
