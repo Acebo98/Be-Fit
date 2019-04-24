@@ -22,11 +22,17 @@ public class DialogoModificar {
     EditText tbE4;
     ArrayList<EditText> lCampos = new ArrayList<>();
 
+    private DialogoModificarListener interfaz;
+
+    //Interfaz para conectar con las actividades
     public interface DialogoModificarListener {
         void AceptarModificar(VOSesion Sesion);
     }
 
-    public DialogoModificar(final Context context) {
+    public DialogoModificar(final Context context, DialogoModificarListener actividad) {
+        interfaz = actividad;
+
+        //Configuración del cuadro de díalogo
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(false);
@@ -52,7 +58,29 @@ public class DialogoModificar {
             @Override
             public void onClick(View v) {
                 if (ComprobarCampos() ==  true) {
-                    dialog.dismiss();
+                    try {
+                        if (new DAOSesiones(context).ExistirSesion(tbNombre.getText().toString().trim()) == true) {
+                            VOSesion sesion = new VOSesion();
+
+                            //Datos de la sesión
+                            sesion.setNombre(tbNombre.getText().toString().trim());
+                            sesion.setMusculo_1(tbE1.getText().toString().trim());
+                            sesion.setMusculo_2(tbE2.getText().toString().trim());
+                            sesion.setMusculo_3(tbE3.getText().toString().trim());
+                            sesion.setMusculo_4(tbE4.getText().toString().trim());
+
+                            //Mandamos el temario
+                            interfaz.AceptarModificar(sesion);
+                            dialog.dismiss();
+                        }
+                        else {
+                            LogeoActivity.centralizarToast(context, "Parece que ya tienes una sesión con " +
+                                    "dicho nombre ya insertada");
+                        }
+                    }
+                    catch (Exception err) {
+                        LogeoActivity.centralizarToast(context, err.getMessage());
+                    }
                 }
                 else {
                     LogeoActivity.centralizarToast(context, "Los campos de texto deben de tener mínimo 5 carácteres");

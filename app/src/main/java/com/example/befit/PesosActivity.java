@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class PesosActivity extends AppCompatActivity implements DialogoConfirmacion.MiDialogListener {
+public class PesosActivity extends AppCompatActivity implements DialogoConfirmacion.MiDialogListener, DialogoModificar.DialogoModificarListener {
 
     int identificador;                      //Identificador de la sesión
 
@@ -133,7 +133,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             case android.R.id.home: this.finish();
             break;
             case R.id.itemModificar: {
-                new DialogoModificar(context);
+                new DialogoModificar(context, PesosActivity.this);
             }
             break;
             case R.id.itemBorrar: {
@@ -217,5 +217,10 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                 dialogFragment.show(getSupportFragmentManager(), "error");
             }
         }
+    }
+
+    @Override
+    public void AceptarModificar(VOSesion Sesion) {
+
     }
 }
