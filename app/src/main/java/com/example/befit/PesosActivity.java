@@ -1,5 +1,6 @@
 package com.example.befit;
 
+import android.content.Context;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     int identificador;                      //Identificador de la sesión
 
     final String BORRADO = "borrar";
+
+    Context context;                        //Contexto para el diálogo personalizado
 
     //Controles
     TextView tbNombre;
@@ -34,6 +37,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesos);
+        context = this;
 
         //IDS
         tbNombre = (TextView)findViewById(R.id.labNombreSesion);
@@ -127,6 +131,10 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
         switch (item.getItemId()) {
             case android.R.id.home: this.finish();
+            break;
+            case R.id.itemModificar: {
+                new DialogoModificar(context);
+            }
             break;
             case R.id.itemBorrar: {
                 //Cuadro de diálogo
