@@ -10,17 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ListView
-            android:id="@+id/lvSesiones"
-            android:layout_width="362dp"
-            android:layout_height="446dp"
-            android:layout_marginBottom="28dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatingUpdate"
             android:layout_width="wrap_content"
@@ -33,5 +22,43 @@
             android:src="@drawable/ic_update"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layoutSesiones"
+            android:layout_width="wrap_content"
+            android:layout_height="495dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/tbBuscador"
+                android:layout_width="359dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Busca tu sesión"
+                android:inputType="textPersonName"
+                android:text=""
+                app:layout_constraintBottom_toTopOf="@+id/lvSesiones"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.48"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ListView
+                android:id="@+id/lvSesiones"
+                android:layout_width="362dp"
+                android:layout_height="446dp"
+                android:layout_marginBottom="28dp"
+                app:layout_constraintBottom_toTopOf="@+id/floatingUpdate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tbBuscador" />
+
+        </LinearLayout>
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>
