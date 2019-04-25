@@ -8,11 +8,14 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -33,6 +36,7 @@ public class SesionesFragment extends Fragment {
     //Controles
     View view;
     ListView lvSesiones;
+    EditText tbbuscar;
     FloatingActionButton floatingUpdate;
 
     public SesionesFragment() {
@@ -98,6 +102,35 @@ public class SesionesFragment extends Fragment {
             public void onClick(View v) {
                 LeerBD();
                 LogeoActivity.centralizarToast(getContext(), "Lista actualizada");
+            }
+        });
+        tbbuscar = (EditText)view.findViewById(R.id.tbBuscador);
+        tbbuscar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    adaptadorLV.Filtrar(tbbuscar.getText().toString());
+                }
+                catch (Exception err) {
+                    DialogFragment dialogFragment = new DialogoAlerta();
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("MENSAJE", err.getMessage());
+                    dialogFragment.setArguments(bundle);
+
+                    dialogFragment.show(getFragmentManager(), "error");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 
