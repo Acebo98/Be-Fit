@@ -101,7 +101,7 @@ public class SesionesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 LeerBD();
-                LogeoActivity.centralizarToast(getContext(), "Lista actualizada");
+                LogeoActivity.centralizarToast(getContext(), "Lista Actualizada");
             }
         });
         tbbuscar = (EditText)view.findViewById(R.id.tbBuscador);
@@ -131,6 +131,14 @@ public class SesionesFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
 
+            }
+        });
+        tbbuscar.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus == false) {
+                    tbbuscar.getText().clear();
+                }
             }
         });
 
