@@ -184,10 +184,8 @@ public class DAOSesiones {
     public void UpdateFecha(int Id) throws Exception {
         try {
             //Fecha de hoy
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            String hoy = simpleDateFormat.format(new Date());
             ContentValues values = new ContentValues();
-            values.put("actualizacion", hoy);
+            values.put("actualizacion", this.sacarFechaHoy());
 
             //Actualizamos
             database.update(BeFitDB.Structure.SESIONES, values, BaseColumns._ID + " = ?",
