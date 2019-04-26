@@ -28,7 +28,7 @@ import static android.app.Activity.RESULT_OK;
 public class SesionesFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-    
+
     AdaptadorLV adaptadorLV;                //Adaptador
     final int ACTUALIZAR = 1111;            //Constante de que es necesario actualizar la lista
 
@@ -65,7 +65,7 @@ public class SesionesFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
                     //Miramos si hay sesiones
-                    if (new DAOSesiones(getContext()).ReadSesiones().size() > 0) {
+                    if (new DAOSesiones(getContext()).ReadSesiones().size() == lvSesiones.getCount()) {
                         VOSesion sesion = (VOSesion) adaptadorLV.getItem(position);
 
                         //Bundle de datos con el identificador
@@ -78,7 +78,7 @@ public class SesionesFragment extends Fragment {
                         startActivityForResult(intent, ACTUALIZAR);
                     }
                     else {
-                        LogeoActivity.centralizarToast(getContext(), "Parece que tu lista no está actualizada");
+                        LogeoActivity.centralizarToast(getContext(), "Parece que tu lista no está sincronizada");
                         LeerBD();
                     }
                 }
