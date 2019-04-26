@@ -182,16 +182,6 @@ public class SesionesFragment extends Fragment {
         mListener = null;
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == ACTUALIZAR) {
-            if (resultCode == RESULT_OK) {
-                //Si se ha borrado actualizamos la lista para que no salga la sesión recién borrada
-                LeerBD();
-            }
-        }
-    }
-
     //Interfaz del fragmento. IMPORTANTE AÑADIRLO A LA ACTIVIDAD QUE RECOGE TODOS LOS FRAGMENTOS
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
