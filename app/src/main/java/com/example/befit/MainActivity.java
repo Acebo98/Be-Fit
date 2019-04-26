@@ -28,6 +28,11 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
     final String CERRAR = "cerrar";
 
+    //INSTANCIAS DE LOS FRAGMENTOS A UTILIZAR
+    SesionesFragment sesionesFragment;
+    NSesionFragment nSesionFragment;
+
+    //Tablayout
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     TabLayout tabLayout;
@@ -179,7 +184,20 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
         @Override
         public Fragment getItem(int position) {
-            return PlaceholderFragment.newInstance(position + 1);
+
+            //Obtenemos el fragmento
+            Fragment fragment = PlaceholderFragment.newInstance(position + 1);
+
+            //Lo guardamos como instancia para utilizarlo
+            if (position == 0) {
+                sesionesFragment = (SesionesFragment) fragment;
+            }
+            else if (position == 1) {
+                nSesionFragment = (NSesionFragment) fragment;
+            }
+
+            //Lo retornamos para que se muestre en pantalla
+            return fragment;
         }
 
         @Override
