@@ -99,6 +99,10 @@ public class NSesionFragment extends Fragment {
                             //Informamos de que haya ido bien la cosa
                             LogeoActivity.centralizarToast(getContext(), "Sesión insertada");
                             LimpiarUI();
+
+                            //NOS COMUNICAMOS MEDIANTE LA INTERFAZ CON LA ACTIVIDAD MAIN PARA QUE SE ACTUALICE
+                            //LA LISTVIEW
+                            mListener.onFragmentInteraction(Uri.parse("actualiza"));
                         }
                         else {
                             LogeoActivity.centralizarToast(getContext(), "Parece que ya tienes una sesión con " +

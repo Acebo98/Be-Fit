@@ -125,9 +125,12 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         return super.onOptionsItemSelected(item);
     }
 
+    //Interfaz para que los fragmenos nos envien cosicas
     @Override
     public void onFragmentInteraction(Uri uri) {
-        //Nada que hacer
+        if (uri.toString() == "actualiza") {
+            sesionesFragment.LeerBD();
+        }
     }
 
     @Override
