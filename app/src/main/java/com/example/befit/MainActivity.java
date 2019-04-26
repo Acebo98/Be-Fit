@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         NSesionFragment.OnFragmentInteractionListener, DialogoConfirmacion.MiDialogListener {
 
     final String CERRAR = "cerrar";
+    final int ACTUALIZAR = 1111;
 
     //INSTANCIAS DE LOS FRAGMENTOS A UTILIZAR
     SesionesFragment sesionesFragment;
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         switch (item.getItemId()) {
             case R.id.itemPerfil: {
                 Intent intent = new Intent(MainActivity.this, PerfilActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, ACTUALIZAR);
             }
             break;
             case R.id.itemAyuda: {
@@ -133,6 +134,15 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     public void onDialogPositiveClick(DialogFragment dialog) {
         if (dialog.getTag() == CERRAR) {
             this.finish();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == ACTUALIZAR) {
+            if (resultCode == RESULT_OK) {
+                sesionesFragment.LeerBD();
+            }
         }
     }
 

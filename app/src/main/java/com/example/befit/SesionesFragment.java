@@ -149,7 +149,7 @@ public class SesionesFragment extends Fragment {
     }
 
     //Leemos los entrenamientos de la base de datos
-    private void LeerBD() {
+    public void LeerBD() {
         try {
             lSesiones = new DAOSesiones(getContext()).ReadSesiones();
             adaptadorLV = new AdaptadorLV(getActivity().getApplicationContext(), lSesiones);

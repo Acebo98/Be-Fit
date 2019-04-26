@@ -185,6 +185,7 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
         if (dialog.getTag() == MODIF) {
+            //Modificamos los datos del usuario
             String usuario = tbNombre.getText().toString().trim();
             String contra = tbContra.getText().toString().trim();
             ModifyData(usuario, contra);
@@ -195,6 +196,9 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
                 new DAOSesiones(getApplicationContext()).DeleteSesiones();
                 ReadUserData();
                 LogeoActivity.centralizarToast(getApplicationContext(), "Sesiones borradas");
+
+                //Resultado OK
+                setResult(RESULT_OK);
             }
             catch (Exception err) {
                 DialogFragment dialogFragment = new DialogoAlerta();
