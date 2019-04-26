@@ -53,7 +53,7 @@ public class AdaptadorLV extends BaseAdapter {
 
     //Filtrador
     public void Filtrar(String nombre) throws Exception {
-        /*lSesiones.clear();                                          //Limpiamos la listview
+        lSesiones.clear();                                          //Limpiamos la listview
         lSesionesCopia = new DAOSesiones(context).ReadSesiones();   //Copia de la base de datos
 
         //Si no hay texto cargamos todos los datos
@@ -69,6 +69,6 @@ public class AdaptadorLV extends BaseAdapter {
         }
 
         //Notificamos de los campos
-        this.notifyDataSetChanged();*/
+        this.notifyDataSetChanged();
     }
 }

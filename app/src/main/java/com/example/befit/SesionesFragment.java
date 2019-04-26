@@ -28,8 +28,7 @@ import static android.app.Activity.RESULT_OK;
 public class SesionesFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-
-    ArrayList<VOSesion> lSesiones;          //Lista de las sesiones
+    
     AdaptadorLV adaptadorLV;                //Adaptador
     final int ACTUALIZAR = 1111;            //Constante de que es necesario actualizar la lista
 
@@ -67,7 +66,7 @@ public class SesionesFragment extends Fragment {
                 try {
                     //Miramos si hay sesiones
                     if (new DAOSesiones(getContext()).ReadSesiones().size() > 0) {
-                        VOSesion sesion = lSesiones.get(position);
+                        VOSesion sesion = (VOSesion) adaptadorLV.getItem(position);
 
                         //Bundle de datos con el identificador
                         Bundle bundle = new Bundle();
@@ -142,8 +141,8 @@ public class SesionesFragment extends Fragment {
     //Leemos los entrenamientos de la base de datos
     public void LeerBD() {
         try {
-            lSesiones = new DAOSesiones(getContext()).ReadSesiones();
-            adaptadorLV = new AdaptadorLV(getActivity().getApplicationContext(), lSesiones);
+            adaptadorLV = new AdaptadorLV(getActivity().getApplicationContext(),
+                    new DAOSesiones(getContext()).ReadSesiones());
             lvSesiones.setAdapter(adaptadorLV);
         }
         catch (Exception err) {
