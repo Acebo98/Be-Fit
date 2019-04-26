@@ -37,7 +37,6 @@ public class SesionesFragment extends Fragment {
     View view;
     ListView lvSesiones;
     EditText tbbuscar;
-    FloatingActionButton floatingUpdate;
 
     public SesionesFragment() {
         // Required empty public constructor
@@ -94,14 +93,6 @@ public class SesionesFragment extends Fragment {
 
                     dialogFragment.show(getFragmentManager(), "error");
                 }
-            }
-        });
-        floatingUpdate = view.findViewById(R.id.floatingUpdate);
-        floatingUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LeerBD();
-                LogeoActivity.centralizarToast(getContext(), "Lista Actualizada");
             }
         });
         tbbuscar = (EditText)view.findViewById(R.id.tbBuscador);
