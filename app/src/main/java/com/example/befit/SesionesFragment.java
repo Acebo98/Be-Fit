@@ -158,6 +158,14 @@ public class SesionesFragment extends Fragment {
         }
     }
 
+    //Método llamado por todos los fragmentos contenidos en esta actividad!!!!
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == ACTUALIZAR || requestCode == 66647) {
+            this.LeerBD();
+        }
+    }
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
