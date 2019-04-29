@@ -64,7 +64,7 @@ public class SesionesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
-                    //Miramos si hay sesiones
+                    //Miramos si la lista está sincronizada
                     if (new DAOSesiones(getContext()).ReadSesiones().size() == lvSesiones.getCount()) {
                         VOSesion sesion = (VOSesion) adaptadorLV.getItem(position);
 
@@ -165,7 +165,6 @@ public class SesionesFragment extends Fragment {
         }
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -191,7 +190,6 @@ public class SesionesFragment extends Fragment {
 
     //Interfaz del fragmento. IMPORTANTE AÑADIRLO A LA ACTIVIDAD QUE RECOGE TODOS LOS FRAGMENTOS
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }
