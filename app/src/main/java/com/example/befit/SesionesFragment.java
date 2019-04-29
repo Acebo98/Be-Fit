@@ -42,7 +42,7 @@ public class SesionesFragment extends Fragment {
     }
 
     //Creación del fragment
-    public static SesionesFragment newInstance(String param1, String param2) {
+    public static SesionesFragment newInstance() {
         SesionesFragment fragment = new SesionesFragment();
         return fragment;
     }
@@ -64,23 +64,16 @@ public class SesionesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
-                    //Miramos si la lista está sincronizada
-                    if (new DAOSesiones(getContext()).ReadSesiones().size() == lvSesiones.getCount()) {
-                        VOSesion sesion = (VOSesion) adaptadorLV.getItem(position);
+                    VOSesion sesion = (VOSesion) adaptadorLV.getItem(position);
 
-                        //Bundle de datos con el identificador
-                        Bundle bundle = new Bundle();
-                        bundle.putInt("ID", sesion.getIdentificador());
+                    //Bundle de datos con el identificador
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("ID", sesion.getIdentificador());
 
-                        //Intent
-                        Intent intent = new Intent(getContext(), PesosActivity.class);
-                        intent.putExtras(bundle);
-                        startActivityForResult(intent, ACTUALIZAR);
-                    }
-                    else {
-                        LogeoActivity.centralizarToast(getContext(), "Parece que tu lista no está sincronizada");
-                        LeerBD();
-                    }
+                    //Intent
+                    Intent intent = new Intent(getContext(), PesosActivity.class);
+                    intent.putExtras(bundle);
+                    startActivityForResult(intent, ACTUALIZAR);
                 }
                 catch (Exception err) {
                     DialogFragment dialogFragment = new DialogoAlerta();
@@ -98,7 +91,7 @@ public class SesionesFragment extends Fragment {
         tbbuscar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+                //Nada que hacer...
             }
 
             @Override
@@ -120,7 +113,7 @@ public class SesionesFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                //Nada que hacer...
             }
         });
         tbbuscar.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -132,18 +125,21 @@ public class SesionesFragment extends Fragment {
             }
         });
 
-        //Leemos los datos
+        //Leemos de la base de datos
         LeerBD();
 
         return view;
     }
 
-    //Leemos los entrenamientos de la base de datos
+    //Leemos los entrenamientos de la base de datos (TIENE QUE SER PUBLICO)
     public void LeerBD() {
         try {
             adaptadorLV = new AdaptadorLV(getActivity().getApplicationContext(),
                     new DAOSesiones(getContext()).ReadSesiones());
             lvSesiones.setAdapter(adaptadorLV);
+
+            //Filtramos
+            adaptadorLV.Filtrar(tbbuscar.getText().toString());
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();
@@ -154,20 +150,6 @@ public class SesionesFragment extends Fragment {
             dialogFragment.setArguments(bundle);
 
             dialogFragment.show(getFragmentManager(), "error");
-        }
-    }
-
-    //Método llamado por todos los fragmentos contenidos en esta actividad!!!!
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //if (requestCode == ACTUALIZAR || requestCode == 66647) {
-            //this.LeerBD();
-        //}
-    }
-
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
         }
     }
 

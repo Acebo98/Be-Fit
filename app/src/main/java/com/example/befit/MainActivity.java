@@ -172,10 +172,6 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                 break;
             }
 
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            //fragment.setArguments(args);
-
             return fragment;
         }
 

@@ -39,7 +39,7 @@ public class NSesionFragment extends Fragment {
     }
 
     //Creación del fragment
-    public static NSesionFragment newInstance(String param1, String param2) {
+    public static NSesionFragment newInstance() {
         NSesionFragment fragment = new NSesionFragment();
         return fragment;
     }
@@ -128,12 +128,6 @@ public class NSesionFragment extends Fragment {
         });
 
         return view;
-    }
-
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override
