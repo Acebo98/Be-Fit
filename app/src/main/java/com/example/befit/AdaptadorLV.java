@@ -58,7 +58,7 @@ public class AdaptadorLV extends BaseAdapter {
 
         //Si no hay texto cargamos todos los datos
         if (nombre.trim().length() == 0) {
-            lSesiones.addAll(new DAOSesiones(context).ReadSesiones());
+            lSesiones.addAll(lSesionesCopia);
         }
         else {
             for (VOSesion sesion : lSesionesCopia) {
