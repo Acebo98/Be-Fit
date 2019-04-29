@@ -161,7 +161,7 @@ public class SesionesFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         //if (requestCode == ACTUALIZAR || requestCode == 66647) {
-            this.LeerBD();
+            //this.LeerBD();
         //}
     }
 
