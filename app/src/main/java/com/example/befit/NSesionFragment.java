@@ -20,7 +20,7 @@ import java.util.Date;
 
 public class NSesionFragment extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
+    public OnFragmentInteractionListener mListener;
 
     TabLayout tabLayout;
 
@@ -31,7 +31,6 @@ public class NSesionFragment extends Fragment {
     EditText tbM2;
     EditText tbM3;
     EditText tbM4;
-    FloatingActionButton floatingAdd;
     ArrayList<EditText> lCampos = new ArrayList<>();
 
     public NSesionFragment() {
@@ -62,7 +61,6 @@ public class NSesionFragment extends Fragment {
         tbM3 = view.findViewById(R.id.tbM3);
         tbM4 = view.findViewById(R.id.tbM4);
         tabLayout = view.findViewById(R.id.tabLayout);
-        floatingAdd = view.findViewById(R.id.floatingAdd);
 
         //Lista de campos de texto
         lCampos.add(tbNombre);
@@ -70,62 +68,6 @@ public class NSesionFragment extends Fragment {
         lCampos.add(tbM2);
         lCampos.add(tbM3);
         lCampos.add(tbM4);
-
-        //Controles
-        floatingAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    if (ComprobarCampos() == true) {
-                        if (new DAOSesiones(getContext()).ExistirSesion(tbNombre.getText().toString().trim()) == true) {
-                            VOSesion sesion = new VOSesion();
-
-                            //Recogemos los datos de la sesión
-                            sesion.setNombre(tbNombre.getText().toString().trim());
-                            sesion.setMusculo_1(tbM1.getText().toString().trim());
-                            sesion.setMusculo_2(tbM2.getText().toString().trim());
-                            sesion.setMusculo_3(tbM3.getText().toString().trim());
-                            sesion.setMusculo_4(tbM4.getText().toString().trim());
-                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                            sesion.setActualizacion(simpleDateFormat.format(new Date()));
-
-                            //Primero insertamos la sesión y obtenemos su ID
-                            new DAOSesiones(getContext()).InsertSesion(sesion);
-                            int IdSesion = new DAOSesiones(getContext()).SacarIdentificador(sesion.getNombre());
-
-                            //Finalmente insertamos su peso por defecto
-                            new DAOPesos(getContext()).InsertarPeso(IdSesion);
-
-                            //Informamos de que haya ido bien la cosa
-                            LogeoActivity.centralizarToast(getContext(), "Sesión insertada");
-                            LimpiarUI();
-
-                            //NOS COMUNICAMOS MEDIANTE LA INTERFAZ CON LA ACTIVIDAD MAIN PARA QUE SE ACTUALICE
-                            //LA LISTVIEW
-                            mListener.onFragmentInteraction(Uri.parse("actualiza"));
-                        }
-                        else {
-                            LogeoActivity.centralizarToast(getContext(), "Parece que ya tienes una sesión con " +
-                                    "dicho nombre ya insertada");
-                        }
-                    }
-                    else {
-                        LogeoActivity.centralizarToast(getContext(), "Los campos de texto deben de tener mínimo " +
-                                "5 carácteres");
-                    }
-                }
-                catch (Exception err) {
-                    DialogFragment dialogFragment = new DialogoAlerta();
-                    Bundle bundle = new Bundle();
-
-                    bundle.putString("TITULO", "Ha ocurrido un Error");
-                    bundle.putString("MENSAJE", err.getMessage());
-                    dialogFragment.setArguments(bundle);
-
-                    dialogFragment.show(getFragmentManager(), "error");
-                }
-            }
-        });
 
         return view;
     }
@@ -148,7 +90,7 @@ public class NSesionFragment extends Fragment {
     }
 
     //Comprobamos que todos los campos estén rellenos
-    private boolean ComprobarCampos() {
+    public boolean ComprobarCampos() {
         for (EditText campo : lCampos) {
             if (campo.getText().toString().trim().length() < 5) {
                 return false;
@@ -157,8 +99,8 @@ public class NSesionFragment extends Fragment {
         return true;
     }
 
-    //Limpiamos los campos de texto (SIN UTILIZAR)
-    private void LimpiarUI() {
+    //Limpiamos los campos de texto
+    public void LimpiarUI() {
         for (EditText campo : lCampos) {
             campo.getText().clear();
         }

@@ -23,11 +23,16 @@ import android.view.ViewGroup;
 
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
         NSesionFragment.OnFragmentInteractionListener, DialogoConfirmacion.MiDialogListener {
 
     final String CERRAR = "cerrar";
     final int ACTUALIZAR = 1111;
+
+    FloatingActionButton floatingAdd;
 
     //INSTANCIAS DE LOS FRAGMENTOS A UTILIZAR
     SesionesFragment sesionesFragment;
@@ -57,6 +62,63 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         tabLayout.setupWithViewPager(mViewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_dumbell);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_sesion);
+
+        //Floatingbtn
+        floatingAdd = (FloatingActionButton)findViewById(R.id.floatingAdd);
+        floatingAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    if (nSesionFragment.ComprobarCampos() == true) {
+                        if (new DAOSesiones(getApplicationContext()).ExistirSesion(nSesionFragment.tbNombre.getText().toString().trim()) == true) {
+                            VOSesion sesion = new VOSesion();
+
+                            //Recogemos los datos de la sesión
+                            sesion.setNombre(nSesionFragment.tbNombre.getText().toString().trim());
+                            sesion.setMusculo_1(nSesionFragment.tbM1.getText().toString().trim());
+                            sesion.setMusculo_2(nSesionFragment.tbM2.getText().toString().trim());
+                            sesion.setMusculo_3(nSesionFragment.tbM3.getText().toString().trim());
+                            sesion.setMusculo_4(nSesionFragment.tbM4.getText().toString().trim());
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                            sesion.setActualizacion(simpleDateFormat.format(new Date()));
+
+                            //Primero insertamos la sesión y obtenemos su ID
+                            new DAOSesiones(getApplicationContext()).InsertSesion(sesion);
+                            int IdSesion = new DAOSesiones(getApplicationContext()).SacarIdentificador(sesion.getNombre());
+
+                            //Finalmente insertamos su peso por defecto
+                            new DAOPesos(getApplicationContext()).InsertarPeso(IdSesion);
+
+                            //Informamos de que haya ido bien la cosa
+                            LogeoActivity.centralizarToast(getApplicationContext(), "Sesión insertada");
+                            nSesionFragment.LimpiarUI();
+
+                            //NOS COMUNICAMOS MEDIANTE LA INTERFAZ CON LA ACTIVIDAD MAIN PARA QUE SE ACTUALICE
+                            //LA LISTVIEW
+                            nSesionFragment.mListener.onFragmentInteraction(Uri.parse("actualiza"));
+                        }
+                        else {
+                            LogeoActivity.centralizarToast(getApplicationContext(), "Parece que ya tienes una sesión con " +
+                                    "dicho nombre ya insertada");
+                        }
+                    }
+                    else {
+                        LogeoActivity.centralizarToast(getApplicationContext(), "Los campos de texto deben de tener mínimo " +
+                                "5 carácteres");
+                    }
+                }
+                catch (Exception err) {
+                    DialogFragment dialogFragment = new DialogoAlerta();
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("MENSAJE", err.getMessage());
+                    dialogFragment.setArguments(bundle);
+
+                    dialogFragment.show(getSupportFragmentManager(), "error");
+                }
+            }
+        });
 
         //Mensaje de bienvenida con el nombre de la persona
         LogeoActivity.centralizarToast(getApplicationContext(), "Bienvenid@ " + SacarNombre());
