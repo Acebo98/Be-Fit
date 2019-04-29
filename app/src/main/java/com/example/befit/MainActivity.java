@@ -143,9 +143,9 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     //Método llamado por todos los fragmentos contenidos en esta actividad!!!!
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == ACTUALIZAR || requestCode == 66647) {
+        //if (requestCode == ACTUALIZAR || requestCode == 66647) {
             sesionesFragment.LeerBD();
-        }
+        //}
     }
 
     //CLASE QUE CONTROLA LA SELECCIÓN DE FRAGMENTOS
