@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.io.IOError;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class DAOPesos {
 
@@ -28,6 +30,7 @@ public class DAOPesos {
             values.put("peso_3", peso.getPeso_3());
             values.put("peso_4", peso.getPeso_4());
             values.put("notas", peso.getNotas());
+            values.put("fecha_peso", sacarFechaHoy());
             values.put("idSesion", peso.getIdSesion());
 
             //Insertamos
@@ -44,7 +47,7 @@ public class DAOPesos {
 
         try {
             Cursor c = database.rawQuery("SELECT * FROM " + BeFitDB.Structure.PESOS + " " +
-                    "WHERE idSesion = ?", new String[] {String.valueOf(IdSesion)});
+                    "WHERE idSesion = ? ORDER BY fecha_peso DESC", new String[] {String.valueOf(IdSesion)});
             c.moveToNext();
 
             //Sacamos los datos
@@ -55,7 +58,7 @@ public class DAOPesos {
             peso.setPeso_3(c.getString(3));
             peso.setPeso_4(c.getString(4));
             peso.setNotas(c.getString(5));
-            peso.setIdSesion(c.getInt(6));
+            peso.setIdSesion(c.getInt(7));
         }
         catch (Exception err) {
             peso = null;
@@ -93,5 +96,12 @@ public class DAOPesos {
         catch (Exception err) {
             throw new Exception(err.getMessage());
         }
+    }
+
+    //Sacamos la fecha de hoy
+    private String sacarFechaHoy() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String hoy = simpleDateFormat.format(new Date());
+        return hoy;
     }
 }

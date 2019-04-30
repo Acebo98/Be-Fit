@@ -7,6 +7,7 @@ public class VOPeso {
     private String Peso_3;
     private String Peso_4;
     private String Notas;
+    private String Fecha_Peso;
     private int IdSesion;
 
     //Setters
@@ -25,12 +26,11 @@ public class VOPeso {
     public void setPeso_4(String peso_4) {
         Peso_4 = peso_4;
     }
-    public void setIdSesion(int idSesion) {
-        IdSesion = idSesion;
-    }
     public void setNotas(String notas) {
         Notas = notas;
     }
+    public void setFecha_Peso(String fecha_Peso) { Fecha_Peso = fecha_Peso; }
+    public void setIdSesion(int idSesion) { IdSesion = idSesion; }
 
     //Getters
     public int getIdentificador() {
@@ -51,6 +51,7 @@ public class VOPeso {
     public String getNotas() {
         return Notas;
     }
+    public String getFecha_Peso() { return Fecha_Peso; }
     public int getIdSesion() {
         return IdSesion;
     }
