@@ -63,8 +63,33 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_dumbell);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_sesion);
 
+        //Evento para mostrar el floatingbutton
+        tabLayout.setOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if (tab.getPosition() == 1) {
+                    floatingAdd.show();
+                    //floatingAdd.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                if (tab.getPosition() == 1) {
+                    floatingAdd.hide();
+                    //floatingAdd.setEnabled(false);
+                }
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                //No hacer nada...
+            }
+        });
+
         //Floatingbtn
         floatingAdd = (FloatingActionButton)findViewById(R.id.floatingAdd);
+        floatingAdd.hide();   //Lo escondemos al principio
         floatingAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
