@@ -104,7 +104,7 @@ public class DAOSesiones {
         }
     }
 
-    //Read
+    //Read (leer los datos para el ListView)
     public ArrayList<VOSesion> ReadSesiones() throws Exception {
         ArrayList<VOSesion> lSesiones = null;
 
@@ -112,7 +112,7 @@ public class DAOSesiones {
             lSesiones = new ArrayList<>();
 
             //Leemos los datos
-            Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion " +
+            Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion, tag " +
                     "FROM " + BeFitDB.Structure.SESIONES + " ORDER BY actualizacion DESC", null);
 
             //Recorremos el cursor
@@ -120,6 +120,7 @@ public class DAOSesiones {
                 while (c.moveToNext() == true) {
                     VOSesion sesion = new VOSesion(c.getString(1), c.getString(2));
                     sesion.setIdentificador(c.getInt(0));
+                    sesion.setTag(c.getString(3));
                     lSesiones.add(sesion);
                 }
             }

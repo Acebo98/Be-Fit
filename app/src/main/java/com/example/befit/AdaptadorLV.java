@@ -43,10 +43,12 @@ public class AdaptadorLV extends BaseAdapter {
         //Textos a mostrar
         TextView txtNombre = (TextView) convertView.findViewById(R.id.txtItemNombre);
         TextView txtActu = (TextView) convertView.findViewById(R.id.txtItemActu);
+        TextView txtTag = (TextView) convertView.findViewById(R.id.tbTagItem);
 
         //Asignamos el texto
         txtNombre.setText(sesion.getNombre());
         txtActu.setText(sesion.getActualizacion());
+        txtTag.setText(sesion.getTag());
 
         return convertView;
     }
