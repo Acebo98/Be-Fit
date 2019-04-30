@@ -1,24 +1,29 @@
 package com.example.befit;
 
 public class VOSesion {
+    private char Activo;
     private int Identificador;
     private String Nombre;
     private String Musculo_1;
     private String Musculo_2;
     private String Musculo_3;
     private String Musculo_4;
+    private String Tag;
+    private String FechaCreacion;
     private String Actualizacion;
 
-    //Constructores
+    //Constructores (una sesión por defecto está activa cuando se introduce)
     public VOSesion() {
-
+        this.setActivo('s');
     }
     public VOSesion(String nombre, String actu) {
+        this.setActivo('s');
         this.setNombre(nombre);
         this.setActualizacion(actu);
     }
 
     //Getters
+    public char getActivo() { return Activo; }
     public int getIdentificador() {
         return Identificador;
     }
@@ -37,11 +42,14 @@ public class VOSesion {
     public String getMusculo_4() {
         return Musculo_4;
     }
-    public String getActualizacion() {
-        return Actualizacion;
-    }
+    public String getTag() { return this.Tag; }
+    public String getFechaCreacion() { return this.FechaCreacion; }
+    public String getActualizacion() { return Actualizacion; }
 
     //Setters
+    public void setActivo(char activo) {
+        Activo = activo;
+    }
     public void setIdentificador(int identificador) {
         Identificador = identificador;
     }
@@ -59,6 +67,12 @@ public class VOSesion {
     }
     public void setMusculo_4(String musculo_4) {
         Musculo_4 = musculo_4;
+    }
+    public void setTag(String tag) {
+        Tag = tag;
+    }
+    public void setFechaCreacion(String fechaCreacion) {
+        FechaCreacion = fechaCreacion;
     }
     public void setActualizacion(String actualizacion) {
         Actualizacion = actualizacion;
