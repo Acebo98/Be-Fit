@@ -6,12 +6,12 @@
     <item
         android:id="@+id/itemModificarPerfil"
         android:icon="@drawable/ic_modify_btn_layer"
-        android:title="@string/perfil_usuario"
+        android:title="@string/modificar_perfil"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/itemDeleteFitness"
         android:icon="@drawable/ic_remove_fitness"
-        android:title="@string/perfil_usuario"
+        android:title="@string/borrar_sesiones"
         app:showAsAction="always" />
 </menu>

@@ -14,7 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -26,6 +28,7 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
     EditText tbContra;
     TextView labModificacion;
     TextView labEntrenamientos;
+    Switch switchModificar;
 
     final String MODIF = "modif";
     final String BORRADO = "borrar";
@@ -44,6 +47,30 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
         tbNombre = (EditText)findViewById(R.id.tbMiNombre);
         labEntrenamientos = (TextView)findViewById(R.id.labNEntrenamientos);
         labModificacion = (TextView)findViewById(R.id.labUpdate);
+        switchModificar = (Switch)findViewById(R.id.switchAutomatico);
+        switchModificar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                try {
+                    SharedPreferences preferences = getSharedPreferences("Logeo", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+
+                    //Indicamos mediante el estado del switch
+                    editor.putBoolean("AUTOMATICO", isChecked);
+                    editor.commit();
+                }
+                catch (Exception err) {
+                    DialogFragment dialogFragment = new DialogoAlerta();
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("MENSAJE", err.getMessage());
+                    dialogFragment.setArguments(bundle);
+
+                    dialogFragment.show(getSupportFragmentManager(), "error");
+                }
+            }
+        });
 
         //Leemos los datos del usuario
         ReadUserData();
@@ -61,7 +88,6 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
                     String usuario = tbNombre.getText().toString().trim();
                     String contra = tbContra.getText().toString().trim();
                     if (IsDataCorrect(usuario, contra) == true) {
-
                         //Cuadro de diálogo
                         DialogoConfirmacion dialogoConfirmacion = new DialogoConfirmacion();
                         Bundle bundle = new Bundle();

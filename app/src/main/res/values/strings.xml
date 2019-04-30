@@ -23,6 +23,7 @@
     <string name="version">1.0.0</string>
     <string name="modificacion">Modificar Sesión</string>
     <string name="cancelar">Cancelar</string>
+    <string name="credenciales">Inicio de Sesión automático</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>
@@ -32,4 +33,6 @@
     <string name="perfil_usuario">Perfil de Usuario</string>
     <string name="ayuda">Ayuda</string>
     <string name="desconectar">Desconectar</string>
+    <string name="modificar_perfil">Modificar Perfil de Usuario</string>
+    <string name="borrar_sesiones">Borrar Sesiones</string>
 </resources>
