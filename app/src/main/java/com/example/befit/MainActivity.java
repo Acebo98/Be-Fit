@@ -108,8 +108,15 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                             new DAOSesiones(getApplicationContext()).InsertSesion(sesion);
                             int IdSesion = new DAOSesiones(getApplicationContext()).SacarIdentificador(sesion.getNombre());
 
-                            //Finalmente insertamos su peso por defecto
-                            new DAOPesos(getApplicationContext()).InsertarPeso(IdSesion);
+                            //Finalmente insertamos su peso por defecto (5kgs)
+                            VOPeso NPeso = new VOPeso();
+                            NPeso.setPeso_1("5kg");
+                            NPeso.setPeso_2("5kg");
+                            NPeso.setPeso_3("5kg");
+                            NPeso.setPeso_4("5kg");
+                            NPeso.setNotas("Escribe aquí tus notas...");
+                            NPeso.setIdSesion(IdSesion);
+                            new DAOPesos(getApplicationContext()).InsertarPeso(NPeso);
 
                             //Informamos de que haya ido bien la cosa
                             LogeoActivity.centralizarToast(getApplicationContext(), "Sesión Insertada");

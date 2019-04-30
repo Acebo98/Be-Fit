@@ -17,18 +17,18 @@ public class DAOPesos {
         database = beFitDB.getWritableDatabase();
     }
 
-    //Insertamos un peso por defecto a partir del identificador de la sesión a la que está relacionada
-    public void InsertarPeso(int IdSesion) throws Exception {
+    //Insertamos un peso
+    public void InsertarPeso(VOPeso peso) throws Exception {
         try {
             ContentValues values = new ContentValues();
 
             //Datos de la insercción
-            values.put("peso_1", "5kg");
-            values.put("peso_2", "5kg");
-            values.put("peso_3", "5kg");
-            values.put("peso_4", "5kg");
-            values.put("notas", "Escribe aquí tus notas");
-            values.put("idSesion", IdSesion);
+            values.put("peso_1", peso.getPeso_1());
+            values.put("peso_2", peso.getPeso_2());
+            values.put("peso_3", peso.getPeso_3());
+            values.put("peso_4", peso.getPeso_4());
+            values.put("notas", peso.getNotas());
+            values.put("idSesion", peso.getIdSesion());
 
             //Insertamos
             database.insert(BeFitDB.Structure.PESOS, null, values);
