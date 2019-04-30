@@ -34,8 +34,14 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
         btnConectar.setOnClickListener(this);
         btnFinalizar.setOnClickListener(this);
 
-        //Mostramos un cuadro de diálogo al usuario si no está registrado
-        ShowRegister();
+        //Comprobamos el incio de sesión automático. En caso contrario vemos si está el usuario registrado
+        if (ComprobarInicioAutomatico() == true) {
+            Intent intent = new Intent(LogeoActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
+        else {
+            ShowRegister();
+        }
     }
 
     @Override
@@ -69,7 +75,14 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
                     }
                 }
                 catch (Exception err) {
-                    centralizarToast(getApplicationContext(), err.getMessage());
+                    DialogFragment dialogFragment = new DialogoAlerta();
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("MENSAJE", err.getMessage());
+                    dialogFragment.setArguments(bundle);
+
+                    dialogFragment.show(getSupportFragmentManager(), "error");
                 }
             }
             break;
@@ -114,6 +127,29 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
 
             dialogFragment.show(getSupportFragmentManager(), "1111");
         }
+    }
+
+    //Comprobamos si está activo el inicio automático de sesión
+    private boolean ComprobarInicioAutomatico() {
+        SharedPreferences preferences = getSharedPreferences("Logeo", Context.MODE_PRIVATE);
+        boolean automatico = true;
+
+        try {
+            automatico = preferences.getBoolean("AUTOMATICO", false);
+        }
+        catch (Exception err) {
+            DialogFragment dialogFragment = new DialogoAlerta();
+            Bundle bundle = new Bundle();
+
+            bundle.putString("TITULO", "Ha ocurrido un Error");
+            bundle.putString("MENSAJE", err.getMessage());
+            dialogFragment.setArguments(bundle);
+
+            dialogFragment.show(getSupportFragmentManager(), "error");
+            automatico = false;
+        }
+
+        return automatico;
     }
 
     //Vemos si podemos conectarnos

@@ -72,6 +72,9 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
             }
         });
 
+        //Miramos si está el incio de sesión automático para actualizar el estado del botón al incio
+        switchModificar.setChecked(ComprobarInicioAutomatico());
+
         //Leemos los datos del usuario
         ReadUserData();
     }
@@ -189,6 +192,29 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
     //Comprobamos que sea correcto que el usuario se pueda registrar (Como en la actividad de logeo)
     private boolean IsDataCorrect(String usuario, String contrasena) {
         return usuario.length() >= 4 && contrasena.length() >= 4;
+    }
+
+    //Comprobamos si está activo el inicio automático de sesión
+    private boolean ComprobarInicioAutomatico() {
+        SharedPreferences preferences = getSharedPreferences("Logeo", Context.MODE_PRIVATE);
+        boolean automatico = true;
+
+        try {
+            automatico = preferences.getBoolean("AUTOMATICO", false);
+        }
+        catch (Exception err) {
+            DialogFragment dialogFragment = new DialogoAlerta();
+            Bundle bundle = new Bundle();
+
+            bundle.putString("TITULO", "Ha ocurrido un Error");
+            bundle.putString("MENSAJE", err.getMessage());
+            dialogFragment.setArguments(bundle);
+
+            dialogFragment.show(getSupportFragmentManager(), "error");
+            automatico = false;
+        }
+
+        return automatico;
     }
 
     @Override
