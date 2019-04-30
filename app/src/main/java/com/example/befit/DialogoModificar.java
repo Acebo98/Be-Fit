@@ -6,8 +6,10 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 
@@ -20,6 +22,8 @@ public class DialogoModificar {
     EditText tbE2;
     EditText tbE3;
     EditText tbE4;
+    Spinner spnTags;
+    String[] tags = new String[] {"Simple", "Moderado", "Complicado", "Cardio", "Pierna", "Tren Superior"};
     ArrayList<EditText> lCampos = new ArrayList<>();
 
     VOSesion Sesion;
@@ -51,6 +55,8 @@ public class DialogoModificar {
         tbE2 = (EditText) dialog.findViewById(R.id.tbNEjercicio2);
         tbE3 = (EditText) dialog.findViewById(R.id.tbNEjercicio3);
         tbE4 = (EditText) dialog.findViewById(R.id.tbNEjercicio4);
+        spnTags = (Spinner) dialog.findViewById(R.id.spnMiTag);
+        spnTags.setAdapter(new ArrayAdapter<String>(context, R.layout.support_simple_spinner_dropdown_item, tags));
         lCampos.add(tbE1);
         lCampos.add(tbE2);
         lCampos.add(tbE3);
@@ -63,6 +69,14 @@ public class DialogoModificar {
         tbE2.setHint(Sesion.getMusculo_2());
         tbE3.setHint(Sesion.getMusculo_3());
         tbE4.setHint(Sesion.getMusculo_4());
+
+        //Etiqueta
+        for (int i = 0; i < tags.length; i++) {
+            if (tags[i].equals(sesion.getTag())) {
+                spnTags.setSelection(i);
+                break;
+            }
+        }
 
         //Eventos
         btnAceptar.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +96,7 @@ public class DialogoModificar {
                             sesion.setMusculo_2(tbE2.getText().toString().trim());
                             sesion.setMusculo_3(tbE3.getText().toString().trim());
                             sesion.setMusculo_4(tbE4.getText().toString().trim());
+                            sesion.setTag(String.valueOf(spnTags.getSelectedItem()));
 
                             //Mandamos el temario
                             interfaz.AceptarModificar(sesion);

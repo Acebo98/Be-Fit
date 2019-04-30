@@ -221,6 +221,7 @@ public class DAOSesiones {
             values.put("musculo_2", NSesion.getMusculo_2());
             values.put("musculo_3", NSesion.getMusculo_3());
             values.put("musculo_4", NSesion.getMusculo_4());
+            values.put("tag", NSesion.getTag());
             values.put("actualizacion", this.sacarFechaHoy());
 
             //Realizamos la modificación

@@ -19,9 +19,11 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
     int identificador;                      //Identificador de la sesión
 
-    final String BORRADO = "borrar";
+    final String BORRADO = "borrar";        //Constante para el borrado
 
     Context context;                        //Contexto para el diálogo personalizado
+
+    VOSesion sesion;                        //Sesión en pantalla
 
     //Controles
     TextView tbNombre;
@@ -34,9 +36,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     EditText tbP3;
     EditText tbP4;
     EditText tbNotas;
-    Spinner spnTags;
     ArrayList<EditText> lCampos = new ArrayList<>();
-    String[] tags = new String[] {"Simple", "Moderado", "Complicado", "Cardio", "Pierna", "Tren Superior"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +55,6 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
         tbP3 = (EditText)findViewById(R.id.tbMiEjercicio3);
         tbP4 = (EditText)findViewById(R.id.tbMiEjercicio4);
         tbNotas = (EditText)findViewById(R.id.tbNotas);
-        spnTags = (Spinner)findViewById(R.id.spnMiTag);
-        spnTags.setAdapter(new ArrayAdapter<String>(getApplicationContext(),
-                R.layout.support_simple_spinner_dropdown_item, tags));
 
         //Campos de texto
         lCampos.add(tbP1);
@@ -81,7 +78,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     //Leemos los datos de la sesión
     private void LeerSesion() {
         try {
-            VOSesion sesion = new DAOSesiones(getApplicationContext()).SacarSesion(String.valueOf(identificador));
+            sesion = new DAOSesiones(getApplicationContext()).SacarSesion(String.valueOf(identificador));
 
             //Aplicamos los textos
             tbNombre.setText(sesion.getNombre());
@@ -89,22 +86,6 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             labm2.setText(sesion.getMusculo_2());
             labm3.setText(sesion.getMusculo_3());
             labm4.setText(sesion.getMusculo_4());
-
-            //Etiqueta
-            switch (sesion.getTag()) {
-                case "Simple": spnTags.setSelection(0);
-                    break;
-                case "Moderado": spnTags.setSelection(1);
-                    break;
-                case "Complicado": spnTags.setSelection(2);
-                    break;
-                case "Cardio": spnTags.setSelection(3);
-                    break;
-                case "Pierna": spnTags.setSelection(4);
-                    break;
-                case "Tren Superior": spnTags.setSelection(5);
-                    break;
-            }
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();
@@ -159,17 +140,18 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             case android.R.id.home: this.finish();
             break;
             case R.id.itemModificar: {
-                VOSesion sesion = new VOSesion();
+                VOSesion NSesion = new VOSesion();
 
                 //Datos de la sesion
-                sesion.setNombre(tbNombre.getText().toString().trim());
-                sesion.setMusculo_1(labm1.getText().toString().trim());
-                sesion.setMusculo_2(labm2.getText().toString().trim());
-                sesion.setMusculo_3(labm3.getText().toString().trim());
-                sesion.setMusculo_4(labm4.getText().toString().trim());
+                NSesion.setNombre(tbNombre.getText().toString().trim());
+                NSesion.setMusculo_1(labm1.getText().toString().trim());
+                NSesion.setMusculo_2(labm2.getText().toString().trim());
+                NSesion.setMusculo_3(labm3.getText().toString().trim());
+                NSesion.setMusculo_4(labm4.getText().toString().trim());
+                NSesion.setTag(sesion.getTag());
 
                 //Iniciamos el diálogo personalizado
-                new DialogoModificar(context, PesosActivity.this, sesion);
+                new DialogoModificar(context, PesosActivity.this, NSesion);
             }
             break;
             case R.id.itemBorrar: {
