@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tab.getPosition() == 1) {
                     floatingAdd.show();
-                    //floatingAdd.setEnabled(true);
                 }
             }
 
@@ -77,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             public void onTabUnselected(TabLayout.Tab tab) {
                 if (tab.getPosition() == 1) {
                     floatingAdd.hide();
-                    //floatingAdd.setEnabled(false);
                 }
             }
 

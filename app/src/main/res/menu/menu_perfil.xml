@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.befit.PerfilActivity">
+    <item
+        android:id="@+id/itemModificarPerfil"
+        android:icon="@drawable/ic_modify_btn_layer"
+        android:title="@string/perfil_usuario"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/itemDeleteFitness"
+        android:icon="@drawable/ic_remove_fitness"
+        android:title="@string/perfil_usuario"
+        app:showAsAction="always" />
+</menu>

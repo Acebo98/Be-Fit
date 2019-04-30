@@ -53,30 +53,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="15dp">
-
-        <Button
-            android:id="@+id/btnModificar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/modificar"
-            android:drawableLeft="@drawable/ic_modify_btn"/>
-
-        <Button
-            android:id="@+id/btnBorrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_remove_fitness"
-            android:text="@string/borrar"
-            android:textColor="@color/rojo" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginLeft="15dp">
 
