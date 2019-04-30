@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
 public class BeFitDB extends SQLiteOpenHelper {
 
     public BeFitDB(Context context) {
-        super(context, Structure.NOMBRE_BD, null, 2);
+        super(context, Structure.NOMBRE_BD, null, 4);
     }
 
     @Override
@@ -33,12 +33,15 @@ public class BeFitDB extends SQLiteOpenHelper {
 
     //Scripts de creación
     final String SCRIPT_SESIONES = "CREATE TABLE " + Structure.SESIONES + " (" +
+            "activo TEXT NOT NULL, " +
             BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "nombre TEXT NOT NULL, " +
             "musculo_1 TEXT NOT NULL, " +
             "musculo_2 TEXT NOT NULL, " +
             "musculo_3 TEXT NOT NULL, " +
             "musculo_4 TEXT NOT NULL, " +
+            "tag text NOT NULL, " +
+            "f_creacion NOT NULL, " +
             "actualizacion TEXT NOT NULL)";
     final String SCRIPT_PESOS = "CREATE TABLE " + Structure.PESOS + " (" +
             BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -47,5 +50,5 @@ public class BeFitDB extends SQLiteOpenHelper {
             "peso_3 TEXT NOT NULL, " +
             "peso_4 TEXT NOT NULL, " +
             "notas TEXT, " +
-            "idSesion INTEGER NOT NULL)";
+            "idSesion INTEGER NOT NULL)";       //Clave foránea
 }

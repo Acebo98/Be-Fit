@@ -1,7 +1,7 @@
 package com.example.befit;
 
 public class VOSesion {
-    private char Activo;
+    private String Activo;
     private int Identificador;
     private String Nombre;
     private String Musculo_1;
@@ -12,18 +12,19 @@ public class VOSesion {
     private String FechaCreacion;
     private String Actualizacion;
 
-    //Constructores (una sesión por defecto está activa cuando se introduce)
+    //Constructores (una sesión por defecto está activa cuando se introduce y tiene como tag Fácil)
     public VOSesion() {
-        this.setActivo('s');
+        this.setActivo("s");
+        this.setTag("Fácil");
     }
     public VOSesion(String nombre, String actu) {
-        this.setActivo('s');
+        super();
         this.setNombre(nombre);
         this.setActualizacion(actu);
     }
 
     //Getters
-    public char getActivo() { return Activo; }
+    public String getActivo() { return Activo; }
     public int getIdentificador() {
         return Identificador;
     }
@@ -47,7 +48,7 @@ public class VOSesion {
     public String getActualizacion() { return Actualizacion; }
 
     //Setters
-    public void setActivo(char activo) {
+    public void setActivo(String activo) {
         Activo = activo;
     }
     public void setIdentificador(int identificador) {

@@ -86,12 +86,15 @@ public class DAOSesiones {
             ContentValues values = new ContentValues();
 
             //Datos de la insercción
+            values.put("activo", sesion.getActivo());
             values.put("nombre", sesion.getNombre());
             values.put("musculo_1", sesion.getMusculo_1());
             values.put("musculo_2", sesion.getMusculo_2());
             values.put("musculo_3", sesion.getMusculo_3());
             values.put("musculo_4", sesion.getMusculo_4());
-            values.put("actualizacion", sesion.getActualizacion());
+            values.put("tag", sesion.getTag());
+            values.put("f_creacion", sacarFechaHoy());
+            values.put("actualizacion", sacarFechaHoy());
 
             //Insertamos
             database.insert(BeFitDB.Structure.SESIONES, null, values);
@@ -139,7 +142,7 @@ public class DAOSesiones {
         }
     }
 
-    //Sacamos la información de una sesión
+    //Sacamos la información de una sesión a partir de su ID
     public VOSesion SacarSesion(String Id) throws Exception {
         VOSesion sesion = new VOSesion();
 
@@ -149,11 +152,11 @@ public class DAOSesiones {
 
             //Sacamos los datos
             c.moveToNext();
-            sesion.setNombre(c.getString(1));
-            sesion.setMusculo_1(c.getString(2));
-            sesion.setMusculo_2(c.getString(3));
-            sesion.setMusculo_3(c.getString(4));
-            sesion.setMusculo_4(c.getString(5));
+            sesion.setNombre(c.getString(2));
+            sesion.setMusculo_1(c.getString(3));
+            sesion.setMusculo_2(c.getString(4));
+            sesion.setMusculo_3(c.getString(5));
+            sesion.setMusculo_4(c.getString(6));
         }
         catch (Exception err) {
             sesion = null;
