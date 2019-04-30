@@ -98,6 +98,22 @@ public class DAOPesos {
         }
     }
 
+    //Sacamos el número de pesos que tiene una sesión
+    public int SacarNumPesos(String IdSesion) throws Exception {
+        int num = 0;
+
+        try {
+            Cursor c = database.rawQuery("SELECT * FROM " + BeFitDB.Structure.PESOS + " WHERE idSesion = ?",
+                    new String[] {IdSesion});
+            num = c.getCount();
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+
+        return num;
+    }
+
     //Sacamos la fecha de hoy
     private String sacarFechaHoy() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
