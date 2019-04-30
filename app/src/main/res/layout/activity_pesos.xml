@@ -17,92 +17,110 @@
         android:textStyle="bold"
         android:padding="15dp"/>
 
-    <LinearLayout
-        android:id="@+id/linearLayout6"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="15dp">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/labM1"
+        <LinearLayout
+            android:id="@+id/linearLayout6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bíceps"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:padding="15dp">
 
-        <EditText
-            android:id="@+id/tbMiEjercicio1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text=""
-            android:maxLength="30"/>
+            <TextView
+                android:id="@+id/labM1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bíceps"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/labM2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Curl de Bíceps"
-            android:textStyle="bold" />
+            <EditText
+                android:id="@+id/tbMiEjercicio1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text=""
+                android:maxLength="30"/>
 
-        <EditText
-            android:id="@+id/tbMiEjercicio2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text=""
-            android:maxLength="30"/>
+            <TextView
+                android:id="@+id/labM2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Curl de Bíceps"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/labM3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mancuernas"
-            android:textStyle="bold" />
+            <EditText
+                android:id="@+id/tbMiEjercicio2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text=""
+                android:maxLength="30"/>
 
-        <EditText
-            android:id="@+id/tbMiEjercicio3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text=""
-            android:maxLength="30"/>
+            <TextView
+                android:id="@+id/labM3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mancuernas"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/labM4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bíceps"
-            android:textStyle="bold" />
+            <EditText
+                android:id="@+id/tbMiEjercicio3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text=""
+                android:maxLength="30"/>
 
-        <EditText
-            android:id="@+id/tbMiEjercicio4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text=""
-            android:maxLength="30"/>
+            <TextView
+                android:id="@+id/labM4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bíceps"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txtNotas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/notas"
-            android:textStyle="bold" />
+            <EditText
+                android:id="@+id/tbMiEjercicio4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text=""
+                android:maxLength="30"/>
 
-        <EditText
-            android:id="@+id/tbNotas"
-            android:layout_width="match_parent"
-            android:layout_height="138dp"
-            android:ems="10"
-            android:inputType="textMultiLine"
-            android:maxLength="100"/>
+            <TextView
+                android:id="@+id/txtNotas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/notas"
+                android:textStyle="bold" />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/tbNotas"
+                android:layout_width="match_parent"
+                android:layout_height="138dp"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:maxLength="100"/>
+
+            <TextView
+                android:id="@+id/labMiTag"
+                android:text="@string/tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"/>
+
+            <Spinner
+                android:id="@+id/spnMiTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></Spinner>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

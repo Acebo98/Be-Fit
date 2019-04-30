@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -32,7 +34,9 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     EditText tbP3;
     EditText tbP4;
     EditText tbNotas;
+    Spinner spnTags;
     ArrayList<EditText> lCampos = new ArrayList<>();
+    String[] tags = new String[] {"Simple", "Moderado", "Complicado", "Cardio", "Pierna", "Tren Superior"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,11 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
         tbP3 = (EditText)findViewById(R.id.tbMiEjercicio3);
         tbP4 = (EditText)findViewById(R.id.tbMiEjercicio4);
         tbNotas = (EditText)findViewById(R.id.tbNotas);
+        spnTags = (Spinner)findViewById(R.id.spnMiTag);
+        spnTags.setAdapter(new ArrayAdapter<String>(getApplicationContext(),
+                R.layout.support_simple_spinner_dropdown_item, tags));
+
+        //Campos de texto
         lCampos.add(tbP1);
         lCampos.add(tbP2);
         lCampos.add(tbP3);

@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                             new DAOPesos(getApplicationContext()).InsertarPeso(IdSesion);
 
                             //Informamos de que haya ido bien la cosa
-                            LogeoActivity.centralizarToast(getApplicationContext(), "Sesión insertada");
+                            LogeoActivity.centralizarToast(getApplicationContext(), "Sesión Insertada");
                             nSesionFragment.LimpiarUI();
 
                             //NOS COMUNICAMOS MEDIANTE LA INTERFAZ CON LA ACTIVIDAD MAIN PARA QUE SE ACTUALICE
