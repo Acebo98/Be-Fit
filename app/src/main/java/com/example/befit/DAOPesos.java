@@ -98,6 +98,16 @@ public class DAOPesos {
         }
     }
 
+    //Borramos todos los pesos
+    public void DeletePeso() throws Exception {
+        try {
+            database.delete(BeFitDB.Structure.PESOS, null, null);
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+    }
+
     //Sacamos el número de pesos que tiene una sesión
     public int SacarNumPesos(String IdSesion) throws Exception {
         int num = 0;

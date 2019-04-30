@@ -227,10 +227,11 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
         }
         else if (dialog.getTag() == BORRADO) {
             try {
-                //Borramos las sesiones y volvemos a leer
+                //Borramos las sesiones
                 new DAOSesiones(getApplicationContext()).DeleteSesiones();
+                new DAOPesos(getApplicationContext()).DeletePeso();
                 ReadUserData();
-                LogeoActivity.centralizarToast(getApplicationContext(), "Sesiones borradas");
+                LogeoActivity.centralizarToast(getApplicationContext(), "Sesiones Borradas");
 
                 //Resultado OK
                 setResult(RESULT_OK);
