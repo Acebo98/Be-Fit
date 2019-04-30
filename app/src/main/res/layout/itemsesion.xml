@@ -1,66 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal">
 
     <ImageView
-        android:padding="5dp"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_margin="10dp"
-        android:src="@drawable/itemmancuerna"/>
+        android:padding="5dp"
+        android:src="@drawable/itemmancuerna" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="307dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="140dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtItemNombre"
-            android:text="Tarde de Bíceps"
-            android:textStyle="bold"
-            android:textSize="15dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Tarde de Bíceps"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tbTagItem"
-            android:text="Tren Superior"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/colorPrimaryClear"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Tren Superior"
+            android:textColor="@color/colorPrimaryClear" />
 
         <TextView
             android:id="@+id/txtItemActu"
-            android:text="11/04/2019"
-            android:layout_marginLeft="10dp"
-            android:textSize="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_marginLeft="180dp"
-        android:layout_marginTop="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_margin="3dp"
-            android:src="@drawable/ic_dumbell_black"/>
-
-        <TextView
-            android:id="@+id/tbNumPesos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="20"/>
+            android:layout_marginLeft="10dp"
+            android:text="11/04/2019"
+            android:textSize="12dp" />
+
     </LinearLayout>
 
 </LinearLayout>

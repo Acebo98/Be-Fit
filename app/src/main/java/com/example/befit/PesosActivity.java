@@ -73,13 +73,6 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
         //Leemos la sesión y sus pesos
         LeerSesion();
         LeerPesos();
-
-        try {
-            int numero = new DAOPesos(getApplicationContext()).SacarNumPesos(String.valueOf(identificador));
-            LogeoActivity.centralizarToast(getApplicationContext(), String.valueOf(numero));
-        }
-        catch (Exception err) {
-        }
     }
 
     //Leemos los datos de la sesión
