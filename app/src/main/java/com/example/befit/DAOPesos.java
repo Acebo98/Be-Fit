@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.provider.BaseColumns;
 
 import java.io.IOError;
 import java.text.SimpleDateFormat;
@@ -47,7 +48,7 @@ public class DAOPesos {
 
         try {
             Cursor c = database.rawQuery("SELECT * FROM " + BeFitDB.Structure.PESOS + " " +
-                    "WHERE idSesion = ? ORDER BY fecha_peso DESC", new String[] {String.valueOf(IdSesion)});
+                    "WHERE idSesion = ? ORDER BY " + BaseColumns._ID + " DESC", new String[] {String.valueOf(IdSesion)});
             c.moveToNext();
 
             //Sacamos los datos
