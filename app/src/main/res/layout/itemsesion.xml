@@ -12,28 +12,55 @@
         android:src="@drawable/itemmancuerna"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="10dp">
 
         <TextView
-        android:id="@+id/txtItemNombre"
-        android:text="Tarde de Bíceps"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            android:id="@+id/txtItemNombre"
+            android:text="Tarde de Bíceps"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tbTagItem"
+            android:text="Tren Superior"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/colorPrimaryClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/txtItemActu"
             android:text="11/04/2019"
+            android:layout_marginLeft="10dp"
             android:textSize="12dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_margin="3dp"
+            android:src="@drawable/ic_dumbell_black"/>
+
+        <TextView
+            android:id="@+id/tbNumPesos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20"/>
+    </LinearLayout>
 
 </LinearLayout>
