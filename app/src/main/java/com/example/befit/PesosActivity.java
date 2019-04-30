@@ -89,6 +89,22 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             labm2.setText(sesion.getMusculo_2());
             labm3.setText(sesion.getMusculo_3());
             labm4.setText(sesion.getMusculo_4());
+
+            //Etiqueta
+            switch (sesion.getTag()) {
+                case "Simple": spnTags.setSelection(0);
+                    break;
+                case "Moderado": spnTags.setSelection(1);
+                    break;
+                case "Complicado": spnTags.setSelection(2);
+                    break;
+                case "Cardio": spnTags.setSelection(3);
+                    break;
+                case "Pierna": spnTags.setSelection(4);
+                    break;
+                case "Tren Superior": spnTags.setSelection(5);
+                    break;
+            }
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();

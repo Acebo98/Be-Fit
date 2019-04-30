@@ -157,6 +157,7 @@ public class DAOSesiones {
             sesion.setMusculo_2(c.getString(4));
             sesion.setMusculo_3(c.getString(5));
             sesion.setMusculo_4(c.getString(6));
+            sesion.setTag(c.getString(7));
         }
         catch (Exception err) {
             sesion = null;
