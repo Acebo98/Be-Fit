@@ -113,7 +113,7 @@ public class DAOSesiones {
 
             //Leemos los datos
             Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion " +
-                    "FROM " + BeFitDB.Structure.SESIONES, null);
+                    "FROM " + BeFitDB.Structure.SESIONES + " ORDER BY actualizacion DESC", null);
 
             //Recorremos el cursor
             if (c.getCount() > 0) {
