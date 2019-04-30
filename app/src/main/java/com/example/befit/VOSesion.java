@@ -12,10 +12,9 @@ public class VOSesion {
     private String FechaCreacion;
     private String Actualizacion;
 
-    //Constructores (una sesión por defecto está activa cuando se introduce y tiene como tag Fácil)
+    //Constructores (una sesión por defecto está activa)
     public VOSesion() {
         this.setActivo("s");
-        this.setTag("Fácil");
     }
     public VOSesion(String nombre, String actu) {
         super();

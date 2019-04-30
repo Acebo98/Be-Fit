@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                             sesion.setMusculo_2(nSesionFragment.tbM2.getText().toString().trim());
                             sesion.setMusculo_3(nSesionFragment.tbM3.getText().toString().trim());
                             sesion.setMusculo_4(nSesionFragment.tbM4.getText().toString().trim());
+                            sesion.setTag(String.valueOf(nSesionFragment.spnTags.getSelectedItem()));
 
                             //Primero insertamos la sesión y obtenemos su ID
                             new DAOSesiones(getApplicationContext()).InsertSesion(sesion);

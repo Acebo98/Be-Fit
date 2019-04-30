@@ -35,7 +35,7 @@ public class NSesionFragment extends Fragment {
     EditText tbM4;
     Spinner spnTags;
     ArrayList<EditText> lCampos = new ArrayList<>();
-    String[] tags = new String[] {"Fácil", "Moderado", "Complicado", "Cardio"};
+    String[] tags = new String[] {"Simple", "Moderado", "Complicado", "Cardio"};
 
     public NSesionFragment() {
         // Required empty public constructor
