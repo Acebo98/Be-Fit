@@ -24,6 +24,7 @@
     <string name="modificacion">Modificar Sesión</string>
     <string name="cancelar">Cancelar</string>
     <string name="credenciales">Inicio de Sesión automático</string>
+    <string name="tag">Etiqueta</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>

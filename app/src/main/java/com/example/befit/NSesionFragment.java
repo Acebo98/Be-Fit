@@ -11,8 +11,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,9 +23,8 @@ import java.util.Date;
 
 public class NSesionFragment extends Fragment {
 
-    public OnFragmentInteractionListener mListener;
-
-    TabLayout tabLayout;
+    public OnFragmentInteractionListener mListener;         //Interfaz
+    TabLayout tabLayout;                                    //Tablayout
 
     //Controles
     View view;
@@ -31,7 +33,9 @@ public class NSesionFragment extends Fragment {
     EditText tbM2;
     EditText tbM3;
     EditText tbM4;
+    Spinner spnTags;
     ArrayList<EditText> lCampos = new ArrayList<>();
+    String[] tags = new String[] {"Fácil", "Moderado", "Complicado", "Cardio"};
 
     public NSesionFragment() {
         // Required empty public constructor
@@ -61,6 +65,8 @@ public class NSesionFragment extends Fragment {
         tbM3 = view.findViewById(R.id.tbM3);
         tbM4 = view.findViewById(R.id.tbM4);
         tabLayout = view.findViewById(R.id.tabLayout);
+        spnTags = view.findViewById(R.id.spnTags);
+        spnTags.setAdapter(new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, tags));
 
         //Lista de campos de texto
         lCampos.add(tbNombre);
