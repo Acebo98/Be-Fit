@@ -1,6 +1,7 @@
 package com.example.befit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -198,6 +199,11 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
                     dialogFragment.show(getSupportFragmentManager(), "error");
                 }
+            }
+            break;
+            case R.id.itemHistorial: {
+                Intent intent = new Intent(PesosActivity.this, HistorialPesosActivity.class);
+                startActivity(intent);
             }
             break;
         }

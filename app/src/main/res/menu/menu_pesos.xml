@@ -17,4 +17,9 @@
         android:title="@string/borrar"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/itemHistorial"
+        android:title="@string/historial"
+        app:showAsAction="never" />
+
 </menu>

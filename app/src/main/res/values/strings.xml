@@ -36,4 +36,5 @@
     <string name="desconectar">Desconectar</string>
     <string name="modificar_perfil">Modificar Perfil de Usuario</string>
     <string name="borrar_sesiones">Borrar Sesiones</string>
+    <string name="historial">Ver historial de pesos</string>
 </resources>
