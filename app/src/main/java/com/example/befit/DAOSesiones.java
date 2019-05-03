@@ -252,6 +252,23 @@ public class DAOSesiones {
         }
     }
 
+    //Bloqueamos una sesión pasándola a "s"
+    public void DesbloquearSesion(String identificador) throws Exception {
+        try {
+            ContentValues values = new ContentValues();
+
+            //Datos a modificar
+            values.put("activo", "s");
+
+            //Modificamos
+            database.update(BeFitDB.Structure.SESIONES, values,BaseColumns._ID + " = ?" ,
+                    new String[] {identificador});
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+    }
+
     //Comprobamos si la sesión está bloqueada
     public boolean IsBlocked(String identificador) throws Exception {
         boolean vof = true;

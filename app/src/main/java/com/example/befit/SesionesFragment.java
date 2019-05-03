@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -65,13 +66,14 @@ public class SesionesFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
                     VOSesion sesion = (VOSesion) adaptadorLV.getItem(position);
+                    final int identificador = sesion.getIdentificador();
 
-                    //Vemos si la sesión seleccionada está bloqueada
-                    if (new DAOSesiones(getContext()).IsBlocked(String.valueOf(sesion.getIdentificador())) == true) {
+                    //Vemos si la sesión está bloqueda
+                    if (new DAOSesiones(getContext()).IsBlocked(String.valueOf(identificador)) == true) {
 
                         //Bundle de datos con el identificador
                         Bundle bundle = new Bundle();
-                        bundle.putInt("ID", sesion.getIdentificador());
+                        bundle.putInt("ID", identificador);
 
                         //Intent
                         Intent intent = new Intent(getContext(), PesosActivity.class);
@@ -79,7 +81,27 @@ public class SesionesFragment extends Fragment {
                         startActivityForResult(intent, ACTUALIZAR);
                     }
                     else {
-                        LogeoActivity.centralizarToast(getContext(), "Dicha sesión está bloqueada");
+                        Snackbar.make(view, "Dicha sesión está bloqueada", Snackbar.LENGTH_LONG)
+                                .setAction("Desbloquear", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        try {
+                                            //Desbloqueamos y actualizamos la lista
+                                            new DAOSesiones(getContext()).DesbloquearSesion(String.valueOf(identificador));
+                                            LeerBD();
+                                        }
+                                        catch (Exception err) {
+                                            DialogFragment dialogFragment = new DialogoAlerta();
+                                            Bundle bundle = new Bundle();
+
+                                            bundle.putString("TITULO", "Ha ocurrido un Error");
+                                            bundle.putString("MENSAJE", err.getMessage());
+                                            dialogFragment.setArguments(bundle);
+
+                                            dialogFragment.show(getFragmentManager(), "error");
+                                        }
+                                    }
+                                }).show();
                     }
                 }
                 catch (Exception err) {
