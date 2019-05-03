@@ -8,6 +8,7 @@ import android.provider.BaseColumns;
 
 import java.io.IOError;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class DAOPesos {
@@ -43,7 +44,7 @@ public class DAOPesos {
     }
 
     //Sacamos los pesos a partir del identificador de la sesión a la que hacen referencia
-    public VOPeso SacarPesos(int IdSesion) throws Exception {
+    public VOPeso SacarPeso(int IdSesion) throws Exception {
         VOPeso peso = null;
 
         try {
@@ -67,6 +68,32 @@ public class DAOPesos {
         }
 
         return peso;
+    }
+
+    //Sacamos TODOS los pesos a partir del identificador de su sesión
+    public ArrayList<VOPeso> SacarHistorialPesos(String idSesion) throws Exception {
+        ArrayList<VOPeso> lPesos = null;
+
+        try {
+            lPesos = new ArrayList<>();
+
+            //Query
+            Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + ", fecha_peso from " + BeFitDB.Structure.PESOS +
+                            " where idSesion = ?", new String[] {idSesion});
+
+            //Sacamos los datos...
+            while (c.moveToNext() == true) {
+                VOPeso peso = new VOPeso();
+                peso.setIdentificador(c.getInt(0));
+                peso.setFecha_Peso(c.getString(1));
+                lPesos.add(peso);
+            }
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+
+        return lPesos;
     }
 
     //Update de los pesos a partir del identificador de la sesión

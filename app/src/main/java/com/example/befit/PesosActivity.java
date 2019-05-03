@@ -8,9 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -103,7 +101,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     //Leemos los datos de los pesos
     public void LeerPesos() {
         try {
-            VOPeso peso = new DAOPesos(getApplicationContext()).SacarPesos(identificador);
+            VOPeso peso = new DAOPesos(getApplicationContext()).SacarPeso(identificador);
 
             //Mostramos los pesos
             tbP1.setText(peso.getPeso_1());
@@ -202,7 +200,12 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             }
             break;
             case R.id.itemHistorial: {
+                //Pasamos el ID de la sesión
+                Bundle bundle = new Bundle();
+                bundle.putInt("ID", identificador);
+
                 Intent intent = new Intent(PesosActivity.this, HistorialPesosActivity.class);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
             break;
