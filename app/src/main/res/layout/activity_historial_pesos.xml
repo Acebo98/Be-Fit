@@ -10,7 +10,16 @@
     <ListView
         android:id="@+id/lvHistorialPesos"
         android:layout_margin="10dp"
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></ListView>
+
+    <TextView
+        android:id="@+id/tbTotalHistorial"
+        android:text="@string/total_registros"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

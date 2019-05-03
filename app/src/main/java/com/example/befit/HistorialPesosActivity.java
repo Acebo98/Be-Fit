@@ -5,12 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
 public class HistorialPesosActivity extends AppCompatActivity {
 
     ListView lvHistorial;                       //Lista del historial
+    TextView tbTotal;                           //Campo del total
 
     AdaptadorLVHistorialPesos adaptadorLV;      //Adaptador LV
 
@@ -24,8 +26,11 @@ public class HistorialPesosActivity extends AppCompatActivity {
         //Id de la sesión
         identificador = getIntent().getExtras().getInt("ID");
 
-        //Litview
+        //Controles
         lvHistorial = (ListView)findViewById(R.id.lvHistorialPesos);
+        tbTotal = findViewById(R.id.tbTotalHistorial);
+
+        //Leemos los registros
         LeerHistorial();
 
         //Botón de ir atrás
@@ -45,9 +50,13 @@ public class HistorialPesosActivity extends AppCompatActivity {
     //Leemos el historial
     private void LeerHistorial() {
         try {
+            //Datos de la lista
             adaptadorLV = new AdaptadorLVHistorialPesos(getApplicationContext(),
                     new DAOPesos(getApplicationContext()).SacarHistorialPesos(String.valueOf(identificador)));
             lvHistorial.setAdapter(adaptadorLV);
+
+            //Cantidad de registros
+            tbTotal.setText(tbTotal.getText() + " " + String.valueOf(adaptadorLV.getCount()));
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();

@@ -25,6 +25,7 @@
     <string name="cancelar">Cancelar</string>
     <string name="credenciales">Inicio de Sesión automático</string>
     <string name="tag">Etiqueta</string>
+    <string name="total_registros">Total de Registros: </string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>

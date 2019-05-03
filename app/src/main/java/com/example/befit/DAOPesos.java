@@ -79,7 +79,7 @@ public class DAOPesos {
 
             //Query
             Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + ", fecha_peso from " + BeFitDB.Structure.PESOS +
-                            " where idSesion = ?", new String[] {idSesion});
+                            " where idSesion = ? ORDER BY " + BaseColumns._ID + " DESC", new String[] {idSesion});
 
             //Sacamos los datos...
             while (c.moveToNext() == true) {
