@@ -68,12 +68,12 @@ public class DialogoModificar {
         lCampos.add(tbE4);
         lCampos.add(tbNombre);
 
-        //Hints a los campos de texto donse se especifica los atributos de la sesión original
-        tbNombre.setHint(Sesion.getNombre());
-        tbE1.setHint(Sesion.getMusculo_1());
-        tbE2.setHint(Sesion.getMusculo_2());
-        tbE3.setHint(Sesion.getMusculo_3());
-        tbE4.setHint(Sesion.getMusculo_4());
+        //Especificamos los atributos de la sesión original
+        tbNombre.setText(Sesion.getNombre());
+        tbE1.setText(Sesion.getMusculo_1());
+        tbE2.setText(Sesion.getMusculo_2());
+        tbE3.setText(Sesion.getMusculo_3());
+        tbE4.setText(Sesion.getMusculo_4());
 
         //Etiqueta
         for (int i = 0; i < tags.length; i++) {
