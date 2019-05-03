@@ -22,4 +22,9 @@
         android:title="@string/historial"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/itemBloquear"
+        android:title="@string/bloquear"
+        app:showAsAction="never" />
+
 </menu>

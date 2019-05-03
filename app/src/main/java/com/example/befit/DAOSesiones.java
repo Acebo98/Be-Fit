@@ -235,6 +235,23 @@ public class DAOSesiones {
         }
     }
 
+    //Bloqueamos una sesión pasándola a "n"
+    public void BloquearSesion(String identificador) throws Exception {
+        try {
+            ContentValues values = new ContentValues();
+
+            //Datos a modificar
+            values.put("activo", "n");
+
+            //Modificamos
+            database.update(BeFitDB.Structure.SESIONES, values,BaseColumns._ID + " = ?" ,
+                    new String[] {identificador});
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+    }
+
     //Sacamos la fecha de hoy
     private String sacarFechaHoy() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");

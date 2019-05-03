@@ -19,6 +19,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     int identificador;                      //Identificador de la sesión
 
     final String BORRADO = "borrar";        //Constante para el borrado
+    final String BLOQUEADO = "bloquear";    //Constante para el bloqueo
 
     Context context;                        //Contexto para el diálogo personalizado
 
@@ -209,6 +210,17 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                 startActivity(intent);
             }
             break;
+            case R.id.itemBloquear: {
+                //Cuadro de diálogo
+                DialogoConfirmacion dialogoConfirmacion = new DialogoConfirmacion();
+                Bundle bundle = new Bundle();
+                bundle.putString("TITULO", "Bloqueo de Sesión");
+                bundle.putString("MENSAJE", "¿Estás seguro de que quieres bloquear esta sesión? \n\nAl hacerlo no podrás " +
+                        "modificar dicha sesión, pero se mantendrá guardada");
+                dialogoConfirmacion.setArguments(bundle);
+                dialogoConfirmacion.show(getSupportFragmentManager(), BLOQUEADO);
+            }
+            break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -231,6 +243,27 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                 new DAOPesos(getApplicationContext()).DeletePeso(String.valueOf(identificador));
 
                 //Indicamos el resultado de que se ha borrado el entrenamiento
+                setResult(RESULT_OK);
+                this.finish();
+            }
+            catch (Exception err) {
+                DialogFragment dialogFragment = new DialogoAlerta();
+                Bundle bundle = new Bundle();
+
+                bundle.putString("TITULO", "Ha ocurrido un Error");
+                bundle.putString("MENSAJE", err.getMessage());
+                dialogFragment.setArguments(bundle);
+
+                dialogFragment.show(getSupportFragmentManager(), "error");
+            }
+        }
+        else if (dialog.getTag() == BLOQUEADO) {
+            try {
+                //Modificamos...
+                new DAOSesiones(getApplicationContext()).BloquearSesion(String.valueOf(identificador));
+                LogeoActivity.centralizarToast(getApplicationContext(), "Sesión Bloqueada");
+
+                //Cerramos
                 setResult(RESULT_OK);
                 this.finish();
             }
