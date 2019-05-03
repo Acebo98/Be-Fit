@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -40,7 +41,8 @@ public class AdaptadorLV extends BaseAdapter {
         VOSesion sesion = (VOSesion) getItem(position);
         convertView = LayoutInflater.from(context).inflate(R.layout.itemsesion, null);
 
-        //Textos a mostrar
+        //A mostrar
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.imageViewSesion);
         TextView txtNombre = (TextView) convertView.findViewById(R.id.txtItemNombre);
         TextView txtActu = (TextView) convertView.findViewById(R.id.txtItemActu);
         TextView txtTag = (TextView) convertView.findViewById(R.id.tbTagItem);
@@ -49,6 +51,14 @@ public class AdaptadorLV extends BaseAdapter {
         txtNombre.setText(sesion.getNombre());
         txtActu.setText(sesion.getActualizacion());
         txtTag.setText(sesion.getTag());
+
+        //Icono
+        if (sesion.getActivo().equals("s")) {
+            imageView.setImageResource(R.drawable.itemmancuerna);
+        }
+        else {
+            imageView.setImageResource(R.drawable.lock);
+        }
 
         return convertView;
     }
