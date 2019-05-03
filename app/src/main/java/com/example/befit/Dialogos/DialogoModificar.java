@@ -1,4 +1,4 @@
-package com.example.befit;
+package com.example.befit.Dialogos;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -10,6 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import com.example.befit.Actividades.LogeoActivity;
+import com.example.befit.Entidades.VOSesion;
+import com.example.befit.Modelos.DAOSesiones;
+import com.example.befit.R;
 
 import java.util.ArrayList;
 

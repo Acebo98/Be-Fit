@@ -1,4 +1,4 @@
-package com.example.befit;
+package com.example.befit.Estructura_BD;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

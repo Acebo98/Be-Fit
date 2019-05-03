@@ -1,4 +1,4 @@
-package com.example.befit;
+package com.example.befit.Dialogos;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.Debug;
 import android.support.v4.app.DialogFragment;
 
 public class DialogoConfirmacion extends DialogFragment {

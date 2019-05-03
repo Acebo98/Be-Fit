@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HistorialPesosActivity"></activity>
-        <activity android:name=".PesosActivity" />
-        <activity android:name=".PerfilActivity" />
+        <activity android:name=".Actividades.HistorialPesosActivity"></activity>
+        <activity android:name=".Actividades.PesosActivity" />
+        <activity android:name=".Actividades.PerfilActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Actividades.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LogeoActivity">
+        <activity android:name=".Actividades.LogeoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

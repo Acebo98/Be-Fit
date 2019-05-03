@@ -1,4 +1,4 @@
-package com.example.befit;
+package com.example.befit.Modelos;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
-import java.io.IOError;
+import com.example.befit.Estructura_BD.BeFitDB;
+import com.example.befit.Entidades.VOPeso;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;

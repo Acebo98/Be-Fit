@@ -1,16 +1,17 @@
-package com.example.befit;
+package com.example.befit.Modelos;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
-import android.support.design.widget.TabLayout;
+
+import com.example.befit.Estructura_BD.BeFitDB;
+import com.example.befit.Entidades.VOSesion;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class DAOSesiones {
 

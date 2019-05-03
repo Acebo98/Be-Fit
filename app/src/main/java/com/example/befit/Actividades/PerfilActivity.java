@@ -1,23 +1,23 @@
-package com.example.befit;
+package com.example.befit.Actividades;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewManager;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import com.example.befit.Dialogos.DialogoAlerta;
+import com.example.befit.Dialogos.DialogoConfirmacion;
+import com.example.befit.Modelos.DAOPesos;
+import com.example.befit.Modelos.DAOSesiones;
+import com.example.befit.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.example.befit;
+package com.example.befit.Entidades;
 
 public class VOSesion {
     private String Activo;

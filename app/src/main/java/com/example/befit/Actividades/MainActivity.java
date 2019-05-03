@@ -1,4 +1,4 @@
-package com.example.befit;
+package com.example.befit.Actividades;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,10 +21,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.example.befit.Dialogos.DialogoAlerta;
+import com.example.befit.Dialogos.DialogoConfirmacion;
+import com.example.befit.Entidades.VOPeso;
+import com.example.befit.Entidades.VOSesion;
+import com.example.befit.Modelos.DAOPesos;
+import com.example.befit.Modelos.DAOSesiones;
+import com.example.befit.R;
 
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
         NSesionFragment.OnFragmentInteractionListener, DialogoConfirmacion.MiDialogListener {

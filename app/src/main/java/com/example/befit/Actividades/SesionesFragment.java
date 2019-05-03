@@ -1,11 +1,9 @@
-package com.example.befit;
+package com.example.befit.Actividades;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -15,16 +13,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
-import java.util.ArrayList;
-
-import javax.xml.transform.Result;
-
-import static android.app.Activity.RESULT_OK;
+import com.example.befit.Adaptadores_LV.AdaptadorLV;
+import com.example.befit.Dialogos.DialogoAlerta;
+import com.example.befit.Entidades.VOSesion;
+import com.example.befit.Modelos.DAOSesiones;
+import com.example.befit.R;
 
 public class SesionesFragment extends Fragment {
 

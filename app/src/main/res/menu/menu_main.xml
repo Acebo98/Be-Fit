@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.befit.MainActivity">
+    tools:context="com.example.befit.Actividades.MainActivity">
     <item
         android:id="@+id/itemPerfil"
         android:icon="@drawable/ic_person"

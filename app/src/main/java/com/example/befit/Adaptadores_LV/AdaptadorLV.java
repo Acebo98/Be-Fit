@@ -1,4 +1,4 @@
-package com.example.befit;
+package com.example.befit.Adaptadores_LV;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.befit.Entidades.VOSesion;
+import com.example.befit.Modelos.DAOSesiones;
+import com.example.befit.R;
 
 import java.util.ArrayList;
 

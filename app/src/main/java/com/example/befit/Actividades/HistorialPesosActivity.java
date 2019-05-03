@@ -1,4 +1,4 @@
-package com.example.befit;
+package com.example.befit.Actividades;
 
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,10 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.List;
+import com.example.befit.Adaptadores_LV.AdaptadorLVHistorialPesos;
+import com.example.befit.Dialogos.DialogoAlerta;
+import com.example.befit.Modelos.DAOPesos;
+import com.example.befit.R;
 
 public class HistorialPesosActivity extends AppCompatActivity {
 
