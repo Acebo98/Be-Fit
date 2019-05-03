@@ -252,6 +252,28 @@ public class DAOSesiones {
         }
     }
 
+    //Comprobamos si la sesión está bloqueada
+    public boolean IsBlocked(String identificador) throws Exception {
+        boolean vof = true;
+
+        try {
+            Cursor c = database.rawQuery("SELECT activo FROM " + BeFitDB.Structure.SESIONES +
+                    " WHERE " + BaseColumns._ID + " = ?", new String[] {identificador});
+
+            //Vemos si está activo
+            c.moveToNext();
+            if (c.getString(0).equals("n")) {
+                vof = false;
+            }
+        }
+        catch (Exception err) {
+            vof = false;
+            throw new Exception(err.getMessage());
+        }
+
+        return vof;
+    }
+
     //Sacamos la fecha de hoy
     private String sacarFechaHoy() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");

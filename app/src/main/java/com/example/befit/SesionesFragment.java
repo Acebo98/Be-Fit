@@ -66,14 +66,21 @@ public class SesionesFragment extends Fragment {
                 try {
                     VOSesion sesion = (VOSesion) adaptadorLV.getItem(position);
 
-                    //Bundle de datos con el identificador
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("ID", sesion.getIdentificador());
+                    //Vemos si la sesión seleccionada está bloqueada
+                    if (new DAOSesiones(getContext()).IsBlocked(String.valueOf(sesion.getIdentificador())) == true) {
 
-                    //Intent
-                    Intent intent = new Intent(getContext(), PesosActivity.class);
-                    intent.putExtras(bundle);
-                    startActivityForResult(intent, ACTUALIZAR);
+                        //Bundle de datos con el identificador
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("ID", sesion.getIdentificador());
+
+                        //Intent
+                        Intent intent = new Intent(getContext(), PesosActivity.class);
+                        intent.putExtras(bundle);
+                        startActivityForResult(intent, ACTUALIZAR);
+                    }
+                    else {
+                        LogeoActivity.centralizarToast(getContext(), "Dicha sesión está bloqueada");
+                    }
                 }
                 catch (Exception err) {
                     DialogFragment dialogFragment = new DialogoAlerta();
