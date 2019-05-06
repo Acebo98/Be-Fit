@@ -1,4 +1,4 @@
-package com.example.befit;
+package com.example.befit.Dialogos;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.befit.Entidades.VOPeso;
+import com.example.befit.R;
 
 public class DialogoHistorial {
 

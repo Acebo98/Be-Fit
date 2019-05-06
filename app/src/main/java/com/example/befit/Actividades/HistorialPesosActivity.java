@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.befit.Adaptadores_LV.AdaptadorLVHistorialPesos;
-import com.example.befit.DialogoHistorial;
+import com.example.befit.Dialogos.DialogoHistorial;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Entidades.VOPeso;
 import com.example.befit.Modelos.DAOPesos;
