@@ -13,8 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.example.befit.Adaptadores_LV.AdaptadorLV;
 import com.example.befit.Dialogos.DialogoAlerta;
@@ -24,15 +26,19 @@ import com.example.befit.R;
 
 public class SesionesFragment extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
+    private OnFragmentInteractionListener mListener;                            //Interfaz
 
-    AdaptadorLV adaptadorLV;                //Adaptador
-    final int ACTUALIZAR = 1111;            //Constante de que es necesario actualizar la lista
+    AdaptadorLV adaptadorLV;                                                    //Adaptador
+
+    final int ACTUALIZAR = 1111;                                                //Constante de que es necesario actualizar la lista
+
+    String[] criterios = new String[] {"Todos", "Bloqueados", "Sin bloquear"};  //Criterios de búsqueda
 
     //Controles
     View view;
     ListView lvSesiones;
     EditText tbbuscar;
+    Spinner spnBusqueda;
 
     public SesionesFragment() {
         // Required empty public constructor
@@ -55,7 +61,7 @@ public class SesionesFragment extends Fragment {
         //Inflamos la vista
         view = inflater.inflate(R.layout.fragment_sesiones, container, false);
 
-        //Controles
+        //Listview
         lvSesiones = view.findViewById(R.id.lvSesiones);
         lvSesiones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -112,6 +118,8 @@ public class SesionesFragment extends Fragment {
                 }
             }
         });
+
+        //Textbox de búsqueda
         tbbuscar = (EditText)view.findViewById(R.id.tbBuscador);
         tbbuscar.addTextChangedListener(new TextWatcher() {
             @Override
@@ -147,6 +155,22 @@ public class SesionesFragment extends Fragment {
                 if (hasFocus == false) {
                     tbbuscar.getText().clear();
                 }
+            }
+        });
+
+        //Spinner para el criterio de búsqueda
+        spnBusqueda = (Spinner)view.findViewById(R.id.spnBusqueda);
+        spnBusqueda.setAdapter(new ArrayAdapter<String>(getContext(),
+                R.layout.support_simple_spinner_dropdown_item, criterios));
+        spnBusqueda.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //Nada que hacer...
             }
         });
 
