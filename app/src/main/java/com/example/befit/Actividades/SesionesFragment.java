@@ -164,8 +164,18 @@ public class SesionesFragment extends Fragment {
         spnBusqueda.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
+                try {
+                    LeerBD();
+                }
+                catch (Exception err) {
+                    DialogFragment dialogFragment = new DialogoAlerta();
+                    Bundle bundle = new Bundle();
 
+                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("MENSAJE", err.getMessage());
+                    dialogFragment.setArguments(bundle);
+
+                    dialogFragment.show(getFragmentManager(), "error");
                 }
             }
 
@@ -174,9 +184,6 @@ public class SesionesFragment extends Fragment {
                 //Nada que hacer...
             }
         });
-
-        //Leemos de la base de datos
-        LeerBD();
 
         return view;
     }
