@@ -35,7 +35,9 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     final String CERRAR = "cerrar";
     final int ACTUALIZAR = 1111;
 
+    //FloatingButtons
     FloatingActionButton floatingAdd;
+    FloatingActionButton floatingErase;
 
     //INSTANCIAS DE LOS FRAGMENTOS A UTILIZAR
     SesionesFragment sesionesFragment;
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tab.getPosition() == 1) {
                     floatingAdd.show();
+                    floatingErase.show();
                 }
             }
 
@@ -79,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             public void onTabUnselected(TabLayout.Tab tab) {
                 if (tab.getPosition() == 1) {
                     floatingAdd.hide();
+                    floatingErase.hide();
                 }
             }
 
@@ -88,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             }
         });
 
-        //Floatingbtn
+        //Floatingbtn add
         floatingAdd = (FloatingActionButton)findViewById(R.id.floatingAdd);
         floatingAdd.hide();   //Lo escondemos al principio
         floatingAdd.setOnClickListener(new View.OnClickListener() {
@@ -149,6 +153,16 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
                     dialogFragment.show(getSupportFragmentManager(), "error");
                 }
+            }
+        });
+
+        //Floating erase
+        floatingErase = (FloatingActionButton)findViewById(R.id.floatingErase);
+        floatingErase.hide();       //Lo escondemos al principio
+        floatingErase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nSesionFragment.LimpiarUI();
             }
         });
 
