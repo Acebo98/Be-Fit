@@ -19,6 +19,7 @@
     <string name="aceptar">Aceptar</string>
     <string name="limpiar">Limpiar</string>
     <string name="notas">Notas Opcionales</string>
+    <string name="notas_2">Notas Opcionales: </string>
     <string name="actualizar">Actualizar</string>
     <string name="version">1.0.0</string>
     <string name="modificacion">Modificar Sesión</string>

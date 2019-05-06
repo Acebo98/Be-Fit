@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.befit.Entidades.VOPeso;
@@ -16,6 +17,7 @@ public class DialogoHistorial {
     TextView labEjercicio2;
     TextView labEjercicio3;
     TextView labEjercicio4;
+    EditText tbNotas;
 
     public DialogoHistorial(Context context, VOPeso peso) {
 
@@ -32,6 +34,7 @@ public class DialogoHistorial {
         labEjercicio2 = (TextView) dialog.findViewById(R.id.labHistorialEjercicio2);
         labEjercicio3 = (TextView) dialog.findViewById(R.id.labHistorialEjercicio3);
         labEjercicio4 = (TextView) dialog.findViewById(R.id.labHistorialEjercicio4);
+        tbNotas = (EditText) dialog.findViewById(R.id.tbHistorialNotas);
 
         //Aplicamos el texto
         labFecha.setText(peso.getFecha_Peso());
@@ -39,6 +42,7 @@ public class DialogoHistorial {
         labEjercicio2.setText("Ejercicio 2: " + peso.getPeso_2());
         labEjercicio3.setText("Ejercicio 3: " + peso.getPeso_3());
         labEjercicio4.setText("Ejercicio 4: " + peso.getPeso_4());
+        tbNotas.setText(peso.getNotas());
 
         //Mostramos el diálogo con toda su gloria
         dialog.show();
