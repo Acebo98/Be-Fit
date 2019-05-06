@@ -130,7 +130,7 @@ public class SesionesFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
-                    adaptadorLV.Filtrar(tbbuscar.getText().toString());
+                    adaptadorLV.Filtrar(tbbuscar.getText().toString(), spnBusqueda.getSelectedItemPosition());
                 }
                 catch (Exception err) {
                     DialogFragment dialogFragment = new DialogoAlerta();
@@ -160,12 +160,13 @@ public class SesionesFragment extends Fragment {
 
         //Spinner para el criterio de búsqueda
         spnBusqueda = (Spinner)view.findViewById(R.id.spnBusqueda);
-        spnBusqueda.setAdapter(new ArrayAdapter<String>(getContext(),
-                R.layout.support_simple_spinner_dropdown_item, criterios));
+        spnBusqueda.setAdapter(new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, criterios));
         spnBusqueda.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
 
+                }
             }
 
             @Override
@@ -188,7 +189,7 @@ public class SesionesFragment extends Fragment {
             lvSesiones.setAdapter(adaptadorLV);
 
             //Filtramos
-            adaptadorLV.Filtrar(tbbuscar.getText().toString());
+            adaptadorLV.Filtrar(tbbuscar.getText().toString(), spnBusqueda.getSelectedItemPosition());
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();

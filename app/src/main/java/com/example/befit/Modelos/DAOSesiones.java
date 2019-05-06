@@ -105,7 +105,7 @@ public class DAOSesiones {
         }
     }
 
-    //Read (leer los datos para el ListView)
+    //Read (todas las sesiones)
     public ArrayList<VOSesion> ReadSesiones() throws Exception {
         ArrayList<VOSesion> lSesiones = null;
 
@@ -115,6 +115,45 @@ public class DAOSesiones {
             //Leemos los datos
             Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion, tag, activo " +
                     "FROM " + BeFitDB.Structure.SESIONES + " ORDER BY actualizacion DESC", null);
+
+            //Recorremos el cursor
+            if (c.getCount() > 0) {
+                while (c.moveToNext() == true) {
+                    VOSesion sesion = new VOSesion(c.getString(1), c.getString(2));
+                    sesion.setIdentificador(c.getInt(0));
+                    sesion.setTag(c.getString(3));
+                    sesion.setActivo(c.getString(4));
+                    lSesiones.add(sesion);
+                }
+            }
+        }
+        catch (Exception err) {
+            lSesiones = null;
+            throw new Exception(err.getMessage());
+        }
+
+        return lSesiones;
+    }
+
+    //Leemos las sesiones activas o no
+    public ArrayList<VOSesion> ReadSesiones(boolean activo) throws Exception {
+        ArrayList<VOSesion> lSesiones = null;
+        Cursor c = null;
+
+        try {
+            lSesiones = new ArrayList<>();
+
+            //Leemos los datos
+            if (activo == true) {
+                c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion, tag, activo " +
+                        "FROM " + BeFitDB.Structure.SESIONES + " WHERE activo = ? ORDER BY actualizacion DESC",
+                        new String[] {"s"});
+            }
+            else {
+                c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion, tag, activo " +
+                                "FROM " + BeFitDB.Structure.SESIONES + " WHERE activo = ? ORDER BY actualizacion DESC",
+                        new String[] {"n"});
+            }
 
             //Recorremos el cursor
             if (c.getCount() > 0) {

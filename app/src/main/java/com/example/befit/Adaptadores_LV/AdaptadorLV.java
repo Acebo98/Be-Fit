@@ -67,14 +67,27 @@ public class AdaptadorLV extends BaseAdapter {
         return convertView;
     }
 
-    //Filtrador
-    public void Filtrar(String nombre) throws Exception {
+    //Filtramos a partir del nombre y del criterio de búsqueda
+    public void Filtrar(String nombre, int criterio) throws Exception {
         lSesiones.clear();                                          //Limpiamos la listview
         lSesionesCopia = new DAOSesiones(context).ReadSesiones();   //Copia de la base de datos
 
-        //Si no hay texto cargamos todos los datos
+        //Si no hay texto cargamos todos los datos a partir del criterio de búsqueda
         if (nombre.trim().length() == 0) {
-            lSesiones.addAll(lSesionesCopia);
+            switch (criterio) {
+                case 0: {
+                    lSesiones.addAll(lSesionesCopia);
+                }
+                break;
+                case 1: {
+
+                }
+                break;
+                case 2: {
+
+                }
+                break;
+            }
         }
         else {
             for (VOSesion sesion : lSesionesCopia) {
