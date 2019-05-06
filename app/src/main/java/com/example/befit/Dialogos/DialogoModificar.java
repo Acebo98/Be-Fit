@@ -28,7 +28,9 @@ public class DialogoModificar {
     EditText tbE3;
     EditText tbE4;
     Spinner spnTags;
+
     String[] tags = new String[] {"Simple", "Moderado", "Complicado", "Cardio", "Pierna", "Tren Superior"};
+
     ArrayList<EditText> lCampos = new ArrayList<>();
 
     VOSesion Sesion;

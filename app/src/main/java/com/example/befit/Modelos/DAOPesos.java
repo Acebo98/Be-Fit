@@ -80,14 +80,19 @@ public class DAOPesos {
             lPesos = new ArrayList<>();
 
             //Query
-            Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + ", fecha_peso from " + BeFitDB.Structure.PESOS +
+            Cursor c = database.rawQuery("SELECT * from " + BeFitDB.Structure.PESOS +
                             " where idSesion = ? ORDER BY " + BaseColumns._ID + " DESC", new String[] {idSesion});
 
             //Sacamos los datos...
             while (c.moveToNext() == true) {
                 VOPeso peso = new VOPeso();
                 peso.setIdentificador(c.getInt(0));
-                peso.setFecha_Peso(c.getString(1));
+                peso.setPeso_1(c.getString(1));
+                peso.setPeso_2(c.getString(2));
+                peso.setPeso_3(c.getString(3));
+                peso.setPeso_4(c.getString(4));
+                peso.setNotas(c.getString(5));
+                peso.setFecha_Peso(c.getString(6));
                 lPesos.add(peso);
             }
         }
