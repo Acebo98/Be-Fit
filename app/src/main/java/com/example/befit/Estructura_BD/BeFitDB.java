@@ -36,10 +36,10 @@ public class BeFitDB extends SQLiteOpenHelper {
             "activo TEXT NOT NULL, " +
             BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "nombre TEXT NOT NULL, " +
-            "musculo_1 TEXT NOT NULL, " +
-            "musculo_2 TEXT NOT NULL, " +
-            "musculo_3 TEXT NOT NULL, " +
-            "musculo_4 TEXT NOT NULL, " +
+            "ejercicio_1 TEXT NOT NULL, " +
+            "ejercicio_2 TEXT NOT NULL, " +
+            "ejercicio_3 TEXT NOT NULL, " +
+            "ejercicio_4 TEXT NOT NULL, " +
             "tag text NOT NULL, " +
             "f_creacion NOT NULL, " +
             "actualizacion TEXT NOT NULL)";
