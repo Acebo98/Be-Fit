@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.befit.DialogoSeleccion;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Dialogos.DialogoConfirmacion;
 import com.example.befit.Entidades.VOPeso;
@@ -101,37 +102,8 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                 try {
                     if (nSesionFragment.ComprobarCampos() == true) {
                         if (new DAOSesiones(getApplicationContext()).ExistirSesion(nSesionFragment.tbNombre.getText().toString().trim()) == true) {
-                            VOSesion sesion = new VOSesion();
-
-                            //Recogemos los datos de la sesión
-                            sesion.setNombre(nSesionFragment.tbNombre.getText().toString().trim());
-                            sesion.setMusculo_1(nSesionFragment.tbM1.getText().toString().trim());
-                            sesion.setMusculo_2(nSesionFragment.tbM2.getText().toString().trim());
-                            sesion.setMusculo_3(nSesionFragment.tbM3.getText().toString().trim());
-                            sesion.setMusculo_4(nSesionFragment.tbM4.getText().toString().trim());
-                            sesion.setTag(String.valueOf(nSesionFragment.spnTags.getSelectedItem()));
-
-                            //Primero insertamos la sesión y obtenemos su ID
-                            new DAOSesiones(getApplicationContext()).InsertSesion(sesion);
-                            int IdSesion = new DAOSesiones(getApplicationContext()).SacarIdentificador(sesion.getNombre());
-
-                            //Finalmente insertamos su peso por defecto (5kgs)
-                            VOPeso NPeso = new VOPeso();
-                            NPeso.setPeso_1("5kg");
-                            NPeso.setPeso_2("5kg");
-                            NPeso.setPeso_3("5kg");
-                            NPeso.setPeso_4("5kg");
-                            NPeso.setNotas(null);
-                            NPeso.setIdSesion(IdSesion);
-                            new DAOPesos(getApplicationContext()).InsertarPeso(NPeso);
-
-                            //Informamos de que haya ido bien la cosa
-                            LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.sesion_insertada));
-                            nSesionFragment.LimpiarUI();
-
-                            //NOS COMUNICAMOS MEDIANTE LA INTERFAZ CON LA ACTIVIDAD MAIN PARA QUE SE ACTUALICE
-                            //LA LISTVIEW
-                            nSesionFragment.mListener.onFragmentInteraction(Uri.parse("actualiza"));
+                            DialogoSeleccion seleccion = new DialogoSeleccion();
+                            seleccion.show(getSupportFragmentManager(), "SELECCIONAR");
                         }
                         else {
                             LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.sesion_repetida));
@@ -166,6 +138,52 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
         //Mensaje de bienvenida con el nombre de la persona
         LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.bienvenido) + " " + SacarNombre());
+    }
+
+    //Método para introducir la sesión (es llamado por el diálogo de etiquetas)
+    public void introducirEtiqueta(String etiqueta) {
+        try {
+            VOSesion sesion = new VOSesion();
+
+            //Recogemos los datos de la sesión
+            sesion.setNombre(nSesionFragment.tbNombre.getText().toString().trim());
+            sesion.setMusculo_1(nSesionFragment.tbM1.getText().toString().trim());
+            sesion.setMusculo_2(nSesionFragment.tbM2.getText().toString().trim());
+            sesion.setMusculo_3(nSesionFragment.tbM3.getText().toString().trim());
+            sesion.setMusculo_4(nSesionFragment.tbM4.getText().toString().trim());
+            sesion.setTag(etiqueta);
+
+            //Primero insertamos la sesión y obtenemos su ID
+            new DAOSesiones(getApplicationContext()).InsertSesion(sesion);
+            int IdSesion = new DAOSesiones(getApplicationContext()).SacarIdentificador(sesion.getNombre());
+
+            //Finalmente insertamos su peso por defecto (5kgs)
+            VOPeso NPeso = new VOPeso();
+            NPeso.setPeso_1("5kg");
+            NPeso.setPeso_2("5kg");
+            NPeso.setPeso_3("5kg");
+            NPeso.setPeso_4("5kg");
+            NPeso.setNotas(null);
+            NPeso.setIdSesion(IdSesion);
+            new DAOPesos(getApplicationContext()).InsertarPeso(NPeso);
+
+            //Informamos de que haya ido bien la cosa
+            LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.sesion_insertada));
+            nSesionFragment.LimpiarUI();
+
+            //NOS COMUNICAMOS MEDIANTE LA INTERFAZ CON LA ACTIVIDAD MAIN PARA QUE SE ACTUALICE LA LISTVIEW
+            nSesionFragment.mListener.onFragmentInteraction(Uri.parse("actualiza"));
+        }
+        catch (Exception err) {
+            DialogFragment dialogFragment = new DialogoAlerta();
+            Bundle bundle = new Bundle();
+
+            bundle.putString("TITULO", getString(R.string.error));
+            bundle.putString("MENSAJE", err.getMessage());
+            dialogFragment.setArguments(bundle);
+
+            dialogFragment.show(getSupportFragmentManager(), "error");
+        }
     }
 
     //Sacamos el nombre de la persona

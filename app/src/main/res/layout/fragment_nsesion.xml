@@ -98,17 +98,4 @@
                 android:hint="@string/gemelo"
                 android:maxLength="30"/>
 
-        <TextView
-            android:id="@+id/labEtiqueta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/tag"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/spnTags"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Spinner>
-
 </LinearLayout>

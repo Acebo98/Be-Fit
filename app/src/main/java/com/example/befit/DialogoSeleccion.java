@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 
 import com.example.befit.Actividades.LogeoActivity;
+import com.example.befit.Actividades.MainActivity;
 
 public class DialogoSeleccion extends DialogFragment {
 
@@ -17,10 +18,11 @@ public class DialogoSeleccion extends DialogFragment {
 
         //Cuerpo del diálogo
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Selección")
+        builder.setTitle(getString(R.string.etiqueta_sesion))
                 .setItems(tags, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int item) {
-                        LogeoActivity.centralizarToast(getContext(), tags[item]);
+                        MainActivity activity = (MainActivity) getActivity();
+                        activity.introducirEtiqueta(tags[item]);
                     }
                 });
         return builder.create();

@@ -28,7 +28,6 @@ public class NSesionFragment extends Fragment {
     EditText tbM2;
     EditText tbM3;
     EditText tbM4;
-    Spinner spnTags;
 
     //Listas
     ArrayList<EditText> lCampos = new ArrayList<>();
@@ -62,8 +61,6 @@ public class NSesionFragment extends Fragment {
         tbM3 = view.findViewById(R.id.tbM3);
         tbM4 = view.findViewById(R.id.tbM4);
         tabLayout = view.findViewById(R.id.tabLayout);
-        spnTags = view.findViewById(R.id.spnTags);
-        spnTags.setAdapter(new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, tags));
 
         //Lista de campos de texto
         lCampos.add(tbNombre);

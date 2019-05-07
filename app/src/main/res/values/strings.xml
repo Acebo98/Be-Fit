@@ -75,6 +75,7 @@
     <string name="datos_modificados">Datos modificados correctamente</string>
     <string name="sesiones_borradas">Sesiones Borradas</string>
     <string name="entendido">Entendido</string>
+    <string name="etiqueta_sesion">Etiqueta para la sesión</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>
