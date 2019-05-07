@@ -94,4 +94,12 @@
     <string name="todos">Todos</string>
     <string name="bloqueados">Bloqueados</string>
     <string name="sin_bloquer">Sin Bloquear</string>
+
+    <!-- Etiquetas -->
+    <string name="simple">Simple</string>
+    <string name="moderado">Moderado</string>
+    <string name="complicado">Complicado</string>
+    <string name="cardio">Cardiovascular</string>
+    <string name="tag_pierna">Pierna</string>
+    <string name="tren_superior">Pecho</string>
 </resources>

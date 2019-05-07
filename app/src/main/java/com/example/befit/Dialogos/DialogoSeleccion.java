@@ -15,7 +15,10 @@ public class DialogoSeleccion extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-        final String[] tags = getResources().getStringArray(R.array.etiquetas);     //Etiquetas
+        //Etiquetas
+        final String[] tags = new String[] {getString(R.string.simple), getString(R.string.moderado),
+                getString(R.string.complicado), getString(R.string.cardio), getString(R.string.tag_pierna),
+                getString(R.string.tren_superior)};
 
         //Cuerpo del diálogo
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

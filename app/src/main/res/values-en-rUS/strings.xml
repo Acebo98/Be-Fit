@@ -79,4 +79,10 @@
     <string name="todos">All</string>
     <string name="bloqueados">Locked</string>
     <string name="sin_bloquer">Unlocked</string>
+    <string name="simple">Simple</string>
+    <string name="moderado">Moderated</string>
+    <string name="complicado">Dificult</string>
+    <string name="cardio">Cardio</string>
+    <string name="tren_superior">Chest</string>
+    <string name="tag_pierna">Leg</string>
 </resources>
