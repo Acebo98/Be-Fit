@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="etiquetas">
+        <item>Simple</item>
+        <item>Moderado</item>
+        <item>Complicado</item>
+        <item>Cardiovascular</item>
+        <item>Pierna</item>
+        <item>Tren Superior</item>
+    </string-array>
+</resources>
