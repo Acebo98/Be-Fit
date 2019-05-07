@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nombre_usuario">User Name</string>
+    <string name="contrasena">Password</string>
+    <string name="conectar">Connect</string>
+    <string name="creador">Created by Sergio Acebal 2ºDAM</string>
+    <string name="finalizar">Cloase</string>
+    <string name="modificar">Modify</string>
+    <string name="borrar">Delete</string>
+    <string name="update">Last Modification:</string>
+    <string name="n_entrenamientos">Number of Sesions:</string>
+    <string name="nombre_sesion">Sesion Name:</string>
+    <string name="musculo">Exercise 1</string>
+    <string name="musculo_1">Exercise 2</string>
+    <string name="musculo_2">Exercise 3</string>
+    <string name="musculo_3">Exercise 4</string>
+    <string name="aceptar">Accept</string>
+    <string name="limpiar">Clean</string>
+    <string name="notas">Optional Notes</string>
+    <string name="notas_2">Optional Notes:</string>
+    <string name="actualizar">Update</string>
+    <string name="modificar_sesion">Modify Sesion</string>
+    <string name="cancelar">Cancel</string>
+    <string name="credenciales">Automatic Login</string>
+    <string name="tag">Tag</string>
+    <string name="total_registros">Total Records:</string>
+    <string name="escribe_notas">Write here your notes...</string>
+    <string name="buscar_sesion">Search for your sesion...</string>
+    <string name="gym_day">Gym Day</string>
+    <string name="biceps">Biceps</string>
+    <string name="triceps">Triceps</string>
+    <string name="pierna">Leg</string>
+    <string name="gemelo">Chest</string>
+    <string name="usuario_incorrecto">Incorrect username or password</string>
+    <string name="cuatro_caracteres">The username and the password must contain 4 characters minimun</string>
+    <string name="error">There has been a problem</string>
+    <string name="parece_nuevo">It seems it is your first time!</string>
+</resources>
