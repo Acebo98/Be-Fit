@@ -89,10 +89,10 @@ public class DAOSesiones {
             //Datos de la insercción
             values.put("activo", sesion.getActivo());
             values.put("nombre", sesion.getNombre());
-            values.put("musculo_1", sesion.getMusculo_1());
-            values.put("musculo_2", sesion.getMusculo_2());
-            values.put("musculo_3", sesion.getMusculo_3());
-            values.put("musculo_4", sesion.getMusculo_4());
+            values.put("musculo_1", sesion.getEjercicio_1());
+            values.put("musculo_2", sesion.getEjercicio_2());
+            values.put("musculo_3", sesion.getEjercicio_3());
+            values.put("musculo_4", sesion.getEjercicio_4());
             values.put("tag", sesion.getTag());
             values.put("f_creacion", sacarFechaHoy());
             values.put("actualizacion", sacarFechaHoy());
@@ -259,10 +259,10 @@ public class DAOSesiones {
 
             //Datos de la modificación
             values.put("nombre", NSesion.getNombre());
-            values.put("musculo_1", NSesion.getMusculo_1());
-            values.put("musculo_2", NSesion.getMusculo_2());
-            values.put("musculo_3", NSesion.getMusculo_3());
-            values.put("musculo_4", NSesion.getMusculo_4());
+            values.put("musculo_1", NSesion.getEjercicio_1());
+            values.put("musculo_2", NSesion.getEjercicio_2());
+            values.put("musculo_3", NSesion.getEjercicio_3());
+            values.put("musculo_4", NSesion.getEjercicio_4());
             values.put("tag", NSesion.getTag());
             values.put("actualizacion", this.sacarFechaHoy());
 

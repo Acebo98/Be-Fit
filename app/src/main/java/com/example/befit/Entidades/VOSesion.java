@@ -30,16 +30,16 @@ public class VOSesion {
     public String getNombre() {
         return Nombre;
     }
-    public String getMusculo_1() {
+    public String getEjercicio_1() {
         return  Musculo_1;
     }
-    public String getMusculo_2() {
+    public String getEjercicio_2() {
         return Musculo_2;
     }
-    public String getMusculo_3() {
+    public String getEjercicio_3() {
         return Musculo_3;
     }
-    public String getMusculo_4() {
+    public String getEjercicio_4() {
         return Musculo_4;
     }
     public String getTag() { return this.Tag; }

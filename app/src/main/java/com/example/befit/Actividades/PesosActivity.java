@@ -91,10 +91,10 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
             //Aplicamos los textos
             tbNombre.setText(sesion.getNombre());
-            labm1.setText(sesion.getMusculo_1());
-            labm2.setText(sesion.getMusculo_2());
-            labm3.setText(sesion.getMusculo_3());
-            labm4.setText(sesion.getMusculo_4());
+            labm1.setText(sesion.getEjercicio_1());
+            labm2.setText(sesion.getEjercicio_2());
+            labm3.setText(sesion.getEjercicio_3());
+            labm4.setText(sesion.getEjercicio_4());
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();

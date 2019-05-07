@@ -74,10 +74,10 @@ public class DialogoModificar {
 
         //Especificamos los atributos de la sesión original
         tbNombre.setText(Sesion.getNombre());
-        tbE1.setText(Sesion.getMusculo_1());
-        tbE2.setText(Sesion.getMusculo_2());
-        tbE3.setText(Sesion.getMusculo_3());
-        tbE4.setText(Sesion.getMusculo_4());
+        tbE1.setText(Sesion.getEjercicio_1());
+        tbE2.setText(Sesion.getEjercicio_2());
+        tbE3.setText(Sesion.getEjercicio_3());
+        tbE4.setText(Sesion.getEjercicio_4());
 
         //Etiqueta
         for (int i = 0; i < tags.length; i++) {
