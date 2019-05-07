@@ -93,7 +93,7 @@ public class NSesionFragment extends Fragment {
     //Comprobamos que todos los campos estén rellenos
     public boolean ComprobarCampos() {
         for (EditText campo : lCampos) {
-            if (campo.getText().toString().trim().length() < 5) {
+            if (campo.getText().toString().trim().length() < 3) {
                 return false;
             }
         }

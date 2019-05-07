@@ -138,7 +138,7 @@ public class DialogoModificar {
     //Comprobamos los campos rellenos
     private boolean ComprobarCampos() {
         for (EditText campo : lCampos) {
-            if (campo.getText().toString().trim().length() < 5) {
+            if (campo.getText().toString().trim().length() < 3) {
                 return false;
             }
         }

@@ -46,7 +46,7 @@
         podrás cambiarlos.</string>
     <string name="sesion_insertada">Sesión Insertada</string>
     <string name="sesion_repetida">Parece que ya tienes una sesión con dicho nombre ya insertada</string>
-    <string name="sesion_5caracteres">Los campos de texto deben de tener mínimo 5 carácteres</string>
+    <string name="sesion_5caracteres">Los campos de texto deben de tener mínimo 3 carácteres</string>
     <string name="bienvenido">Bienvenid@</string>
     <string name="funcionar_app">¿Cómo funciona esta aplicación?</string>
     <string name="explicacion_app">Con esta aplicación podras tener un registro de forma intuitiva en tu teléfono

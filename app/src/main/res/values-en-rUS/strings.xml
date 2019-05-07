@@ -40,7 +40,7 @@
         \n\nDo not worry, inside the app you will be able to change them.</string>
     <string name="sesion_insertada">The sesion have been introduced</string>
     <string name="sesion_repetida">It seems you already have a sesion with that name inserted</string>
-    <string name="sesion_5caracteres">The text boxes must contain 5 characters minimun</string>
+    <string name="sesion_5caracteres">The text boxes must contain 3 characters minimun</string>
     <string name="bienvenido">Welcome</string>
     <string name="funcionar_app">How does this app work?</string>
     <string name="explicacion_app">With this app you will be able to have a record in your device about your sesions
