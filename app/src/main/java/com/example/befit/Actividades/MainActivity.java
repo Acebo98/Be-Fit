@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                             new DAOPesos(getApplicationContext()).InsertarPeso(NPeso);
 
                             //Informamos de que haya ido bien la cosa
-                            LogeoActivity.centralizarToast(getApplicationContext(), "Sesión Insertada");
+                            LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.sesion_insertada));
                             nSesionFragment.LimpiarUI();
 
                             //NOS COMUNICAMOS MEDIANTE LA INTERFAZ CON LA ACTIVIDAD MAIN PARA QUE SE ACTUALICE
@@ -134,20 +134,18 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                             nSesionFragment.mListener.onFragmentInteraction(Uri.parse("actualiza"));
                         }
                         else {
-                            LogeoActivity.centralizarToast(getApplicationContext(), "Parece que ya tienes una sesión con " +
-                                    "dicho nombre ya insertada");
+                            LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.sesion_repetida));
                         }
                     }
                     else {
-                        LogeoActivity.centralizarToast(getApplicationContext(), "Los campos de texto deben de tener mínimo " +
-                                "5 carácteres");
+                        LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.sesion_5caracteres));
                     }
                 }
                 catch (Exception err) {
                     DialogFragment dialogFragment = new DialogoAlerta();
                     Bundle bundle = new Bundle();
 
-                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("TITULO", getString(R.string.error));
                     bundle.putString("MENSAJE", err.getMessage());
                     dialogFragment.setArguments(bundle);
 
@@ -167,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         });
 
         //Mensaje de bienvenida con el nombre de la persona
-        LogeoActivity.centralizarToast(getApplicationContext(), "Bienvenid@ " + SacarNombre());
+        LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.bienvenido) + " " + SacarNombre());
     }
 
     //Sacamos el nombre de la persona
@@ -205,13 +203,8 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                 DialogFragment dialogFragment = new DialogoAlerta();
                 Bundle bundle = new Bundle();
 
-                bundle.putString("TITULO", "¿Cómo funciona esta aplicación?");
-                bundle.putString("MENSAJE", "Con esta aplicación podras tener un registro de forma intuitiva en tu teléfono " +
-                        "móvil del seguimiento de tus sesiones en el gimnasio. \n\n" +
-                        "Con la sección NUEVA SESIÓN podrás introducir una nueva sesión, estas sesiones se encontrarán reflejadas " +
-                        "en la sección SEGUIMIENTO, lugar donde podrás seleccionar y actualizar el seguimiento de pesos " +
-                        "de dicha sesión. \n\nObviamente puedes también borrar una sesión, y por consiguiente su " +
-                        "seguimiento, en cualquier momento.");
+                bundle.putString("TITULO", getString(R.string.funcionar_app));
+                bundle.putString("MENSAJE", getString(R.string.explicacion_app));
                 dialogFragment.setArguments(bundle);
 
                 dialogFragment.show(getSupportFragmentManager(), "1111");
@@ -221,8 +214,8 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                 DialogoConfirmacion dialogoConfirmacion = new DialogoConfirmacion();
                 Bundle bundle = new Bundle();
 
-                bundle.putString("TITULO", "Confirmación");
-                bundle.putString("MENSAJE", "¿Deseas desconectarte de la aplicación?");
+                bundle.putString("TITULO", getString(R.string.confirmacion));
+                bundle.putString("MENSAJE", getString(R.string.desconectarse_app));
                 dialogoConfirmacion.setArguments(bundle);
 
                 dialogoConfirmacion.show(getSupportFragmentManager(), CERRAR);
