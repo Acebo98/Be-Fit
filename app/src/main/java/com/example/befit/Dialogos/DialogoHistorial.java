@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.befit.Entidades.VOPeso;
+import com.example.befit.Entidades.VOSesion;
 import com.example.befit.R;
 
 public class DialogoHistorial {
@@ -20,7 +21,7 @@ public class DialogoHistorial {
     TextView labEjercicio4;
     EditText tbNotas;
 
-    public DialogoHistorial(Context context, VOPeso peso) {
+    public DialogoHistorial(Context context, VOPeso peso, VOSesion sesion) {
 
         //Configuración del cuadro de díalogo
         final Dialog dialog = new Dialog(context);
@@ -39,10 +40,10 @@ public class DialogoHistorial {
 
         //Aplicamos el texto
         labFecha.setText(peso.getFecha_Peso());
-        labEjercicio1.setText("Ejercicio 1: " + peso.getPeso_1());
-        labEjercicio2.setText("Ejercicio 2: " + peso.getPeso_2());
-        labEjercicio3.setText("Ejercicio 3: " + peso.getPeso_3());
-        labEjercicio4.setText("Ejercicio 4: " + peso.getPeso_4());
+        labEjercicio1.setText(sesion.getMusculo_1() + " " + peso.getPeso_1());
+        labEjercicio2.setText(sesion.getMusculo_2() + " " + peso.getPeso_2());
+        labEjercicio3.setText(sesion.getMusculo_3() + " " + peso.getPeso_3());
+        labEjercicio4.setText(sesion.getMusculo_4() + " " + peso.getPeso_4());
         tbNotas.setText(peso.getNotas());
 
         //Mostramos el diálogo con toda su gloria

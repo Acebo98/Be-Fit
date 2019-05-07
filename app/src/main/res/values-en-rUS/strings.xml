@@ -23,7 +23,7 @@
     <string name="cancelar">Cancel</string>
     <string name="credenciales">Automatic Login</string>
     <string name="tag">Tag</string>
-    <string name="total_registros">Total Records:</string>
+    <string name="total_registros">Number of Records:</string>
     <string name="escribe_notas">Write here your notes...</string>
     <string name="buscar_sesion">Search for your sesion...</string>
     <string name="gym_day">Gym Day</string>
