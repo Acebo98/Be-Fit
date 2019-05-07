@@ -100,7 +100,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             DialogFragment dialogFragment = new DialogoAlerta();
             Bundle bundle = new Bundle();
 
-            bundle.putString("TITULO", "Ha ocurrido un Error");
+            bundle.putString("TITULO", getString(R.string.error));
             bundle.putString("MENSAJE", err.getMessage());
             dialogFragment.setArguments(bundle);
 
@@ -124,7 +124,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             DialogFragment dialogFragment = new DialogoAlerta();
             Bundle bundle = new Bundle();
 
-            bundle.putString("TITULO", "Ha ocurrido un Error");
+            bundle.putString("TITULO", getString(R.string.error));
             bundle.putString("MENSAJE", err.getMessage());
             dialogFragment.setArguments(bundle);
 
@@ -167,8 +167,8 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                 //Cuadro de diálogo
                 DialogoConfirmacion dialogoConfirmacion = new DialogoConfirmacion();
                 Bundle bundle = new Bundle();
-                bundle.putString("TITULO", "Borrado");
-                bundle.putString("MENSAJE", "¿Estás seguro de que quieres borrar esta sesión?");
+                bundle.putString("TITULO", getString(R.string.borrado));
+                bundle.putString("MENSAJE", getString(R.string.pregunta_borrar));
                 dialogoConfirmacion.setArguments(bundle);
                 dialogoConfirmacion.show(getSupportFragmentManager(), BORRADO);
             }
@@ -187,21 +187,20 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                         //Actualizamos
                         new DAOPesos(getApplicationContext()).InsertarPeso(Npeso);
                         new DAOSesiones(getApplicationContext()).UpdateFecha(identificador);
-                        LogeoActivity.centralizarToast(getApplicationContext(), "Pesos Actualizados");
+                        LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.pesos_actualizados));
 
                         //Resultado ok
                         setResult(RESULT_OK);
                     }
                     else {
-                        LogeoActivity.centralizarToast(getApplicationContext(), "Primero inserta los 4 pesos " +
-                                "obligatorios");
+                        LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.pesos_obligatorios));
                     }
                 }
                 catch (Exception err) {
                     DialogFragment dialogFragment = new DialogoAlerta();
                     Bundle bundle = new Bundle();
 
-                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("TITULO", getString(R.string.error));
                     bundle.putString("MENSAJE", err.getMessage());
                     dialogFragment.setArguments(bundle);
 
@@ -223,9 +222,8 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                 //Cuadro de diálogo
                 DialogoConfirmacion dialogoConfirmacion = new DialogoConfirmacion();
                 Bundle bundle = new Bundle();
-                bundle.putString("TITULO", "Bloqueo de Sesión");
-                bundle.putString("MENSAJE", "¿Estás seguro de que quieres bloquear esta sesión? \n\nAl hacerlo no podrás " +
-                        "modificar dicha sesión, pero se mantendrá guardada");
+                bundle.putString("TITULO", getString(R.string.bloqueo_sesion));
+                bundle.putString("MENSAJE", getString(R.string.pregunta_desbloquear));
                 dialogoConfirmacion.setArguments(bundle);
                 dialogoConfirmacion.show(getSupportFragmentManager(), BLOQUEADO);
             }
@@ -259,7 +257,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                 DialogFragment dialogFragment = new DialogoAlerta();
                 Bundle bundle = new Bundle();
 
-                bundle.putString("TITULO", "Ha ocurrido un Error");
+                bundle.putString("TITULO", getString(R.string.error));
                 bundle.putString("MENSAJE", err.getMessage());
                 dialogFragment.setArguments(bundle);
 
@@ -270,7 +268,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             try {
                 //Modificamos...
                 new DAOSesiones(getApplicationContext()).BloquearSesion(String.valueOf(identificador));
-                LogeoActivity.centralizarToast(getApplicationContext(), "Sesión Bloqueada");
+                LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.sesion_bloqueada));
 
                 //Cerramos
                 setResult(RESULT_OK);
@@ -280,7 +278,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                 DialogFragment dialogFragment = new DialogoAlerta();
                 Bundle bundle = new Bundle();
 
-                bundle.putString("TITULO", "Ha ocurrido un Error");
+                bundle.putString("TITULO", getString(R.string.error));
                 bundle.putString("MENSAJE", err.getMessage());
                 dialogFragment.setArguments(bundle);
 
@@ -297,7 +295,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             new DAOSesiones(context).UpdateSesion(Sesion);
 
             //Actualizamos el interfaz e informamos
-            LogeoActivity.centralizarToast(context, "Sesión Modificada");
+            LogeoActivity.centralizarToast(context, getString(R.string.sesion_modificada));
             LeerSesion();
             setResult(RESULT_OK);
         }
@@ -305,7 +303,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             DialogFragment dialogFragment = new DialogoAlerta();
             Bundle bundle = new Bundle();
 
-            bundle.putString("TITULO", "Ha ocurrido un Error");
+            bundle.putString("TITULO", getString(R.string.error));
             bundle.putString("MENSAJE", err.getMessage());
             dialogFragment.setArguments(bundle);
 

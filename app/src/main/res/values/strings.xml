@@ -53,6 +53,15 @@
     <string name="desconectarse_app">¿Deseas desconectarte de la aplicación?</string>
     <string name="dicha_bloqueda">Dicha sesión está bloqueada</string>
     <string name="desbloquear">Desbloquear</string>
+    <string name="borrado">Borrado</string>
+    <string name="pregunta_borrar">¿Estás seguro de que quieres borrar esta sesión?</string>
+    <string name="pesos_actualizados">Pesos Actualizado</string>
+    <string name="pesos_obligatorios">Primero inserta los 4 pesos obligatorios</string>
+    <string name="bloqueo_sesion">Bloqueo de Sesión</string>
+    <string name="pregunta_desbloquear">¿Estás seguro de que quieres bloquear esta sesión? \n\nAl hacerlo no podrás " +
+                        "modificar dicha sesión, pero se mantendrá guardada</string>
+    <string name="sesion_bloqueada">Sesión Bloqueada</string>
+    <string name="sesion_modificada">Sesión Modificada</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>
