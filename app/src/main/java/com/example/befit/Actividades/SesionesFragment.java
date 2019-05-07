@@ -59,7 +59,7 @@ public class SesionesFragment extends Fragment {
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //Vector con los criterios de búsqueda
-        criterios = getResources().getStringArray(R.array.criterios);
+        criterios = new String[] {getString(R.string.todos), getString(R.string.bloqueados), getString(R.string.sin_bloquer)};
 
         //Inflamos la vista
         view = inflater.inflate(R.layout.fragment_sesiones, container, false);

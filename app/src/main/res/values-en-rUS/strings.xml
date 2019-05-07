@@ -76,4 +76,7 @@
     <string name="borrar_sesiones">Delete Sesions</string>
     <string name="historial">See weights record</string>
     <string name="bloquear">Lock Sesion</string>
+    <string name="todos">All</string>
+    <string name="bloqueados">Locked</string>
+    <string name="sin_bloquer">Unlocked</string>
 </resources>
