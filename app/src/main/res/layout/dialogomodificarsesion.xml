@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="@string/modificacion"
+            android:text="@string/modificar_sesion"
             android:textAlignment="center"
             android:textSize="18dp"
             android:textStyle="bold" />

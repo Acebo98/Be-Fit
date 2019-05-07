@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp"
+        android:padding="15dp"
         tools:context=".Actividades.NSesionFragment">
 
             <TextView
@@ -26,7 +26,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text=""
-                android:hint="Tarde de Bíceps"
+                android:hint="@string/gym_day"
                 android:maxLength="30"/>
 
             <TextView
@@ -44,7 +44,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text=""
-                android:hint="Flexiones de Bíceps"
+                android:hint="@string/biceps"
                 android:maxLength="30"/>
 
             <TextView
@@ -61,7 +61,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text=""
-                android:hint="Curl de Bíceps"
+                android:hint="@string/triceps"
                 android:maxLength="30"/>
 
             <TextView
@@ -78,7 +78,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text=""
-                android:hint="Flexiones Martillo"
+                android:hint="@string/pierna"
                 android:maxLength="30"/>
 
             <TextView
@@ -95,7 +95,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text=""
-                android:hint="Flexiones de Bíceps Inclinado"
+                android:hint="@string/gemelo"
                 android:maxLength="30"/>
 
         <TextView

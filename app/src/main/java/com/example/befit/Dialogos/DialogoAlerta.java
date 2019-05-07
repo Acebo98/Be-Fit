@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 
+import com.example.befit.R;
+
 public class DialogoAlerta extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -20,7 +22,7 @@ public class DialogoAlerta extends DialogFragment {
         //Cuerpo del cuadro de diálogo
         builder.setMessage(mensaje)
                 .setTitle(titulo)
-                .setPositiveButton("Entendido",new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.entendido),new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }

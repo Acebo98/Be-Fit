@@ -29,6 +29,8 @@ public class NSesionFragment extends Fragment {
     EditText tbM3;
     EditText tbM4;
     Spinner spnTags;
+
+    //Listas
     ArrayList<EditText> lCampos = new ArrayList<>();
     String[] tags = new String[] {"Simple", "Moderado", "Complicado", "Cardio", "Pierna", "Tren Superior"};
 

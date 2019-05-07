@@ -79,7 +79,7 @@ public class HistorialPesosActivity extends AppCompatActivity {
             DialogFragment dialogFragment = new DialogoAlerta();
             Bundle bundle = new Bundle();
 
-            bundle.putString("TITULO", "Ha ocurrido un Error");
+            bundle.putString("TITULO", getString(R.string.error));
             bundle.putString("MENSAJE", err.getMessage());
             dialogFragment.setArguments(bundle);
 

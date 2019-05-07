@@ -8,6 +8,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 
+import com.example.befit.R;
+
 public class DialogoConfirmacion extends DialogFragment {
 
     private MiDialogListener listener;
@@ -30,12 +32,12 @@ public class DialogoConfirmacion extends DialogFragment {
         //Cuerpo del cuadro de diálogo
         builder.setMessage(mensaje)
                 .setTitle(titulo)
-                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.aceptar), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         listener.onDialogPositiveClick(DialogoConfirmacion.this);
                     }
                 })
-                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();        //No hacer nada
                     }

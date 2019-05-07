@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 public class DialogoModificar {
 
+    //Controles
     Button btnAceptar;
     Button btnCancelar;
     EditText tbNombre;
@@ -29,8 +30,8 @@ public class DialogoModificar {
     EditText tbE4;
     Spinner spnTags;
 
+    //Listas
     String[] tags = new String[] {"Simple", "Moderado", "Complicado", "Cardio", "Pierna", "Tren Superior"};
-
     ArrayList<EditText> lCampos = new ArrayList<>();
 
     VOSesion Sesion;
@@ -110,8 +111,7 @@ public class DialogoModificar {
                             dialog.dismiss();
                         }
                         else {
-                            LogeoActivity.centralizarToast(context, "Parece que ya tienes una sesión con " +
-                                    "dicho nombre ya insertada");
+                            LogeoActivity.centralizarToast(context, context.getString(R.string.sesion_repetida));
                         }
                     }
                     catch (Exception err) {
@@ -119,7 +119,7 @@ public class DialogoModificar {
                     }
                 }
                 else {
-                    LogeoActivity.centralizarToast(context, "Los campos de texto deben de tener mínimo 5 carácteres");
+                    LogeoActivity.centralizarToast(context, context.getString(R.string.sesion_5caracteres));
                 }
             }
         });

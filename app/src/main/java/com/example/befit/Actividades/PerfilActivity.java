@@ -63,7 +63,7 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
                     DialogFragment dialogFragment = new DialogoAlerta();
                     Bundle bundle = new Bundle();
 
-                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("TITULO", getString(R.string.error));
                     bundle.putString("MENSAJE", err.getMessage());
                     dialogFragment.setArguments(bundle);
 
@@ -94,13 +94,12 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
                         //Cuadro de diálogo
                         DialogoConfirmacion dialogoConfirmacion = new DialogoConfirmacion();
                         Bundle bundle = new Bundle();
-                        bundle.putString("TITULO", "Modificación");
-                        bundle.putString("MENSAJE", "¿Estás seguro de que quieres modificar tus datos?");
+                        bundle.putString("TITULO", getString(R.string.modificacion));
+                        bundle.putString("MENSAJE", getString(R.string.pregunta_modificar));
                         dialogoConfirmacion.setArguments(bundle);
                         dialogoConfirmacion.show(getSupportFragmentManager(), MODIF);
                     } else {
-                        LogeoActivity.centralizarToast(getApplicationContext(), "Recuerda de que el nombre de " +
-                                "usuario y la contraseña deben de tener 4 carácteres como mínimo");
+                        LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.cuatro_caracteres));
                     }
                 }
                 break;
@@ -108,8 +107,8 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
                     //Cuadro de diálogo
                     DialogoConfirmacion dialogoConfirmacion = new DialogoConfirmacion();
                     Bundle bundle = new Bundle();
-                    bundle.putString("TITULO", "Borrado");
-                    bundle.putString("MENSAJE", "¿Estás seguro de que quieres borrar tus sesiones?");
+                    bundle.putString("TITULO", getString(R.string.borrado));
+                    bundle.putString("MENSAJE", getString(R.string.pregunta_borrar_sesiones));
                     dialogoConfirmacion.setArguments(bundle);
                     dialogoConfirmacion.show(getSupportFragmentManager(), BORRADO);
                 }
@@ -120,7 +119,7 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
             DialogFragment dialogFragment = new DialogoAlerta();
             Bundle bundle = new Bundle();
 
-            bundle.putString("TITULO", "Ha ocurrido un Error");
+            bundle.putString("TITULO", getString(R.string.error));
             bundle.putString("MENSAJE", err.getMessage());
             dialogFragment.setArguments(bundle);
 
@@ -153,12 +152,12 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
             tbNombre.setText(nombre);
             tbContra.setText(contrasena);
             if (modificacion == null) {
-                labModificacion.setText("Última Modificación: N/A");
+                labModificacion.setText(getString(R.string.ultima_modificacion) + " N/A");
             }
             else {
-                labModificacion.setText("Última Modificación: " + modificacion);
+                labModificacion.setText(getString(R.string.ultima_modificacion) + " " + modificacion);
             }
-            labEntrenamientos.setText("Número de Sesiones: " + String.valueOf(cantidad));
+            labEntrenamientos.setText(getString(R.string.n_entrenamientos) + " " + String.valueOf(cantidad));
         }
         catch (Exception err) {
             LogeoActivity.centralizarToast(getApplicationContext(), err.getMessage());
@@ -181,7 +180,7 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
 
             //Guardamos
             editor.commit();
-            LogeoActivity.centralizarToast(getApplicationContext(), "Datos modificados correctamente");
+            LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.datos_modificados));
             ReadUserData();
         }
         catch (Exception err) {
@@ -206,7 +205,7 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
             DialogFragment dialogFragment = new DialogoAlerta();
             Bundle bundle = new Bundle();
 
-            bundle.putString("TITULO", "Ha ocurrido un Error");
+            bundle.putString("TITULO", getString(R.string.error));
             bundle.putString("MENSAJE", err.getMessage());
             dialogFragment.setArguments(bundle);
 
@@ -231,7 +230,7 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
                 new DAOSesiones(getApplicationContext()).DeleteSesiones();
                 new DAOPesos(getApplicationContext()).DeletePeso();
                 ReadUserData();
-                LogeoActivity.centralizarToast(getApplicationContext(), "Sesiones Borradas");
+                LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.sesiones_borradas));
 
                 //Resultado OK
                 setResult(RESULT_OK);
@@ -240,7 +239,7 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
                 DialogFragment dialogFragment = new DialogoAlerta();
                 Bundle bundle = new Bundle();
 
-                bundle.putString("TITULO", "Ha ocurrido un Error");
+                bundle.putString("TITULO", getString(R.string.error));
                 bundle.putString("MENSAJE", err.getMessage());
                 dialogFragment.setArguments(bundle);
 

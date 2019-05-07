@@ -22,33 +22,39 @@
     <string name="notas_2">Notas Opcionales: </string>
     <string name="actualizar">Actualizar</string>
     <string name="version">1.0.0</string>
-    <string name="modificacion">Modificar Sesión</string>
+    <string name="modificar_sesion">Modificar Sesión</string>
     <string name="cancelar">Cancelar</string>
-    <string name="credenciales">Inicio de Sesión automático</string>
+    <string name="credenciales">Inicio de sesión automático</string>
     <string name="tag">Etiqueta</string>
     <string name="total_registros">Total de Registros: </string>
     <string name="escribe_notas">Escribe aquí tus notas...</string>
+    <string name="buscar_sesion">Busca tu sesión...</string>
+    <string name="gym_day">Día de Gimnasio</string>
+    <string name="biceps">Bíceps</string>
+    <string name="triceps">Tríceps</string>
+    <string name="pierna">Pierna</string>
+    <string name="gemelo">Gemelo</string>
 
     <!-- Toasts y cuadros de diálgo -->
     <string name="usuario_incorrecto">Nombre de Usuario o Contraseña incorrectos</string>
     <string name="cuatro_caracteres">El nombre y la contraseña deben de tener 4 caractéres como mínimo</string>
     <string name="error">Ha ocurrido un Error</string>
     <string name="parece_nuevo">¡Parece que eres nuevo!</string>
-    <string name="explicacion_registro">Al ser la primera vez que ejecutas la aplicación debes de " +
-                    "registrarte introduciendo un nombre y una contraseña. \n\nCuando quieras volver a conectarte " +
-                    "deberás de introducir dichos datos otra vez. \n\nNo te preocupes, dentro de la aplicación " +
-                    "podrás cambiarlos.</string>
+    <string name="explicacion_registro">Al ser la primera vez que ejecutas la aplicación debes de
+        registrarte introduciendo un nombre y una contraseña. \n\nCuando quieras volver a conectarte
+        deberás de introducir dichos datos otra vez. \n\nNo te preocupes, dentro de la aplicación
+        podrás cambiarlos.</string>
     <string name="sesion_insertada">Sesión Insertada</string>
     <string name="sesion_repetida">Parece que ya tienes una sesión con dicho nombre ya insertada</string>
     <string name="sesion_5caracteres">Los campos de texto deben de tener mínimo 5 carácteres</string>
     <string name="bienvenido">Bienvenid@</string>
     <string name="funcionar_app">¿Cómo funciona esta aplicación?</string>
-    <string name="explicacion_app">Con esta aplicación podras tener un registro de forma intuitiva en tu teléfono " +
-                        "móvil del seguimiento de tus sesiones en el gimnasio. \n\n" +
-                        "Con la sección NUEVA SESIÓN podrás introducir una nueva sesión, estas sesiones se encontrarán reflejadas " +
-                        "en la sección SEGUIMIENTO, lugar donde podrás seleccionar y actualizar el seguimiento de pesos " +
-                        "de dicha sesión. \n\nObviamente puedes también borrar una sesión, y por consiguiente su " +
-                        "seguimiento, en cualquier momento.</string>
+    <string name="explicacion_app">Con esta aplicación podras tener un registro de forma intuitiva en tu teléfono
+        móvil del seguimiento de tus sesiones en el gimnasio. \n\n
+        Con la sección NUEVA SESIÓN podrás introducir una nueva sesión, estas sesiones se encontrarán reflejadas
+        en la sección SEGUIMIENTO, lugar donde podrás seleccionar y actualizar el seguimiento de pesos
+        de dicha sesión. \n\nObviamente puedes también borrar una sesión, y por consiguiente su
+        seguimiento, en cualquier momento.</string>
     <string name="confirmacion">Confirmación</string>
     <string name="desconectarse_app">¿Deseas desconectarte de la aplicación?</string>
     <string name="dicha_bloqueda">Dicha sesión está bloqueada</string>
@@ -58,10 +64,17 @@
     <string name="pesos_actualizados">Pesos Actualizado</string>
     <string name="pesos_obligatorios">Primero inserta los 4 pesos obligatorios</string>
     <string name="bloqueo_sesion">Bloqueo de Sesión</string>
-    <string name="pregunta_desbloquear">¿Estás seguro de que quieres bloquear esta sesión? \n\nAl hacerlo no podrás " +
-                        "modificar dicha sesión, pero se mantendrá guardada</string>
+    <string name="pregunta_desbloquear">¿Estás seguro de que quieres bloquear esta sesión? \n\nAl hacerlo no podrás
+        modificar dicha sesión, pero se mantendrá guardada</string>
     <string name="sesion_bloqueada">Sesión Bloqueada</string>
     <string name="sesion_modificada">Sesión Modificada</string>
+    <string name="modificacion">Modificación</string>
+    <string name="pregunta_modificar">¿Estás seguro de que quieres modificar tus datos?</string>
+    <string name="pregunta_borrar_sesiones">¿Estás seguro de que quieres borrar tus sesiones?</string>
+    <string name="ultima_modificacion">Última Modificación: </string>
+    <string name="datos_modificados">Datos modificados correctamente</string>
+    <string name="sesiones_borradas">Sesiones Borradas</string>
+    <string name="entendido">Entendido</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>
