@@ -33,7 +33,9 @@ import com.example.befit.R;
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
         NSesionFragment.OnFragmentInteractionListener, DialogoConfirmacion.MiDialogListener {
 
+    //Constantes para las llamadas
     final String CERRAR = "cerrar";
+    final String SELECCIONAR = "seleccionar";
     final int ACTUALIZAR = 1111;
 
     //FloatingButtons
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                     if (nSesionFragment.ComprobarCampos() == true) {
                         if (new DAOSesiones(getApplicationContext()).ExistirSesion(nSesionFragment.tbNombre.getText().toString().trim()) == true) {
                             DialogoSeleccion seleccion = new DialogoSeleccion();
-                            seleccion.show(getSupportFragmentManager(), "SELECCIONAR");
+                            seleccion.show(getSupportFragmentManager(), SELECCIONAR);
                         }
                         else {
                             LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.sesion_repetida));

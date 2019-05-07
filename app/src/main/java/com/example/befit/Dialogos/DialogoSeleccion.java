@@ -22,8 +22,14 @@ public class DialogoSeleccion extends DialogFragment {
         builder.setTitle(getString(R.string.etiqueta_sesion))
                 .setItems(tags, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int item) {
-                        MainActivity activity = (MainActivity) getActivity();
-                        activity.introducirEtiqueta(tags[item]);
+                        //Tag de la llamada
+                        switch (getTag()) {
+                            case "seleccionar": {
+                                MainActivity activity = (MainActivity) getActivity();
+                                activity.introducirEtiqueta(tags[item]);
+                            }
+                            break;
+                        }
                     }
                 });
         return builder.create();

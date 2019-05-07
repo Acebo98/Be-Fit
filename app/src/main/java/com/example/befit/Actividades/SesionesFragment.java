@@ -26,13 +26,13 @@ import com.example.befit.R;
 
 public class SesionesFragment extends Fragment {
 
-    private OnFragmentInteractionListener mListener;                            //Interfaz
+    private OnFragmentInteractionListener mListener;    //Interfaz
 
-    AdaptadorLV adaptadorLV;                                                    //Adaptador
+    AdaptadorLV adaptadorLV;                            //Adaptador
 
-    final int ACTUALIZAR = 1111;                                                //Constante de que es necesario actualizar la lista
+    final int ACTUALIZAR = 1111;                        //Constante de que es necesario actualizar la lista
 
-    String[] criterios = new String[] {"Todos", "Bloqueados", "Sin bloquear"};  //Criterios de búsqueda
+    String[] criterios;                                 //Criterios de búsqueda
 
     //Controles
     View view;
@@ -58,6 +58,9 @@ public class SesionesFragment extends Fragment {
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //Vector con los criterios de búsqueda
+        criterios = getResources().getStringArray(R.array.criterios);
+
         //Inflamos la vista
         view = inflater.inflate(R.layout.fragment_sesiones, container, false);
 
