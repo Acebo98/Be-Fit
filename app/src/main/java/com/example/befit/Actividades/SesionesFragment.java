@@ -83,8 +83,8 @@ public class SesionesFragment extends Fragment {
                         startActivityForResult(intent, ACTUALIZAR);
                     }
                     else {
-                        Snackbar.make(view, "Dicha sesión está bloqueada", Snackbar.LENGTH_LONG)
-                                .setAction("Desbloquear", new View.OnClickListener() {
+                        Snackbar.make(view, getString(R.string.dicha_bloqueda), Snackbar.LENGTH_LONG)
+                                .setAction(getString(R.string.desbloquear), new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
                                         try {
@@ -96,7 +96,7 @@ public class SesionesFragment extends Fragment {
                                             DialogFragment dialogFragment = new DialogoAlerta();
                                             Bundle bundle = new Bundle();
 
-                                            bundle.putString("TITULO", "Ha ocurrido un Error");
+                                            bundle.putString("TITULO", getString(R.string.error));
                                             bundle.putString("MENSAJE", err.getMessage());
                                             dialogFragment.setArguments(bundle);
 
@@ -110,7 +110,7 @@ public class SesionesFragment extends Fragment {
                     DialogFragment dialogFragment = new DialogoAlerta();
                     Bundle bundle = new Bundle();
 
-                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("TITULO", getString(R.string.error));
                     bundle.putString("MENSAJE", err.getMessage());
                     dialogFragment.setArguments(bundle);
 
@@ -136,7 +136,7 @@ public class SesionesFragment extends Fragment {
                     DialogFragment dialogFragment = new DialogoAlerta();
                     Bundle bundle = new Bundle();
 
-                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("TITULO", getString(R.string.error));
                     bundle.putString("MENSAJE", err.getMessage());
                     dialogFragment.setArguments(bundle);
 
@@ -171,7 +171,7 @@ public class SesionesFragment extends Fragment {
                     DialogFragment dialogFragment = new DialogoAlerta();
                     Bundle bundle = new Bundle();
 
-                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("TITULO", getString(R.string.error));
                     bundle.putString("MENSAJE", err.getMessage());
                     dialogFragment.setArguments(bundle);
 
@@ -202,7 +202,7 @@ public class SesionesFragment extends Fragment {
             DialogFragment dialogFragment = new DialogoAlerta();
             Bundle bundle = new Bundle();
 
-            bundle.putString("TITULO", "Ha ocurrido un Error");
+            bundle.putString("TITULO", getString(R.string.error));
             bundle.putString("MENSAJE", err.getMessage());
             dialogFragment.setArguments(bundle);
 

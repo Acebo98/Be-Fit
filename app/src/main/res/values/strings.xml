@@ -51,6 +51,8 @@
                         "seguimiento, en cualquier momento.</string>
     <string name="confirmacion">Confirmación</string>
     <string name="desconectarse_app">¿Deseas desconectarte de la aplicación?</string>
+    <string name="dicha_bloqueda">Dicha sesión está bloqueada</string>
+    <string name="desbloquear">Desbloquear</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>
