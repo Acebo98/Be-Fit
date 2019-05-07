@@ -36,17 +36,17 @@
     <string name="error">There has been a problem</string>
     <string name="parece_nuevo">It seems it is your first time!</string>
     <string name="explicacion_registro">Being the first time you open the app you must register introducing a
-        username and a password. \\n\\nOnce you want to re-connect you must introduce that data another time.
-        \\n\\nDo not worry, inside the app you will be able to change them.</string>
+        username and a password. \n\nOnce you want to re-connect you must introduce that data another time.
+        \n\nDo not worry, inside the app you will be able to change them.</string>
     <string name="sesion_insertada">The sesion have been introduced</string>
     <string name="sesion_repetida">It seems you already have a sesion with that name inserted</string>
     <string name="sesion_5caracteres">The text boxes must contain 5 characters minimun</string>
     <string name="bienvenido">Welcome</string>
     <string name="funcionar_app">How does this app work?</string>
     <string name="explicacion_app">With this app you will be able to have a record in your device about your sesions
-        in the gym. \\n\\n With the section NEW SESION you will be able to introduce a new sesion,
+        in the gym. \n\n With the section NEW SESION you will be able to introduce a new sesion,
         said sesions will be found  in the section RECORD, where you will choose and update the record of
-        said section. \\n\\nObviosuly you can delete a sesion, and therefore its record, at any time.</string>
+        said section. \n\nObviosuly you can delete a sesion, and therefore its record, at any time.</string>
     <string name="confirmacion">Confirmation</string>
     <string name="desconectarse_app">Do you wanna disconnect?</string>
     <string name="dicha_bloqueda">Said sesion it is blocked</string>
@@ -56,7 +56,8 @@
     <string name="pesos_actualizados">Record Updated</string>
     <string name="pesos_obligatorios">First of all insert the 4 weights</string>
     <string name="bloqueo_sesion">Sesion Block</string>
-    <string name="pregunta_desbloquear">Are you sure you wanna lock this sesion? /n/nOnce you do it you will not be able to modify it, but it will be kept saved.</string>
+    <string name="pregunta_desbloquear">Are you sure you wanna lock this sesion? \n\nOnce you do it you will not be able
+        to modify it, but it will be kept saved.</string>
     <string name="sesion_bloqueada">Sesion Locked</string>
     <string name="sesion_modificada">Sesion Modified</string>
     <string name="modificacion">Modification</string>
