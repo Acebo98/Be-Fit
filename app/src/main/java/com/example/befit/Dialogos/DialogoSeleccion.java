@@ -1,4 +1,4 @@
-package com.example.befit;
+package com.example.befit.Dialogos;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -8,6 +8,7 @@ import android.support.v4.app.DialogFragment;
 
 import com.example.befit.Actividades.LogeoActivity;
 import com.example.befit.Actividades.MainActivity;
+import com.example.befit.R;
 
 public class DialogoSeleccion extends DialogFragment {
 

@@ -31,7 +31,7 @@ public class DialogoModificar {
     Spinner spnTags;
 
     //Listas
-    String[] tags = new String[] {"Simple", "Moderado", "Complicado", "Cardio", "Pierna", "Tren Superior"};
+    String[] tags;
     ArrayList<EditText> lCampos = new ArrayList<>();
 
     VOSesion Sesion;
@@ -44,7 +44,8 @@ public class DialogoModificar {
     }
 
     //Le pasamos la sesión actual que se va a modificar
-    public DialogoModificar(final Context context, DialogoModificarListener actividad, VOSesion sesion) {
+    public DialogoModificar(final Context context, DialogoModificarListener actividad, VOSesion sesion, String[] Tags) {
+        tags = Tags;
         interfaz = actividad;
         Sesion = sesion;
 

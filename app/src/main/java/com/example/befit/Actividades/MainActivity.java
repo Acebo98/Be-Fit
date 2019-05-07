@@ -21,7 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.befit.DialogoSeleccion;
+import com.example.befit.Dialogos.DialogoSeleccion;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Dialogos.DialogoConfirmacion;
 import com.example.befit.Entidades.VOPeso;

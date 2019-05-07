@@ -160,7 +160,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                 NSesion.setTag(sesion.getTag());
 
                 //Iniciamos el diálogo personalizado
-                new DialogoModificar(context, PesosActivity.this, NSesion);
+                new DialogoModificar(context, PesosActivity.this, NSesion, getResources().getStringArray(R.array.etiquetas));
             }
             break;
             case R.id.itemBorrar: {
