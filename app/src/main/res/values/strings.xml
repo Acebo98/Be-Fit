@@ -29,6 +29,16 @@
     <string name="total_registros">Total de Registros: </string>
     <string name="escribe_notas">Escribe aquí tus notas...</string>
 
+    <!--Toasts y cuadros de diálgo -->
+    <string name="usuario_incorrecto">Nombre de Usuario o Contraseña incorrectos</string>
+    <string name="cuatro_caracteres">El nombre y la contraseña deben de tener 4 caractéres como mínimo</string>
+    <string name="error">Ha ocurrido un Error</string>
+    <string name="parece_nuevo">¡Parece que eres nuevo!</string>
+    <string name="explicacion_registro">Al ser la primera vez que ejecutas la aplicación debes de " +
+                    "registrarte introduciendo un nombre y una contraseña. \n\nCuando quieras volver a conectarte " +
+                    "deberás de introducir dichos datos otra vez. \n\nNo te preocupes, dentro de la aplicación " +
+                    "podrás cambiarlos.</string>
+
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>
     <string name="nueva_sesion">Nueva Sesión</string>

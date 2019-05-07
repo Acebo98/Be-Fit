@@ -61,8 +61,7 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
                             startActivity(intent);
                         }
                         else {
-                            centralizarToast(getApplicationContext(),
-                                    "Nombre de Usuario o Contraseña incorrectos");
+                            centralizarToast(getApplicationContext(), getString(R.string.usuario_incorrecto));
                         }
                     }
                     else {
@@ -71,8 +70,7 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
                             RegistrarUsuario(usuario, contra);
                         }
                         else {
-                            centralizarToast(getApplicationContext(), "El nombre y la contraseña deben " +
-                                    "de tener 4 caractéres como mínimo");
+                            centralizarToast(getApplicationContext(), getString(R.string.cuatro_caracteres));
                         }
                     }
                 }
@@ -80,7 +78,7 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
                     DialogFragment dialogFragment = new DialogoAlerta();
                     Bundle bundle = new Bundle();
 
-                    bundle.putString("TITULO", "Ha ocurrido un Error");
+                    bundle.putString("TITULO", getString(R.string.error));
                     bundle.putString("MENSAJE", err.getMessage());
                     dialogFragment.setArguments(bundle);
 
@@ -120,11 +118,8 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
             DialogFragment dialogFragment = new DialogoAlerta();
             Bundle bundle = new Bundle();
 
-            bundle.putString("TITULO", "¡Parece que eres nuevo!");
-            bundle.putString("MENSAJE", "Al ser la primera vez que ejecutas la aplicación debes de " +
-                    "registrarte introduciendo un nombre y una contraseña. \n\nCuando quieras volver a conectarte " +
-                    "deberás de introducir dichos datos otra vez. \n\nNo te preocupes, dentro de la aplicación " +
-                    "podrás cambiarlos.");
+            bundle.putString("TITULO", getString(R.string.parece_nuevo));
+            bundle.putString("MENSAJE", getString(R.string.explicacion_registro));
             dialogFragment.setArguments(bundle);
 
             dialogFragment.show(getSupportFragmentManager(), "1111");
@@ -143,7 +138,7 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
             DialogFragment dialogFragment = new DialogoAlerta();
             Bundle bundle = new Bundle();
 
-            bundle.putString("TITULO", "Ha ocurrido un Error");
+            bundle.putString("TITULO", getString(R.string.error));
             bundle.putString("MENSAJE", err.getMessage());
             dialogFragment.setArguments(bundle);
 
