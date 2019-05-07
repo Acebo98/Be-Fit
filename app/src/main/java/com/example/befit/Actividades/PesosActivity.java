@@ -153,10 +153,10 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
                 //Datos de la sesion
                 NSesion.setNombre(tbNombre.getText().toString().trim());
-                NSesion.setMusculo_1(labm1.getText().toString().trim());
-                NSesion.setMusculo_2(labm2.getText().toString().trim());
-                NSesion.setMusculo_3(labm3.getText().toString().trim());
-                NSesion.setMusculo_4(labm4.getText().toString().trim());
+                NSesion.setEjercicio_1(labm1.getText().toString().trim());
+                NSesion.setEjercicio_2(labm2.getText().toString().trim());
+                NSesion.setEjercicio_3(labm3.getText().toString().trim());
+                NSesion.setEjercicio_4(labm4.getText().toString().trim());
                 NSesion.setTag(sesion.getTag());
 
                 //Iniciamos el diálogo personalizado

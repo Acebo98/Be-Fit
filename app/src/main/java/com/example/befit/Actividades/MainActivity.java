@@ -149,10 +149,10 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
             //Recogemos los datos de la sesión
             sesion.setNombre(nSesionFragment.tbNombre.getText().toString().trim());
-            sesion.setMusculo_1(nSesionFragment.tbM1.getText().toString().trim());
-            sesion.setMusculo_2(nSesionFragment.tbM2.getText().toString().trim());
-            sesion.setMusculo_3(nSesionFragment.tbM3.getText().toString().trim());
-            sesion.setMusculo_4(nSesionFragment.tbM4.getText().toString().trim());
+            sesion.setEjercicio_1(nSesionFragment.tbM1.getText().toString().trim());
+            sesion.setEjercicio_2(nSesionFragment.tbM2.getText().toString().trim());
+            sesion.setEjercicio_3(nSesionFragment.tbM3.getText().toString().trim());
+            sesion.setEjercicio_4(nSesionFragment.tbM4.getText().toString().trim());
             sesion.setTag(etiqueta);
 
             //Primero insertamos la sesión y obtenemos su ID

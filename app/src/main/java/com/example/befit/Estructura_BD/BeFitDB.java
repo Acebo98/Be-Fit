@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
 public class BeFitDB extends SQLiteOpenHelper {
 
     public BeFitDB(Context context) {
-        super(context, Structure.NOMBRE_BD, null, 5);
+        super(context, Structure.NOMBRE_BD, null, 6);
     }
 
     @Override

@@ -101,10 +101,10 @@ public class DialogoModificar {
 
                             //Datos de la sesión
                             sesion.setNombre(tbNombre.getText().toString().trim());
-                            sesion.setMusculo_1(tbE1.getText().toString().trim());
-                            sesion.setMusculo_2(tbE2.getText().toString().trim());
-                            sesion.setMusculo_3(tbE3.getText().toString().trim());
-                            sesion.setMusculo_4(tbE4.getText().toString().trim());
+                            sesion.setEjercicio_1(tbE1.getText().toString().trim());
+                            sesion.setEjercicio_2(tbE2.getText().toString().trim());
+                            sesion.setEjercicio_3(tbE3.getText().toString().trim());
+                            sesion.setEjercicio_4(tbE4.getText().toString().trim());
                             sesion.setTag(String.valueOf(spnTags.getSelectedItem()));
 
                             //Mandamos el temario

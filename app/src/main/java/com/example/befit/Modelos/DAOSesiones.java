@@ -89,10 +89,10 @@ public class DAOSesiones {
             //Datos de la insercción
             values.put("activo", sesion.getActivo());
             values.put("nombre", sesion.getNombre());
-            values.put("musculo_1", sesion.getEjercicio_1());
-            values.put("musculo_2", sesion.getEjercicio_2());
-            values.put("musculo_3", sesion.getEjercicio_3());
-            values.put("musculo_4", sesion.getEjercicio_4());
+            values.put("ejercicio_1", sesion.getEjercicio_1());
+            values.put("ejercicio_2", sesion.getEjercicio_2());
+            values.put("ejercicio_3", sesion.getEjercicio_3());
+            values.put("ejercicio_4", sesion.getEjercicio_4());
             values.put("tag", sesion.getTag());
             values.put("f_creacion", sacarFechaHoy());
             values.put("actualizacion", sacarFechaHoy());
@@ -195,10 +195,10 @@ public class DAOSesiones {
             //Sacamos los datos
             c.moveToNext();
             sesion.setNombre(c.getString(2));
-            sesion.setMusculo_1(c.getString(3));
-            sesion.setMusculo_2(c.getString(4));
-            sesion.setMusculo_3(c.getString(5));
-            sesion.setMusculo_4(c.getString(6));
+            sesion.setEjercicio_1(c.getString(3));
+            sesion.setEjercicio_2(c.getString(4));
+            sesion.setEjercicio_3(c.getString(5));
+            sesion.setEjercicio_4(c.getString(6));
             sesion.setTag(c.getString(7));
         }
         catch (Exception err) {
@@ -259,10 +259,10 @@ public class DAOSesiones {
 
             //Datos de la modificación
             values.put("nombre", NSesion.getNombre());
-            values.put("musculo_1", NSesion.getEjercicio_1());
-            values.put("musculo_2", NSesion.getEjercicio_2());
-            values.put("musculo_3", NSesion.getEjercicio_3());
-            values.put("musculo_4", NSesion.getEjercicio_4());
+            values.put("ejercicio_1", NSesion.getEjercicio_1());
+            values.put("ejercicio_2", NSesion.getEjercicio_2());
+            values.put("ejercicio_3", NSesion.getEjercicio_3());
+            values.put("ejercicio_4", NSesion.getEjercicio_4());
             values.put("tag", NSesion.getTag());
             values.put("actualizacion", this.sacarFechaHoy());
 
