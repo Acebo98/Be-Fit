@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                             NPeso.setPeso_2("5kg");
                             NPeso.setPeso_3("5kg");
                             NPeso.setPeso_4("5kg");
-                            NPeso.setNotas("Escribe aquí tus notas...");
+                            NPeso.setNotas(null);
                             NPeso.setIdSesion(IdSesion);
                             new DAOPesos(getApplicationContext()).InsertarPeso(NPeso);
 

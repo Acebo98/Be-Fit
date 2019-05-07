@@ -105,6 +105,7 @@
                 android:layout_height="138dp"
                 android:ems="10"
                 android:inputType="textMultiLine"
+                android:hint="@string/escribe_notas"
                 android:maxLength="100"/>
 
         </LinearLayout>
