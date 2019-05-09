@@ -77,6 +77,7 @@
     <string name="entendido">Entendido</string>
     <string name="etiqueta_sesion">Etiqueta para la sesión</string>
     <string name="nueva_tag">Nueva Etiqueta</string>
+    <string name="introduce_tag">Introduce el nombre de la etiqueta</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>

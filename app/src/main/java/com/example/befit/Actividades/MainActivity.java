@@ -21,18 +21,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.befit.Dialogos.DialogoInsertTag;
 import com.example.befit.Dialogos.DialogoSeleccion;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Dialogos.DialogoConfirmacion;
 import com.example.befit.Entidades.VOPeso;
 import com.example.befit.Entidades.VOSesion;
+import com.example.befit.Entidades.VOTag;
 import com.example.befit.Modelos.DAOPesos;
 import com.example.befit.Modelos.DAOSesiones;
 import com.example.befit.R;
 
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
         NSesionFragment.OnFragmentInteractionListener, DialogoConfirmacion.MiDialogListener,
-        TagsFragment.OnFragmentInteractionListener {
+        TagsFragment.OnFragmentInteractionListener, DialogoInsertTag.DialogoInsertListener {
+
+    Context context;
 
     //Constantes para las llamadas
     final String CERRAR = "cerrar";
@@ -57,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Contexto
+        context = this;
 
         //Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -122,7 +129,8 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                     //Miramos que tab está seleccionado
                     switch (tabLayout.getSelectedTabPosition()) {
                         case 1: {
-                            //Mostrar aquí el dialogo personalizado...
+                            //Mostrar aquí el dialogo personalizado
+                            new DialogoInsertTag(context, MainActivity.this);
                         }
                         break;
                         case 2: {
@@ -285,6 +293,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         }
     }
 
+    //Desconectamos de la pantalla principal
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
         if (dialog.getTag() == CERRAR) {
@@ -298,6 +307,12 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         if (resultCode == RESULT_OK) {
             sesionesFragment.LeerBD();
         }
+    }
+
+    //Recuperamos la etiqueta
+    @Override
+    public void InsertTag(VOTag tag) {
+        LogeoActivity.centralizarToast(getApplicationContext(), tag.getTag());
     }
 
     //CLASE QUE CONTROLA LA SELECCIÓN DE FRAGMENTOS
