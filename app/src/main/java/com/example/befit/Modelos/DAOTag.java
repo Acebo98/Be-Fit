@@ -79,7 +79,7 @@ public class DAOTag {
     }
 
     //Sacamos las tags mediante una array de Strings
-    public String[] SacarArrayTags() throws Exception {
+    public String[] SacarArrayTags() {
         String[] arrayTags = null;
 
         try {
@@ -93,7 +93,7 @@ public class DAOTag {
             }
         }
         catch (Exception err) {
-            throw new Exception(err.getMessage());
+            arrayTags = null;
         }
 
         return arrayTags;

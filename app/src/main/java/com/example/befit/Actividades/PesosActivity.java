@@ -18,6 +18,7 @@ import com.example.befit.Entidades.VOPeso;
 import com.example.befit.Entidades.VOSesion;
 import com.example.befit.Modelos.DAOPesos;
 import com.example.befit.Modelos.DAOSesiones;
+import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
 
 import java.util.ArrayList;
@@ -160,10 +161,10 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                 NSesion.setTag(sesion.getTag());
 
                 //Iniciamos el diálogo personalizado
-                final String[] tags = new String[] {getString(R.string.simple), getString(R.string.moderado),
-                        getString(R.string.complicado), getString(R.string.cardio), getString(R.string.tag_pierna),
-                        getString(R.string.tren_superior)};
-                new DialogoModificar(context, PesosActivity.this, NSesion, tags);
+                final String[] tags = new DAOTag(getApplicationContext()).SacarArrayTags();
+                if (tags != null) {
+                    new DialogoModificar(context, PesosActivity.this, NSesion, tags);
+                }
             }
             break;
             case R.id.itemBorrar: {
