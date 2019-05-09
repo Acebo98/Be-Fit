@@ -8,19 +8,21 @@ import android.provider.BaseColumns;
 public class BeFitDB extends SQLiteOpenHelper {
 
     public BeFitDB(Context context) {
-        super(context, Structure.NOMBRE_BD, null, 6);
+        super(context, Structure.NOMBRE_BD, null, 7);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SCRIPT_SESIONES);
         db.execSQL(SCRIPT_PESOS);
+        db.execSQL(SCRIPT_TAGS);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + Structure.SESIONES);
         db.execSQL("DROP TABLE IF EXISTS " + Structure.PESOS);
+        db.execSQL("DROP TABLE IF EXISTS " + Structure.TAGS);
         onCreate(db);
     }
 
@@ -29,6 +31,7 @@ public class BeFitDB extends SQLiteOpenHelper {
         public static final String NOMBRE_BD = "BeFit";
         public static final String SESIONES = "sesiones";
         public static final String PESOS = "pesos";
+        public static final String TAGS = "tags";
     }
 
     //Scripts de creación
@@ -42,7 +45,8 @@ public class BeFitDB extends SQLiteOpenHelper {
             "ejercicio_4 TEXT NOT NULL, " +
             "tag text NOT NULL, " +
             "f_creacion NOT NULL, " +
-            "actualizacion TEXT NOT NULL)";
+            "actualizacion TEXT NOT NULL, " +
+            "idTag INTEGER NOT NULL)";          //Clave foránea para la sesión
     final String SCRIPT_PESOS = "CREATE TABLE " + Structure.PESOS + " (" +
             BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "peso_1 TEXT NOT NULL, " +
@@ -51,5 +55,8 @@ public class BeFitDB extends SQLiteOpenHelper {
             "peso_4 TEXT NOT NULL, " +
             "notas TEXT, " +
             "fecha_peso TEXT NOT NULL, " +
-            "idSesion INTEGER NOT NULL)";       //Clave foránea
+            "idSesion INTEGER NOT NULL)";       //Clave foránea para la sesión
+    final String SCRIPT_TAGS = "CREATE TABLE " + Structure.TAGS + " (" +
+            BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            "tag TEXT NOT NULL)";
 }
