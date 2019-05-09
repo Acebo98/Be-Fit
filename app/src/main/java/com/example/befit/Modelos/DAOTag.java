@@ -55,4 +55,23 @@ public class DAOTag {
 
         return lTags;
     }
+
+    //Comprobamos si exixte una etiqueta
+    public boolean ExistirTag(VOTag tag) throws Exception {
+        boolean vof = false;
+
+        try {
+            //Buscamos una tag por el nombre, si hay datos significa que ya está introducida
+            Cursor c = database.rawQuery("SELECT * FROM " + BeFitDB.Structure.TAGS + " WHERE tag = ?",
+                    new String[] {tag.getTag()});
+            if (c.getCount() == 0) {
+                vof = true;
+            }
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+
+        return vof;
+    }
 }

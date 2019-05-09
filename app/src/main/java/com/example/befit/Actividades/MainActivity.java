@@ -30,6 +30,7 @@ import com.example.befit.Entidades.VOSesion;
 import com.example.befit.Entidades.VOTag;
 import com.example.befit.Modelos.DAOPesos;
 import com.example.befit.Modelos.DAOSesiones;
+import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
 
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
@@ -309,10 +310,27 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         }
     }
 
-    //Recuperamos la etiqueta
+    //Recuperamos la etiqueta y la insertamos
     @Override
     public void InsertTag(VOTag tag) {
-        LogeoActivity.centralizarToast(getApplicationContext(), tag.getTag());
+        try {
+            if (new DAOTag(getApplicationContext()).ExistirTag(tag) == true) {
+                new DAOTag(getApplicationContext()).InsertarTag(tag);
+            }
+            else {
+                LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.tag_existente));
+            }
+        }
+        catch (Exception err) {
+            DialogFragment dialogFragment = new DialogoAlerta();
+            Bundle bundle = new Bundle();
+
+            bundle.putString("TITULO", getString(R.string.error));
+            bundle.putString("MENSAJE", err.getMessage());
+            dialogFragment.setArguments(bundle);
+
+            dialogFragment.show(getSupportFragmentManager(), "error");
+        }
     }
 
     //CLASE QUE CONTROLA LA SELECCIÓN DE FRAGMENTOS
