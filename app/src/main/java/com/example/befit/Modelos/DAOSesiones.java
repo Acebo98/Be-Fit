@@ -267,6 +267,7 @@ public class DAOSesiones {
             values.put("ejercicio_4", NSesion.getEjercicio_4());
             values.put("tag", NSesion.getTag());
             values.put("actualizacion", this.sacarFechaHoy());
+            values.put("idTag", NSesion.getIdTag());
 
             //Realizamos la modificación
             database.update(BeFitDB.Structure.SESIONES, values, BaseColumns._ID + " = ?",

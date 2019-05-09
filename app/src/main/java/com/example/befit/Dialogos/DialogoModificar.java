@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import com.example.befit.Actividades.LogeoActivity;
 import com.example.befit.Entidades.VOSesion;
 import com.example.befit.Modelos.DAOSesiones;
+import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
 
 import java.util.ArrayList;
@@ -106,6 +107,8 @@ public class DialogoModificar {
                             sesion.setEjercicio_3(tbE3.getText().toString().trim());
                             sesion.setEjercicio_4(tbE4.getText().toString().trim());
                             sesion.setTag(String.valueOf(spnTags.getSelectedItem()));
+                            int idSesion = new DAOTag(context).SacarID(spnTags.getSelectedItem().toString());
+                            sesion.setIdTag(idSesion);
 
                             //Mandamos el temario
                             interfaz.AceptarModificar(sesion);
