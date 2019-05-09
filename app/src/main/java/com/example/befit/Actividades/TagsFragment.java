@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.befit.AdaptadorLVTags;
+import com.example.befit.Adaptadores_LV.AdaptadorLVTags;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
@@ -35,7 +35,7 @@ public class TagsFragment extends Fragment {
     //Leemos los tags (tiene que ser público)
     public void LeerTags() {
         try {
-            adaptadorLVTags = new AdaptadorLVTags(getContext(), new DAOTag(getContext()).ReadTags());
+            adaptadorLVTags = new AdaptadorLVTags(getActivity().getApplicationContext(), new DAOTag(getContext()).ReadTags());
             lvTags.setAdapter(adaptadorLVTags);
         }
         catch (Exception err) {

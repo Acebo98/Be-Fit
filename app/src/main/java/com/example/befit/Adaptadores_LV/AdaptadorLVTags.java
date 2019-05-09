@@ -1,4 +1,4 @@
-package com.example.befit;
+package com.example.befit.Adaptadores_LV;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.befit.Entidades.VOSesion;
 import com.example.befit.Entidades.VOTag;
+import com.example.befit.R;
 
 import java.util.ArrayList;
 
@@ -43,7 +44,7 @@ public class AdaptadorLVTags extends BaseAdapter {
         convertView = LayoutInflater.from(context).inflate(R.layout.item_tag, null);
 
         //Texto a mostrar
-        TextView tvTag = convertView.findViewWithTag(R.id.tvTagItem);
+        TextView tvTag = (TextView) convertView.findViewById(R.id.tvTagItem);
         tvTag.setText(tag.getTag());
 
         return convertView;
