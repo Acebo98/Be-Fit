@@ -76,6 +76,7 @@
     <string name="sesiones_borradas">Sesiones Borradas</string>
     <string name="entendido">Entendido</string>
     <string name="etiqueta_sesion">Etiqueta para la sesión</string>
+    <string name="nueva_tag">Nueva Etiqueta</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>

@@ -122,16 +122,18 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                     //Miramos que tab está seleccionado
                     switch (tabLayout.getSelectedTabPosition()) {
                         case 1: {
-
+                            //Mostrar aquí el dialogo personalizado...
                         }
                         break;
                         case 2: {
+                            //Miramos si existe la sesión...
                             if (nSesionFragment.ComprobarCampos() == true) {
-                                if (new DAOSesiones(getApplicationContext()).ExistirSesion(nSesionFragment.tbNombre.
-                                        getText().toString().trim()) == true) {
+                                String nombre = nSesionFragment.tbNombre.getText().toString().trim();
+                                if (new DAOSesiones(getApplicationContext()).ExistirSesion(nombre) == true) {
                                     DialogoSeleccion seleccion = new DialogoSeleccion();
                                     seleccion.show(getSupportFragmentManager(), SELECCIONAR);
-                                } else {
+                                }
+                                else {
                                     LogeoActivity.centralizarToast(getApplicationContext(),
                                             getString(R.string.sesion_repetida));
                                 }
