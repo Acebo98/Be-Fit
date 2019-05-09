@@ -78,17 +78,31 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         tabLayout.setOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if (tab.getPosition() == 2) {
-                    floatingAdd.show();
-                    floatingErase.show();
+                switch (tab.getPosition()) {
+                    case 0: {
+                        floatingAdd.hide();
+                        floatingErase.hide();
+                    }
+                    break;
+                    case 1: {
+                        floatingAdd.show();
+                    }
+                    break;
+                    case 2: {
+                        floatingAdd.show();
+                        floatingErase.show();
+                    }
+                    break;
                 }
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                if (tab.getPosition() == 2) {
-                    floatingAdd.hide();
-                    floatingErase.hide();
+                switch (tab.getPosition()) {
+                    case 2: {
+                        floatingErase.hide();
+                    }
+                    break;
                 }
             }
 
@@ -105,17 +119,29 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             @Override
             public void onClick(View v) {
                 try {
-                    if (nSesionFragment.ComprobarCampos() == true) {
-                        if (new DAOSesiones(getApplicationContext()).ExistirSesion(nSesionFragment.tbNombre.getText().toString().trim()) == true) {
-                            DialogoSeleccion seleccion = new DialogoSeleccion();
-                            seleccion.show(getSupportFragmentManager(), SELECCIONAR);
+                    //Miramos que tab está seleccionado
+                    switch (tabLayout.getSelectedTabPosition()) {
+                        case 1: {
+
                         }
-                        else {
-                            LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.sesion_repetida));
+                        break;
+                        case 2: {
+                            if (nSesionFragment.ComprobarCampos() == true) {
+                                if (new DAOSesiones(getApplicationContext()).ExistirSesion(nSesionFragment.tbNombre.
+                                        getText().toString().trim()) == true) {
+                                    DialogoSeleccion seleccion = new DialogoSeleccion();
+                                    seleccion.show(getSupportFragmentManager(), SELECCIONAR);
+                                } else {
+                                    LogeoActivity.centralizarToast(getApplicationContext(),
+                                            getString(R.string.sesion_repetida));
+                                }
+                            }
+                            else {
+                                LogeoActivity.centralizarToast(getApplicationContext(),
+                                        getString(R.string.sesion_5caracteres));
+                            }
                         }
-                    }
-                    else {
-                        LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.sesion_5caracteres));
+                        break;
                     }
                 }
                 catch (Exception err) {
