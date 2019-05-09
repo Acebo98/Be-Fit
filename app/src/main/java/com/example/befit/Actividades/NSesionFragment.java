@@ -62,6 +62,7 @@ public class NSesionFragment extends Fragment {
         tabLayout = view.findViewById(R.id.tabLayout);
 
         //Lista de campos de texto
+        lCampos.clear();
         lCampos.add(tbNombre);
         lCampos.add(tbM1);
         lCampos.add(tbM2);
