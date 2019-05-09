@@ -316,6 +316,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         try {
             if (new DAOTag(getApplicationContext()).ExistirTag(tag) == true) {
                 new DAOTag(getApplicationContext()).InsertarTag(tag);
+                tagsFragment.LeerTags();        //Volvemos a leer las tags
             }
             else {
                 LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.tag_existente));

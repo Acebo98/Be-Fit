@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.provider.BaseColumns;
 
 import com.example.befit.Entidades.VOTag;
 import com.example.befit.Estructura_BD.BeFitDB;
@@ -75,5 +76,43 @@ public class DAOTag {
         }
 
         return vof;
+    }
+
+    //Sacamos las tags mediante una array de Strings
+    public String[] SacarArrayTags() throws Exception {
+        String[] arrayTags = null;
+
+        try {
+            //Leemos las tags
+            ArrayList<VOTag> lTags = ReadTags();
+
+            //Pasamos la lista a array...
+            arrayTags = new String[lTags.size()];
+            for (int i = 0; i < lTags.size(); i++) {
+                arrayTags[i] = lTags.get(i).getTag();
+            }
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+
+        return arrayTags;
+    }
+
+    //Sacamos el ID a partir del nombre de la tag
+    public String SacarNombre(int identificador) throws Exception {
+        String nombre = null;
+
+        try {
+            Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + " FROM " + BeFitDB.Structure.TAGS + " WHERE tag = ?",
+                    new String[] {String.valueOf(identificador)});
+            c.moveToNext();
+            nombre = c.getString(0);
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+
+        return nombre;
     }
 }
