@@ -43,7 +43,6 @@ public class VOSesion {
     public String getEjercicio_4() {
         return Ejercicio_4;
     }
-    public String getTag() { return this.Tag; }
     public String getFechaCreacion() { return this.FechaCreacion; }
     public String getActualizacion() { return Actualizacion; }
     public int getIdTag() { return IdTag; }
@@ -69,9 +68,6 @@ public class VOSesion {
     }
     public void setEjercicio_4(String musculo_4) {
         Ejercicio_4 = musculo_4;
-    }
-    public void setTag(String tag) {
-        Tag = tag;
     }
     public void setFechaCreacion(String fechaCreacion) {
         FechaCreacion = fechaCreacion;

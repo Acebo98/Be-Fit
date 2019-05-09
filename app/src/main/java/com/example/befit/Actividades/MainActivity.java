@@ -193,7 +193,6 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             sesion.setEjercicio_2(nSesionFragment.tbM2.getText().toString().trim());
             sesion.setEjercicio_3(nSesionFragment.tbM3.getText().toString().trim());
             sesion.setEjercicio_4(nSesionFragment.tbM4.getText().toString().trim());
-            sesion.setTag(etiqueta);
 
             //Sacamos el identificador de la etiqueta
             int idTag = new DAOTag(getApplicationContext()).SacarID(etiqueta);

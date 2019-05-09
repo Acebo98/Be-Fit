@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
 public class BeFitDB extends SQLiteOpenHelper {
 
     public BeFitDB(Context context) {
-        super(context, Structure.NOMBRE_BD, null, 7);
+        super(context, Structure.NOMBRE_BD, null, 8);
     }
 
     @Override
@@ -43,7 +43,6 @@ public class BeFitDB extends SQLiteOpenHelper {
             "ejercicio_2 TEXT NOT NULL, " +
             "ejercicio_3 TEXT NOT NULL, " +
             "ejercicio_4 TEXT NOT NULL, " +
-            "tag text NOT NULL, " +
             "f_creacion NOT NULL, " +
             "actualizacion TEXT NOT NULL, " +
             "idTag INTEGER NOT NULL)";          //Clave foránea para la sesión

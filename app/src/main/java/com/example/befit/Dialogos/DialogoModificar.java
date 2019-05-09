@@ -81,11 +81,17 @@ public class DialogoModificar {
         tbE4.setText(Sesion.getEjercicio_4());
 
         //Etiqueta
-        for (int i = 0; i < tags.length; i++) {
-            if (tags[i].equals(sesion.getTag())) {
-                spnTags.setSelection(i);
-                break;
+        String tag = new DAOTag(context).SacarNombre(sesion.getIdTag());
+        if (tag != null) {
+            for (int i = 0; i < tags.length; i++) {
+                if (tags[i].equals(tag)) {
+                    spnTags.setSelection(i);
+                    break;
+                }
             }
+        }
+        else {
+            spnTags.setSelection(0);
         }
 
         //Eventos
@@ -106,7 +112,6 @@ public class DialogoModificar {
                             sesion.setEjercicio_2(tbE2.getText().toString().trim());
                             sesion.setEjercicio_3(tbE3.getText().toString().trim());
                             sesion.setEjercicio_4(tbE4.getText().toString().trim());
-                            sesion.setTag(String.valueOf(spnTags.getSelectedItem()));
                             int idSesion = new DAOTag(context).SacarID(spnTags.getSelectedItem().toString());
                             sesion.setIdTag(idSesion);
 

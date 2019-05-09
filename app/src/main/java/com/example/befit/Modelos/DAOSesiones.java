@@ -93,7 +93,6 @@ public class DAOSesiones {
             values.put("ejercicio_2", sesion.getEjercicio_2());
             values.put("ejercicio_3", sesion.getEjercicio_3());
             values.put("ejercicio_4", sesion.getEjercicio_4());
-            values.put("tag", sesion.getTag());
             values.put("f_creacion", sacarFechaHoy());
             values.put("actualizacion", sacarFechaHoy());
             values.put("idTag", sesion.getIdTag());
@@ -114,7 +113,7 @@ public class DAOSesiones {
             lSesiones = new ArrayList<>();
 
             //Leemos los datos
-            Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion, tag, activo, idTag " +
+            Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion, activo, idTag " +
                     "FROM " + BeFitDB.Structure.SESIONES + " ORDER BY actualizacion DESC", null);
 
             //Recorremos el cursor
@@ -122,9 +121,8 @@ public class DAOSesiones {
                 while (c.moveToNext() == true) {
                     VOSesion sesion = new VOSesion(c.getString(1), c.getString(2));
                     sesion.setIdentificador(c.getInt(0));
-                    sesion.setTag(c.getString(3));
-                    sesion.setActivo(c.getString(4));
-                    sesion.setIdTag(c.getInt(5));
+                    sesion.setActivo(c.getString(3));
+                    sesion.setIdTag(c.getInt(4));
                     lSesiones.add(sesion);
                 }
             }
@@ -162,8 +160,8 @@ public class DAOSesiones {
                 while (c.moveToNext() == true) {
                     VOSesion sesion = new VOSesion(c.getString(1), c.getString(2));
                     sesion.setIdentificador(c.getInt(0));
-                    sesion.setTag(c.getString(3));
-                    sesion.setActivo(c.getString(4));
+                    sesion.setActivo(c.getString(3));
+                    sesion.setIdTag(c.getInt(4));
                     lSesiones.add(sesion);
                 }
             }
@@ -201,7 +199,7 @@ public class DAOSesiones {
             sesion.setEjercicio_2(c.getString(4));
             sesion.setEjercicio_3(c.getString(5));
             sesion.setEjercicio_4(c.getString(6));
-            sesion.setTag(c.getString(7));
+            sesion.setIdTag(c.getInt(9));
         }
         catch (Exception err) {
             sesion = null;
@@ -265,7 +263,6 @@ public class DAOSesiones {
             values.put("ejercicio_2", NSesion.getEjercicio_2());
             values.put("ejercicio_3", NSesion.getEjercicio_3());
             values.put("ejercicio_4", NSesion.getEjercicio_4());
-            values.put("tag", NSesion.getTag());
             values.put("actualizacion", this.sacarFechaHoy());
             values.put("idTag", NSesion.getIdTag());
 
