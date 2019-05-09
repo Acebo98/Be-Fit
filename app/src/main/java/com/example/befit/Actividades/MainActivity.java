@@ -31,7 +31,8 @@ import com.example.befit.Modelos.DAOSesiones;
 import com.example.befit.R;
 
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
-        NSesionFragment.OnFragmentInteractionListener, DialogoConfirmacion.MiDialogListener {
+        NSesionFragment.OnFragmentInteractionListener, DialogoConfirmacion.MiDialogListener,
+        TagsFragment.OnFragmentInteractionListener {
 
     //Constantes para las llamadas
     final String CERRAR = "cerrar";
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     //INSTANCIAS DE LOS FRAGMENTOS A UTILIZAR
     SesionesFragment sesionesFragment;
     NSesionFragment nSesionFragment;
+    TagsFragment tagsFragment;
 
     //Tablayout
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -69,13 +71,14 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         tabLayout = (TabLayout)findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(mViewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_dumbell);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_sesion);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_tag);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_sesion);
 
         //Evento para mostrar el floatingbutton
         tabLayout.setOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if (tab.getPosition() == 1) {
+                if (tab.getPosition() == 2) {
                     floatingAdd.show();
                     floatingErase.show();
                 }
@@ -83,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                if (tab.getPosition() == 1) {
+                if (tab.getPosition() == 2) {
                     floatingAdd.hide();
                     floatingErase.hide();
                 }
@@ -272,8 +275,6 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     //CLASE QUE CONTROLA LA SELECCIÓN DE FRAGMENTOS
     public static class PlaceholderFragment extends Fragment {
 
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
         public PlaceholderFragment() {
         }
 
@@ -288,6 +289,10 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                 }
                 break;
                 case 2: {
+                    fragment = new TagsFragment();
+                }
+                break;
+                case 3: {
                     fragment = new NSesionFragment();
                 }
                 break;
@@ -318,11 +323,19 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             Fragment fragment = PlaceholderFragment.newInstance(position + 1);
 
             //Lo guardamos como instancia para utilizarlo
-            if (position == 0) {
-                sesionesFragment = (SesionesFragment) fragment;
-            }
-            else if (position == 1) {
-                nSesionFragment = (NSesionFragment) fragment;
+            switch (position) {
+                case 0: {
+                    sesionesFragment = (SesionesFragment) fragment;
+                }
+                break;
+                case 1: {
+                    tagsFragment = (TagsFragment) fragment;
+                }
+                break;
+                case 2: {
+                    nSesionFragment = (NSesionFragment) fragment;
+                }
+                break;
             }
 
             //Lo retornamos para que se muestre en pantalla
@@ -336,15 +349,19 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                     return getString(R.string.sesiones);
                 }
                 case 1: {
+                    return getString(R.string.tags);
+                }
+                case 2: {
                     return getString(R.string.nueva_sesion);
                 }
+
                 default: return null;
             }
         }
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
     }
 }

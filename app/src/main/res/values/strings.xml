@@ -79,6 +79,7 @@
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>
+    <string name="tags">Etiquetas</string>
     <string name="nueva_sesion">Nueva Sesión</string>
 
     <!-- Menús -->

@@ -86,4 +86,5 @@
     <string name="cardio">Cardio</string>
     <string name="tren_superior">Chest</string>
     <string name="tag_pierna">Leg</string>
+    <string name="tags">Tags</string>
 </resources>
