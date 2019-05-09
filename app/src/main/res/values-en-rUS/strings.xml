@@ -89,4 +89,5 @@
     <string name="tags">Tags</string>
     <string name="nueva_tag">New Tag</string>
     <string name="introduce_tag">Enter the name of the new tag</string>
+    <string name="tag_existente">It seems you already have a tag with said name already inserted</string>
 </resources>

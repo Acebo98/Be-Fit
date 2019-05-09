@@ -46,7 +46,9 @@ public class DAOTag {
             //Lectura
             Cursor c = database.rawQuery("SELECT * FROM " + BeFitDB.Structure.TAGS, null);
             if (c.getCount() > 0) {
-                lTags.add(new VOTag(c.getInt(0), c.getString(1)));
+                while (c.moveToNext() == true) {
+                    lTags.add(new VOTag(c.getInt(0), c.getString(1)));
+                }
             }
         }
         catch (Exception err) {

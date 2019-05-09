@@ -78,7 +78,7 @@
     <string name="etiqueta_sesion">Etiqueta para la sesión</string>
     <string name="nueva_tag">Nueva Etiqueta</string>
     <string name="introduce_tag">Introduce el nombre de la etiqueta</string>
-    <string name="tag_existente">Parece que ya tienes una etiqueta con ese nombre ya registrada</string>
+    <string name="tag_existente">Parece que ya tienes una etiqueta con ese nombre ya insertada</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>
