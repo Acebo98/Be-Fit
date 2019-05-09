@@ -4,13 +4,14 @@ public class VOSesion {
     private String Activo;
     private int Identificador;
     private String Nombre;
-    private String Musculo_1;
-    private String Musculo_2;
-    private String Musculo_3;
-    private String Musculo_4;
+    private String Ejercicio_1;
+    private String Ejercicio_2;
+    private String Ejercicio_3;
+    private String Ejercicio_4;
     private String Tag;
     private String FechaCreacion;
     private String Actualizacion;
+    private int IdTag;
 
     //Constructores (una sesión por defecto está activa)
     public VOSesion() {
@@ -31,20 +32,21 @@ public class VOSesion {
         return Nombre;
     }
     public String getEjercicio_1() {
-        return  Musculo_1;
+        return Ejercicio_1;
     }
     public String getEjercicio_2() {
-        return Musculo_2;
+        return Ejercicio_2;
     }
     public String getEjercicio_3() {
-        return Musculo_3;
+        return Ejercicio_3;
     }
     public String getEjercicio_4() {
-        return Musculo_4;
+        return Ejercicio_4;
     }
     public String getTag() { return this.Tag; }
     public String getFechaCreacion() { return this.FechaCreacion; }
     public String getActualizacion() { return Actualizacion; }
+    public int getIdTag() { return IdTag; }
 
     //Setters
     public void setActivo(String activo) {
@@ -57,16 +59,16 @@ public class VOSesion {
         Nombre = nombre;
     }
     public void setEjercicio_1(String musculo_1) {
-        Musculo_1 = musculo_1;
+        Ejercicio_1 = musculo_1;
     }
     public void setEjercicio_2(String musculo_2) {
-        Musculo_2 = musculo_2;
+        Ejercicio_2 = musculo_2;
     }
     public void setEjercicio_3(String musculo_3) {
-        Musculo_3 = musculo_3;
+        Ejercicio_3 = musculo_3;
     }
     public void setEjercicio_4(String musculo_4) {
-        Musculo_4 = musculo_4;
+        Ejercicio_4 = musculo_4;
     }
     public void setTag(String tag) {
         Tag = tag;
@@ -77,4 +79,5 @@ public class VOSesion {
     public void setActualizacion(String actualizacion) {
         Actualizacion = actualizacion;
     }
+    public void setIdTag(int idTag) { IdTag = idTag; }
 }
