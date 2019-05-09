@@ -195,6 +195,10 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             sesion.setEjercicio_4(nSesionFragment.tbM4.getText().toString().trim());
             sesion.setTag(etiqueta);
 
+            //Sacamos el identificador de la etiqueta
+            int idTag = new DAOTag(getApplicationContext()).SacarID(etiqueta);
+            sesion.setIdTag(idTag);
+
             //Primero insertamos la sesión y obtenemos su ID
             new DAOSesiones(getApplicationContext()).InsertSesion(sesion);
             int IdSesion = new DAOSesiones(getApplicationContext()).SacarIdentificador(sesion.getNombre());
