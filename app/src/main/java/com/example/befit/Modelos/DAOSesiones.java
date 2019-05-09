@@ -114,7 +114,7 @@ public class DAOSesiones {
             lSesiones = new ArrayList<>();
 
             //Leemos los datos
-            Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion, tag, activo " +
+            Cursor c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion, tag, activo, idTag " +
                     "FROM " + BeFitDB.Structure.SESIONES + " ORDER BY actualizacion DESC", null);
 
             //Recorremos el cursor
@@ -124,6 +124,7 @@ public class DAOSesiones {
                     sesion.setIdentificador(c.getInt(0));
                     sesion.setTag(c.getString(3));
                     sesion.setActivo(c.getString(4));
+                    sesion.setIdTag(c.getInt(5));
                     lSesiones.add(sesion);
                 }
             }

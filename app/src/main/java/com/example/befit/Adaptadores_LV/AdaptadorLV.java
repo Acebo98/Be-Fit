@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.befit.Entidades.VOSesion;
 import com.example.befit.Modelos.DAOSesiones;
+import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
 
 import java.util.ArrayList;
@@ -51,10 +52,18 @@ public class AdaptadorLV extends BaseAdapter {
         TextView txtActu = (TextView) convertView.findViewById(R.id.txtItemActu);
         TextView txtTag = (TextView) convertView.findViewById(R.id.tbTagItem);
 
-        //Asignamos el texto
+        //Nombre y cuando fue actualizada por última vez
         txtNombre.setText(sesion.getNombre());
         txtActu.setText(sesion.getActualizacion());
-        txtTag.setText(sesion.getTag());
+
+        //Etiqueta
+        String tag = new DAOTag(context).SacarNombre(sesion.getIdTag());
+        if (tag == null) {
+            txtTag.setText("ERROR");
+        }
+        else{
+            txtTag.setText(tag);
+        }
 
         //Icono
         if (sesion.getActivo().equals("s")) {

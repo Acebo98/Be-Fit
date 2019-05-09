@@ -115,4 +115,20 @@ public class DAOTag {
 
         return identificador;
     }
+
+    //Sacamos el nombre a partir de su ID (no hace throw por comodidez)
+    public String SacarNombre(int identificador) {
+        String nombre = null;
+
+        try {
+            Cursor c = database.rawQuery("SELECT tag FROM " + BeFitDB.Structure.TAGS + " WHERE " + BaseColumns._ID + " = ?",
+                    new String[] {String.valueOf(identificador)});
+            c.moveToNext();
+            nombre = c.getString(0);
+        }
+        catch (Exception err) {
+        }
+
+        return nombre;
+    }
 }
