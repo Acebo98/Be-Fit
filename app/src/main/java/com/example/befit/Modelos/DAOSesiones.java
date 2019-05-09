@@ -96,6 +96,7 @@ public class DAOSesiones {
             values.put("tag", sesion.getTag());
             values.put("f_creacion", sacarFechaHoy());
             values.put("actualizacion", sacarFechaHoy());
+            values.put("idTag", sesion.getIdTag());
 
             //Insertamos
             database.insert(BeFitDB.Structure.SESIONES, null, values);
