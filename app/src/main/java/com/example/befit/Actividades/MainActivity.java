@@ -361,8 +361,22 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     @Override
     public void Borrar(VOTag Tag) {
         try {
-            new DAOTag(getApplicationContext()).DeleteTag(Tag.getIdentificador());
-            tagsFragment.LeerTags();
+            //Miramos si hay sesiones almacenadas con la tag que vamos a borrar. En caso de que las haya no
+            //dejamos al usuario que borre la etiqueta. Se lo mostramos con un cuadro de díalogo
+            if (new DAOSesiones(getApplicationContext()).ComprobarSiHayTags(Tag) == true) {
+                new DAOTag(getApplicationContext()).DeleteTag(Tag.getIdentificador());
+                tagsFragment.LeerTags();
+            }
+            else {
+                DialogFragment dialogFragment = new DialogoAlerta();
+                Bundle bundle = new Bundle();
+
+                bundle.putString("TITULO", getString(R.string.cuidado));
+                bundle.putString("MENSAJE", getString(R.string.no_borrar_tag));
+                dialogFragment.setArguments(bundle);
+
+                dialogFragment.show(getSupportFragmentManager(), "error");
+            }
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();

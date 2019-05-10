@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
+import com.example.befit.Entidades.VOTag;
 import com.example.befit.Estructura_BD.BeFitDB;
 import com.example.befit.Entidades.VOSesion;
 
@@ -331,6 +332,23 @@ public class DAOSesiones {
         return vof;
     }
 
+    //Comprobamos si hay sesiones con una determinada tag
+    public boolean ComprobarSiHayTags(VOTag tag) throws Exception {
+        boolean vof = true;
+
+        try {
+            Cursor c = database.rawQuery("SELECT * FROM " + BeFitDB.Structure.SESIONES + " WHERE idTag = ?",
+                    new String[] {String.valueOf(tag.getIdentificador())});
+            if (c.getCount() > 0) {
+                vof = !vof;
+            }
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+
+        return vof;
+    }
     //Sacamos la fecha de hoy
     private String sacarFechaHoy() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");

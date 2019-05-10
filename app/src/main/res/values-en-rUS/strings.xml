@@ -80,14 +80,13 @@
     <string name="todos">All</string>
     <string name="bloqueados">Locked</string>
     <string name="sin_bloquer">Unlocked</string>
-    <string name="simple">Simple</string>
-    <string name="moderado">Moderated</string>
-    <string name="complicado">Dificult</string>
-    <string name="cardio">Cardio</string>
-    <string name="tren_superior">Chest</string>
-    <string name="tag_pierna">Leg</string>
     <string name="tags">Tags</string>
     <string name="nueva_tag">New Tag</string>
     <string name="introduce_tag">Enter the name of the new tag</string>
     <string name="tag_existente">It seems you already have a tag with said name already inserted</string>
+    <string name="nombre_tag">Tag Name</string>
+    <string name="tag_igual">The tag\'s name has not been changed</string>
+    <string name="cuidado">Be careful</string>
+    <string name="no_borrar_tag">It seems you have sesions stored with the tag you want to delete. \n\n
+        For being able to delete this tag first delete all the sesions with this tag.</string>
 </resources>

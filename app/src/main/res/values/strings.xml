@@ -81,6 +81,9 @@
     <string name="tag_existente">Parece que ya tienes una etiqueta con ese nombre ya insertada</string>
     <string name="nombre_tag">Nombre de la Etiqueta</string>
     <string name="tag_igual">El nombre de la etiqueta no ha cambiado</string>
+    <string name="cuidado">Cuidado</string>
+    <string name="no_borrar_tag">Parece que tienes sesiones almacenadas con esta etiqueta que quieres borrar. \n\n
+        Para poder borrar la etiqueta primero borra primero las sesiones catalogadas con esta etiqueta.</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>
