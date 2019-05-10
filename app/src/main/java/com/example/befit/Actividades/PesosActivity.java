@@ -150,19 +150,37 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             case android.R.id.home: this.finish();
             break;
             case R.id.itemModificar: {
-                VOSesion NSesion = new VOSesion();
+                try {
+                    VOSesion NSesion = new VOSesion();
 
-                //Datos de la sesion
-                NSesion.setNombre(tbNombre.getText().toString().trim());
-                NSesion.setEjercicio_1(labm1.getText().toString().trim());
-                NSesion.setEjercicio_2(labm2.getText().toString().trim());
-                NSesion.setEjercicio_3(labm3.getText().toString().trim());
-                NSesion.setEjercicio_4(labm4.getText().toString().trim());
+                    //Datos de la sesion
+                    NSesion.setNombre(tbNombre.getText().toString().trim());
+                    NSesion.setEjercicio_1(labm1.getText().toString().trim());
+                    NSesion.setEjercicio_2(labm2.getText().toString().trim());
+                    NSesion.setEjercicio_3(labm3.getText().toString().trim());
+                    NSesion.setEjercicio_4(labm4.getText().toString().trim());
 
-                //Iniciamos el diálogo personalizado
-                final String[] tags = new DAOTag(getApplicationContext()).SacarArrayTags();
-                if (tags != null) {
-                    new DialogoModificar(context, PesosActivity.this, NSesion, tags);
+                    //Etiqueta de la sesión
+                    int idTag = new DAOSesiones(getApplicationContext()).SacarSesion(String.valueOf(identificador)).getIdTag();
+
+                    //Iniciamos el diálogo personalizado
+                    final String[] tags = new DAOTag(getApplicationContext()).SacarArrayTags();
+                    if (tags != null) {
+                        new DialogoModificar(context, PesosActivity.this, NSesion, tags);
+                    }
+                    else {
+                        throw new Exception("error");
+                    }
+                }
+                catch (Exception err) {
+                    DialogFragment dialogFragment = new DialogoAlerta();
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("TITULO", getString(R.string.error));
+                    bundle.putString("MENSAJE", err.getMessage());
+                    dialogFragment.setArguments(bundle);
+
+                    dialogFragment.show(getSupportFragmentManager(), "error");
                 }
             }
             break;

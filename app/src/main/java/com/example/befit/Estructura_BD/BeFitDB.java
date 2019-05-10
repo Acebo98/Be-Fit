@@ -45,7 +45,7 @@ public class BeFitDB extends SQLiteOpenHelper {
             "ejercicio_4 TEXT NOT NULL, " +
             "f_creacion NOT NULL, " +
             "actualizacion TEXT NOT NULL, " +
-            "idTag INTEGER NOT NULL)";          //Clave foránea para la sesión
+            "idTag INTEGER NOT NULL)";          //Clave foránea para la etiqueta
     final String SCRIPT_PESOS = "CREATE TABLE " + Structure.PESOS + " (" +
             BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "peso_1 TEXT NOT NULL, " +
