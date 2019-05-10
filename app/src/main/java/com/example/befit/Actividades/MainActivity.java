@@ -322,7 +322,8 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         try {
             if (new DAOTag(getApplicationContext()).ExistirTag(tag) == true) {
                 new DAOTag(getApplicationContext()).InsertarTag(tag);
-                tagsFragment.LeerTags();        //Volvemos a leer las tags
+                tagsFragment.LeerTags();
+                LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.tag_introducida));
             }
             else {
                 LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.tag_existente));
@@ -346,6 +347,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         try {
             new DAOTag(getApplicationContext()).UpdateTag(Tag);
             tagsFragment.LeerTags();
+            LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.tag_modif));
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();
@@ -368,6 +370,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             if (new DAOSesiones(getApplicationContext()).ComprobarSiHayTags(Tag) == true) {
                 new DAOTag(getApplicationContext()).DeleteTag(Tag.getIdentificador());
                 tagsFragment.LeerTags();
+                LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.tag_borrada));
             }
             else {
                 DialogFragment dialogFragment = new DialogoAlerta();

@@ -176,6 +176,6 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
 
     //Centralizamos los Toast
     public static void centralizarToast(Context context, String mensaje) {
-        Toast.makeText(context, mensaje, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, mensaje, Toast.LENGTH_SHORT).show();
     }
 }

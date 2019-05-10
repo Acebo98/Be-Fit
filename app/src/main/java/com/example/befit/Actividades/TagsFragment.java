@@ -26,6 +26,7 @@ public class TagsFragment extends Fragment {
     private OnFragmentInteractionListener mListener;        //Interfaz propio
 
     EditText tbFiltrarTags;                                 //Filtrador
+
     ListView lvTags;                                        //Listview
     AdaptadorLVTags adaptadorLVTags;                        //Adaptador
 

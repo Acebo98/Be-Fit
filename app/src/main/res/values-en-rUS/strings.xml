@@ -9,7 +9,7 @@
     <string name="borrar">Delete</string>
     <string name="update">Last Modification:</string>
     <string name="n_entrenamientos">Number of Sesions:</string>
-    <string name="nombre_sesion">Sesion Name</string>
+    <string name="nombre_sesion">Sesion\'s Name</string>
     <string name="musculo">Exercise 1</string>
     <string name="musculo_1">Exercise 2</string>
     <string name="musculo_2">Exercise 3</string>
@@ -53,13 +53,13 @@
     <string name="desbloquear">Unlock</string>
     <string name="borrado">Delete</string>
     <string name="pregunta_borrar">Are you sure you wanna delete this sesion?</string>
-    <string name="pesos_actualizados">Record Updated</string>
+    <string name="pesos_actualizados">The record has been updated</string>
     <string name="pesos_obligatorios">First of all insert the 4 weights</string>
     <string name="bloqueo_sesion">Sesion Block</string>
     <string name="pregunta_desbloquear">Are you sure you wanna lock this sesion? \n\nOnce you do it you will not be able
         to modify it, but it will be kept saved.</string>
-    <string name="sesion_bloqueada">Sesion Locked</string>
-    <string name="sesion_modificada">Sesion Modified</string>
+    <string name="sesion_bloqueada">The sesion has been locked</string>
+    <string name="sesion_modificada">The sesion has been unlocked</string>
     <string name="modificacion">Modification</string>
     <string name="pregunta_modificar">Are you sure you wanna modify your data?</string>
     <string name="pregunta_borrar_sesiones">Are you sure you wanna delete all of your sesions?</string>
@@ -84,9 +84,14 @@
     <string name="nueva_tag">New Tag</string>
     <string name="introduce_tag">Enter the name of the new tag</string>
     <string name="tag_existente">It seems you already have a tag with said name already inserted</string>
-    <string name="nombre_tag">Tag Name</string>
+    <string name="nombre_tag">Tag\'s Name</string>
     <string name="tag_igual">The tag\'s name has not been changed</string>
     <string name="cuidado">Be careful</string>
     <string name="no_borrar_tag">It seems you have sesions stored with the tag you want to delete. \n\n
         For being able to delete this tag first delete all the sesions with this tag.</string>
+    <string name="buscar_tag">Search for your tag...</string>
+    <string name="tag_introducida">The tag has been introduced</string>
+    <string name="tag_borrada">The tag has been deleted</string>
+    <string name="sesion_borrada">The sesion has been deleted</string>
+    <string name="tag_modif">The tag has been modified</string>
 </resources>

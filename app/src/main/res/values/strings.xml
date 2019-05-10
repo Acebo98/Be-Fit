@@ -85,6 +85,10 @@
     <string name="cuidado">Cuidado</string>
     <string name="no_borrar_tag">Parece que tienes sesiones almacenadas con esta etiqueta que quieres borrar. \n\n
         Para poder borrar la etiqueta primero borra primero las sesiones catalogadas con esta etiqueta.</string>
+    <string name="tag_introducida">La etiqueta ha sido introducida</string>
+    <string name="tag_borrada">La etiqueta ha sido borrada</string>
+    <string name="tag_modif">Etiqueta Modificada</string>
+    <string name="sesion_borrada">Sesión Borrada</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>

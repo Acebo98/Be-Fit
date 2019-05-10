@@ -272,6 +272,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
                 //Indicamos el resultado de que se ha borrado el entrenamiento
                 setResult(RESULT_OK);
+                LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.sesion_borrada));
                 this.finish();
             }
             catch (Exception err) {
