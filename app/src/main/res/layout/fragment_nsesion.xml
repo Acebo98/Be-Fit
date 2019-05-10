@@ -1,101 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <LinearLayout
-        android:id="@+id/layoutAddSesion"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="15dp"
-        tools:context=".Actividades.NSesionFragment">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutAddSesion"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".Actividades.NSesionFragment">
 
-            <TextView
-                android:id="@+id/txtNSesion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/nombre_sesion"
-                android:textSize="18dp"
-                android:textStyle="bold" />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <EditText
-                android:id="@+id/tbNombreSesion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text=""
-                android:hint="@string/gym_day"
-                android:maxLength="30"/>
+                <TextView
+                    android:id="@+id/txtNSesion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombre_sesion"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtM1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/musculo"
-                android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/tbNombreSesion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/gym_day"
+                    android:inputType="textPersonName"
+                    android:maxLength="30"
+                    android:text="" />
 
-            <EditText
-                android:id="@+id/tbM1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text=""
-                android:hint="@string/biceps"
-                android:maxLength="30"/>
+                <TextView
+                    android:id="@+id/txtM1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/musculo"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtM2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/musculo_1"
-                android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/tbM1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/biceps"
+                    android:inputType="textPersonName"
+                    android:maxLength="30"
+                    android:text="" />
 
-            <EditText
-                android:id="@+id/tbM2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text=""
-                android:hint="@string/triceps"
-                android:maxLength="30"/>
+                <TextView
+                    android:id="@+id/txtM2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/musculo_1"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtM3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/musculo_2"
-                android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/tbM2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/triceps"
+                    android:inputType="textPersonName"
+                    android:maxLength="30"
+                    android:text="" />
 
-            <EditText
-                android:id="@+id/tbM3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text=""
-                android:hint="@string/pierna"
-                android:maxLength="30"/>
+                <TextView
+                    android:id="@+id/txtM3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/musculo_2"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtM4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/musculo_3"
-                android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/tbM3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/pierna"
+                    android:inputType="textPersonName"
+                    android:maxLength="30"
+                    android:text="" />
 
-            <EditText
-                android:id="@+id/tbM4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text=""
-                android:hint="@string/gemelo"
-                android:maxLength="30"/>
+                <TextView
+                    android:id="@+id/txtM4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/musculo_3"
+                    android:textStyle="bold" />
 
-</LinearLayout>
+                <EditText
+                    android:id="@+id/tbM4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/gemelo"
+                    android:inputType="textPersonName"
+                    android:maxLength="30"
+                    android:text="" />
+
+        </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

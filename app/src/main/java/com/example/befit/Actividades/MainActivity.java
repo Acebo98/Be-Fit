@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                     }
                     break;
                     case 2: {
+                        tabLayout.setVisibility(View.GONE);
                         floatingAdd.show();
                         floatingErase.show();
                     }
@@ -109,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             public void onTabUnselected(TabLayout.Tab tab) {
                 switch (tab.getPosition()) {
                     case 2: {
+                        tabLayout.setVisibility(View.VISIBLE);
                         floatingErase.hide();
                     }
                     break;

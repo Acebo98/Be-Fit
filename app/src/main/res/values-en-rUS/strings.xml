@@ -9,7 +9,7 @@
     <string name="borrar">Delete</string>
     <string name="update">Last Modification:</string>
     <string name="n_entrenamientos">Number of Sesions:</string>
-    <string name="nombre_sesion">Sesion Name:</string>
+    <string name="nombre_sesion">Sesion Name</string>
     <string name="musculo">Exercise 1</string>
     <string name="musculo_1">Exercise 2</string>
     <string name="musculo_2">Exercise 3</string>
@@ -38,7 +38,7 @@
     <string name="explicacion_registro">Being the first time you open the app you must register introducing a
         username and a password. \n\nOnce you want to re-connect you must introduce that data another time.
         \n\nDo not worry, inside the app you will be able to change them.</string>
-    <string name="sesion_insertada">The sesion have been introduced</string>
+    <string name="sesion_insertada">The sesion has been introduced</string>
     <string name="sesion_repetida">It seems you already have a sesion with that name inserted</string>
     <string name="sesion_5caracteres">The text boxes must contain 3 characters minimun</string>
     <string name="bienvenido">Welcome</string>
