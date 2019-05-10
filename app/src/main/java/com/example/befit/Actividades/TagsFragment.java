@@ -8,10 +8,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.befit.Adaptadores_LV.AdaptadorLVTags;
+import com.example.befit.DialogoModificarTag;
 import com.example.befit.Dialogos.DialogoAlerta;
+import com.example.befit.Entidades.VOTag;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
 
@@ -63,6 +66,25 @@ public class TagsFragment extends Fragment {
 
         //Lista
         lvTags = (ListView) view.findViewById(R.id.lvTags);
+        lvTags.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                try {
+                    VOTag tag = (VOTag) adaptadorLVTags.getItem(position);
+                    new DialogoModificarTag((MainActivity)getActivity(), tag);
+                }
+                catch (Exception err) {
+                    DialogFragment dialogFragment = new DialogoAlerta();
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("TITULO", getString(R.string.error));
+                    bundle.putString("MENSAJE", err.getMessage());
+                    dialogFragment.setArguments(bundle);
+
+                    dialogFragment.show(getFragmentManager(), "error");
+                }
+            }
+        });
         LeerTags();
 
         return view;
