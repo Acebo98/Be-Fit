@@ -145,12 +145,12 @@ public class DAOSesiones {
 
             //Leemos los datos
             if (activo == true) {
-                c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion, tag, activo " +
+                c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion, activo, idTag " +
                         "FROM " + BeFitDB.Structure.SESIONES + " WHERE activo = ? ORDER BY actualizacion DESC",
                         new String[] {"s"});
             }
             else {
-                c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion, tag, activo " +
+                c = database.rawQuery("SELECT " + BaseColumns._ID + ", nombre, actualizacion, activo, idTag " +
                                 "FROM " + BeFitDB.Structure.SESIONES + " WHERE activo = ? ORDER BY actualizacion DESC",
                         new String[] {"n"});
             }
