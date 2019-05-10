@@ -12,10 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.befit.Adaptadores_LV.AdaptadorLVTags;
-import com.example.befit.DialogoModificarTag;
+import com.example.befit.Dialogos.DialogoModificarTag;
 import com.example.befit.Dialogos.DialogoAlerta;
-import com.example.befit.Dialogos.DialogoInsertTag;
-import com.example.befit.Dialogos.DialogoModificar;
 import com.example.befit.Entidades.VOTag;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;

@@ -80,6 +80,7 @@
     <string name="introduce_tag">Introduce el nombre de la etiqueta</string>
     <string name="tag_existente">Parece que ya tienes una etiqueta con ese nombre ya insertada</string>
     <string name="nombre_tag">Nombre de la Etiqueta</string>
+    <string name="tag_igual">El nombre de la etiqueta no ha cambiado</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>
