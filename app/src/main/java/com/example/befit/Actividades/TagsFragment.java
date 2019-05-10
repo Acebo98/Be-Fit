@@ -85,6 +85,8 @@ public class TagsFragment extends Fragment {
                 }
             }
         });
+
+        //Leemos las etiquetas
         LeerTags();
 
         return view;

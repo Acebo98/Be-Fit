@@ -59,6 +59,34 @@ public class DAOTag {
         return lTags;
     }
 
+    //Delete
+    public void DeleteTag(int idTag) throws Exception {
+        try {
+            database.delete(BeFitDB.Structure.TAGS, BaseColumns._ID + " = ?", new String[] {String.valueOf(idTag)});
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+    }
+
+    //Update
+    public void UpdateTag(VOTag NTag) throws Exception {
+        ContentValues values = null;
+
+        try {
+            values = new ContentValues();
+
+            //Datos de la modificación
+            values.put("tag", NTag.getTag());
+
+            database.update(BeFitDB.Structure.TAGS, values, BaseColumns._ID + " = ?",
+                    new String[] {String.valueOf(NTag.getIdentificador())});
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+    }
+
     //Comprobamos si exixte una etiqueta
     public boolean ExistirTag(VOTag tag) throws Exception {
         boolean vof = false;
