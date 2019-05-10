@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.befit.DialogoModificarTag;
 import com.example.befit.Dialogos.DialogoInsertTag;
 import com.example.befit.Dialogos.DialogoSeleccion;
 import com.example.befit.Dialogos.DialogoAlerta;
@@ -35,7 +36,7 @@ import com.example.befit.R;
 
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
         NSesionFragment.OnFragmentInteractionListener, DialogoConfirmacion.MiDialogListener,
-        TagsFragment.OnFragmentInteractionListener, DialogoInsertTag.DialogoInsertListener {
+        TagsFragment.OnFragmentInteractionListener, DialogoInsertTag.DialogoInsertListener, DialogoModificarTag.DialogoModificarTagListener {
 
     Context context;
 
@@ -335,6 +336,36 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
             dialogFragment.show(getSupportFragmentManager(), "error");
         }
+    }
+
+    //Modificamos una tag
+    @Override
+    public void Modificar(VOTag Tag) {
+        try {
+            if (new DAOTag(getApplicationContext()).ExistirTag(Tag) == true) {
+                new DAOTag(getApplicationContext()).UpdateTag(Tag);
+                tagsFragment.LeerTags();
+            }
+            else {
+                LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.tag_existente));
+            }
+        }
+        catch (Exception err) {
+            DialogFragment dialogFragment = new DialogoAlerta();
+            Bundle bundle = new Bundle();
+
+            bundle.putString("TITULO", getString(R.string.error));
+            bundle.putString("MENSAJE", err.getMessage());
+            dialogFragment.setArguments(bundle);
+
+            dialogFragment.show(getSupportFragmentManager(), "error");
+        }
+    }
+
+    //Borramos una tag
+    @Override
+    public void Borrar(VOTag Tag) {
+
     }
 
     //CLASE QUE CONTROLA LA SELECCIÓN DE FRAGMENTOS

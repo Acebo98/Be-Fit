@@ -14,6 +14,8 @@ import android.widget.ListView;
 import com.example.befit.Adaptadores_LV.AdaptadorLVTags;
 import com.example.befit.DialogoModificarTag;
 import com.example.befit.Dialogos.DialogoAlerta;
+import com.example.befit.Dialogos.DialogoInsertTag;
+import com.example.befit.Dialogos.DialogoModificar;
 import com.example.befit.Entidades.VOTag;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
@@ -71,7 +73,7 @@ public class TagsFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
                     VOTag tag = (VOTag) adaptadorLVTags.getItem(position);
-                    new DialogoModificarTag((MainActivity)getActivity(), tag);
+                    new DialogoModificarTag((MainActivity)getActivity(), tag, (MainActivity)getActivity());
                 }
                 catch (Exception err) {
                     DialogFragment dialogFragment = new DialogoAlerta();

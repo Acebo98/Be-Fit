@@ -10,6 +10,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.befit.Actividades.LogeoActivity;
 import com.example.befit.Entidades.VOSesion;
 import com.example.befit.Entidades.VOTag;
 
@@ -22,8 +23,17 @@ public class DialogoModificarTag {
     Button btnModificar;
     Button btnBorrar;
 
-    public DialogoModificarTag(Context Context, VOTag Tag) {
+    private DialogoModificarTagListener interfaz;      //Interfaz propio
+
+    //Interfaz
+    public interface DialogoModificarTagListener {
+        void Modificar(VOTag Tag);
+        void Borrar (VOTag Tag);
+    }
+
+    public DialogoModificarTag(Context Context, final VOTag Tag, DialogoModificarTagListener actividad) {
         context = Context;
+        interfaz = actividad;
 
         //Configuración del cuadro de díalogo
         final Dialog dialog = new Dialog(context);
@@ -42,7 +52,16 @@ public class DialogoModificarTag {
         btnModificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                if (ComprobarCampo() == true) {
+                    VOTag tag = new VOTag(Tag.getIdentificador(), tbTag.getText().toString().trim());
+
+                    //Modificamos la tag mediante la interfaz
+                    interfaz.Modificar(tag);
+                    dialog.dismiss();
+                }
+                else {
+                    LogeoActivity.centralizarToast(context, context.getString(R.string.introduce_tag));
+                }
             }
         });
         btnBorrar.setOnClickListener(new View.OnClickListener() {
