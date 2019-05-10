@@ -5,10 +5,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.befit.Adaptadores_LV.AdaptadorLVTags;
@@ -22,6 +25,7 @@ public class TagsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;        //Interfaz propio
 
+    EditText tbFiltrarTags;                                 //Filtrador
     ListView lvTags;                                        //Listview
     AdaptadorLVTags adaptadorLVTags;                        //Adaptador
 
@@ -40,6 +44,9 @@ public class TagsFragment extends Fragment {
         try {
             adaptadorLVTags = new AdaptadorLVTags(getActivity().getApplicationContext(), new DAOTag(getContext()).ReadTags());
             lvTags.setAdapter(adaptadorLVTags);
+
+            //Filtramos en caso de que haya texto
+            adaptadorLVTags.filtrar(tbFiltrarTags.getText().toString());
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();
@@ -83,6 +90,37 @@ public class TagsFragment extends Fragment {
 
                     dialogFragment.show(getFragmentManager(), "error");
                 }
+            }
+        });
+
+        //Filtrador
+        tbFiltrarTags = (EditText) view.findViewById(R.id.tbFiltrarTags);
+        tbFiltrarTags.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //Nada que hacer...
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    adaptadorLVTags.filtrar(tbFiltrarTags.getText().toString());
+                }
+                catch (Exception err) {
+                    DialogFragment dialogFragment = new DialogoAlerta();
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("TITULO", getString(R.string.error));
+                    bundle.putString("MENSAJE", err.getMessage());
+                    dialogFragment.setArguments(bundle);
+
+                    dialogFragment.show(getFragmentManager(), "error");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                //Nada que hacer...
             }
         });
 
