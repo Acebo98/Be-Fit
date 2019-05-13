@@ -94,4 +94,6 @@
     <string name="tag_borrada">The tag has been deleted</string>
     <string name="sesion_borrada">The sesion has been deleted</string>
     <string name="tag_modif">The tag has been modified</string>
+    <string name="no_tags">It seems you do not have any tags</string>
+    <string name="no_tags_explicacion">Before introducing a sesion we recomend you to introduce tags. \n\nSaid tags are used to identified your sesions as you want.</string>
 </resources>

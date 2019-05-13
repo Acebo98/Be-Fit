@@ -89,6 +89,9 @@
     <string name="tag_borrada">La etiqueta ha sido borrada</string>
     <string name="tag_modif">Etiqueta Modificada</string>
     <string name="sesion_borrada">Sesión Borrada</string>
+    <string name="no_tags">Parece que no tienes etiquetas</string>
+    <string name="no_tags_explicacion">Antes de introducir una sesión te recomendamos que introduzcas etiquetas. \n\nLas
+    etiquetas son utilizadas para identificar a tu gusto mejor las sesiones.</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>

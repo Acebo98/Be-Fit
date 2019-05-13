@@ -142,8 +142,22 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                             if (nSesionFragment.ComprobarCampos() == true) {
                                 String nombre = nSesionFragment.tbNombre.getText().toString().trim();
                                 if (new DAOSesiones(getApplicationContext()).ExistirSesion(nombre) == true) {
-                                    DialogoSeleccion seleccion = new DialogoSeleccion();
-                                    seleccion.show(getSupportFragmentManager(), SELECCIONAR);
+                                    //Si no hay etiquetas guardadas indicamos que hay que tener
+                                    int numTags = new DAOTag(getApplicationContext()).SacarNumTags();
+                                    if (numTags > 0 && numTags != -1) {
+                                        DialogoSeleccion seleccion = new DialogoSeleccion();
+                                        seleccion.show(getSupportFragmentManager(), SELECCIONAR);
+                                    }
+                                    else {
+                                        DialogFragment dialogFragment = new DialogoAlerta();
+                                        Bundle bundle = new Bundle();
+
+                                        bundle.putString("TITULO", getString(R.string.no_tags));
+                                        bundle.putString("MENSAJE", getString(R.string.no_tags_explicacion));
+                                        dialogFragment.setArguments(bundle);
+
+                                        dialogFragment.show(getSupportFragmentManager(), "error");
+                                    }
                                 }
                                 else {
                                     LogeoActivity.centralizarToast(getApplicationContext(),

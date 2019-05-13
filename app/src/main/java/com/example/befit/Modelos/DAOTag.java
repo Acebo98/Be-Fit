@@ -159,4 +159,18 @@ public class DAOTag {
 
         return nombre;
     }
+
+    //Sacamos el número de etiquetas
+    public int SacarNumTags() {
+        int num = 0;
+
+        try {
+            num = this.ReadTags().size();
+        }
+        catch (Exception err) {
+            num = -1;
+        }
+
+        return num;
+    }
 }
