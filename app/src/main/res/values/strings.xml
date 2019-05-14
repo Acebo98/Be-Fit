@@ -106,6 +106,7 @@
     <string name="borrar_sesiones">Borrar Sesiones</string>
     <string name="historial">Ver historial de pesos</string>
     <string name="bloquear">Bloquear Sesión</string>
+    <string name="graficas">Gráficas</string>
 
     <!-- Criterios -->
     <string name="todos">Todos</string>

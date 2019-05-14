@@ -1,6 +1,7 @@
 package com.example.befit.Actividades;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
@@ -111,6 +112,11 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
                     bundle.putString("MENSAJE", getString(R.string.pregunta_borrar_sesiones));
                     dialogoConfirmacion.setArguments(bundle);
                     dialogoConfirmacion.show(getSupportFragmentManager(), BORRADO);
+                }
+                break;
+                case R.id.itemGraficas: {
+                    Intent intent = new Intent(PerfilActivity.this, GraficasActivity.class);
+                    startActivity(intent);
                 }
                 break;
             }
