@@ -10,12 +10,17 @@ import java.util.HashMap;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.PieChart;
 
 public class GraficasActivity extends AppCompatActivity {
 
     HashMap<String, Integer> tagsSesiones;          //Hashmap con las tags
 
     int totalTags;                                  //Número de tags en uso
+
+    PieChart pieChart;                              //Gráfica de espiral
+    BarChart barChart;                              //Gráfica de barras
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,10 @@ public class GraficasActivity extends AppCompatActivity {
             //Botón de ir atrás
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+            //Gráficas
+            pieChart = (PieChart) findViewById(R.id.pieChart);
+            barChart = (BarChart) findViewById(R.id.barChart);
 
             //Leemos las tags
             tagsSesiones = new DAOTag(getApplicationContext()).SacarGraficaTags();
