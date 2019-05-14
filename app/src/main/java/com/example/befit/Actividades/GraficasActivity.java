@@ -108,8 +108,8 @@ public class GraficasActivity extends AppCompatActivity {
         chart.getDescription().setText(descripcion);
         chart.getDescription().setTextSize(15);
         chart.setBackgroundColor(background);
-
         chart.animateY(animateY);
+        legend(chart);
 
         return chart;
     }
@@ -121,7 +121,7 @@ public class GraficasActivity extends AppCompatActivity {
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
 
         ArrayList<LegendEntry> entries = new ArrayList<>();
-        for (int i = 0; i < entries.size(); i++) {
+        for (int i = 0; i < tags.length; i++) {
             LegendEntry legendEntry = new LegendEntry();
             legendEntry.formColor = Color.RED;
             legendEntry.label = tags[i];
@@ -169,7 +169,7 @@ public class GraficasActivity extends AppCompatActivity {
     //Creamos las gráficas
     public void createCharts() {
         //Gráfica de tablas
-        barChart = (BarChart) getSameChart(barChart, "Etiquetas", Color.BLUE, Color.WHITE, 3000);
+        barChart = (BarChart) getSameChart(barChart, "", Color.BLUE, Color.WHITE, 3000);
         barChart.setDrawGridBackground(true);
         barChart.setDrawBarShadow(true);
         barChart.setData(getBarData());
@@ -177,9 +177,10 @@ public class GraficasActivity extends AppCompatActivity {
         axisX(barChart.getXAxis());
         axisLeft(barChart.getAxisLeft());
         axisRight(barChart.getAxisRight());
+        barChart.getLegend().setEnabled(false);
 
         //Gráfica de sector
-        pieChart = (PieChart) getSameChart(pieChart, "Etiquetas", Color.GRAY, Color.MAGENTA, 3000);
+        pieChart = (PieChart) getSameChart(pieChart, "", Color.GRAY, Color.MAGENTA, 3000);
         pieChart.setHoleRadius(10);
         pieChart.setTransparentCircleRadius(12);
         pieChart.setData(getPieData());
