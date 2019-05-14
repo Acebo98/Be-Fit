@@ -15,12 +15,13 @@ import com.github.mikephil.charting.charts.PieChart;
 
 public class GraficasActivity extends AppCompatActivity {
 
-    HashMap<String, Integer> tagsSesiones;          //Hashmap con las tags
-
     int totalTags;                                  //Número de tags en uso
 
     PieChart pieChart;                              //Gráfica de espiral
     BarChart barChart;                              //Gráfica de barras
+
+    String[] tags;                                  //Tags (eje X)
+    int [] nCuantos;                                //Cuántas tags (eje Y)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class GraficasActivity extends AppCompatActivity {
             barChart = (BarChart) findViewById(R.id.barChart);
 
             //Leemos las tags
-            tagsSesiones = new DAOTag(getApplicationContext()).SacarGraficaTags();
+            HashMap<String, Integer> tagsSesiones = new DAOTag(getApplicationContext()).SacarGraficaTags();
             totalTags = new DAOTag(getApplicationContext()).SacarNTagsEnUso(tagsSesiones);
             if (tagsSesiones == null) {
                 throw new Exception("error");
@@ -45,6 +46,7 @@ public class GraficasActivity extends AppCompatActivity {
             else if (totalTags == -1) {
                 throw new Exception("error");
             }
+            SacarArreglos(tagsSesiones);                        //Pasamos los datos a vectores
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();
@@ -65,5 +67,19 @@ public class GraficasActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //Convertirmos a arreglos
+    public void SacarArreglos(HashMap<String, Integer> tagsSesiones) {
+        tags = new String[tagsSesiones.size()];
+        nCuantos = new int[tagsSesiones.size()];
+
+        //Recorremos y guardamos en su respectivo arreglo
+        int i = 0;
+        for (String tag : tagsSesiones.keySet()) {
+            tags[i] = tag;
+            nCuantos[i] = tagsSesiones.get(tag);
+            i++;
+        }
     }
 }
