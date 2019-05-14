@@ -13,7 +13,9 @@ import com.example.befit.R;
 
 public class GraficasActivity extends AppCompatActivity {
 
-    HashMap<String, Integer> tagsSesiones;
+    HashMap<String, Integer> tagsSesiones;          //Hashmap con las tags
+
+    int totalTags;                                  //Número de tags en uso
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,11 @@ public class GraficasActivity extends AppCompatActivity {
 
             //Leemos las tags
             tagsSesiones = new DAOTag(getApplicationContext()).SacarGraficaTags();
+            totalTags = new DAOTag(getApplicationContext()).SacarNTagsEnUso(tagsSesiones);
             if (tagsSesiones == null) {
+                throw new Exception("error");
+            }
+            else if (totalTags == -1) {
                 throw new Exception("error");
             }
         }

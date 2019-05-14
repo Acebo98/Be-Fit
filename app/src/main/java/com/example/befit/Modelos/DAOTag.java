@@ -204,4 +204,20 @@ public class DAOTag {
 
         return tagNums;
     }
+
+    //Recibiendo el hashmap anterior calculamos cuantas tags hay almacenadas que estén en uso
+    public int SacarNTagsEnUso(HashMap<String, Integer> tagsSesiones) {
+        int num = 0;
+
+        try {
+            for (String tag : tagsSesiones.keySet()) {
+                num += tagsSesiones.get(tag);
+            }
+        }
+        catch (Exception err) {
+            num = -1;
+        }
+
+        return num;
+    }
 }
