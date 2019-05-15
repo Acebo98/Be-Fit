@@ -21,7 +21,7 @@
     <string name="actualizar">Update</string>
     <string name="modificar_sesion">Modify Sesion</string>
     <string name="cancelar">Cancel</string>
-    <string name="credenciales">Automatic Login</string>
+    <string name="credenciales">Auto Login</string>
     <string name="tag">Tag</string>
     <string name="total_registros">Number of Records:</string>
     <string name="escribe_notas">Write here your notes...</string>

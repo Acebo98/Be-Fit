@@ -39,7 +39,9 @@ public class GraficasActivity extends AppCompatActivity {
     PieChart pieChart;                              //Gráfica de espiral
     BarChart barChart;                              //Gráfica de barras
 
-    int[] arrayColores;                           //Colores para las gráficas
+    final int tamanioFuente = 12;                   //Tamaño de las fuentes
+
+    int[] arrayColores;                             //Colores para las gráficas
 
     String[] tags;                                  //Tags (eje X)
     int [] nCuantos;                                //Cuántas tags (eje Y)
@@ -141,14 +143,17 @@ public class GraficasActivity extends AppCompatActivity {
         Legend legend = chart.getLegend();
         legend.setForm(Legend.LegendForm.CIRCLE);
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+        legend.setTextSize(12);
 
         ArrayList<LegendEntry> entries = new ArrayList<>();
         for (int i = 0; i < tags.length; i++) {
             LegendEntry legendEntry = new LegendEntry();
             legendEntry.formColor = arrayColores[i];
             legendEntry.label = tags[i];
+            legendEntry.formSize = tamanioFuente;
             entries.add(legendEntry);
         }
+
         legend.setCustom(entries);
     }
 
@@ -156,7 +161,7 @@ public class GraficasActivity extends AppCompatActivity {
     private ArrayList<BarEntry> getBarEntries() {
         ArrayList<BarEntry> entries = new ArrayList<>();
 
-        for (int i = 0; i < tags.length; i++) {
+        for (int i = 0; i < nCuantos.length; i++) {
             entries.add(new BarEntry(i, nCuantos[i]));
         }
 
@@ -165,7 +170,7 @@ public class GraficasActivity extends AppCompatActivity {
     private ArrayList<PieEntry> getPieEntries() {
         ArrayList<PieEntry> entries = new ArrayList<>();
 
-        for (int i = 0; i < tags.length; i++) {
+        for (int i = 0; i < nCuantos.length; i++) {
             entries.add(new PieEntry(nCuantos[i]));
         }
 
@@ -176,12 +181,14 @@ public class GraficasActivity extends AppCompatActivity {
     private void axisX(XAxis axis) {
         axis.setGranularityEnabled(true);
         axis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        axis.setTextSize(tamanioFuente);
         axis.setValueFormatter(new IndexAxisValueFormatter(tags));
     }
 
     //Ejes X
     private void axisLeft(YAxis axis) {
         axis.setSpaceTop(30);
+        axis.setTextSize(tamanioFuente);
         axis.setAxisMinimum(0);
     }
     private void axisRight(YAxis axis) {
@@ -195,11 +202,11 @@ public class GraficasActivity extends AppCompatActivity {
         barChart.setDrawGridBackground(true);
         barChart.setDrawBarShadow(true);
         barChart.setData(getBarData());
-        barChart.invalidate();
         axisX(barChart.getXAxis());
         axisLeft(barChart.getAxisLeft());
         axisRight(barChart.getAxisRight());
         barChart.getLegend().setEnabled(false);
+        barChart.invalidate();
 
         //Gráfica de sector
         pieChart = (PieChart) getSameChart(pieChart, "", Color.GRAY, Color.WHITE, 3000);
@@ -211,9 +218,9 @@ public class GraficasActivity extends AppCompatActivity {
 
     //Datos a mostrar...
     private DataSet getData(DataSet dataSet) {
-        //dataSet.setColor(arrayColores);
+        dataSet.setColors(arrayColores);
         dataSet.setValueTextSize(Color.WHITE);
-        dataSet.setValueTextSize(10);
+        dataSet.setValueTextSize(tamanioFuente);
 
         return dataSet;
     }
