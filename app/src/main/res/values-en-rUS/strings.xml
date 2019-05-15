@@ -97,4 +97,6 @@
     <string name="no_tags">It seems you do not have any tags</string>
     <string name="no_tags_explicacion">Before introducing a sesion we recomend you to introduce tags. \n\nSaid tags are used to identified your sesions as you want.</string>
     <string name="graficas">Graphics</string>
+    <string name="no_tags_graficas">It seems you you do not have any tag stores, thus we can not representate anything</string>
+    <string name="problem_found">There has been a problem</string>
 </resources>

@@ -92,6 +92,9 @@
     <string name="no_tags">Parece que no tienes etiquetas</string>
     <string name="no_tags_explicacion">Antes de introducir una sesión te recomendamos que introduzcas etiquetas. \n\nLas
     etiquetas son utilizadas para identificar a tu gusto mejor las sesiones.</string>
+    <string name="no_tags_graficas">Parece que no tienes etiquetas almacenadas, por lo que no se puede representar
+    nada</string>
+    <string name="problem_found">Ha habido un problema</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>

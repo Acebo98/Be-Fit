@@ -69,17 +69,24 @@ public class GraficasActivity extends AppCompatActivity {
             else if (totalTags == -1) {
                 throw new Exception("error");
             }
-            SacarArreglos(tagsSesiones);                        //Pasamos los datos a vectores
 
-            //Creamos las tablas
-            this.CrearColores();
-            this.createCharts();
+            //Pasamos los datos a vectores
+            this.SacarArreglos(tagsSesiones);
+
+            //Creamos las tablas si hay datos que mostrar
+            if (tags.length > 0) {
+                this.CrearColores();
+                this.createCharts();
+            }
+            else {
+                throw new Exception(getString(R.string.no_tags_graficas));
+            }
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();
             Bundle bundle = new Bundle();
 
-            bundle.putString("TITULO", getString(R.string.error));
+            bundle.putString("TITULO", getString(R.string.problem_found));
             bundle.putString("MENSAJE", err.getMessage());
             dialogFragment.setArguments(bundle);
 
