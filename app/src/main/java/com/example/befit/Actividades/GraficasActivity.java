@@ -1,6 +1,7 @@
 package com.example.befit.Actividades;
 
 import android.graphics.Color;
+import android.graphics.ColorSpace;
 import android.service.autofill.Dataset;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Modelos.DAOTag;
@@ -36,6 +38,8 @@ public class GraficasActivity extends AppCompatActivity {
 
     PieChart pieChart;                              //Gráfica de espiral
     BarChart barChart;                              //Gráfica de barras
+
+    int[] arrayColores;                           //Colores para las gráficas
 
     String[] tags;                                  //Tags (eje X)
     int [] nCuantos;                                //Cuántas tags (eje Y)
@@ -66,6 +70,7 @@ public class GraficasActivity extends AppCompatActivity {
             SacarArreglos(tagsSesiones);                        //Pasamos los datos a vectores
 
             //Creamos las tablas
+            this.CrearColores();
             this.createCharts();
         }
         catch (Exception err) {
@@ -103,6 +108,23 @@ public class GraficasActivity extends AppCompatActivity {
         }
     }
 
+    //Creamos un arreglo de colores aleatorios
+    public void CrearColores() {
+        arrayColores = new int[tags.length];
+
+        for (int i = 0; i < arrayColores.length; i++) {
+            Random rand = new Random();
+
+            int r = rand.nextInt(255);
+            int g = rand.nextInt(255);
+            int b = rand.nextInt(255);
+
+            arrayColores[i] = Color.rgb(r, g, b);
+        }
+    }
+
+    //--------------------------------------GRÁFICAS--------------------------------------\\
+
     //Estructura de la tabla
     private Chart getSameChart(Chart chart, String descripcion, int textColor, int background, int animateY) {
         chart.getDescription().setText(descripcion);
@@ -123,7 +145,7 @@ public class GraficasActivity extends AppCompatActivity {
         ArrayList<LegendEntry> entries = new ArrayList<>();
         for (int i = 0; i < tags.length; i++) {
             LegendEntry legendEntry = new LegendEntry();
-            legendEntry.formColor = Color.RED;
+            legendEntry.formColor = arrayColores[i];
             legendEntry.label = tags[i];
             entries.add(legendEntry);
         }
@@ -180,17 +202,16 @@ public class GraficasActivity extends AppCompatActivity {
         barChart.getLegend().setEnabled(false);
 
         //Gráfica de sector
-        pieChart = (PieChart) getSameChart(pieChart, "", Color.GRAY, Color.MAGENTA, 3000);
+        pieChart = (PieChart) getSameChart(pieChart, "", Color.GRAY, Color.WHITE, 3000);
         pieChart.setHoleRadius(10);
         pieChart.setTransparentCircleRadius(12);
         pieChart.setData(getPieData());
         pieChart.invalidate();
-        //pieChart.setDrawHoleEnabled(true);
     }
 
     //Datos a mostrar...
     private DataSet getData(DataSet dataSet) {
-        //dataSet.setColor(int[] colores);
+        //dataSet.setColor(arrayColores);
         dataSet.setValueTextSize(Color.WHITE);
         dataSet.setValueTextSize(10);
 
