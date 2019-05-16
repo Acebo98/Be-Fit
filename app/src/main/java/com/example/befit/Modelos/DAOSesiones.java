@@ -96,6 +96,7 @@ public class DAOSesiones {
             values.put("ejercicio_4", sesion.getEjercicio_4());
             values.put("f_creacion", sacarFechaHoy());
             values.put("actualizacion", sacarFechaHoy());
+            values.put("foto", sesion.getFoto());
             values.put("idTag", sesion.getIdTag());
 
             //Insertamos

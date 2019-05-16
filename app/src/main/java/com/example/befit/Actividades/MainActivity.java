@@ -3,6 +3,8 @@ package com.example.befit.Actividades;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -20,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.befit.Dialogos.DialogoModificarTag;
 import com.example.befit.Dialogos.DialogoInsertTag;
@@ -33,6 +36,10 @@ import com.example.befit.Modelos.DAOPesos;
 import com.example.befit.Modelos.DAOSesiones;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.util.BitSet;
 
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
         NSesionFragment.OnFragmentInteractionListener, DialogoConfirmacion.MiDialogListener,
@@ -216,6 +223,11 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             int idTag = new DAOTag(getApplicationContext()).SacarID(etiqueta);
             sesion.setIdTag(idTag);
 
+            //Fotografía
+            if (nSesionFragment.imageView.getDrawable() != null) {
+                sesion.setFoto(ImageToBytes(nSesionFragment.imageView));
+            }
+
             //Primero insertamos la sesión y obtenemos su ID
             new DAOSesiones(getApplicationContext()).InsertSesion(sesion);
             int IdSesion = new DAOSesiones(getApplicationContext()).SacarIdentificador(sesion.getNombre());
@@ -247,6 +259,15 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
             dialogFragment.show(getSupportFragmentManager(), "error");
         }
+    }
+
+    //Convertimos la imagen en un array de bytes
+    private byte[] ImageToBytes(ImageView imageView) {
+        Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] bytes = byteArrayOutputStream.toByteArray();
+        return bytes;
     }
 
     //Sacamos el nombre de la persona
