@@ -326,14 +326,15 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     //Método llamado por todos los fragmentos contenidos en esta actividad!!!!
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == MainActivity.ACTUALIZAR) {
-            if (resultCode == RESULT_OK) {
+        if (resultCode == RESULT_OK) {
+            //Leer la BD
+            if (requestCode == MainActivity.ACTUALIZAR) {
                 sesionesFragment.LeerBD();
             }
-        }
-        else if (resultCode == MainActivity.GALERIA) {
-            if (resultCode == RESULT_OK) {
-                
+            //Cargar foto de la galería
+            else if (requestCode == MainActivity.GALERIA) {
+                Uri imageUri = data.getData();
+                nSesionFragment.imageView.setImageURI(imageUri);
             }
         }
     }

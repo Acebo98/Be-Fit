@@ -70,8 +70,7 @@ public class NSesionFragment extends Fragment {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                getActivity().startActivityForResult(gallery, MainActivity.GALERIA);
+                AbrirGaleria();
             }
         });
 
@@ -103,6 +102,12 @@ public class NSesionFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    //Abrimos la galeria
+    private void AbrirGaleria() {
+        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        getActivity().startActivityForResult(gallery, MainActivity.GALERIA);
     }
 
     //Comprobamos que todos los campos estén rellenos
