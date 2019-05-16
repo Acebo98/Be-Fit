@@ -8,9 +8,9 @@ public class VOSesion {
     private String Ejercicio_2;
     private String Ejercicio_3;
     private String Ejercicio_4;
-    private String Tag;
     private String FechaCreacion;
     private String Actualizacion;
+    private byte[] Foto;
     private int IdTag;
 
     //Constructores (una sesión por defecto está activa)
@@ -45,6 +45,7 @@ public class VOSesion {
     }
     public String getFechaCreacion() { return this.FechaCreacion; }
     public String getActualizacion() { return Actualizacion; }
+    public byte[] getFoto() { return Foto; }
     public int getIdTag() { return IdTag; }
 
     //Setters
@@ -75,5 +76,6 @@ public class VOSesion {
     public void setActualizacion(String actualizacion) {
         Actualizacion = actualizacion;
     }
+    public void setFoto(byte[] foto) { Foto = foto; }
     public void setIdTag(int idTag) { IdTag = idTag; }
 }
