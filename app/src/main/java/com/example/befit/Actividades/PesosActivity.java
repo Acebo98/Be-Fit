@@ -251,7 +251,8 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             }
             break;
             case R.id.itemPhoto: {
-                new DialogoModifFotos(context, null);
+                //Díalodo donde se modifica o borra la foto
+                new DialogoModifFotos(context, sesion);
             }
         }
 

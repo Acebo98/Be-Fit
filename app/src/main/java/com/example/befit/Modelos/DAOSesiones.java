@@ -203,6 +203,7 @@ public class DAOSesiones {
             sesion.setEjercicio_3(c.getString(5));
             sesion.setEjercicio_4(c.getString(6));
             sesion.setIdTag(c.getInt(9));
+            sesion.setFoto(c.getBlob(10));
         }
         catch (Exception err) {
             sesion = null;

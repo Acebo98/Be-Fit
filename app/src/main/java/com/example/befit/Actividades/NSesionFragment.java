@@ -67,6 +67,7 @@ public class NSesionFragment extends Fragment {
         tabLayout = view.findViewById(R.id.tabLayout);
 
         //Pillamos la foto
+        imageView.setImageResource(R.mipmap.ic_launcher);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
