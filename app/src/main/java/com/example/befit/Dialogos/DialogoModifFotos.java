@@ -21,10 +21,18 @@ public class DialogoModifFotos {
     Button btnModificar;
     Button btnBorrar;
 
-    Context Context;
+    Context Context;                            //Contexto
+    DialogoModifFotosListener interfaz;         //Interfaz
 
-    public DialogoModifFotos(Context context, VOSesion sesion) {
+    //Interfaz
+    public interface DialogoModifFotosListener {
+        void ModificarFoto();
+        void BorrarFoto();
+    }
+
+    public DialogoModifFotos(Context context, VOSesion sesion, DialogoModifFotosListener actividad) {
         Context = context;
+        interfaz = actividad;
 
         //Configuración del cuadro de díalogo
         final Dialog dialog = new Dialog(context);
@@ -51,12 +59,14 @@ public class DialogoModifFotos {
         btnBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                interfaz.BorrarFoto();
                 dialog.dismiss();
             }
         });
         btnModificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                interfaz.ModificarFoto();
                 dialog.dismiss();
             }
         });

@@ -25,7 +25,7 @@ import com.example.befit.R;
 import java.util.ArrayList;
 
 public class PesosActivity extends AppCompatActivity implements DialogoConfirmacion.MiDialogListener,
-        DialogoModificar.DialogoModificarListener {
+        DialogoModificar.DialogoModificarListener, DialogoModifFotos.DialogoModifFotosListener {
 
     int identificador;                      //Identificador de la sesión
 
@@ -252,7 +252,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             break;
             case R.id.itemPhoto: {
                 //Díalodo donde se modifica o borra la foto
-                new DialogoModifFotos(context, sesion);
+                new DialogoModifFotos(context, sesion, PesosActivity.this);
             }
         }
 
@@ -336,5 +336,15 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
             dialogFragment.show(getSupportFragmentManager(), "error");
         }
+    }
+
+    @Override
+    public void ModificarFoto() {
+
+    }
+
+    @Override
+    public void BorrarFoto() {
+
     }
 }

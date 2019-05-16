@@ -223,6 +223,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             int idTag = new DAOTag(getApplicationContext()).SacarID(etiqueta);
             sesion.setIdTag(idTag);
 
+            //todo en vez de que sea nulo especificar una cierta fotogracia
             //Fotografía
             if (nSesionFragment.imageView.getDrawable() != null) {
                 sesion.setFoto(ImageToBytes(nSesionFragment.imageView));

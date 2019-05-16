@@ -352,6 +352,18 @@ public class DAOSesiones {
 
         return vof;
     }
+
+    //Borramos la foto de una sesion
+    public void BorrarFoto(int idSesion) throws Exception {
+        try {
+
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+    }
+
+
     //Sacamos la fecha de hoy
     private String sacarFechaHoy() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
