@@ -1,8 +1,10 @@
 package com.example.befit.Actividades;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.example.befit.R;
@@ -28,6 +31,7 @@ public class NSesionFragment extends Fragment {
     EditText tbM2;
     EditText tbM3;
     EditText tbM4;
+    ImageView imageView;
 
     //Lista para los campos de texto
     ArrayList<EditText> lCampos = new ArrayList<>();
@@ -59,7 +63,17 @@ public class NSesionFragment extends Fragment {
         tbM2 = view.findViewById(R.id.tbM2);
         tbM3 = view.findViewById(R.id.tbM3);
         tbM4 = view.findViewById(R.id.tbM4);
+        imageView = view.findViewById(R.id.imageViewFoto);
         tabLayout = view.findViewById(R.id.tabLayout);
+
+        //Pillamos la foto
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                getActivity().startActivityForResult(gallery, MainActivity.GALERIA);
+            }
+        });
 
         //Lista de campos de texto
         lCampos.clear();

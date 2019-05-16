@@ -41,9 +41,10 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     Context context;
 
     //Constantes para las llamadas
-    final String CERRAR = "cerrar";
-    final String SELECCIONAR = "seleccionar";
-    final int ACTUALIZAR = 1111;
+    static final String CERRAR = "cerrar";
+    static final String SELECCIONAR = "seleccionar";
+    static int ACTUALIZAR = 1111;
+    static int GALERIA = 2019;
 
     //FloatingButtons
     FloatingActionButton floatingAdd;
@@ -325,8 +326,15 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     //Método llamado por todos los fragmentos contenidos en esta actividad!!!!
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            sesionesFragment.LeerBD();
+        if (resultCode == MainActivity.ACTUALIZAR) {
+            if (resultCode == RESULT_OK) {
+                sesionesFragment.LeerBD();
+            }
+        }
+        else if (resultCode == MainActivity.GALERIA) {
+            if (resultCode == RESULT_OK) {
+                
+            }
         }
     }
 

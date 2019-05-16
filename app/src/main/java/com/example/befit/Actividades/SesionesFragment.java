@@ -30,8 +30,6 @@ public class SesionesFragment extends Fragment {
 
     AdaptadorLV adaptadorLV;                            //Adaptador
 
-    final int ACTUALIZAR = 1111;                        //Constante de que es necesario actualizar la lista
-
     String[] criterios;                                 //Criterios de búsqueda
 
     //Controles
@@ -81,9 +79,9 @@ public class SesionesFragment extends Fragment {
                         bundle.putInt("ID", identificador);
 
                         //Intent
-                        Intent intent = new Intent(getContext(), PesosActivity.class);
+                        Intent intent = new Intent((MainActivity)getActivity(), PesosActivity.class);
                         intent.putExtras(bundle);
-                        startActivityForResult(intent, ACTUALIZAR);
+                        getActivity().startActivityForResult(intent, MainActivity.ACTUALIZAR);
                     }
                     else {
                         Snackbar.make(view, getString(R.string.dicha_bloqueda), Snackbar.LENGTH_LONG)
