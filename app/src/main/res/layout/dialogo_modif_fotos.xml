@@ -36,7 +36,7 @@
 
             <Button
                 android:layout_weight="2"
-                android:id="@+id/btnBorrarBoto"
+                android:id="@+id/btnBorrarFoto"
                 android:text="@string/borrar"
                 android:textColor="@color/rojo"
                 android:layout_width="match_parent"

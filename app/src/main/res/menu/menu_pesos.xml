@@ -27,4 +27,9 @@
         android:title="@string/bloquear"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/itemPhoto"
+        android:title="@string/see_photos"
+        app:showAsAction="never" />
+
 </menu>

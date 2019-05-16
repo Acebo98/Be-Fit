@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Dialogos.DialogoConfirmacion;
+import com.example.befit.Dialogos.DialogoModifFotos;
 import com.example.befit.Dialogos.DialogoModificar;
 import com.example.befit.Entidades.VOPeso;
 import com.example.befit.Entidades.VOSesion;
@@ -249,6 +250,9 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                 dialogoConfirmacion.show(getSupportFragmentManager(), BLOQUEADO);
             }
             break;
+            case R.id.itemPhoto: {
+                new DialogoModifFotos(context);
+            }
         }
 
         return super.onOptionsItemSelected(item);
