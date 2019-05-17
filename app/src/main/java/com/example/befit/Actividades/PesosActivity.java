@@ -2,6 +2,10 @@ package com.example.befit.Actividades;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.befit.Dialogos.DialogoAlerta;
@@ -22,6 +27,7 @@ import com.example.befit.Modelos.DAOSesiones;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class PesosActivity extends AppCompatActivity implements DialogoConfirmacion.MiDialogListener,
@@ -35,6 +41,8 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     Context context;                        //Contexto para el diálogo personalizado
 
     VOSesion sesion;                        //Sesión en pantalla
+
+    DialogoModifFotos dialogoModifFotos;    //Dialogo para modificar fotos (necesitamos su instancia)
 
     //Controles
     TextView tbNombre;
@@ -142,6 +150,15 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             }
         }
         return true;
+    }
+
+    //Convertimos la imagen en un array de bytes
+    private byte[] ImageToBytes(ImageView imageView) {
+        Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] bytes = byteArrayOutputStream.toByteArray();
+        return bytes;
     }
 
     @Override
@@ -252,7 +269,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             break;
             case R.id.itemPhoto: {
                 //Díalodo donde se modifica o borra la foto
-                new DialogoModifFotos(context, sesion, PesosActivity.this);
+                dialogoModifFotos = new DialogoModifFotos(context, sesion, PesosActivity.this);
             }
         }
 
@@ -265,6 +282,36 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
         inflater.inflate(R.menu.menu_pesos, menu);
 
         return true;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == MainActivity.GALERIA) {
+            if (resultCode == RESULT_OK) {
+                if (dialogoModifFotos != null) {
+                    try {
+                        //Accedemos a la foto del dialogo personalizado y la cambiamos...
+                        Uri imageUri = data.getData();
+                        dialogoModifFotos.getImageView().setImageURI(imageUri);
+
+                        //Pasamos a bytes y modificamos
+                        byte[] fotoBytes = ImageToBytes(dialogoModifFotos.getImageView());
+                        new DAOSesiones(getApplicationContext()).ModificarFoto(identificador, fotoBytes);
+                        LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.foto_modif));
+                    }
+                    catch (Exception err) {
+                        DialogFragment dialogFragment = new DialogoAlerta();
+                        Bundle bundle = new Bundle();
+
+                        bundle.putString("TITULO", getString(R.string.error));
+                        bundle.putString("MENSAJE", err.getMessage());
+                        dialogFragment.setArguments(bundle);
+
+                        dialogFragment.show(getSupportFragmentManager(), "error");
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -340,7 +387,9 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
     @Override
     public void ModificarFoto(int idSesion) {
-
+        //Abrimos la galeria para que pueda pillar una nueva foto
+        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, MainActivity.GALERIA);
     }
 
     @Override

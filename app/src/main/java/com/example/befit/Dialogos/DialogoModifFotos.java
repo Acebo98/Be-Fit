@@ -27,6 +27,14 @@ public class DialogoModifFotos {
     Context Context;                            //Contexto
     DialogoModifFotosListener interfaz;         //Interfaz
 
+    //Propiedades para la imagen
+    public void setImageView(ImageView imagen) {
+        this.imageView = imagen;
+    }
+    public ImageView getImageView() {
+        return this.imageView;
+    }
+
     //Interfaz
     public interface DialogoModifFotosListener {
         void ModificarFoto(int idSesion);
@@ -70,7 +78,6 @@ public class DialogoModifFotos {
             @Override
             public void onClick(View v) {
                 interfaz.ModificarFoto(sesion.getIdentificador());
-                dialog.dismiss();
             }
         });
 
@@ -82,10 +89,5 @@ public class DialogoModifFotos {
     private Bitmap BytesToPhoto(byte[] bytes) {
         Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
         return bitmap;
-    }
-
-    //Abrimos la galeria
-    private void AbrirGaleria() {
-        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
     }
 }

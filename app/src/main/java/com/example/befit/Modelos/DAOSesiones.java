@@ -369,6 +369,20 @@ public class DAOSesiones {
         }
     }
 
+    //Modificamos la foto de una sesión
+    public void ModificarFoto(int idSesion, byte[] nuevaFoto) throws Exception {
+        ContentValues values = new ContentValues();
+
+        try {
+            values.put("foto", nuevaFoto);
+            database.update(BeFitDB.Structure.SESIONES, values, BaseColumns._ID + " = ?",
+                    new String[] {String.valueOf(idSesion)});
+        }
+        catch (Exception err) {
+            throw new Exception(err.getMessage());
+        }
+    }
+
     //Sacamos la fecha de hoy
     private String sacarFechaHoy() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
