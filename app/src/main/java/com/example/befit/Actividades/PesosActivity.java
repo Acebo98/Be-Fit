@@ -297,6 +297,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                         //Pasamos a bytes y modificamos
                         byte[] fotoBytes = ImageToBytes(dialogoModifFotos.getImageView());
                         new DAOSesiones(getApplicationContext()).ModificarFoto(identificador, fotoBytes);
+                        sesion.setFoto(fotoBytes);          //Modificamos la foto en la propiedad
                         LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.foto_modif));
                     }
                     catch (Exception err) {
@@ -386,7 +387,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     }
 
     @Override
-    public void ModificarFoto(int idSesion) {
+    public void ModificarFoto() {
         //Abrimos la galeria para que pueda pillar una nueva foto
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery, MainActivity.GALERIA);

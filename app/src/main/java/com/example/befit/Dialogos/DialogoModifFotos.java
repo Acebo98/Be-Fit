@@ -37,7 +37,7 @@ public class DialogoModifFotos {
 
     //Interfaz
     public interface DialogoModifFotosListener {
-        void ModificarFoto(int idSesion);
+        void ModificarFoto();
         void BorrarFoto(int idSesion);
     }
 
@@ -77,7 +77,7 @@ public class DialogoModifFotos {
         btnModificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                interfaz.ModificarFoto(sesion.getIdentificador());
+                interfaz.ModificarFoto();
             }
         });
 
