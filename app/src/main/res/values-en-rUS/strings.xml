@@ -99,4 +99,7 @@
     <string name="graficas">Graphics</string>
     <string name="no_tags_graficas">It seems you you do not have any tag stores, thus we can not representate anything</string>
     <string name="problem_found">There has been a problem</string>
+    <string name="see_photos">See Photo</string>
+    <string name="foto_borrada">The photo has been deleted</string>
+    <string name="foto_modif">The photo has been modified</string>
 </resources>

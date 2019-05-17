@@ -369,7 +369,6 @@ public class DAOSesiones {
         }
     }
 
-
     //Sacamos la fecha de hoy
     private String sacarFechaHoy() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");

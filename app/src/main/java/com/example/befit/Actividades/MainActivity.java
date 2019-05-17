@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.DialogFragment;
@@ -41,6 +42,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.BitSet;
 
+import androidx.annotation.RequiresApi;
+
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
         NSesionFragment.OnFragmentInteractionListener, DialogoConfirmacion.MiDialogListener,
         TagsFragment.OnFragmentInteractionListener, DialogoInsertTag.DialogoInsertListener, DialogoModificarTag.DialogoModificarTagListener {
@@ -52,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     static final String SELECCIONAR = "seleccionar";
     static int ACTUALIZAR = 1111;
     static int GALERIA = 2019;
+
+    //Booleana para especificar que se va a añadir una foto
+    boolean fotoAñadir;
 
     //FloatingButtons
     FloatingActionButton floatingAdd;
@@ -71,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //No se añade foto al principio
+        fotoAñadir = false;
 
         //Contexto
         context = this;
@@ -223,10 +232,12 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             int idTag = new DAOTag(getApplicationContext()).SacarID(etiqueta);
             sesion.setIdTag(idTag);
 
-            //todo en vez de que sea nulo especificar una cierta fotogracia
             //Fotografía
-            if (nSesionFragment.imageView.getDrawable() != null) {
+            if (fotoAñadir == true) {
                 sesion.setFoto(ImageToBytes(nSesionFragment.imageView));
+            }
+            else {
+                sesion.setFoto(null);
             }
 
             //Primero insertamos la sesión y obtenemos su ID
@@ -246,6 +257,10 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             //Informamos de que haya ido bien la cosa
             LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.sesion_insertada));
             nSesionFragment.LimpiarUI();
+
+            //Cambiamos el estado de la foto
+            fotoAñadir = false;
+            nSesionFragment.imageView.setImageResource(R.drawable.add_photo);
 
             //NOS COMUNICAMOS MEDIANTE LA INTERFAZ CON LA ACTIVIDAD MAIN PARA QUE SE ACTUALICE LA LISTVIEW
             nSesionFragment.mListener.onFragmentInteraction(Uri.parse("actualiza"));
@@ -357,6 +372,9 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             else if (requestCode == MainActivity.GALERIA) {
                 Uri imageUri = data.getData();
                 nSesionFragment.imageView.setImageURI(imageUri);
+
+                //Indicamos que se va a añadir foto
+                fotoAñadir = true;
             }
         }
     }

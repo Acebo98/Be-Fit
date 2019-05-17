@@ -2,15 +2,18 @@ package com.example.befit.Dialogos;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.befit.Actividades.MainActivity;
 import com.example.befit.Entidades.VOSesion;
 import com.example.befit.R;
 
@@ -79,5 +82,10 @@ public class DialogoModifFotos {
     private Bitmap BytesToPhoto(byte[] bytes) {
         Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
         return bitmap;
+    }
+
+    //Abrimos la galeria
+    private void AbrirGaleria() {
+        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
     }
 }
