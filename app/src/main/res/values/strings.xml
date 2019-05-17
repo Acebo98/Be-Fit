@@ -112,6 +112,8 @@
     <string name="bloquear">Bloquear Sesión</string>
     <string name="graficas">Gráficas</string>
     <string name="see_photos">Ver Foto</string>
+    <string name="foto_borrada">Foto Borrada</string>
+    <string name="foto_modif">Foto Modificada</string>
 
     <!-- Criterios -->
     <string name="todos">Todos</string>

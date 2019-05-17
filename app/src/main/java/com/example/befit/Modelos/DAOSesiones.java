@@ -197,6 +197,7 @@ public class DAOSesiones {
 
             //Sacamos los datos
             c.moveToNext();
+            sesion.setIdentificador(c.getInt(1));
             sesion.setNombre(c.getString(2));
             sesion.setEjercicio_1(c.getString(3));
             sesion.setEjercicio_2(c.getString(4));
@@ -353,10 +354,15 @@ public class DAOSesiones {
         return vof;
     }
 
-    //Borramos la foto de una sesion
+    //Borramos la foto de una sesion a partir de su ID
     public void BorrarFoto(int idSesion) throws Exception {
-        try {
+        ContentValues values = new ContentValues();
 
+        try {
+            //Foto a null
+            values.put("foto", (byte[]) null);
+            database.update(BeFitDB.Structure.SESIONES, values, BaseColumns._ID + " = ?",
+                    new String[] {String.valueOf(idSesion)});
         }
         catch (Exception err) {
             throw new Exception(err.getMessage());

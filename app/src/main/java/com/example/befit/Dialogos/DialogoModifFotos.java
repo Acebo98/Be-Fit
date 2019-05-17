@@ -26,11 +26,11 @@ public class DialogoModifFotos {
 
     //Interfaz
     public interface DialogoModifFotosListener {
-        void ModificarFoto();
-        void BorrarFoto();
+        void ModificarFoto(int idSesion);
+        void BorrarFoto(int idSesion);
     }
 
-    public DialogoModifFotos(Context context, VOSesion sesion, DialogoModifFotosListener actividad) {
+    public DialogoModifFotos(Context context, final VOSesion sesion, DialogoModifFotosListener actividad) {
         Context = context;
         interfaz = actividad;
 
@@ -52,21 +52,21 @@ public class DialogoModifFotos {
             imageView.setImageBitmap(BytesToPhoto(fotobytes));
         }
         else {
-            //todo poner que no hay foto...
+            imageView.setImageResource(R.drawable.no_photo);
         }
 
         //Eventos
         btnBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                interfaz.BorrarFoto();
+                interfaz.BorrarFoto(sesion.getIdentificador());
                 dialog.dismiss();
             }
         });
         btnModificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                interfaz.ModificarFoto();
+                interfaz.ModificarFoto(sesion.getIdentificador());
                 dialog.dismiss();
             }
         });

@@ -339,12 +339,26 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     }
 
     @Override
-    public void ModificarFoto() {
+    public void ModificarFoto(int idSesion) {
 
     }
 
     @Override
-    public void BorrarFoto() {
+    public void BorrarFoto(int idSesion) {
+        try {
+            new DAOSesiones(getApplicationContext()).BorrarFoto(idSesion);
+            sesion.setFoto(null);      //Indicamos que no hay foto
+            LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.foto_borrada));
+        }
+        catch (Exception err) {
+            DialogFragment dialogFragment = new DialogoAlerta();
+            Bundle bundle = new Bundle();
 
+            bundle.putString("TITULO", getString(R.string.error));
+            bundle.putString("MENSAJE", err.getMessage());
+            dialogFragment.setArguments(bundle);
+
+            dialogFragment.show(getSupportFragmentManager(), "error");
+        }
     }
 }
