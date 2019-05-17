@@ -1,12 +1,16 @@
 package com.example.befit.Actividades;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -159,6 +163,12 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         byte[] bytes = byteArrayOutputStream.toByteArray();
         return bytes;
+    }
+
+    //Abrimos la galería
+    private void AbrirGaleria() {
+        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, MainActivity.GALERIA);
     }
 
     @Override
@@ -316,6 +326,15 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     }
 
     @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        if (requestCode == MainActivity.PERMISO_ALMACEN) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                AbrirGaleria();
+            }
+        }
+    }
+
+    @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
         if (dialog.getTag() == BORRADO) {
             try {
@@ -388,9 +407,17 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
     @Override
     public void ModificarFoto() {
-        //Abrimos la galeria para que pueda pillar una nueva foto
-        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(gallery, MainActivity.GALERIA);
+        //Permisos...
+        if (ContextCompat.checkSelfPermission(PesosActivity.this,
+                Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(PesosActivity.this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    MainActivity.PERMISO_ALMACEN);
+        }
+        else if (ContextCompat.checkSelfPermission(PesosActivity.this,
+                Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            AbrirGaleria();
+        }
     }
 
     @Override
