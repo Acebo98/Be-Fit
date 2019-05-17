@@ -3,6 +3,7 @@ package com.example.befit.Actividades;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     static final String SELECCIONAR = "seleccionar";
     static int ACTUALIZAR = 1111;
     static int GALERIA = 2019;
+    static int PERMISO_ALMACEN = 1;
 
     //Booleana para especificar que se va a añadir una foto
     boolean fotoAñadir;
@@ -375,6 +377,15 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
                 //Indicamos que se va a añadir foto
                 fotoAñadir = true;
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        if (requestCode == MainActivity.PERMISO_ALMACEN) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                nSesionFragment.AbrirGaleria();
             }
         }
     }

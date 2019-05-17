@@ -1,12 +1,16 @@
 package com.example.befit.Actividades;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +75,17 @@ public class NSesionFragment extends Fragment {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AbrirGaleria();
+                //Permisos...
+                if (ContextCompat.checkSelfPermission((MainActivity)getActivity(),
+                        Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions((MainActivity)getActivity(),
+                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                            MainActivity.PERMISO_ALMACEN);
+                }
+                else if (ContextCompat.checkSelfPermission((MainActivity)getActivity(),
+                        Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                    AbrirGaleria();
+                }
             }
         });
 
@@ -106,7 +120,7 @@ public class NSesionFragment extends Fragment {
     }
 
     //Abrimos la galeria
-    private void AbrirGaleria() {
+    public void AbrirGaleria() {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         getActivity().startActivityForResult(gallery, MainActivity.GALERIA);
     }
