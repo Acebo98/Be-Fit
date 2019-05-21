@@ -19,4 +19,18 @@ public class VOFeedback {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    //Getters
+    public int getIdentificador() {
+        return identificador;
+    }
+    public String getTitulo() {
+        return titulo;
+    }
+    public String getCuerpo() {
+        return cuerpo;
+    }
+    public String getTipo() {
+        return tipo;
+    }
 }

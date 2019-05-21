@@ -13,7 +13,11 @@ import android.widget.Spinner;
 
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Entidades.VOFeedback;
+import com.example.befit.Modelos.DAOFirebase;
 import com.example.befit.R;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Random;
 
@@ -62,6 +66,9 @@ public class FeedbackActivity extends AppCompatActivity {
                         feedback.setCuerpo(tbMensaje.getText().toString().trim());
                         feedback.setTipo(spnTipo.getSelectedItem().toString());
 
+                        //Realizamos la insercción
+                        new DAOFirebase(getApplicationContext()).insertarReporte(feedback);
+                        LimpiarCampos();
                     }
                     else {
                         LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.campos_opiniones));
@@ -93,5 +100,11 @@ public class FeedbackActivity extends AppCompatActivity {
     //Comprobamos que los campos estén rellenos
     private boolean ComprobarCamposRellenos() {
         return tbMensaje.getText().toString().trim().length() > 0 && tbTitulo.getText().toString().trim().length() > 0;
+    }
+
+    //Limpiamos los campos de texto
+    private void LimpiarCampos() {
+        tbTitulo.getText().clear();
+        tbMensaje.getText().clear();
     }
 }
