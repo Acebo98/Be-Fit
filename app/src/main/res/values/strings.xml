@@ -101,6 +101,7 @@
     <string name="no_tags_graficas">Parece que no tienes etiquetas almacenadas, por lo que no se puede representar
     nada</string>
     <string name="problem_found">Ha habido un problema</string>
+    <string name="campos_opiniones">Primero escribe el título y la opinión</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>
