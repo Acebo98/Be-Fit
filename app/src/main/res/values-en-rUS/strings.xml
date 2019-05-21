@@ -107,4 +107,7 @@
     <string name="titulo_opinion">Title</string>
     <string name="escribe_opinion">Write here your opinion</string>
     <string name="enviar">Send</string>
+    <string name="opinion_bug">Report a bug</string>
+    <string name="opinion_dar">Opinion</string>
+    <string name="campos_opiniones">First of all write the title and the opinion</string>
 </resources>

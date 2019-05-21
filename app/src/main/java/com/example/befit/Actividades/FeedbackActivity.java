@@ -1,5 +1,6 @@
 package com.example.befit.Actividades;
 
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -10,7 +11,11 @@ import android.widget.EditText;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 
+import com.example.befit.Dialogos.DialogoAlerta;
+import com.example.befit.Entidades.VOFeedback;
 import com.example.befit.R;
+
+import java.util.Random;
 
 public class FeedbackActivity extends AppCompatActivity {
 
@@ -46,11 +51,31 @@ public class FeedbackActivity extends AppCompatActivity {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ComprobarCamposRellenos() == true) {
+                try {
+                    if (ComprobarCamposRellenos() == true) {
+                        VOFeedback feedback = new VOFeedback();
 
+                        //Datos del feedback
+                        Random random = new Random();
+                        feedback.setIdentificador(random.nextInt(1000));
+                        feedback.setTitulo(tbTitulo.getText().toString().trim());
+                        feedback.setCuerpo(tbMensaje.getText().toString().trim());
+                        feedback.setTipo(spnTipo.getSelectedItem().toString());
+
+                    }
+                    else {
+                        LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.campos_opiniones));
+                    }
                 }
-                else {
-                    LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.campos_opiniones));
+                catch (Exception err) {
+                    DialogFragment dialogFragment = new DialogoAlerta();
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("TITULO", getString(R.string.error));
+                    bundle.putString("MENSAJE", err.getMessage());
+                    dialogFragment.setArguments(bundle);
+
+                    dialogFragment.show(getSupportFragmentManager(), "error");
                 }
             }
         });
