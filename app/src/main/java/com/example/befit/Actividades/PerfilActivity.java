@@ -119,6 +119,11 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
                     startActivity(intent);
                 }
                 break;
+                case R.id.itemFeedback: {
+                    Intent intent = new Intent(PerfilActivity.this, FeedbackActivity.class);
+                    startActivity(intent);
+                }
+                break;
             }
         }
         catch (Exception err) {

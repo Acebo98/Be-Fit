@@ -102,4 +102,9 @@
     <string name="see_photos">See Photo</string>
     <string name="foto_borrada">The photo has been deleted</string>
     <string name="foto_modif">The photo has been modified</string>
+    <string name="click_foto">Press on the photo for adding one</string>
+    <string name="opinion">Send Feedback</string>
+    <string name="titulo_opinion">Title</string>
+    <string name="escribe_opinion">Write here your opinion</string>
+    <string name="enviar">Send</string>
 </resources>

@@ -19,4 +19,9 @@
         android:id="@+id/itemGraficas"
         android:title="@string/graficas"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/itemFeedback"
+        android:title="@string/opinion"
+        app:showAsAction="never" />
 </menu>
