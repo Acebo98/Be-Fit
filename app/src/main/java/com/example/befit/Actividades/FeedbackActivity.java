@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 
 import com.example.befit.Dialogos.DialogoAlerta;
@@ -28,6 +27,9 @@ public class FeedbackActivity extends AppCompatActivity {
     EditText tbMensaje;
     Spinner spnTipo;
     Button btnEnviar;
+
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
     String[] lReportes;                         //Arreglo con los tipos de reporte
 
@@ -67,7 +69,7 @@ public class FeedbackActivity extends AppCompatActivity {
                         feedback.setTipo(spnTipo.getSelectedItem().toString());
 
                         //Realizamos la insercción
-                        new DAOFirebase(getApplicationContext()).insertarReporte(feedback);
+                        databaseReference.child("Reporte").child(String.valueOf(feedback.getIdentificador())).setValue(feedback);
                         LimpiarCampos();
                     }
                     else {
@@ -86,6 +88,9 @@ public class FeedbackActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //Iniciamos firebase
+        this.iniciarFirebase();
     }
 
     @Override
@@ -95,6 +100,13 @@ public class FeedbackActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //Iniciamos firebase
+    public void iniciarFirebase() {
+        FirebaseApp.initializeApp(this);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
     }
 
     //Comprobamos que los campos estén rellenos
