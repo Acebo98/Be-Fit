@@ -4,7 +4,7 @@
     tools:context="com.example.befit.Actividades.MainActivity">
     <item
         android:id="@+id/itemPerfil"
-        android:icon="@drawable/ic_person"
+        android:icon="@drawable/ic_confi"
         android:title="@string/perfil_usuario"
         app:showAsAction="always" />
     <item

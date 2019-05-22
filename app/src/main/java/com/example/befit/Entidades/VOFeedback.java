@@ -1,13 +1,13 @@
 package com.example.befit.Entidades;
 
 public class VOFeedback {
-    private int identificador;
+    private String identificador;
     private String titulo;
     private String cuerpo;
     private String tipo;
 
     //Setters
-    public void setIdentificador(int identificador) {
+    public void setIdentificador(String identificador) {
         this.identificador = identificador;
     }
     public void setTitulo(String titulo) {
@@ -21,7 +21,7 @@ public class VOFeedback {
     }
 
     //Getters
-    public int getIdentificador() {
+    public String getIdentificador() {
         return identificador;
     }
     public String getTitulo() {

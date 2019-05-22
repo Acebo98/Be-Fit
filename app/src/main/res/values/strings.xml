@@ -102,6 +102,7 @@
     nada</string>
     <string name="problem_found">Ha habido un problema</string>
     <string name="campos_opiniones">Primero escribe el título y la opinión</string>
+    <string name="gracias_opinion">¡Gracias por darnos tu opinión!</string>
 
     <!-- Tabs -->
     <string name="sesiones">Seguimiento</string>

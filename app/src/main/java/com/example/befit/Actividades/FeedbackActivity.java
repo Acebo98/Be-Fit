@@ -12,7 +12,6 @@ import android.widget.Spinner;
 
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Entidades.VOFeedback;
-import com.example.befit.Modelos.DAOFirebase;
 import com.example.befit.R;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +27,9 @@ public class FeedbackActivity extends AppCompatActivity {
     Spinner spnTipo;
     Button btnEnviar;
 
+    final String REPORTE = "Reporte";
+
+    //Base de datos...
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
@@ -62,14 +64,14 @@ public class FeedbackActivity extends AppCompatActivity {
                         VOFeedback feedback = new VOFeedback();
 
                         //Datos del feedback
-                        Random random = new Random();
-                        feedback.setIdentificador(random.nextInt(1000));
+                        feedback.setIdentificador(databaseReference.push().getKey());
                         feedback.setTitulo(tbTitulo.getText().toString().trim());
                         feedback.setCuerpo(tbMensaje.getText().toString().trim());
                         feedback.setTipo(spnTipo.getSelectedItem().toString());
 
                         //Realizamos la insercción
-                        databaseReference.child("Reporte").child(String.valueOf(feedback.getIdentificador())).setValue(feedback);
+                        databaseReference.child(REPORTE).child(String.valueOf(feedback.getIdentificador())).setValue(feedback);
+                        LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.gracias_opinion));
                         LimpiarCampos();
                     }
                     else {
@@ -104,7 +106,7 @@ public class FeedbackActivity extends AppCompatActivity {
 
     //Iniciamos firebase
     public void iniciarFirebase() {
-        FirebaseApp.initializeApp(this);
+        FirebaseApp.initializeApp(getApplicationContext());
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
     }
