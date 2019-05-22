@@ -19,105 +19,91 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/txtNSesion"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/nombre_sesion"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:hint="@string/nombre_sesion">
 
-                <EditText
-                    android:id="@+id/tbNombreSesion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/gym_day"
-                    android:inputType="textPersonName"
-                    android:maxLength="30"
-                    android:text="" />
+                        <EditText
+                            android:id="@+id/tbNombreSesion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:maxLength="30"
+                            android:text="" />
 
-                <TextView
-                    android:id="@+id/txtM1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/musculo"
-                    android:textStyle="bold" />
+                </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/tbM1"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/biceps"
-                    android:inputType="textPersonName"
-                    android:maxLength="30"
-                    android:text="" />
+                    android:hint="@string/musculo">
 
-                <TextView
-                    android:id="@+id/txtM2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/musculo_1"
-                    android:textStyle="bold" />
+                        <EditText
+                            android:id="@+id/tbM1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:maxLength="30"
+                            android:text="" />
 
-                <EditText
-                    android:id="@+id/tbM2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/triceps"
-                    android:inputType="textPersonName"
-                    android:maxLength="30"
-                    android:text="" />
+                </android.support.design.widget.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/txtM3"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/musculo_2"
-                    android:textStyle="bold" />
+                    android:hint="@string/musculo_1">
 
-                <EditText
-                    android:id="@+id/tbM3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/pierna"
-                    android:inputType="textPersonName"
-                    android:maxLength="30"
-                    android:text="" />
+                        <EditText
+                            android:id="@+id/tbM2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:maxLength="30"
+                            android:text="" />
 
-                <TextView
-                    android:id="@+id/txtM4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/musculo_3"
-                    android:textStyle="bold" />
+                </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/tbM4"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/gemelo"
-                    android:inputType="textPersonName"
-                    android:maxLength="30"
-                    android:text="" />
+                    android:hint="@string/musculo_2">
+
+                        <EditText
+                            android:id="@+id/tbM3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:maxLength="30"
+                            android:text="" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/musculo_3">
+
+                        <EditText
+                            android:id="@+id/tbM4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:maxLength="30"
+                            android:text="" />
+
+                </android.support.design.widget.TextInputLayout>
 
             <ImageView
                 android:id="@+id/imageViewFoto"
                 android:layout_margin="10dp"
                 android:layout_width="120dp"
                 android:layout_height="120dp" />
-
-            <TextView
-                android:textStyle="italic"
-                android:layout_margin="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/click_foto"/>
 
         </LinearLayout>
 
