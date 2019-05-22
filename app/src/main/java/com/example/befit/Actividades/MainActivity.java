@@ -38,6 +38,7 @@ import com.example.befit.Modelos.DAOPesos;
 import com.example.befit.Modelos.DAOSesiones;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
+import com.google.firebase.FirebaseApp;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -79,6 +80,9 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Nos conectamos con firebase
+        FirebaseApp.initializeApp(getApplicationContext());
 
         //No se añade foto al principio
         fotoAñadir = false;

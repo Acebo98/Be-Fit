@@ -1,10 +1,13 @@
 package com.example.befit.Entidades;
 
+import java.util.Date;
+
 public class VOFeedback {
     private String identificador;
     private String titulo;
     private String cuerpo;
     private String tipo;
+    private String fecha;
 
     //Setters
     public void setIdentificador(String identificador) {
@@ -19,6 +22,9 @@ public class VOFeedback {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
 
     //Getters
     public String getIdentificador() {
@@ -32,5 +38,8 @@ public class VOFeedback {
     }
     public String getTipo() {
         return tipo;
+    }
+    public String getFecha() {
+        return fecha;
     }
 }

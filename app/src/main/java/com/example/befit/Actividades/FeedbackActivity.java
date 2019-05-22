@@ -10,14 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.befit.Modelos.DAOFirebase;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Entidades.VOFeedback;
 import com.example.befit.R;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Random;
 
 public class FeedbackActivity extends AppCompatActivity {
 
@@ -26,12 +22,6 @@ public class FeedbackActivity extends AppCompatActivity {
     EditText tbMensaje;
     Spinner spnTipo;
     Button btnEnviar;
-
-    final String REPORTE = "Reporte";
-
-    //Base de datos...
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
 
     String[] lReportes;                         //Arreglo con los tipos de reporte
 
@@ -64,13 +54,12 @@ public class FeedbackActivity extends AppCompatActivity {
                         VOFeedback feedback = new VOFeedback();
 
                         //Datos del feedback
-                        feedback.setIdentificador(databaseReference.push().getKey());
                         feedback.setTitulo(tbTitulo.getText().toString().trim());
                         feedback.setCuerpo(tbMensaje.getText().toString().trim());
                         feedback.setTipo(spnTipo.getSelectedItem().toString());
 
                         //Realizamos la insercción
-                        databaseReference.child(REPORTE).child(String.valueOf(feedback.getIdentificador())).setValue(feedback);
+                        new DAOFirebase().insertarReporte(feedback);
                         LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.gracias_opinion));
                         LimpiarCampos();
                     }
@@ -90,9 +79,6 @@ public class FeedbackActivity extends AppCompatActivity {
                 }
             }
         });
-
-        //Iniciamos firebase
-        this.iniciarFirebase();
     }
 
     @Override
@@ -102,13 +88,6 @@ public class FeedbackActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    //Iniciamos firebase
-    public void iniciarFirebase() {
-        FirebaseApp.initializeApp(getApplicationContext());
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
     }
 
     //Comprobamos que los campos estén rellenos
