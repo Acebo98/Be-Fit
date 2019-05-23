@@ -311,7 +311,6 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case R.id.itemPerfil: {
                 Intent intent = new Intent(MainActivity.this, AjustesActivity.class);

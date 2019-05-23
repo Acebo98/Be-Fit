@@ -240,7 +240,7 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
     public void AceptarDialogo(VOConfiGraficas confiGraficas) {
         try {
             //Leemos las tags
-            HashMap<String, Integer> tagsSesiones = new DAOGraficas(getApplicationContext()).SacarGraficaTags();
+            HashMap<String, Integer> tagsSesiones = new DAOGraficas(getApplicationContext()).SacarGraficaTags(confiGraficas);
             if (tagsSesiones == null) {
                 throw new Exception("error");
             }

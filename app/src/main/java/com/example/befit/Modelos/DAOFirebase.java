@@ -24,18 +24,11 @@ public class DAOFirebase {
     public void insertarReporte(VOFeedback feedback) throws Exception {
         try {
             feedback.setIdentificador(databaseReference.push().getKey());           //Identificador...
-            feedback.setFecha(sacarFechaHoy());                                     //Fecha de hoy...
+            feedback.setFecha(DAOSesiones.sacarFechaHoy());                         //Fecha de hoy...
             databaseReference.child(REPORTE).child(String.valueOf(feedback.getIdentificador())).setValue(feedback);
         }
         catch (Exception err) {
             throw new Exception(err.getMessage());
         }
-    }
-
-    //Sacamos la fecha de hoy
-    private String sacarFechaHoy() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String hoy = simpleDateFormat.format(new Date());
-        return hoy;
     }
 }

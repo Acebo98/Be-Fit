@@ -34,7 +34,7 @@ public class DAOPesos {
             values.put("peso_3", peso.getPeso_3());
             values.put("peso_4", peso.getPeso_4());
             values.put("notas", peso.getNotas());
-            values.put("fecha_peso", sacarFechaHoy());
+            values.put("fecha_peso", DAOSesiones.sacarFechaHoy());
             values.put("idSesion", peso.getIdSesion());
 
             //Insertamos
@@ -157,12 +157,5 @@ public class DAOPesos {
         }
 
         return num;
-    }
-
-    //Sacamos la fecha de hoy
-    private String sacarFechaHoy() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String hoy = simpleDateFormat.format(new Date());
-        return hoy;
     }
 }
