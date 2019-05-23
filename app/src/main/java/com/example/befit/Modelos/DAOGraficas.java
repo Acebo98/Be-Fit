@@ -1,0 +1,48 @@
+package com.example.befit.Modelos;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.example.befit.Estructura_BD.BeFitDB;
+
+import java.util.HashMap;
+
+public class DAOGraficas {
+
+    SQLiteDatabase database;                        //Base de Datos
+
+    //Constructor en el que abrimos la conexión la base de datos
+    public DAOGraficas(Context context) {
+        BeFitDB beFitDB = new BeFitDB(context);
+        database = beFitDB.getWritableDatabase();
+    }
+
+    //Sacamos un hashmap con el nombre de la etiqueta y cuantas sesiones tiene
+    public HashMap<String, Integer> SacarGraficaTags() {
+        HashMap<String, Integer> tagNums =  null;
+
+        try {
+            tagNums = new HashMap<String, Integer>();
+
+            //Query
+            Cursor c = database.rawQuery("select tag, count(*) as cuantos\n" +
+                    "from sesiones, tags\n" +
+                    "where tags._id = sesiones.idTag\n" +
+                    "group by tag\n" +
+                    "order by 2 desc", null);
+
+            //Sacamos los datos
+            if (c.getCount() > 0) {
+                while (c.moveToNext() == true) {
+                    tagNums.put(c.getString(0), c.getInt(1));
+                }
+            }
+        }
+        catch (Exception err) {
+            tagNums = null;
+        }
+
+        return tagNums;
+    }
+}

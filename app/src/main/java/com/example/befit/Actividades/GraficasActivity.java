@@ -13,6 +13,7 @@ import java.util.Random;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Dialogos.DialogoFechasGraficas;
 import com.example.befit.Entidades.VOConfiGraficas;
+import com.example.befit.Modelos.DAOGraficas;
 import com.example.befit.Modelos.DAOSesiones;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
@@ -239,7 +240,7 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
     public void AceptarDialogo(VOConfiGraficas confiGraficas) {
         try {
             //Leemos las tags
-            HashMap<String, Integer> tagsSesiones = new DAOTag(getApplicationContext()).SacarGraficaTags();
+            HashMap<String, Integer> tagsSesiones = new DAOGraficas(getApplicationContext()).SacarGraficaTags();
             if (tagsSesiones == null) {
                 throw new Exception("error");
             }

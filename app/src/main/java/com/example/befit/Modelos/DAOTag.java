@@ -176,48 +176,4 @@ public class DAOTag {
 
         return num;
     }
-
-    //Sacamos un hashmap con el nombre de la etiqueta y cuantas sesiones tiene
-    public HashMap<String, Integer> SacarGraficaTags() {
-        HashMap<String, Integer> tagNums =  null;
-
-        try {
-            tagNums = new HashMap<String, Integer>();
-
-            //Query
-            Cursor c = database.rawQuery("select tag, count(*) as cuantos\n" +
-                    "from sesiones, tags\n" +
-                    "where tags._id = sesiones.idTag\n" +
-                    "group by tag\n" +
-                    "order by 2 desc", null);
-
-            //Sacamos los datos
-            if (c.getCount() > 0) {
-                while (c.moveToNext() == true) {
-                    tagNums.put(c.getString(0), c.getInt(1));
-                }
-            }
-        }
-        catch (Exception err) {
-            tagNums = null;
-        }
-
-        return tagNums;
-    }
-
-    //Recibiendo el hashmap anterior calculamos cuantas tags hay almacenadas que estén en uso
-    public int SacarNTagsEnUso(HashMap<String, Integer> tagsSesiones) {
-        int num = 0;
-
-        try {
-            for (String tag : tagsSesiones.keySet()) {
-                num += tagsSesiones.get(tag);
-            }
-        }
-        catch (Exception err) {
-            num = -1;
-        }
-
-        return num;
-    }
 }
