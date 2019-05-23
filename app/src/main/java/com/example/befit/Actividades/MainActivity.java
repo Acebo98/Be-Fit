@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
-import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.DialogFragment;
@@ -40,11 +39,7 @@ import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
 import com.google.firebase.FirebaseApp;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.util.BitSet;
-
-import androidx.annotation.RequiresApi;
 
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
         NSesionFragment.OnFragmentInteractionListener, DialogoConfirmacion.MiDialogListener,
@@ -319,7 +314,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
         switch (item.getItemId()) {
             case R.id.itemPerfil: {
-                Intent intent = new Intent(MainActivity.this, PerfilActivity.class);
+                Intent intent = new Intent(MainActivity.this, AjustesActivity.class);
                 startActivityForResult(intent, ACTUALIZAR);
             }
             break;

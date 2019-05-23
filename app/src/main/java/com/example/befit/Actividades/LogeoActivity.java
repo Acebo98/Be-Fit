@@ -24,7 +24,7 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.logeo_activity);
+        setContentView(R.layout.activity_logeo);
 
         //IDS
         btnConectar = (Button)findViewById(R.id.btnConectar);

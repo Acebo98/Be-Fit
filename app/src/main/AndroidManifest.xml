@@ -16,7 +16,7 @@
         <activity android:name=".Actividades.GraficasActivity" />
         <activity android:name=".Actividades.HistorialPesosActivity" />
         <activity android:name=".Actividades.PesosActivity" />
-        <activity android:name=".Actividades.PerfilActivity" />
+        <activity android:name=".Actividades.AjustesActivity" />
         <activity
             android:name=".Actividades.MainActivity"
             android:label="@string/title_activity_main"

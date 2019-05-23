@@ -23,7 +23,7 @@ import com.example.befit.R;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class PerfilActivity extends AppCompatActivity implements DialogoConfirmacion.MiDialogListener {
+public class AjustesActivity extends AppCompatActivity implements DialogoConfirmacion.MiDialogListener {
 
     EditText tbNombre;
     EditText tbContra;
@@ -37,7 +37,7 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil);
+        setContentView(R.layout.activity_ajustes);
 
         //Botón de ir atrás
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -115,12 +115,12 @@ public class PerfilActivity extends AppCompatActivity implements DialogoConfirma
                 }
                 break;
                 case R.id.itemGraficas: {
-                    Intent intent = new Intent(PerfilActivity.this, GraficasActivity.class);
+                    Intent intent = new Intent(AjustesActivity.this, GraficasActivity.class);
                     startActivity(intent);
                 }
                 break;
                 case R.id.itemFeedback: {
-                    Intent intent = new Intent(PerfilActivity.this, FeedbackActivity.class);
+                    Intent intent = new Intent(AjustesActivity.this, FeedbackActivity.class);
                     startActivity(intent);
                 }
                 break;
