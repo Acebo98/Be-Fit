@@ -103,6 +103,10 @@
     <string name="problem_found">Ha habido un problema</string>
     <string name="campos_opiniones">Primero escribe el título y la opinión</string>
     <string name="gracias_opinion">¡Gracias por darnos tu opinión!</string>
+    <string name="entre_fechas">Introduce dos fechas entre las que mostrar datos</string>
+    <string name="fecha_anterior">Fecha pasado (dd/mm/aaaa)</string>
+    <string name="fecha_proxima">Fecha futuro (dd/mm/aaaa)</string>
+    <string name="estado_sesion">Estado de la sesión</string>
 
     <!-- Tabs -->
     <string name="sesiones">Sesiones</string>

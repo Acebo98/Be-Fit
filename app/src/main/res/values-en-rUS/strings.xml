@@ -111,4 +111,8 @@
     <string name="opinion_dar">Opinion</string>
     <string name="campos_opiniones">First of all write the title and the opinion</string>
     <string name="gracias_opinion">Thanks for sharing with us your opinion!</string>
+    <string name="entre_fechas">Enter two dates for representing data</string>
+    <string name="fecha_anterior">Past date (dd/mm/yyyy)</string>
+    <string name="fecha_proxima">Future date (dd/mm/yyyy)</string>
+    <string name="estado_sesion">State of the sesion</string>
 </resources>
