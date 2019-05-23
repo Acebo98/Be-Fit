@@ -111,9 +111,10 @@
     <string name="opinion_dar">Opinion</string>
     <string name="campos_opiniones">First of all write the title and the opinion</string>
     <string name="gracias_opinion">Thanks for sharing with us your opinion!</string>
-    <string name="entre_fechas">Enter two dates for representing data</string>
-    <string name="fecha_anterior">Past date (dd/mm/yyyy)</string>
-    <string name="fecha_proxima">Future date (dd/mm/yyyy)</string>
+    <string name="entre_fechas">Dates to compare Data (yyyy-MM-dd)</string>
+    <string name="fecha_anterior">Past date</string>
+    <string name="fecha_proxima">Future date</string>
     <string name="estado_sesion">State of the sesion</string>
     <string name="fechas_mal">The format of one of the dates is not correct</string>
+    <string name="no_datos">There is not data to represent</string>
 </resources>

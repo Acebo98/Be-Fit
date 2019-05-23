@@ -103,10 +103,10 @@
     <string name="problem_found">Ha habido un problema</string>
     <string name="campos_opiniones">Primero escribe el título y la opinión</string>
     <string name="gracias_opinion">¡Gracias por darnos tu opinión!</string>
-    <string name="entre_fechas">Introduce dos fechas entre las que mostrar datos</string>
-    <string name="fecha_anterior">Fecha pasado (dd/mm/aaaa)</string>
-    <string name="fecha_proxima">Fecha futuro (dd/mm/aaaa)</string>
-    <string name="estado_sesion">Estado de la sesión</string>
+    <string name="entre_fechas">Fechas a Comprobar (aaaa-MM-dd)</string>
+    <string name="fecha_anterior">Fecha anterior</string>
+    <string name="fecha_proxima">Fecha próxima</string>
+    <string name="estado_sesion">Estado de la Sesión</string>
     <string name="fechas_mal">El formato de alguna de las fechas no es correcto</string>
     <string name="no_datos">No hay datos que representar</string>
 
