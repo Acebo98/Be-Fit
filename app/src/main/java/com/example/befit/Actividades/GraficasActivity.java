@@ -43,6 +43,8 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
 
     final int tamanioFuente = 12;                   //Tamaño de las fuentes
 
+    boolean primerDialogo;                          //Primera vez que se muestra el diálogo
+
     int[] arrayColores;                             //Colores para las gráficas
 
     String[] tags;                                  //Tags (eje X)
@@ -53,6 +55,7 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
         try {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_graficas);
+            primerDialogo = true;
 
             //Botón de ir atrás
             getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -269,6 +272,9 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
                 //Creamos finalmente el vector de colores para las tablas y las gráficas
                 this.CrearColores();
                 this.CreateCharts();
+
+                //Indicamos que se ha cerrado el primer diálogo
+                primerDialogo = false;
             }
             else {
                 LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.no_datos));
@@ -288,6 +294,8 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
 
     @Override
     public void CancelarDialogo() {
-        finish();
+        if (primerDialogo == true) {
+            finish();
+        }
     }
 }
