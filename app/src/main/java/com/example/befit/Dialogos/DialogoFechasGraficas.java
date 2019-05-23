@@ -13,6 +13,7 @@ import android.widget.Spinner;
 
 import com.example.befit.Actividades.LogeoActivity;
 import com.example.befit.Entidades.VOConfiGraficas;
+import com.example.befit.Modelos.DAOSesiones;
 import com.example.befit.R;
 
 import java.text.ParseException;
@@ -60,6 +61,10 @@ public class DialogoFechasGraficas {
         btnAceptar = (Button) dialog.findViewById(R.id.btnAceptarFechas);
         btnCancelar = (Button) dialog.findViewById(R.id.btnCancelarFechas);
         spnEstados = (Spinner) dialog.findViewById(R.id.spnEstadoSesion);
+
+        //Fechas por defecto
+        tbFechaAnterior.setText("2019-01-01");
+        tbFechaProxima.setText(DAOSesiones.sacarFechaHoy());
 
         //Spinner
         lEstados = new String[] {context.getString(R.string.todos), context.getString(R.string.bloqueados), context.getString(R.string.sin_bloquer)};

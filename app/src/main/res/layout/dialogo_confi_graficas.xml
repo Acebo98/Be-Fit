@@ -73,7 +73,6 @@
                 android:id="@+id/btnCancelarFechas"
                 android:layout_weight="1"
                 android:text="@string/cancelar"
-                android:textColor="@color/rojo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
