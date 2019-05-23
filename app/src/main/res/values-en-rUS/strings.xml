@@ -97,7 +97,7 @@
     <string name="no_tags">It seems you do not have any tags</string>
     <string name="no_tags_explicacion">Before introducing a sesion we recomend you to introduce tags. \n\nSaid tags are used to identified your sesions as you want.</string>
     <string name="graficas">Graphics</string>
-    <string name="no_tags_graficas">It seems you you do not have any tag stores, thus we can not representate anything</string>
+    <string name="no_tags_graficas">It seems you do not have any sesions stored, thus we can not representate any data</string>
     <string name="problem_found">There has been a problem</string>
     <string name="see_photos">See Photo</string>
     <string name="foto_borrada">The photo has been deleted</string>
@@ -115,4 +115,5 @@
     <string name="fecha_anterior">Past date (dd/mm/yyyy)</string>
     <string name="fecha_proxima">Future date (dd/mm/yyyy)</string>
     <string name="estado_sesion">State of the sesion</string>
+    <string name="fechas_mal">The format of one of the dates is not correct</string>
 </resources>

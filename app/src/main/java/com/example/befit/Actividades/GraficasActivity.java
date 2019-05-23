@@ -13,6 +13,7 @@ import java.util.Random;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Dialogos.DialogoFechasGraficas;
 import com.example.befit.Entidades.VOConfiGraficas;
+import com.example.befit.Modelos.DAOSesiones;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
 import com.github.mikephil.charting.charts.BarChart;
@@ -33,8 +34,6 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 
 public class GraficasActivity extends AppCompatActivity implements DialogoFechasGraficas.DialogoFechasGraficasListener {
-
-    int totalTags;                                  //Número de tags en uso
 
     PieChart pieChart;                              //Gráfica de espiral
     BarChart barChart;                              //Gráfica de barras
@@ -60,29 +59,14 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
             pieChart = (PieChart) findViewById(R.id.pieChart);
             barChart = (BarChart) findViewById(R.id.barChart);
 
-            //Leemos las tags
-            HashMap<String, Integer> tagsSesiones = new DAOTag(getApplicationContext()).SacarGraficaTags();
-            totalTags = new DAOTag(getApplicationContext()).SacarNTagsEnUso(tagsSesiones);
-            if (tagsSesiones == null) {
-                throw new Exception("error");
-            }
-            else if (totalTags == -1) {
-                throw new Exception("error");
-            }
-
-            //Pasamos los datos a vectores
-            this.SacarArreglos(tagsSesiones);
-
             //Creamos las tablas si hay datos que mostrar
-            if (tags.length > 0) {
-                this.CrearColores();
-                this.createCharts();
+            int datosAlmacenados = new DAOSesiones(getApplicationContext()).ReadSesiones().size();
+            if (datosAlmacenados > 0) {
+                new DialogoFechasGraficas(this, GraficasActivity.this);
             }
             else {
                 throw new Exception(getString(R.string.no_tags_graficas));
             }
-
-            new DialogoFechasGraficas(this, GraficasActivity.this);
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();
@@ -253,7 +237,30 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
 
     @Override
     public void AceptarDialogo(VOConfiGraficas confiGraficas) {
+        try {
+            //Leemos las tags
+            HashMap<String, Integer> tagsSesiones = new DAOTag(getApplicationContext()).SacarGraficaTags();
+            if (tagsSesiones == null) {
+                throw new Exception("error");
+            }
 
+            //Pasamos los datos a vectores
+            this.SacarArreglos(tagsSesiones);
+
+            //Creamos finalmente el vector de colores para las tablas y las gráficas
+            this.CrearColores();
+            this.createCharts();
+        }
+        catch (Exception err) {
+            DialogFragment dialogFragment = new DialogoAlerta();
+            Bundle bundle = new Bundle();
+
+            bundle.putString("TITULO", getString(R.string.problem_found));
+            bundle.putString("MENSAJE", err.getMessage());
+            dialogFragment.setArguments(bundle);
+
+            dialogFragment.show(getSupportFragmentManager(), "error");
+        }
     }
 
     @Override
