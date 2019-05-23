@@ -18,6 +18,7 @@ import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Dialogos.DialogoConfirmacion;
 import com.example.befit.Modelos.DAOPesos;
 import com.example.befit.Modelos.DAOSesiones;
+import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
 
 import java.text.SimpleDateFormat;
@@ -29,6 +30,7 @@ public class AjustesActivity extends AppCompatActivity implements DialogoConfirm
     EditText tbContra;
     TextView labModificacion;
     TextView labEntrenamientos;
+    TextView labEtiquetas;
     Switch switchModificar;
 
     final String MODIF = "modif";
@@ -48,6 +50,7 @@ public class AjustesActivity extends AppCompatActivity implements DialogoConfirm
         tbNombre = (EditText)findViewById(R.id.tbMiNombre);
         labEntrenamientos = (TextView)findViewById(R.id.labNEntrenamientos);
         labModificacion = (TextView)findViewById(R.id.labUpdate);
+        labEtiquetas = (TextView)findViewById(R.id.labNEtiquetas);
         switchModificar = (Switch)findViewById(R.id.switchAutomatico);
         switchModificar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -158,6 +161,7 @@ public class AjustesActivity extends AppCompatActivity implements DialogoConfirm
             String contrasena = preferences.getString("CONTRASENA", null);
             String modificacion = preferences.getString("MODIFICACION", null);
             int cantidad = new DAOSesiones(getApplicationContext()).ReadSesiones().size();
+            int etiquetas = new DAOTag(getApplicationContext()).SacarNumTags();
 
             //Asignamos
             tbNombre.setText(nombre);
@@ -169,6 +173,7 @@ public class AjustesActivity extends AppCompatActivity implements DialogoConfirm
                 labModificacion.setText(getString(R.string.ultima_modificacion) + " " + modificacion);
             }
             labEntrenamientos.setText(getString(R.string.n_entrenamientos) + " " + String.valueOf(cantidad));
+            labEtiquetas.setText(getString(R.string.numero_etiquetas) + " " + String.valueOf(String.valueOf(etiquetas)));
         }
         catch (Exception err) {
             LogeoActivity.centralizarToast(getApplicationContext(), err.getMessage());
@@ -184,10 +189,7 @@ public class AjustesActivity extends AppCompatActivity implements DialogoConfirm
             //Modificamos
             editor.putString("USUARIO", nombre);
             editor.putString("CONTRASENA", contra);
-
-            //Fecha actual
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            editor.putString("MODIFICACION", simpleDateFormat.format(new Date()));
+            editor.putString("MODIFICACION", DAOSesiones.sacarFechaHoy());
 
             //Guardamos
             editor.commit();

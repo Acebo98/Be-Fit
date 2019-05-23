@@ -5,16 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Actividades.AjustesActivity"
-    android:background="@drawable/fondo"
     android:orientation="vertical">
+    <!--android:background="@drawable/fondo"-->
+
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
         android:orientation="vertical"
         android:padding="15dp">
+
+        <ImageView
+            android:src="@drawable/settings"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="200dp" />
 
         <TextView
             android:id="@+id/labNiNombre"
@@ -82,6 +88,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/n_entrenamientos"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/labNEtiquetas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/numero_etiquetas"
             android:textStyle="bold"/>
 
     </LinearLayout>
