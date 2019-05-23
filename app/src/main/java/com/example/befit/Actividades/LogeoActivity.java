@@ -57,8 +57,7 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
 
                     if (IsUserRegistered() == true) {
                         if (IsAbleToConnect(usuario, contra) == true) {
-                            Intent intent = new Intent(LogeoActivity.this, MainActivity.class);
-                            startActivity(intent);
+                            IrPantallaPrincipal();
                         }
                         else {
                             centralizarToast(getApplicationContext(), getString(R.string.usuario_incorrecto));
@@ -68,6 +67,7 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
                         //Si no se ha registrado vemos si los datos son correctos
                         if (IsDataCorrect(usuario, contra) == true) {
                             RegistrarUsuario(usuario, contra);
+                            IrPantallaPrincipal();
                         }
                         else {
                             centralizarToast(getApplicationContext(), getString(R.string.cuatro_caracteres));
@@ -91,6 +91,12 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
             }
             break;
         }
+    }
+
+    //Nos dirimos a la patanda principal
+    private void IrPantallaPrincipal() {
+        Intent intent = new Intent(LogeoActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
     //Comprobamos que el usuario esté registrado
