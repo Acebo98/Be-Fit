@@ -28,6 +28,7 @@
 
             <EditText
                 android:id="@+id/tbFechaAnterior"
+                android:inputType="date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -40,6 +41,7 @@
 
             <EditText
                 android:id="@+id/tbFechaProxima"
+                android:inputType="date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

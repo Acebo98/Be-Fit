@@ -11,13 +11,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.befit.Actividades.LogeoActivity;
+import com.example.befit.Entidades.VOConfiGraficas;
 import com.example.befit.R;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class DialogoFechasGraficas {
 
     Context context;                                //Contexto
 
     String[] lEstados;                              //Lista con los estados
+
+    SimpleDateFormat simpleDateFormat;              //Convertidor de fechas
 
     DialogoFechasGraficasListener interfaz;         //Interfaz
 
@@ -30,13 +37,14 @@ public class DialogoFechasGraficas {
 
     //Interfaz
     public interface DialogoFechasGraficasListener {
-        void AceptarDialogo();
+        void AceptarDialogo(VOConfiGraficas confiGraficas);
         void CancelarDialogo();
     }
 
-    public DialogoFechasGraficas(Context context, DialogoFechasGraficasListener actividad) {
+    public DialogoFechasGraficas(final Context context, DialogoFechasGraficasListener actividad) {
         this.context = context;
         this.interfaz = actividad;
+        simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");      //Convertidor de fechas
 
         //Configuración del cuadro de díalogo
         final Dialog dialog = new Dialog(context);
@@ -60,12 +68,30 @@ public class DialogoFechasGraficas {
         btnAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();   //Temporal
+                try {
+                    VOConfiGraficas confiGraficas = new VOConfiGraficas();
+
+                    //Convertimos a datetime
+                    confiGraficas.setFechaAnterior(simpleDateFormat.parse(tbFechaAnterior.getText().toString().trim()));
+                    confiGraficas.setFechaProxima(simpleDateFormat.parse(tbFechaProxima.getText().toString().trim()));
+                    confiGraficas.setEstadoSesion(spnEstados.getSelectedItem().toString());
+
+                    interfaz.AceptarDialogo(confiGraficas);
+                    dialog.dismiss();
+                }
+                catch (ParseException err) {
+                    //Excepción por introducir un formato de fechas mal
+                    LogeoActivity.centralizarToast(context, context.getString(R.string.fechas_mal));
+                }
+                catch (Exception err) {
+                    LogeoActivity.centralizarToast(context, err.getMessage());
+                }
             }
         });
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                interfaz.CancelarDialogo();
                 dialog.dismiss();
             }
         });

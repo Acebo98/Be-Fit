@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.Random;
 
 import com.example.befit.Dialogos.DialogoAlerta;
+import com.example.befit.Dialogos.DialogoFechasGraficas;
+import com.example.befit.Entidades.VOConfiGraficas;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
 import com.github.mikephil.charting.charts.BarChart;
@@ -30,7 +32,7 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 
-public class GraficasActivity extends AppCompatActivity {
+public class GraficasActivity extends AppCompatActivity implements DialogoFechasGraficas.DialogoFechasGraficasListener {
 
     int totalTags;                                  //Número de tags en uso
 
@@ -79,6 +81,8 @@ public class GraficasActivity extends AppCompatActivity {
             else {
                 throw new Exception(getString(R.string.no_tags_graficas));
             }
+
+            new DialogoFechasGraficas(this, GraficasActivity.this);
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();
@@ -245,5 +249,15 @@ public class GraficasActivity extends AppCompatActivity {
         pieDataSet.setValueFormatter(new PercentFormatter());
 
         return new PieData(pieDataSet);
+    }
+
+    @Override
+    public void AceptarDialogo(VOConfiGraficas confiGraficas) {
+
+    }
+
+    @Override
+    public void CancelarDialogo() {
+        finish();
     }
 }
