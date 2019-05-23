@@ -108,6 +108,7 @@
     <string name="fecha_proxima">Fecha futuro (dd/mm/aaaa)</string>
     <string name="estado_sesion">Estado de la sesión</string>
     <string name="fechas_mal">El formato de alguna de las fechas no es correcto</string>
+    <string name="no_datos">No hay datos que representar</string>
 
     <!-- Tabs -->
     <string name="sesiones">Sesiones</string>

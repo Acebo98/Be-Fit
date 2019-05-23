@@ -90,7 +90,7 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
     }
 
     //Convertirmos a arreglos
-    public void SacarArreglos(HashMap<String, Integer> tagsSesiones) {
+    private void SacarArreglos(HashMap<String, Integer> tagsSesiones) {
         tags = new String[tagsSesiones.size()];
         nCuantos = new int[tagsSesiones.size()];
 
@@ -104,7 +104,7 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
     }
 
     //Creamos un arreglo de colores aleatorios
-    public void CrearColores() {
+    private void CrearColores() {
         arrayColores = new int[tags.length];
 
         for (int i = 0; i < arrayColores.length; i++) {
@@ -189,7 +189,7 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
     }
 
     //Creamos las gráficas
-    public void createCharts() {
+    private void CreateCharts() {
         //Gráfica de tablas
         barChart = (BarChart) getSameChart(barChart, "", Color.BLUE, Color.WHITE, 3000);
         barChart.setDrawGridBackground(true);
@@ -244,12 +244,17 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
                 throw new Exception("error");
             }
 
-            //Pasamos los datos a vectores
-            this.SacarArreglos(tagsSesiones);
+            //Miramos si hay datos que representar
+            if (tagsSesiones.size() > 0) {
+                this.SacarArreglos(tagsSesiones);       //Pasamos los datos a vectores
 
-            //Creamos finalmente el vector de colores para las tablas y las gráficas
-            this.CrearColores();
-            this.createCharts();
+                //Creamos finalmente el vector de colores para las tablas y las gráficas
+                this.CrearColores();
+                this.CreateCharts();
+            }
+            else {
+                LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.no_datos));
+            }
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();
