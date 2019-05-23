@@ -41,6 +41,7 @@
     <string name="enviar">Enviar</string>
     <string name="opinion_bug">Reportar error</string>
     <string name="opinion_dar">Opinión</string>
+    <string name="registrarse">Registrarse</string>
 
     <!-- Toasts y cuadros de diálgo -->
     <string name="usuario_incorrecto">Nombre de usuario o contraseña incorrectos</string>

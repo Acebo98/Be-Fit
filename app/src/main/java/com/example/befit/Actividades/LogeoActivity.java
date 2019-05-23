@@ -38,11 +38,18 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
 
         //Comprobamos el incio de sesión automático. En caso contrario vemos si está el usuario registrado
         if (ComprobarInicioAutomatico() == true) {
-            Intent intent = new Intent(LogeoActivity.this, MainActivity.class);
-            startActivity(intent);
+            IrPantallaPrincipal();
         }
         else {
             ShowRegister();
+        }
+
+        //Miramos si el usuario está registrado o para cambiar el texto del botón
+        if (IsUserRegistered() == true) {
+            btnConectar.setText(getString(R.string.conectar));
+        }
+        else {
+            btnConectar.setText(getString(R.string.registrarse));
         }
     }
 
@@ -68,6 +75,7 @@ public class LogeoActivity extends AppCompatActivity implements View.OnClickList
                         if (IsDataCorrect(usuario, contra) == true) {
                             RegistrarUsuario(usuario, contra);
                             IrPantallaPrincipal();
+                            btnConectar.setText(getString(R.string.conectar));
                         }
                         else {
                             centralizarToast(getApplicationContext(), getString(R.string.cuatro_caracteres));

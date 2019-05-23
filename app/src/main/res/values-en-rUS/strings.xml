@@ -2,7 +2,7 @@
 <resources>
     <string name="nombre_usuario">User Name</string>
     <string name="contrasena">Password</string>
-    <string name="conectar">Connect</string>
+    <string name="conectar">Log In</string>
     <string name="creador">Created by Sergio Acebal 2ºDAM</string>
     <string name="finalizar">Exit</string>
     <string name="modificar">Modify</string>
@@ -117,4 +117,5 @@
     <string name="estado_sesion">State of the sesion</string>
     <string name="fechas_mal">The format of one of the dates is not correct</string>
     <string name="no_datos">There is not data to represent</string>
+    <string name="registrarse">Sign Up</string>
 </resources>
