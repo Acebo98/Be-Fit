@@ -31,11 +31,12 @@ public class DAOGraficas {
             tagNums = new HashMap<String, Integer>();
 
             //Query
-            Cursor c = database.rawQuery("select tag, count(*) as cuantos\n" +
-                    "from sesiones, tags\n" +
-                    "where tags._id = sesiones.idTag\n" +
-                    "group by tag\n" +
-                    "order by 2 desc", null);
+            Cursor c = database.rawQuery("select tag, count(*) as cuantos " +
+                    "from sesiones, tags " +
+                    "where tags._id = sesiones.idTag AND date(sesiones.actualizacion) " +
+                    "BETWEEN date(?) AND date(?) " +
+                    "group by tag " +
+                    "order by 2 desc", new String[] {confiGraficas.getFechaAnterior(), confiGraficas.getFechaProxima()});
 
             //Sacamos los datos
             if (c.getCount() > 0) {

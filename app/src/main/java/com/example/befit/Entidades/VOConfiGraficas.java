@@ -1,17 +1,15 @@
 package com.example.befit.Entidades;
 
-import java.util.Date;
-
 public class VOConfiGraficas {
-    private Date FechaAnterior;
-    private Date FechaProxima;
+    private String FechaAnterior;
+    private String FechaProxima;
     private String EstadoSesion;
 
     //Getters
-    public Date getFechaAnterior() {
+    public String getFechaAnterior() {
         return FechaAnterior;
     }
-    public Date getFechaProxima() {
+    public String getFechaProxima() {
         return FechaProxima;
     }
     public String getEstadoSesion() {
@@ -19,10 +17,10 @@ public class VOConfiGraficas {
     }
 
     //Setters
-    public void setFechaAnterior(Date fechaAnterior) {
+    public void setFechaAnterior(String fechaAnterior) {
         FechaAnterior = fechaAnterior;
     }
-    public void setFechaProxima(Date fechaProxima) {
+    public void setFechaProxima(String fechaProxima) {
         FechaProxima = fechaProxima;
     }
     public void setEstadoSesion(String estadoSesion) {

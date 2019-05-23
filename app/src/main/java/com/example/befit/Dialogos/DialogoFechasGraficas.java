@@ -17,6 +17,7 @@ import com.example.befit.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class DialogoFechasGraficas {
 
@@ -44,7 +45,7 @@ public class DialogoFechasGraficas {
     public DialogoFechasGraficas(final Context context, DialogoFechasGraficasListener actividad) {
         this.context = context;
         this.interfaz = actividad;
-        simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");      //Convertidor de fechas
+        simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");      //Convertidor de fechas
 
         //Configuración del cuadro de díalogo
         final Dialog dialog = new Dialog(context);
@@ -71,9 +72,13 @@ public class DialogoFechasGraficas {
                 try {
                     VOConfiGraficas confiGraficas = new VOConfiGraficas();
 
-                    //Convertimos a datetime
-                    confiGraficas.setFechaAnterior(simpleDateFormat.parse(tbFechaAnterior.getText().toString().trim()));
-                    confiGraficas.setFechaProxima(simpleDateFormat.parse(tbFechaProxima.getText().toString().trim()));
+                    //Validamos los datos...
+                    Date valida1 = simpleDateFormat.parse(tbFechaAnterior.getText().toString().trim());
+                    Date valida2 = simpleDateFormat.parse(tbFechaProxima.getText().toString().trim());
+
+                    //Pasamos los datos
+                    confiGraficas.setFechaAnterior(tbFechaAnterior.getText().toString().trim());
+                    confiGraficas.setFechaProxima(tbFechaProxima.getText().toString().trim());
                     confiGraficas.setEstadoSesion(spnEstados.getSelectedItem().toString());
 
                     interfaz.AceptarDialogo(confiGraficas);
