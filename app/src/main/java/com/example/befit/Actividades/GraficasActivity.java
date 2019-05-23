@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import com.example.befit.DialogoFechasGraficas;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
@@ -81,6 +82,8 @@ public class GraficasActivity extends AppCompatActivity {
             else {
                 throw new Exception(getString(R.string.no_tags_graficas));
             }
+
+            new DialogoFechasGraficas(this);
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();
