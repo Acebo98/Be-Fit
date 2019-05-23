@@ -1,8 +1,6 @@
 package com.example.befit.Actividades;
 
 import android.graphics.Color;
-import android.graphics.ColorSpace;
-import android.service.autofill.Dataset;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-import com.example.befit.DialogoFechasGraficas;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
@@ -82,8 +79,6 @@ public class GraficasActivity extends AppCompatActivity {
             else {
                 throw new Exception(getString(R.string.no_tags_graficas));
             }
-
-            new DialogoFechasGraficas(this);
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();

@@ -1,4 +1,4 @@
-package com.example.befit;
+package com.example.befit.Dialogos;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,13 +11,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.befit.R;
+
 public class DialogoFechasGraficas {
 
     Context context;                                //Contexto
 
     String[] lEstados;                              //Lista con los estados
 
-    //DialogoFechasGraficasListener interfaz;         //Interfaz
+    DialogoFechasGraficasListener interfaz;         //Interfaz
 
     //Controles
     EditText tbFechaAnterior;
@@ -27,14 +29,14 @@ public class DialogoFechasGraficas {
     Spinner spnEstados;
 
     //Interfaz
-    /*public interface DialogoFechasGraficasListener {
+    public interface DialogoFechasGraficasListener {
         void AceptarDialogo();
         void CancelarDialogo();
-    }*/
+    }
 
-    public DialogoFechasGraficas(Context context) {
+    public DialogoFechasGraficas(Context context, DialogoFechasGraficasListener actividad) {
         this.context = context;
-        //this.interfaz = actividad;
+        this.interfaz = actividad;
 
         //Configuración del cuadro de díalogo
         final Dialog dialog = new Dialog(context);
