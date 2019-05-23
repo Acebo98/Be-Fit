@@ -36,7 +36,7 @@ public class DialogoInsertTag {
         //Configuración del cuadro de díalogo
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(true);
+        dialog.setCancelable(false);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
         dialog.setContentView(R.layout.dialogo_insert_tag);
 

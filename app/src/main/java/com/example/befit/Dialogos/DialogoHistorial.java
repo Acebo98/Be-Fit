@@ -40,10 +40,10 @@ public class DialogoHistorial {
 
         //Aplicamos el texto
         labFecha.setText(peso.getFecha_Peso());
-        labEjercicio1.setText(sesion.getEjercicio_1() + " " + peso.getPeso_1());
-        labEjercicio2.setText(sesion.getEjercicio_2() + " " + peso.getPeso_2());
-        labEjercicio3.setText(sesion.getEjercicio_3() + " " + peso.getPeso_3());
-        labEjercicio4.setText(sesion.getEjercicio_4() + " " + peso.getPeso_4());
+        labEjercicio1.setText(sesion.getEjercicio_1() + " -> " + peso.getPeso_1());
+        labEjercicio2.setText(sesion.getEjercicio_2() + " -> " + peso.getPeso_2());
+        labEjercicio3.setText(sesion.getEjercicio_3() + " -> " + peso.getPeso_3());
+        labEjercicio4.setText(sesion.getEjercicio_4() + " -> " + peso.getPeso_4());
         tbNotas.setText(peso.getNotas());
 
         //Mostramos el diálogo con toda su gloria
