@@ -50,8 +50,8 @@
     <string name="parece_nuevo">¡Parece que eres nuevo!</string>
     <string name="explicacion_registro">Al ser la primera vez que ejecutas la aplicación debes de
         registrarte introduciendo un nombre y una contraseña. \n\nCuando quieras volver a conectarte
-        deberás de introducir dichos datos otra vez. \n\nNo te preocupes, dentro de la aplicación
-        podrás cambiarlos.</string>
+        deberás de introducir dichas credenciales otra vez. \n\nNo te preocupes, dentro de la aplicación
+        podrás cambiarlas.</string>
     <string name="sesion_insertada">Sesión Insertada</string>
     <string name="sesion_repetida">Parece que ya tienes una sesión con dicho nombre ya insertada</string>
     <string name="sesion_5caracteres">Los campos de texto deben de tener mínimo 3 carácteres</string>
@@ -60,9 +60,10 @@
     <string name="explicacion_app">Con esta aplicación podras tener un registro de forma intuitiva en tu teléfono
         móvil del seguimiento de tus sesiones en el gimnasio. \n\n
         Con la sección NUEVA SESIÓN podrás introducir una nueva sesión, estas sesiones se encontrarán reflejadas
-        en la sección SEGUIMIENTO, lugar donde podrás seleccionar y actualizar el seguimiento de pesos
-        de dicha sesión. \n\nObviamente puedes también borrar una sesión, y por consiguiente su
-        seguimiento, en cualquier momento.</string>
+        en la sección SESIONES, lugar donde podrás seleccionar una sesión y trabajar con los pesos de los ejercicios
+        de dicha sesión. \n\nCon la sección ETIQUETAS podrás añadir etiquetas para poder catalagor y ordernar tus sesiones.
+        \n\nObviamente puedes también borrar una sesión, y por consiguiente todos
+        datos en cualquier momento.</string>
     <string name="confirmacion">Confirmación</string>
     <string name="desconectarse_app">¿Deseas desconectarte de la aplicación?</string>
     <string name="dicha_bloqueda">Dicha sesión está bloqueada</string>
@@ -77,7 +78,7 @@
     <string name="sesion_bloqueada">Sesión Bloqueada</string>
     <string name="sesion_modificada">Sesión Modificada</string>
     <string name="modificacion">Modificación</string>
-    <string name="pregunta_modificar">¿Estás seguro de que quieres modificar tus datos?</string>
+    <string name="pregunta_modificar">¿Estás seguro de que quieres modificar tus credenciales de acceso?</string>
     <string name="pregunta_borrar_sesiones">¿Estás seguro de que quieres borrar tus sesiones?</string>
     <string name="ultima_modificacion">Última Modificación: </string>
     <string name="datos_modificados">Datos modificados correctamente</string>
