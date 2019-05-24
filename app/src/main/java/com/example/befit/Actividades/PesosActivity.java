@@ -187,9 +187,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                     NSesion.setEjercicio_2(labm2.getText().toString().trim());
                     NSesion.setEjercicio_3(labm3.getText().toString().trim());
                     NSesion.setEjercicio_4(labm4.getText().toString().trim());
-
-                    //Etiqueta de la sesión
-                    int idTag = new DAOSesiones(getApplicationContext()).SacarSesion(String.valueOf(identificador)).getIdTag();
+                    NSesion.setIdTag(sesion.getIdTag());
 
                     //Iniciamos el diálogo personalizado
                     final String[] tags = new DAOTag(getApplicationContext()).SacarArrayTags();
