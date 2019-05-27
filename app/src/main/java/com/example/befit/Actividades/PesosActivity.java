@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -60,6 +61,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     EditText tbP4;
     EditText tbNotas;
     ArrayList<EditText> lCampos = new ArrayList<>();
+    ImageView imagenSesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +80,15 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
         tbP3 = (EditText)findViewById(R.id.tbMiEjercicio3);
         tbP4 = (EditText)findViewById(R.id.tbMiEjercicio4);
         tbNotas = (EditText)findViewById(R.id.tbNotas);
+        imagenSesion = (ImageView)findViewById(R.id.imageSesion);
+
+        //Evento para la foto
+        imagenSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogoModifFotos = new DialogoModifFotos(context, sesion, PesosActivity.this);
+            }
+        });
 
         //Campos de texto
         lCampos.add(tbP1);
@@ -96,6 +107,15 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
         //Leemos la sesión y sus pesos
         LeerSesion();
         LeerPesos();
+
+        //Mostramos la foto
+        byte[] fotoBytes = sesion.getFoto();
+        if (fotoBytes != null) {
+            imagenSesion.setImageBitmap(DialogoModifFotos.bytesToPhoto(fotoBytes));
+        }
+        else {
+            imagenSesion.setImageResource(R.drawable.no_photo);
+        }
     }
 
     //Leemos los datos de la sesión
@@ -173,7 +193,6 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case android.R.id.home: this.finish();
             break;
@@ -275,10 +294,6 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                 dialogoConfirmacion.show(getSupportFragmentManager(), BLOQUEADO);
             }
             break;
-            case R.id.itemPhoto: {
-                //Díalodo donde se modifica o borra la foto
-                dialogoModifFotos = new DialogoModifFotos(context, sesion, PesosActivity.this);
-            }
         }
 
         return super.onOptionsItemSelected(item);
@@ -305,7 +320,10 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                         //Pasamos a bytes y modificamos
                         byte[] fotoBytes = ImageToBytes(dialogoModifFotos.getImageView());
                         new DAOSesiones(getApplicationContext()).ModificarFoto(identificador, fotoBytes);
-                        sesion.setFoto(fotoBytes);          //Modificamos la foto en la propiedad
+
+                        //Modificamos la foto en la propiedad y en la actividad
+                        sesion.setFoto(fotoBytes);
+                        imagenSesion.setImageURI(imageUri);
                         LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.foto_modif));
                     }
                     catch (Exception err) {
@@ -422,7 +440,10 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
     public void BorrarFoto(int idSesion) {
         try {
             new DAOSesiones(getApplicationContext()).BorrarFoto(idSesion);
-            sesion.setFoto(null);      //Indicamos que no hay foto
+
+            //Indicamos que no hay foto
+            sesion.setFoto(null);
+            imagenSesion.setImageResource(R.drawable.no_photo);
             LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.foto_borrada));
         }
         catch (Exception err) {

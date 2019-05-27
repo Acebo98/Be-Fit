@@ -2,18 +2,15 @@ package com.example.befit.Dialogos;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.befit.Actividades.MainActivity;
 import com.example.befit.Entidades.VOSesion;
 import com.example.befit.R;
 
@@ -60,7 +57,7 @@ public class DialogoModifFotos {
         //Aplicamos la foto
         byte[] fotobytes = sesion.getFoto();
         if (fotobytes != null) {
-            imageView.setImageBitmap(BytesToPhoto(fotobytes));
+            imageView.setImageBitmap(bytesToPhoto(fotobytes));
         }
         else {
             imageView.setImageResource(R.drawable.no_photo);
@@ -86,7 +83,7 @@ public class DialogoModifFotos {
     }
 
     //Transformamos los bytes a una imagen
-    private Bitmap BytesToPhoto(byte[] bytes) {
+    public static Bitmap bytesToPhoto(byte[] bytes) {
         Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
         return bitmap;
     }

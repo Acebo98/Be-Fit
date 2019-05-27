@@ -99,14 +99,28 @@
                 android:text="@string/notas"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/tbNotas"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="138dp"
-                android:ems="10"
-                android:inputType="textMultiLine"
-                android:hint="@string/escribe_notas"
-                android:maxLength="100"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/tbNotas"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="138dp"
+                    android:ems="10"
+                    android:inputType="textMultiLine"
+                    android:hint="@string/escribe_notas"
+                    android:maxLength="100"/>
+
+                <ImageView
+                    android:id="@+id/imageSesion"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
