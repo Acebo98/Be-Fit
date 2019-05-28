@@ -59,28 +59,27 @@
     <string name="bienvenido">Bienvenid@</string>
     <string name="funcionar_app">¿Cómo funciona esta aplicación?</string>
     <string name="explicacion_app">Con esta aplicación podras tener un registro de forma intuitiva en tu teléfono
-        móvil del seguimiento de tus sesiones en el gimnasio. \n\n
+        móvil del seguimiento de tus sesiones del gimnasio. \n\n
         Con la sección NUEVA SESIÓN podrás introducir una nueva sesión, estas sesiones se encontrarán reflejadas
         en la sección SESIONES, lugar donde podrás seleccionar una sesión y trabajar con los pesos de los ejercicios
-        de dicha sesión. \n\nCon la sección ETIQUETAS podrás añadir etiquetas para poder catalagor y ordernar tus sesiones.
-        \n\nObviamente puedes también borrar una sesión, y por consiguiente todos
-        datos en cualquier momento.</string>
+        de dicha sesión. \n\nCon la sección ETIQUETAS podrás añadir etiquetas para poder catalagar y ordernar tus sesiones.
+        \n\nObviamente puedes también borrar una sesión, y por consiguiente todos sus datos en cualquier momento.</string>
     <string name="confirmacion">Confirmación</string>
     <string name="desconectarse_app">¿Deseas desconectarte de la aplicación?</string>
     <string name="dicha_bloqueda">Dicha sesión está bloqueada</string>
     <string name="desbloquear">Desbloquear</string>
     <string name="borrado">Borrado</string>
     <string name="pregunta_borrar">¿Estás seguro de que quieres borrar esta sesión?</string>
-    <string name="pesos_actualizados">Pesos Actualizado</string>
+    <string name="pesos_actualizados">Los pesos de los ejercicios han sido actualizados</string>
     <string name="pesos_obligatorios">Primero inserta los 4 pesos obligatorios</string>
     <string name="bloqueo_sesion">Bloqueo de Sesión</string>
     <string name="pregunta_desbloquear">¿Estás seguro de que quieres bloquear esta sesión? \n\nAl hacerlo no podrás
-        modificar dicha sesión, pero se mantendrá guardada</string>
+        modificar nada de la sesión sesión, pero se mantendrá guardada</string>
     <string name="sesion_bloqueada">Sesión Bloqueada</string>
     <string name="sesion_modificada">Sesión Modificada</string>
     <string name="modificacion">Modificación</string>
     <string name="pregunta_modificar">¿Estás seguro de que quieres modificar tus credenciales de acceso?</string>
-    <string name="pregunta_borrar_sesiones">¿Estás seguro de que quieres borrar tus sesiones?</string>
+    <string name="pregunta_borrar_sesiones">¿Estás seguro de que quieres borrar TODAS tus sesiones?</string>
     <string name="ultima_modificacion">Última Modificación: </string>
     <string name="datos_modificados">Datos modificados correctamente</string>
     <string name="sesiones_borradas">Sesiones Borradas</string>
@@ -98,19 +97,19 @@
     <string name="tag_borrada">La etiqueta ha sido borrada</string>
     <string name="tag_modif">Etiqueta Modificada</string>
     <string name="sesion_borrada">Sesión Borrada</string>
-    <string name="no_tags">Parece que no tienes etiquetas</string>
+    <string name="no_tags">Parece que no tienes etiquetas almacenadas</string>
     <string name="no_tags_explicacion">Antes de introducir una sesión te recomendamos que introduzcas etiquetas. \n\nLas
-    etiquetas son utilizadas para identificar a tu gusto mejor las sesiones.</string>
+    etiquetas son utilizadas para identificar mejor las sesiones y poder agruparlas mejor.</string>
     <string name="no_tags_graficas">Parece que no tienes sesiones almacenadas, por lo que no se puede representar
     ningún dato</string>
-    <string name="problem_found">Ha habido un problema</string>
-    <string name="campos_opiniones">Primero escribe el título y la opinión</string>
+    <string name="problem_found">!Ha ocurrido un problema¡</string>
+    <string name="campos_opiniones">Primero escribe el título y la opinión del reporte</string>
     <string name="gracias_opinion">¡Gracias por darnos tu opinión!</string>
     <string name="entre_fechas">Fechas a Comprobar (aaaa-MM-dd)</string>
     <string name="fecha_anterior">Fecha anterior</string>
     <string name="fecha_proxima">Fecha próxima</string>
     <string name="estado_sesion">Estado de la Sesión</string>
-    <string name="fechas_mal">El formato de alguna de las fechas no es correcto</string>
+    <string name="fechas_mal">El formato de alguna de las fechas no es válido</string>
     <string name="no_datos">No hay datos que representar</string>
 
     <!-- Tabs -->
@@ -124,7 +123,7 @@
     <string name="desconectar">Desconectar</string>
     <string name="modificar_perfil">Modificar Perfil de Usuario</string>
     <string name="borrar_sesiones">Borrar Sesiones</string>
-    <string name="historial">Ver historial de pesos</string>
+    <string name="historial">Ver historial de Sesión</string>
     <string name="bloquear">Bloquear Sesión</string>
     <string name="graficas">Gráficas</string>
     <string name="see_photos">Ver Foto</string>
