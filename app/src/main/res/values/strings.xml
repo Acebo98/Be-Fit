@@ -4,7 +4,7 @@
     <string name="nombre_usuario">Nombre de Usuario</string>
     <string name="contrasena">Contraseña</string>
     <string name="conectar">Conectar</string>
-    <string name="finalizar">Finalizar</string>
+    <string name="finalizar">Salir</string>
     <string name="creador">Creado por Sergio Acebal 2ºDAM</string>
     <string name="title_activity_main" translatable="false">Be-Fit</string>
     <string name="modificar">Modificar</string>
@@ -12,10 +12,10 @@
     <string name="update">Última Modificación: </string>
     <string name="n_entrenamientos">Número de Sesiones: </string>
     <string name="nombre_sesion">Nombre de la Sesion</string>
-    <string name="musculo">Ejercicio 1</string>
-    <string name="musculo_1">Ejercicio 2</string>
-    <string name="musculo_2">Ejercicio 3</string>
-    <string name="musculo_3">Ejercicio 4</string>
+    <string name="musculo">Primer Ejercicio</string>
+    <string name="musculo_1">Segundo Ejercicio</string>
+    <string name="musculo_2">Tercer Ejercicio</string>
+    <string name="musculo_3">Cuarto Ejercicio</string>
     <string name="aceptar">Aceptar</string>
     <string name="limpiar">Limpiar</string>
     <string name="notas">Notas Opcionales</string>
