@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -23,8 +21,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
+import com.example.befit.Conversores.ConversorFotos;
 import com.example.befit.Dialogos.DialogoModificarTag;
 import com.example.befit.Dialogos.DialogoInsertTag;
 import com.example.befit.Dialogos.DialogoSeleccion;
@@ -38,8 +36,6 @@ import com.example.befit.Modelos.DAOSesiones;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
 import com.google.firebase.FirebaseApp;
-
-import java.io.ByteArrayOutputStream;
 
 public class MainActivity extends AppCompatActivity implements SesionesFragment.OnFragmentInteractionListener,
         NSesionFragment.OnFragmentInteractionListener, DialogoConfirmacion.MiDialogListener,
@@ -235,7 +231,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
             //Fotografía
             if (fotoAñadir == true) {
-                sesion.setFoto(ImageToBytes(nSesionFragment.imageView));
+                sesion.setFoto(ConversorFotos.ImageToBytes(nSesionFragment.imageView));
             }
             else {
                 sesion.setFoto(null);
@@ -276,15 +272,6 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
             dialogFragment.show(getSupportFragmentManager(), "error");
         }
-    }
-
-    //Convertimos la imagen en un array de bytes
-    private byte[] ImageToBytes(ImageView imageView) {
-        Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-        byte[] bytes = byteArrayOutputStream.toByteArray();
-        return bytes;
     }
 
     //Sacamos el nombre de la persona

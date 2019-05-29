@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.R;
 
 import java.util.ArrayList;
@@ -36,6 +38,9 @@ public class NSesionFragment extends Fragment {
     EditText tbM3;
     EditText tbM4;
     ImageView imageView;
+
+    //Booleana para informar del tamaño de las fotografias
+    boolean avisoFotos;
 
     //Lista para los campos de texto
     ArrayList<EditText> lCampos = new ArrayList<>();
@@ -58,6 +63,8 @@ public class NSesionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        avisoFotos = true;
+
         //Inflamos la vista y la guardamos para manejar los eventos
         view = inflater.inflate(R.layout.fragment_nsesion, container, false);
 
@@ -75,6 +82,12 @@ public class NSesionFragment extends Fragment {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Primero mostramos una alerta sobre el tamaño de las fotos...
+                if (avisoFotos == true) {
+                    LogeoActivity.centralizarToast(getActivity(), getString(R.string.aviso_foto));
+                    avisoFotos = !avisoFotos;
+                }
+
                 //Permisos...
                 if (ContextCompat.checkSelfPermission((MainActivity)getActivity(),
                         Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {

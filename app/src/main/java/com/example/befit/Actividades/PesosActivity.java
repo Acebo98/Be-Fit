@@ -4,8 +4,6 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
@@ -21,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.befit.Conversores.ConversorFotos;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Dialogos.DialogoConfirmacion;
 import com.example.befit.Dialogos.DialogoModifFotos;
@@ -32,7 +31,6 @@ import com.example.befit.Modelos.DAOSesiones;
 import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class PesosActivity extends AppCompatActivity implements DialogoConfirmacion.MiDialogListener,
@@ -111,7 +109,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
         //Mostramos la foto
         byte[] fotoBytes = sesion.getFoto();
         if (fotoBytes != null) {
-            imagenSesion.setImageBitmap(DialogoModifFotos.bytesToPhoto(fotoBytes));
+            imagenSesion.setImageBitmap(ConversorFotos.BytesToPhoto(fotoBytes));
         }
         else {
             imagenSesion.setImageResource(R.drawable.no_photo);
@@ -174,15 +172,6 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
             }
         }
         return true;
-    }
-
-    //Convertimos la imagen en un array de bytes
-    private byte[] ImageToBytes(ImageView imageView) {
-        Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-        byte[] bytes = byteArrayOutputStream.toByteArray();
-        return bytes;
     }
 
     //Abrimos la galería
@@ -318,7 +307,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
                         dialogoModifFotos.getImageView().setImageURI(imageUri);
 
                         //Pasamos a bytes y modificamos
-                        byte[] fotoBytes = ImageToBytes(dialogoModifFotos.getImageView());
+                        byte[] fotoBytes = ConversorFotos.ImageToBytes(dialogoModifFotos.getImageView());
                         new DAOSesiones(getApplicationContext()).ModificarFoto(identificador, fotoBytes);
 
                         //Modificamos la foto en la propiedad y en la actividad

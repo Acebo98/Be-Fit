@@ -9,6 +9,7 @@ import android.provider.BaseColumns;
 import com.example.befit.Entidades.VOTag;
 import com.example.befit.Estructura_BD.BeFitDB;
 import com.example.befit.Entidades.VOSesion;
+import com.example.befit.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,11 +17,13 @@ import java.util.Date;
 
 public class DAOSesiones {
 
+    Context context;                                //Contexto
     SQLiteDatabase database;                        //Base de Datos
 
     //Constructor en el que abrimos la conexión la base de datos
     public DAOSesiones(Context context) {
         BeFitDB beFitDB = new BeFitDB(context);
+        this.context = context;
         database = beFitDB.getWritableDatabase();
     }
 
@@ -379,7 +382,9 @@ public class DAOSesiones {
                     new String[] {String.valueOf(idSesion)});
         }
         catch (Exception err) {
-            throw new Exception(err.getMessage());
+            //EN CASO DE QUE HAYA ERROR CON LA FOTO LA BORRAMOS (OCURRE SI LA FOTO ES DEMASIADO GRANDE)
+            BorrarFoto(idSesion);
+            throw new Exception(context.getString(R.string.error_foto));
         }
     }
 

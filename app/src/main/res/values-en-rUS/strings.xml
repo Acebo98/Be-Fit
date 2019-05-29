@@ -119,4 +119,6 @@
     <string name="no_datos">There is not data to represent</string>
     <string name="registrarse">Sign Up</string>
     <string name="numero_etiquetas">"Number of Tags: "</string>
+    <string name="error_foto">The image you just have introduced is very big. Try with another one.</string>
+    <string name="aviso_foto">It is not recomended to store not very big images</string>
 </resources>

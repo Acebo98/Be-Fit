@@ -111,6 +111,8 @@
     <string name="estado_sesion">Estado de la Sesión</string>
     <string name="fechas_mal">El formato de alguna de las fechas no es válido</string>
     <string name="no_datos">No hay datos que representar</string>
+    <string name="aviso_foto">Se recomienda no almacenar fotos de gran tamaño</string>
+    <string name="error_foto">La fotografía que has intentando introducir es demasiado grande. Prueba con otra</string>
 
     <!-- Tabs -->
     <string name="sesiones">Sesiones</string>
