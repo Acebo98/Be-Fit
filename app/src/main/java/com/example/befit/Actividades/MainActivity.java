@@ -3,6 +3,7 @@ package com.example.befit.Actividades;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);      //No rotar la actividad!!!
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -112,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                     }
                     break;
                     case 2: {
-                        tabLayout.setVisibility(View.GONE);
+                        //tabLayout.setVisibility(View.GONE);
                         floatingAdd.show();
                         floatingErase.show();
                     }
@@ -124,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             public void onTabUnselected(TabLayout.Tab tab) {
                 switch (tab.getPosition()) {
                     case 2: {
-                        tabLayout.setVisibility(View.VISIBLE);
+                        //tabLayout.setVisibility(View.VISIBLE);
                         floatingErase.hide();
                     }
                     break;

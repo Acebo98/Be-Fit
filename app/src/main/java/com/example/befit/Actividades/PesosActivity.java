@@ -3,6 +3,7 @@ package com.example.befit.Actividades;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -63,6 +64,7 @@ public class PesosActivity extends AppCompatActivity implements DialogoConfirmac
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);      //No rotar la actividad!!!
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesos);
         context = this;

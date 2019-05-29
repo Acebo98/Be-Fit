@@ -131,7 +131,9 @@ public class SesionesFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
-                    adaptadorLV.Filtrar(tbbuscar.getText().toString(), spnBusqueda.getSelectedItemPosition());
+                    if (adaptadorLV != null) {
+                        adaptadorLV.Filtrar(tbbuscar.getText().toString(), spnBusqueda.getSelectedItemPosition());
+                    }
                 }
                 catch (Exception err) {
                     DialogFragment dialogFragment = new DialogoAlerta();
@@ -197,7 +199,9 @@ public class SesionesFragment extends Fragment {
             lvSesiones.setAdapter(adaptadorLV);
 
             //Filtramos
-            adaptadorLV.Filtrar(tbbuscar.getText().toString(), spnBusqueda.getSelectedItemPosition());
+            if (adaptadorLV != null) {
+                adaptadorLV.Filtrar(tbbuscar.getText().toString(), spnBusqueda.getSelectedItemPosition());
+            }
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();

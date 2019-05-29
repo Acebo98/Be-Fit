@@ -1,5 +1,6 @@
 package com.example.befit.Actividades;
 
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
@@ -53,6 +54,7 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);      //No rotar la actividad!!!
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_graficas);
             primerDialogo = true;

@@ -47,7 +47,9 @@ public class TagsFragment extends Fragment {
             lvTags.setAdapter(adaptadorLVTags);
 
             //Filtramos en caso de que haya texto
-            adaptadorLVTags.filtrar(tbFiltrarTags.getText().toString());
+            if (adaptadorLVTags != null) {
+                adaptadorLVTags.filtrar(tbFiltrarTags.getText().toString());
+            }
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();
@@ -105,7 +107,9 @@ public class TagsFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
-                    adaptadorLVTags.filtrar(tbFiltrarTags.getText().toString());
+                    if (adaptadorLVTags != null) {
+                        adaptadorLVTags.filtrar(tbFiltrarTags.getText().toString());
+                    }
                 }
                 catch (Exception err) {
                     DialogFragment dialogFragment = new DialogoAlerta();
