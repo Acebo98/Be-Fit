@@ -9,11 +9,17 @@ import java.io.ByteArrayOutputStream;
 
 public class ConversorFotos {
 
+    //Ancho y alto de la compresión
+    private static final int WIDTH = 200;
+    private static final int HEIGHT = 200;
+    private static final int QUALITY = 70;
+
     //Convertimos la imagen en un array de bytes
     public static byte[] ImageToBytes(ImageView imageView) {
         Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
+        bitmap = Bitmap.createScaledBitmap(bitmap, WIDTH, HEIGHT, true);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 10, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, QUALITY, byteArrayOutputStream);
         byte[] bytes = byteArrayOutputStream.toByteArray();
         return bytes;
     }
