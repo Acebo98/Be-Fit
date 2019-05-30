@@ -104,7 +104,7 @@
     ningún dato</string>
     <string name="problem_found">!Ha ocurrido un problema¡</string>
     <string name="campos_opiniones">Primero escribe el título y la opinión del reporte</string>
-    <string name="gracias_opinion">¡Gracias por darnos tu opinión!</string>
+    <string name="gracias_opinion">¡Gracias por enviarnos tu reporte!</string>
     <string name="entre_fechas">Fechas a Comprobar (aaaa-MM-dd)</string>
     <string name="fecha_anterior">Fecha anterior</string>
     <string name="fecha_proxima">Fecha próxima</string>

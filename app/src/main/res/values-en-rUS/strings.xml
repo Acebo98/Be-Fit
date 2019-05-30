@@ -111,7 +111,7 @@
     <string name="opinion_bug">Report a bug</string>
     <string name="opinion_dar">Opinion</string>
     <string name="campos_opiniones">First of all write the title and the opinion</string>
-    <string name="gracias_opinion">Thanks for sending feedback!</string>
+    <string name="gracias_opinion">Thanks for sending us feedback!</string>
     <string name="entre_fechas">Dates to compare Data (yyyy-MM-dd)</string>
     <string name="fecha_anterior">Past date</string>
     <string name="fecha_proxima">Future date</string>
