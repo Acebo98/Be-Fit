@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.befit.Ayudas.Pantalla;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.R;
 

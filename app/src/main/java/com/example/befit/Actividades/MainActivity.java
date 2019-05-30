@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.befit.Ayudas.ConversorFotos;
+import com.example.befit.Ayudas.Pantalla;
 import com.example.befit.Dialogos.DialogoModificarTag;
 import com.example.befit.Dialogos.DialogoInsertTag;
 import com.example.befit.Dialogos.DialogoSeleccion;
@@ -114,7 +115,10 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                     }
                     break;
                     case 2: {
-                        //tabLayout.setVisibility(View.GONE);
+                        //Si la pantalla es pequeña esconemos el tablayout
+                        if (Pantalla.saberAltoPantalla(MainActivity.this) < 1400) {
+                            tabLayout.setVisibility(View.GONE);
+                        }
                         floatingAdd.show();
                         floatingErase.show();
                     }
@@ -126,7 +130,10 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             public void onTabUnselected(TabLayout.Tab tab) {
                 switch (tab.getPosition()) {
                     case 2: {
-                        //tabLayout.setVisibility(View.VISIBLE);
+                        //Volvemos a mostrar el tablayout
+                        if (Pantalla.saberAltoPantalla(MainActivity.this) < 1400) {
+                            tabLayout.setVisibility(View.VISIBLE);
+                        }
                         floatingErase.hide();
                     }
                     break;
