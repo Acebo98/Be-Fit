@@ -23,7 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.befit.Conversores.ConversorFotos;
+import com.example.befit.Ayudas.ConversorFotos;
 import com.example.befit.Dialogos.DialogoModificarTag;
 import com.example.befit.Dialogos.DialogoInsertTag;
 import com.example.befit.Dialogos.DialogoSeleccion;

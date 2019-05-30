@@ -9,7 +9,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.befit.Conversores.ConversorFotos;
+import com.example.befit.Ayudas.ConversorFotos;
 import com.example.befit.Entidades.VOSesion;
 import com.example.befit.R;
 

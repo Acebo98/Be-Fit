@@ -20,7 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.befit.Conversores.ConversorFotos;
+import com.example.befit.Ayudas.ConversorFotos;
 import com.example.befit.Dialogos.DialogoAlerta;
 import com.example.befit.Dialogos.DialogoConfirmacion;
 import com.example.befit.Dialogos.DialogoModifFotos;

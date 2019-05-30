@@ -1,4 +1,4 @@
-package com.example.befit.Conversores;
+package com.example.befit.Ayudas;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
