@@ -37,7 +37,7 @@
     <string name="buscar_tag">Busca tu etiqueta...</string>
     <string name="click_foto">Presiona en la fotografía para añadir una</string>
     <string name="titulo_opinion">Título</string>
-    <string name="escribe_opinion">Escribe aquí tu opinión</string>
+    <string name="escribe_opinion">Escribe aquí tu reporte</string>
     <string name="enviar">Enviar</string>
     <string name="opinion_bug">Reportar error</string>
     <string name="opinion_dar">Opinión</string>
@@ -52,7 +52,7 @@
     <string name="explicacion_registro">Al ser la primera vez que ejecutas la aplicación debes de
         registrarte introduciendo un nombre y una contraseña. \n\nCuando quieras volver a conectarte
         deberás de introducir dichas credenciales otra vez. \n\nNo te preocupes, dentro de la aplicación
-        podrás cambiarlas.</string>
+        podrás cambiarlas</string>
     <string name="sesion_insertada">Sesión Insertada</string>
     <string name="sesion_repetida">Parece que ya tienes una sesión con dicho nombre ya insertada</string>
     <string name="sesion_5caracteres">Los campos de texto deben de tener mínimo 3 carácteres</string>
@@ -63,7 +63,7 @@
         Con la sección NUEVA SESIÓN podrás introducir una nueva sesión, estas sesiones se encontrarán reflejadas
         en la sección SESIONES, lugar donde podrás seleccionar una sesión y trabajar con los pesos de los ejercicios
         de dicha sesión. \n\nCon la sección ETIQUETAS podrás añadir etiquetas para poder catalagar y ordernar tus sesiones.
-        \n\nObviamente puedes también borrar una sesión, y por consiguiente todos sus datos en cualquier momento.</string>
+        \n\nObviamente puedes también borrar una sesión, y por consiguiente todos sus datos en cualquier momento</string>
     <string name="confirmacion">Confirmación</string>
     <string name="desconectarse_app">¿Deseas desconectarte de la aplicación?</string>
     <string name="dicha_bloqueda">Dicha sesión está bloqueada</string>
@@ -91,15 +91,15 @@
     <string name="nombre_tag">Nombre de la Etiqueta</string>
     <string name="tag_igual">El nombre de la etiqueta no ha cambiado</string>
     <string name="cuidado">Cuidado</string>
-    <string name="no_borrar_tag">Parece que tienes sesiones almacenadas con esta etiqueta que quieres borrar. \n\n
-        Para poder borrar la etiqueta primero borra primero las sesiones catalogadas con esta etiqueta.</string>
+    <string name="no_borrar_tag">Parece que tienes sesiones almacenadas con esta etiqueta que quieres borrar.
+        \n\nPara poder borrar la etiqueta primero borra primero las sesiones catalogadas con esta etiqueta</string>
     <string name="tag_introducida">La etiqueta ha sido introducida</string>
     <string name="tag_borrada">La etiqueta ha sido borrada</string>
     <string name="tag_modif">Etiqueta Modificada</string>
     <string name="sesion_borrada">Sesión Borrada</string>
     <string name="no_tags">Parece que no tienes etiquetas almacenadas</string>
     <string name="no_tags_explicacion">Antes de introducir una sesión te recomendamos que introduzcas etiquetas. \n\nLas
-    etiquetas son utilizadas para identificar mejor las sesiones y poder agruparlas mejor.</string>
+    etiquetas son utilizadas para identificar mejor las sesiones y poder agruparlas mejor</string>
     <string name="no_tags_graficas">Parece que no tienes sesiones almacenadas, por lo que no se puede representar
     ningún dato</string>
     <string name="problem_found">!Ha ocurrido un problema¡</string>
@@ -131,7 +131,7 @@
     <string name="see_photos">Ver Foto</string>
     <string name="foto_borrada">Foto Borrada</string>
     <string name="foto_modif">Foto Modificada</string>
-    <string name="opinion">Danos tu opinión</string>
+    <string name="opinion">Enviar un Reporte</string>
 
     <!-- Criterios -->
     <string name="todos">Todos</string>

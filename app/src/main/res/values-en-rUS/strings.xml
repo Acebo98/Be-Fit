@@ -10,10 +10,10 @@
     <string name="update">Last Modification:</string>
     <string name="n_entrenamientos">Number of Sesions:</string>
     <string name="nombre_sesion">Sesion\'s Name</string>
-    <string name="musculo">Exercise 1</string>
-    <string name="musculo_1">Exercise 2</string>
-    <string name="musculo_2">Exercise 3</string>
-    <string name="musculo_3">Exercise 4</string>
+    <string name="musculo">First Exercise</string>
+    <string name="musculo_1">Second Exercise</string>
+    <string name="musculo_2">Third Exercise</string>
+    <string name="musculo_3">Fourth Exercise</string>
     <string name="aceptar">Accept</string>
     <string name="limpiar">Clean</string>
     <string name="notas">Optional Notes</string>
@@ -35,21 +35,21 @@
     <string name="cuatro_caracteres">The username and the password must contain 4 characters minimun</string>
     <string name="error">There has been a problem</string>
     <string name="parece_nuevo">It seems it is your first time!</string>
-    <string name="explicacion_registro">Being the first time you open the app you must register introducing a
-        username and a password. \n\nOnce you want to re-connect you must introduce that data another time.
-        \n\nDo not worry, inside the app you will be able to change them.</string>
+    <string name="explicacion_registro">Being the first time you open the app you must sign up introducing a
+        username and a password. \n\nOnce you want to log in you must introduce that data another time.
+        \n\nDo not worry, inside the app you will be able to change them</string>
     <string name="sesion_insertada">The sesion has been introduced</string>
-    <string name="sesion_repetida">It seems you already have a sesion with that name inserted</string>
+    <string name="sesion_repetida">It seems you already have a sesion with that name stored</string>
     <string name="sesion_5caracteres">The text boxes must contain 3 characters minimun</string>
     <string name="bienvenido">Welcome</string>
     <string name="funcionar_app">How does this app work?</string>
     <string name="explicacion_app">With this app you will be able to have a record in your device about your sesions
         in the gym. \n\n With the section NEW SESION you will be able to introduce a new sesion,
-        said sesions will be found  in the section RECORD, where you will choose and update the record of
-        said section. \n\nObviosuly you can delete a sesion, and therefore its record, at any time.</string>
+        said sesions will be found  in the section SESIONS, where you will choose and update the record of
+        said section. \n\nObviosuly you can delete a sesion, and therefore its record, at any time</string>
     <string name="confirmacion">Confirmation</string>
     <string name="desconectarse_app">Do you wanna disconnect?</string>
-    <string name="dicha_bloqueda">Said sesion it is blocked</string>
+    <string name="dicha_bloqueda">Said sesion is blocked</string>
     <string name="desbloquear">Unlock</string>
     <string name="borrado">Delete</string>
     <string name="pregunta_borrar">Are you sure you wanna delete this sesion?</string>
@@ -57,7 +57,7 @@
     <string name="pesos_obligatorios">First of all insert the 4 weights</string>
     <string name="bloqueo_sesion">Sesion Block</string>
     <string name="pregunta_desbloquear">Are you sure you wanna lock this sesion? \n\nOnce you do it you will not be able
-        to modify it, but it will be kept saved.</string>
+        to modify it, but it will be kept saved</string>
     <string name="sesion_bloqueada">The sesion has been locked</string>
     <string name="sesion_modificada">The sesion has been unlocked</string>
     <string name="modificacion">Modification</string>
@@ -83,34 +83,35 @@
     <string name="tags">Tags</string>
     <string name="nueva_tag">New Tag</string>
     <string name="introduce_tag">Enter the name of the new tag</string>
-    <string name="tag_existente">It seems you already have a tag with said name already inserted</string>
+    <string name="tag_existente">It seems you already have a tag with said name already stored</string>
     <string name="nombre_tag">Tag\'s Name</string>
     <string name="tag_igual">The tag\'s name has not been changed</string>
     <string name="cuidado">Be careful</string>
     <string name="no_borrar_tag">It seems you have sesions stored with the tag you want to delete. \n\n
-        For being able to delete this tag first delete all the sesions with this tag.</string>
+        For being able to delete this tag first delete all the sesions with this tag</string>
     <string name="buscar_tag">Search for your tag...</string>
     <string name="tag_introducida">The tag has been introduced</string>
     <string name="tag_borrada">The tag has been deleted</string>
     <string name="sesion_borrada">The sesion has been deleted</string>
     <string name="tag_modif">The tag has been modified</string>
     <string name="no_tags">It seems you do not have any tags</string>
-    <string name="no_tags_explicacion">Before introducing a sesion we recomend you to introduce tags. \n\nSaid tags are used to identified your sesions as you want.</string>
+    <string name="no_tags_explicacion">Before introducing a sesion we recomend you to introduce tags.
+        Said tags are used to identified and be able to group them as well</string>
     <string name="graficas">Graphics</string>
     <string name="no_tags_graficas">It seems you do not have any sesions stored, thus we can not representate any data</string>
-    <string name="problem_found">There has been a problem</string>
+    <string name="problem_found">There has been a problem!</string>
     <string name="see_photos">See Photo</string>
     <string name="foto_borrada">The photo has been deleted</string>
     <string name="foto_modif">The photo has been modified</string>
     <string name="click_foto">Press on the photo for adding one</string>
     <string name="opinion">Send Feedback</string>
     <string name="titulo_opinion">Title</string>
-    <string name="escribe_opinion">Write here your opinion</string>
+    <string name="escribe_opinion">Write your report here</string>
     <string name="enviar">Send</string>
     <string name="opinion_bug">Report a bug</string>
     <string name="opinion_dar">Opinion</string>
     <string name="campos_opiniones">First of all write the title and the opinion</string>
-    <string name="gracias_opinion">Thanks for sharing with us your opinion!</string>
+    <string name="gracias_opinion">Thanks for sending feedback!</string>
     <string name="entre_fechas">Dates to compare Data (yyyy-MM-dd)</string>
     <string name="fecha_anterior">Past date</string>
     <string name="fecha_proxima">Future date</string>
@@ -119,6 +120,6 @@
     <string name="no_datos">There is not data to represent</string>
     <string name="registrarse">Sign Up</string>
     <string name="numero_etiquetas">"Number of Tags: "</string>
-    <string name="error_foto">The image you just have introduced is very big. Try with another one.</string>
-    <string name="aviso_foto">It is not recomended to store not very big images</string>
+    <string name="error_foto">The image you just have introduced is very big. Try with another one</string>
+    <string name="aviso_foto">It is not recomended to store very big images</string>
 </resources>

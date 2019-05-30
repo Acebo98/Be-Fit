@@ -55,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     //Booleana para especificar que se va a añadir una foto
     boolean fotoAñadir;
 
+    //Constante para el mínimo ancho de la pantalla
+    final int MIN_ANCHO_PANTALLA = 1500;
+
     //FloatingButtons
     FloatingActionButton floatingAdd;
     FloatingActionButton floatingErase;
@@ -116,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                     break;
                     case 2: {
                         //Si la pantalla es pequeña esconemos el tablayout
-                        if (Pantalla.saberAltoPantalla(MainActivity.this) < 1400) {
+                        if (Pantalla.saberAltoPantalla(context) < MIN_ANCHO_PANTALLA) {
                             tabLayout.setVisibility(View.GONE);
                         }
                         floatingAdd.show();
@@ -131,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                 switch (tab.getPosition()) {
                     case 2: {
                         //Volvemos a mostrar el tablayout
-                        if (Pantalla.saberAltoPantalla(MainActivity.this) < 1400) {
+                        if (Pantalla.saberAltoPantalla(context) < MIN_ANCHO_PANTALLA) {
                             tabLayout.setVisibility(View.VISIBLE);
                         }
                         floatingErase.hide();
