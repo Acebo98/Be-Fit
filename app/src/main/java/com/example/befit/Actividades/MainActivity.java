@@ -301,6 +301,20 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         return nombre;
     }
 
+    //Desactivamos el inicio de sesión automatico
+    private void DesactivarInicioAutomatico() {
+        try {
+            SharedPreferences preferences = getSharedPreferences("Logeo", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+
+            //Lo desactivamos
+            editor.putBoolean("AUTOMATICO", false);
+            editor.commit();
+        }
+        catch (Exception err) {
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -355,6 +369,8 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
         if (dialog.getTag() == CERRAR) {
+            //Desactivamos el inicio de sesión automático y salimos de la actividad
+            DesactivarInicioAutomatico();
             this.finish();
         }
     }

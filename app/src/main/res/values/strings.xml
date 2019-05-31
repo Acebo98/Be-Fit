@@ -59,11 +59,11 @@
     <string name="bienvenido">Bienvenid@</string>
     <string name="funcionar_app">¿Cómo funciona esta aplicación?</string>
     <string name="explicacion_app">Con esta aplicación podras tener un registro de forma intuitiva en tu teléfono
-        móvil del seguimiento de tus sesiones del gimnasio. \n\n
-        Con la sección NUEVA SESIÓN podrás introducir una nueva sesión, estas sesiones se encontrarán reflejadas
-        en la sección SESIONES, lugar donde podrás seleccionar una sesión y trabajar con los pesos de los ejercicios
-        de dicha sesión. \n\nCon la sección ETIQUETAS podrás añadir etiquetas para poder catalagar y ordernar tus sesiones.
-        \n\nObviamente puedes también borrar una sesión, y por consiguiente todos sus datos en cualquier momento</string>
+        móvil del seguimiento de tus sesiones del gimnasio. \n\nCon la sección NUEVA SESIÓN podrás introducir una
+        nueva sesión, estas sesiones se encontrarán reflejadas en la sección SESIONES, lugar donde podrás seleccionar
+        una sesión y trabajar con los pesos de los ejercicios de dicha sesión. \n\nCon la sección ETIQUETAS podrás
+        añadir etiquetas para poder catalagar y ordernar tus sesiones. \n\nObviamente puedes también borrar una sesión,
+        y por consiguiente todos sus datos en cualquier momento</string>
     <string name="confirmacion">Confirmación</string>
     <string name="desconectarse_app">¿Deseas desconectarte de la aplicación?</string>
     <string name="dicha_bloqueda">Dicha sesión está bloqueada</string>
