@@ -482,6 +482,19 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         }
     }
 
+    //METODO QUE SE EJECUTA AL CLICAR EN EL BOTON DE ATRÁS DE LOS MÓVILES
+    @Override
+    public void onBackPressed() {
+        DialogoConfirmacion dialogoConfirmacion = new DialogoConfirmacion();
+        Bundle bundle = new Bundle();
+
+        bundle.putString("TITULO", getString(R.string.confirmacion));
+        bundle.putString("MENSAJE", getString(R.string.desconectarse_app));
+        dialogoConfirmacion.setArguments(bundle);
+
+        dialogoConfirmacion.show(getSupportFragmentManager(), CERRAR);
+    }
+
     //CLASE QUE CONTROLA LA SELECCIÓN DE FRAGMENTOS
     public static class PlaceholderFragment extends Fragment {
 
