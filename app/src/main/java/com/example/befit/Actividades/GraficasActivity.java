@@ -1,5 +1,6 @@
 package com.example.befit.Actividades;
 
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.support.v4.app.DialogFragment;
@@ -8,6 +9,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,6 +42,8 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 
 public class GraficasActivity extends AppCompatActivity implements DialogoFechasGraficas.DialogoFechasGraficasListener {
 
+    LinearLayout linearLayout;                      //Layout
+
     PieChart pieChart;                              //Gráfica de espiral
     BarChart barChart;                              //Gráfica de barras
 
@@ -59,6 +64,9 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
             setContentView(R.layout.activity_graficas);
             primerDialogo = true;
 
+            //Layout
+            linearLayout = (LinearLayout) findViewById(R.id.layoutGraficas);
+
             //Botón de ir atrás
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -67,8 +75,13 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
             pieChart = (PieChart) findViewById(R.id.pieChart);
             barChart = (BarChart) findViewById(R.id.barChart);
 
+            //Fondo
+            linearLayout.setBackgroundResource(R.drawable.fondo_sad);
+            pieChart.setVisibility(View.INVISIBLE);
+            barChart.setVisibility(View.INVISIBLE);
+
             //Creamos las tablas si hay datos que mostrar
-            int datosAlmacenados = new DAOSesiones(getApplicationContext()).ReadSesiones().size();
+            int datosAlmacenados = new DAOSesiones(getApplicationContext()).SacarNumeroSesiones();
             if (datosAlmacenados > 0) {
                 new DialogoFechasGraficas(this, GraficasActivity.this);
             }
@@ -96,7 +109,19 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
             }
             break;
             case R.id.itemActualizarGrafica: {
-                new DialogoFechasGraficas(this, GraficasActivity.this);
+                if (new DAOSesiones(getApplicationContext()).SacarNumeroSesiones() > 0) {
+                    new DialogoFechasGraficas(this, GraficasActivity.this);
+                }
+                else {
+                    DialogFragment dialogFragment = new DialogoAlerta();
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("TITULO", getString(R.string.problem_found));
+                    bundle.putString("MENSAJE", getString(R.string.no_tags_graficas));
+                    dialogFragment.setArguments(bundle);
+
+                    dialogFragment.show(getSupportFragmentManager(), "error");
+                }
             }
             break;
         }
@@ -277,8 +302,15 @@ public class GraficasActivity extends AppCompatActivity implements DialogoFechas
 
                 //Indicamos que se ha cerrado el primer diálogo
                 primerDialogo = false;
+
+                //Hay datos que representar
+                pieChart.setVisibility(View.VISIBLE);
+                barChart.setVisibility(View.VISIBLE);
             }
             else {
+                //No hay nada que representar...
+                pieChart.setVisibility(View.INVISIBLE);
+                barChart.setVisibility(View.INVISIBLE);
                 LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.no_datos));
             }
         }

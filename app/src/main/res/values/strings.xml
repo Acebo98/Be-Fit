@@ -102,7 +102,7 @@
     etiquetas son utilizadas para identificar mejor las sesiones y poder agruparlas mejor</string>
     <string name="no_tags_graficas">Parece que no tienes sesiones almacenadas, por lo que no se puede representar
     ningún dato</string>
-    <string name="problem_found">!Ha ocurrido un problema¡</string>
+    <string name="problem_found">¡Ha ocurrido un problema!</string>
     <string name="campos_opiniones">Primero escribe el título y la opinión del reporte</string>
     <string name="gracias_opinion">¡Gracias por enviarnos tu reporte!</string>
     <string name="entre_fechas">Fechas a Comprobar (aaaa-MM-dd)</string>

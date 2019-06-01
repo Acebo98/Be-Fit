@@ -388,6 +388,20 @@ public class DAOSesiones {
         }
     }
 
+    //Sacamos el numero de sesiones almacenadas
+    public int SacarNumeroSesiones() {
+        int cuantos = 0;
+
+        try {
+            cuantos = this.ReadSesiones().size();
+        }
+        catch (Exception err) {
+            cuantos = -1;
+        }
+
+        return cuantos;
+    }
+
     //Sacamos la fecha de hoy
     public static String sacarFechaHoy() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
