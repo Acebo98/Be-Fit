@@ -13,6 +13,7 @@ import android.widget.EditText;
 import com.example.befit.Actividades.LogeoActivity;
 import com.example.befit.Entidades.VOSesion;
 import com.example.befit.Entidades.VOTag;
+import com.example.befit.Modelos.DAOTag;
 import com.example.befit.R;
 
 public class DialogoModificarTag {

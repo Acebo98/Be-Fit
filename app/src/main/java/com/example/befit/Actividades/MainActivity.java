@@ -432,9 +432,15 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     @Override
     public void Modificar(VOTag Tag) {
         try {
-            new DAOTag(getApplicationContext()).UpdateTag(Tag);
-            tagsFragment.LeerTags();
-            LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.tag_modif));
+            if (new DAOTag(getApplicationContext()).ExistirTag(Tag) == true) {
+                new DAOTag(getApplicationContext()).UpdateTag(Tag);
+                tagsFragment.LeerTags();                //Leemos las etiquetas otra vez
+                sesionesFragment.LeerBD();              //Leemos la base de datos de nuevo
+                LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.tag_modif));
+            }
+            else {
+                LogeoActivity.centralizarToast(getApplicationContext(), getString(R.string.tag_existente));
+            }
         }
         catch (Exception err) {
             DialogFragment dialogFragment = new DialogoAlerta();
