@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
     boolean fotoAñadir;
 
     //Constante para el mínimo ancho de la pantalla
-    final int MIN_ALTO_PANTALLA = 1500;
+    final int MIN_ALTO_PANTALLA = 2000;
 
     //FloatingButtons
     FloatingActionButton floatingAdd;
@@ -111,6 +111,9 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                     case 0: {
                         floatingAdd.hide();
                         floatingErase.hide();
+
+                        //Limpiamos el formulario
+                        fotoAñadir = false;
                     }
                     break;
                     case 1: {
@@ -218,6 +221,10 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             @Override
             public void onClick(View v) {
                 nSesionFragment.LimpiarUI();
+
+                //Foto
+                fotoAñadir = false;
+                nSesionFragment.imageView.setImageResource(R.drawable.add_photo);
             }
         });
 
@@ -270,6 +277,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
             //Cambiamos el estado de la foto
             fotoAñadir = false;
             nSesionFragment.imageView.setImageResource(R.drawable.add_photo);
+            nSesionFragment.btnQuitarFoto.setVisibility(View.INVISIBLE);
 
             //NOS COMUNICAMOS MEDIANTE LA INTERFAZ CON LA ACTIVIDAD MAIN PARA QUE SE ACTUALICE LA LISTVIEW
             nSesionFragment.mListener.onFragmentInteraction(Uri.parse("actualiza"));
@@ -363,6 +371,9 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
         if (uri.toString() == "actualiza") {
             sesionesFragment.LeerBD();
         }
+        else if (uri.toString() == "quita_foto") {
+            fotoAñadir = false;
+        }
     }
 
     //Desconectamos de la pantalla principal
@@ -389,6 +400,7 @@ public class MainActivity extends AppCompatActivity implements SesionesFragment.
                 nSesionFragment.imageView.setImageURI(imageUri);
 
                 //Indicamos que se va a añadir foto
+                nSesionFragment.btnQuitarFoto.setVisibility(View.VISIBLE);
                 fotoAñadir = true;
             }
         }

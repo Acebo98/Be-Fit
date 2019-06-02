@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -38,6 +39,7 @@ public class NSesionFragment extends Fragment {
     EditText tbM3;
     EditText tbM4;
     ImageView imageView;
+    Button btnQuitarFoto;
 
     //Booleana para informar del tamaño de las fotografias
     boolean avisoFotos;
@@ -76,6 +78,7 @@ public class NSesionFragment extends Fragment {
         tbM4 = view.findViewById(R.id.tbM4);
         imageView = view.findViewById(R.id.imageViewFoto);
         tabLayout = view.findViewById(R.id.tabLayout);
+        btnQuitarFoto = view.findViewById(R.id.btnQuitarFoto);
 
         //Pillamos la foto
         imageView.setImageResource(R.drawable.add_photo);
@@ -101,6 +104,19 @@ public class NSesionFragment extends Fragment {
                 }
             }
         });
+
+        //Quitamos la foto
+        btnQuitarFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (btnQuitarFoto.getVisibility() == View.VISIBLE) {
+                    imageView.setImageResource(R.drawable.add_photo);
+                    mListener.onFragmentInteraction(Uri.parse("quita_foto"));
+                    btnQuitarFoto.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+        btnQuitarFoto.setVisibility(View.INVISIBLE);
 
         //Lista de campos de texto
         lCampos.clear();

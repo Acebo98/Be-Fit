@@ -98,12 +98,28 @@
                             android:text="" />
 
                 </android.support.design.widget.TextInputLayout>
+                
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/imageViewFoto"
-                android:layout_margin="10dp"
-                android:layout_width="120dp"
-                android:layout_height="120dp" />
+                        <ImageView
+                            android:id="@+id/imageViewFoto"
+                            android:layout_margin="10dp"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp" />
+                        
+                        <Button
+                            android:id="@+id/btnQuitarFoto"
+                            android:layout_margin="10dp"
+                            android:text="@string/cross"
+                            android:textStyle="bold"
+                            android:textColor="@color/rojo"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content" />
+                        
+                </LinearLayout>
 
         </LinearLayout>
 
