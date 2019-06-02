@@ -30,7 +30,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
-                            android:maxLength="30"
+                            android:maxLength="60"
                             android:text="" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -46,7 +46,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
-                            android:maxLength="30"
+                            android:maxLength="60"
                             android:text="" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -62,7 +62,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
-                            android:maxLength="30"
+                            android:maxLength="60"
                             android:text="" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -78,7 +78,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
-                            android:maxLength="30"
+                            android:maxLength="60"
                             android:text="" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -94,7 +94,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
-                            android:maxLength="30"
+                            android:maxLength="60"
                             android:text="" />
 
                 </android.support.design.widget.TextInputLayout>
